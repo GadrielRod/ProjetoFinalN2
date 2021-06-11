@@ -3663,7 +3663,7 @@ textarea.form-control-lg {
 }
 .dropdown-item:hover, .dropdown-item:focus {
   color: #1e2125;
-  background-color: #e9ecef;
+  background-color: transparent;
 }
 .dropdown-item.active, .dropdown-item:active {
   color: #fff;

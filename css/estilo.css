@@ -1,0 +1,14 @@
+.dropdown-item:focus, .dropdown-item:hover {
+    color: #1e2125;
+    background-color: #F06414;
+}
+.gradient-text {
+  font-size: 72px;
+  background: -webkit-linear-gradient(#f5e6e6, #989898);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+@font-face {
+  font-family: overFont;
+  src: url('../fonts/big_noodle_titling.ttf');
+}
