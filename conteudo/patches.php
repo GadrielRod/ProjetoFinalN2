@@ -67,11 +67,11 @@
       
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Histrias
+            Historias
           </a>
           <ul class="dropdown-menu bg-dark border-0" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item text-white" href="historia.php">Histórias</a></li>  
-            <li><a class="dropdown-item text-white" href="herois.php">Heróis</a></li>
+            <li><a class="dropdown-item text-white" href="historia.php">Historias</a></li>  
+            <li><a class="dropdown-item text-white" href="herois.php">Herois</a></li>
             <li><a class="dropdown-item text-white" href="quadrinho.php">Quadrinhos</a></li>
             <li><a class="dropdown-item text-white" href="mapas.php">Mapas</a></li>
           </ul>
@@ -87,9 +87,9 @@
         </li>
       
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Pesquisar contedo" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit"><i class="fa fa-search"></i></button>
+      <form method="POST" action="buscar.php" class="d-flex">
+        <input class="form-control me-2" name="buscar" type="search" placeholder="Pesquisar conteudo" aria-label="Pesquisar">
+        <button class="btn btn-outline-warning" type="submit"><i class="fa fa-search"></i></button>
       </form>
     </div>
   </div>
@@ -119,58 +119,55 @@
         <hr>
         <div class="col-sm-9 text-center col-centered" style="background: url('../img/patches/retangulo.png');width: 695px;height: 100px;">
            <h1 style="font-weight:bold;margin-top:10px;">PATCH DE JUNHO DE 2021</h1>
-           <button type="button" class="btn btn-warning" style="border-radius: 0px;margin-top: -4px;width: 50%;" onclick="window.location.href='https://playoverwatch.com/en-us/news/patch-notes/live/2021/06';">SAIBA MAIS</button>
+           <button type="button" class="btn btn-warning" style="border-radius: 0px;margin-top: -4px;width: 50%;" onclick="window.location.href='https://playoverwatch.com/pt-br/news/patch-notes/live/2021/06';">SAIBA MAIS</button>
         </div>
     </div>
         <hr>
         <div class="row">
             <div class="col-sm-9 text-center col-centered" style="background: url('../img/patches/retangulo.png');width: 695px;height: 100px;">
                <h1 style="font-weight:bold;margin-top:10px;">PATCH DE MAIO DE 2021</h1>
-               <button type="button" class="btn btn-warning" style="border-radius: 0px;margin-top: -4px;width: 50%;" onclick="window.location.href='https://playoverwatch.com/en-us/news/patch-notes/live/2021/05';">SAIBA MAIS</button>
+               <button type="button" class="btn btn-warning" style="border-radius: 0px;margin-top: -4px;width: 50%;" onclick="window.location.href='https://playoverwatch.com/pt-br/news/patch-notes/live/2021/05';">SAIBA MAIS</button>
             </div>
         </div>
         <hr>
         <div class="row">
             <div class="col-sm-9 text-center col-centered" style="background: url('../img/patches/retangulo.png');width: 695px;height: 100px;">
                <h1 style="font-weight:bold;margin-top:10px;">PATCH DE ABRIL DE 2021</h1>
-               <button type="button" class="btn btn-warning" style="border-radius: 0px;margin-top: -4px;width: 50%;" onclick="window.location.href='https://playoverwatch.com/en-us/news/patch-notes/live/2021/04';">SAIBA MAIS</button>
+               <button type="button" class="btn btn-warning" style="border-radius: 0px;margin-top: -4px;width: 50%;" onclick="window.location.href='https://playoverwatch.com/pt-br/news/patch-notes/live/2021/04';">SAIBA MAIS</button>
             </div>
         </div>
         <hr>
         <div class="row">
             <div class="col-sm-9 text-center col-centered" style="background: url('../img/patches/retangulo.png');width: 695px;height: 100px;">
                <h1 style="font-weight:bold;margin-top:10px;">PATCH DE MARÇO DE 2021</h1>
-               <button type="button" class="btn btn-warning" style="border-radius: 0px;margin-top: -4px;width: 50%;" onclick="window.location.href='https://playoverwatch.com/en-us/news/patch-notes/live/2021/03';">SAIBA MAIS</button>
+               <button type="button" class="btn btn-warning" style="border-radius: 0px;margin-top: -4px;width: 50%;" onclick="window.location.href='https://playoverwatch.com/pt-br/news/patch-notes/live/2021/03';">SAIBA MAIS</button>
             </div>
         </div>
         <hr>
         <div class="row">
             <div class="col-sm-9 text-center col-centered" style="background: url('../img/patches/retangulo.png');width: 695px;height: 100px;">
                <h1 style="font-weight:bold;margin-top:10px;">PATCH DE FEVEREIRO DE 2021</h1>
-               <button type="button" class="btn btn-warning" style="border-radius: 0px;margin-top: -4px;width: 50%;" onclick="window.location.href='https://playoverwatch.com/en-us/news/patch-notes/live/2021/02';">SAIBA MAIS</button>
+               <button type="button" class="btn btn-warning" style="border-radius: 0px;margin-top: -4px;width: 50%;" onclick="window.location.href='https://playoverwatch.com/pt-br/news/patch-notes/live/2021/02';">SAIBA MAIS</button>
             </div>
         </div>
         <hr>
         <div class="row">
             <div class="col-sm-9 text-center col-centered" style="background: url('../img/patches/retangulo.png');width: 695px;height: 100px;">
                <h1 style="font-weight:bold;margin-top:10px;">PATCH DE JANEIRO DE 2021</h1>
-               <button type="button" class="btn btn-warning" style="border-radius: 0px;margin-top: -4px;width: 50%;" onclick="window.location.href='https://playoverwatch.com/en-us/news/patch-notes/live/2021/01';">SAIBA MAIS</button>
+               <button type="button" class="btn btn-warning" style="border-radius: 0px;margin-top: -4px;width: 50%;" onclick="window.location.href='https://playoverwatch.com/pt-br/news/patch-notes/live/2021/01';">SAIBA MAIS</button>
             </div>
         </div>
         <hr>
-        
+            
         <div class="text-center">
-            <button type="button" class="btn btn-info" style="width:100%;" onclick="window.location.href='https://playoverwatch.com/en-us/news/patch-notes/live/2020/12';">VER MAIS</button>
+            <button type="button" class="btn btn-info" style="width:100%;" onclick="window.location.href='https://playoverwatch.com/pt-br/news/patch-notes/live'">VER MAIS</button>
         </div>
         
         
     </div>
     
-    
-     
-    
-  
   </div>
+
 </section>
 
 <footer class="text-center text-lg-start bg-dark">

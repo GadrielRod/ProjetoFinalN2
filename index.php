@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="pt-BR">
 
@@ -11,6 +14,8 @@
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
   <link href="css/estilo.css?versao=<?=filemtime('css/estilo.css');?>" rel="stylesheet">  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
 
   <title>OverFans</title>
   <link rel="icon" type="image/x-icon" href="img/overwatch-icon.ico">
@@ -23,7 +28,10 @@
       background-position: center;
       background-repeat: no-repeat;
     }
+    .alert{ margin-bottom: 0;}
     </style>
+    
+    
 </head>
 
 <body>
@@ -51,11 +59,11 @@
       
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Histórias
+            Historias
           </a>
           <ul class="dropdown-menu bg-dark border-0" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item text-white" href="conteudo/historia.php">Histórias</a></li>  
-            <li><a class="dropdown-item text-white" href="conteudo/herois.php">Heróis</a></li>
+            <li><a class="dropdown-item text-white" href="conteudo/historia.php">Historias</a></li>  
+            <li><a class="dropdown-item text-white" href="conteudo/herois.php">Herois</a></li>
             <li><a class="dropdown-item text-white" href="conteudo/quadrinho.php">Quadrinhos</a></li>
             <li><a class="dropdown-item text-white" href="conteudo/mapas.php">Mapas</a></li>
           </ul>
@@ -72,14 +80,14 @@
       
       
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Pesquisar conteúdo" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit"><i class="fa fa-search"></i></button>
+      <form method="POST" action="conteudo/buscar.php" class="d-flex">
+        <input class="form-control me-2" name="buscar" type="search" placeholder="Pesquisar conteudo" aria-label="Pesquisar">
+        <button class="btn btn-outline-warning" type="submit"><i class="fa fa-search"></i></button>
       </form>
     </div>
   </div>
 </nav>
-
+<?php if($_SESSION['MSG']){ printf($_SESSION['MSG']); unset($_SESSION['MSG']); } ?>
 <header class="masthead">
   <div class="container h-100">
     <div class="row h-100 align-items-center">
@@ -117,7 +125,7 @@
     
     <div class="row">
         <div class="col-sm-6 text-center">
-          <p style="background-color: #f79d19;padding:5px;">Overwatch é um jogo eletrônico multijogador de tiro em primeira pessoa desenvolvido e publicado pela Blizzard Entertainment. Foi lançado em 24 de maio de 2016 para Microsoft Windows, PlayStation 4 e Xbox One e em 15 de outubro de 2019 para Nintendo Switch. Descrito como um "hero shooter", Overwatch designa jogadores em dois times de seis, com cada jogador tendo liberdade em escolher mais de 30 personagens, conhecidos como "heróis", cada um com um estilo de jogo único, dividido em três papéis gerais adequados ao seu objetivo. Os jogadores de uma equipe trabalham juntos para proteger e defender pontos de controle em um mapa ou acompanhar uma carga útil pelo mapa em um período limitado de tempo. Os jogadores ganham recompensas cosmticas que não afetam a jogabilidade, como as skins de personagens e as poses de vitória, enquanto jogam. O jogo foi lançado inicialmente apenas como um título casual, mas um modo competitivo, vários modos de jogo 'arcade' e um navegador de servidor personalizável para jogadores foram adicionados após o lançamento. Além disso, a Blizzard adicionou novos personagens, mapas e modos de jogo após o lançamento, todos gratuitos, com o único custo adicional para os jogadores sendo loot boxs opcionais para ganhar itens cosméticos.</p>
+          <p style="background-color: #f79d19;padding:5px;">Overwatch é um jogo eletrônico multijogador de tiro em primeira pessoa desenvolvido e publicado pela Blizzard Entertainment. Foi lançado em 24 de maio de 2016 para Microsoft Windows, PlayStation 4 e Xbox One e em 15 de outubro de 2019 para Nintendo Switch. Descrito como um "hero shooter", Overwatch designa jogadores em dois times de seis, com cada jogador tendo liberdade em escolher mais de 30 personagens, conhecidos como "heris", cada um com um estilo de jogo nico, dividido em três papéis gerais adequados ao seu objetivo. Os jogadores de uma equipe trabalham juntos para proteger e defender pontos de controle em um mapa ou acompanhar uma carga útil pelo mapa em um período limitado de tempo. Os jogadores ganham recompensas cosmticas que no afetam a jogabilidade, como as skins de personagens e as poses de vitória, enquanto jogam. O jogo foi lançado inicialmente apenas como um título casual, mas um modo competitivo, vários modos de jogo 'arcade' e um navegador de servidor personalizável para jogadores foram adicionados após o lançamento. Alm disso, a Blizzard adicionou novos personagens, mapas e modos de jogo após o lançamento, todos gratuitos, com o único custo adicional para os jogadores sendo loot boxs opcionais para ganhar itens cosméticos.</p>
         </div>
         
         <div class="col-sm-3 text-center" style="background: #007dd1;height:100px;">

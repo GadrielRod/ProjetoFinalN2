@@ -1,0 +1,131 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.btn-primary{
+    background: #6C7CFF;
+}
+.btn-secondary{
+    background: #E5E3DC;
+}
+#captura
+{
+    display: none;
+}
+#controle
+{
+    display: none;
+}
+#ataque
+{
+    display: none;
+}
+#escolta
+{
+    display: none;
+} 
+#hibrido
+{
+    display: none;
+} 
+#eliminacao
+{
+    display: none;
+} 
+#combate{
+    display: none;
+}
+#combateEquipe
+{
+    display: none;
+}
+section .btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+section button.btn{
+    list-style: none;
+    padding: 10px 15px;
+    margin: 5px;
+    cursor: pointer;
+}
+.list{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+.mapa{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.mapa .itemBox{
+    position: relative;
+    width: 350px;
+    height: 200px;
+    margin: 5px;
+    display: block;
+}
+
+.mapa .itemBox.hide{
+    display: none;
+}
+
+.mapa .itemBox img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.Svg-icon.Map-type{
+    -webkit-text-size-adjust: 100%;
+    font-family: Arial,sans-serif;
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    color: #f06414;
+    line-height: 0;
+    cursor: pointer;
+    box-sizing: inherit;
+    background-repeat: no-repeat;
+    vertical-align: inherit;
+    white-space: inherit;
+    text-overflow: inherit;
+    text-shadow: inherit;
+    width: 28px;
+    height: 28px;
+    fill:#9b9da2;
+}
+
+.Svg-icon-2.Map-type{
+    -webkit-text-size-adjust: 100%;
+    font-family: Arial,sans-serif;
+    margin-right: 10px;
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    color: #f06414;
+    line-height: 0;
+    cursor: pointer;
+    box-sizing: inherit;
+    background-repeat: no-repeat;
+    vertical-align: inherit;
+    white-space: inherit;
+    text-overflow: inherit;
+    text-shadow: inherit;
+    width: 28px;
+    height: 28px;
+    fill:#000;
+}

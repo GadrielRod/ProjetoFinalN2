@@ -55,11 +55,11 @@
               
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Histrias
+                    Historias
                   </a>
                   <ul class="dropdown-menu bg-dark border-0" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item text-white active" href="#">Histórias</a></li>
-                    <li><a class="dropdown-item text-white" href="../conteudo/herois.php">Heris</a></li>
+                    <li><a class="dropdown-item text-white active" href="#">Historias</a></li>
+                    <li><a class="dropdown-item text-white" href="../conteudo/herois.php">Herois</a></li>
                     <li><a class="dropdown-item text-white" href="../conteudo/quadrinho.php">Quadrinhos</a></li>
                     <li><a class="dropdown-item text-white" href="../conteudo/mapas.php">Mapas</a></li>
                   </ul>
@@ -75,9 +75,9 @@
                 </li>
               
               </ul>
-              <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Pesquisar contedo" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit"><i class="fa fa-search"></i></button>
+              <form method="POST" action="buscar.php" class="d-flex">
+                <input class="form-control me-2" name="buscar" type="search" placeholder="Pesquisar conteudo" aria-label="Pesquisar">
+                <button class="btn btn-outline-warning" type="submit"><i class="fa fa-search"></i></button>
               </form>
             </div>
           </div>
@@ -125,7 +125,7 @@
                 <div class="col-xl-12" style="background-color: #C4C4C4; text-align: center; padding: 1%; margin-top: 5%; width: 50%; margin-left: 25%;"><h2>Overwatch estabelecida</h2></div>
             </div>
             <div class="row" style="margin-top: 4%; background-color: #CC9226;">
-                <div class="col-xl-6" style=" text-align: center; vertical-align: center; font-weight: bold; font-size: 20px;">Com a escalada do conflito, as Nações Unidas recrutaram heróis de todo o mundo para formar o "Overwatch". Por meio de uma série de ataques perigosos, Overwatch conseguiu desligar os omniums e vencer a guerra. Nas décadas seguintes, a influência de Overwatch cresceu. Além dos esforços militares de manutenão da paz, a Overwatch foi pioneira em iniciativas científicas para erradicar epidemias, reverter danos ecológicos e desenvolver novos avanços na medicina. Por muitos anos, a organização foi um símbolo de esperança para o mundo.</div>
+                <div class="col-xl-6" style=" text-align: center; vertical-align: center; font-weight: bold; font-size: 20px;">Com a escalada do conflito, as Nações Unidas recrutaram heróis de todo o mundo para formar o "Overwatch". Por meio de uma série de ataques perigosos, Overwatch conseguiu desligar os omniums e vencer a guerra. Nas décadas seguintes, a influncia de Overwatch cresceu. Além dos esforços militares de manutenão da paz, a Overwatch foi pioneira em iniciativas científicas para erradicar epidemias, reverter danos ecológicos e desenvolver novos avanços na medicina. Por muitos anos, a organizaão foi um símbolo de esperana para o mundo.</div>
                 <div class="col-xl-6">
                     <img src="../img/historia/estabelecida.jpg" class="img-fluid" alt="overwatch-estabelecida-foto" title="overwatch-estabelecida-foto">
                 </div>
@@ -149,7 +149,7 @@
                 <div class="col-xl-6" style=" text-align: center; vertical-align: center; font-weight: bold; font-size: 16px;">Infelizmente, as coisas desandaram após uma rixa entre seus líderes: Morrison continuou como lder da Overwatch, enquanto que Reyes criou a Blackwatch, uma divisão de operações especiais que lida com a ameaça de grupos terroristas que surgiram com o passar do tempo.
                     Algumas dessas organizaçes são a Talon, que quer iniciar uma segunda Crise Omnic; e a Null Sector, um grupo de Omnics que se revoltou contra a humanidade, por conta de perseguições que eles sofreram em consequência da crise original.
                     A Overwatch ainda conseguiu manter a paz mundial por anos, mas a rixa entre Reyes e Morrison só piorou com o passar do tempo. Isso fez o grupo que dá nome ao jogo ter sua imagem arranhada perante a opinião pública mundial e seus próprios membros começaram a brigar, o que resultou em uma investigaão conduzida pela ONU.
-                    Nesse intervalo de tempo, uma explosão destruiu o QG da equipe e, aparentemente, resultou na morte de Reyes e Morrison. A ONU aprovou o Ato Petras, que resultou no desligamento da Overwatch e proibiu qualquer atividade semelhante.</div>
+                    Nesse intervalo de tempo, uma exploso destruiu o QG da equipe e, aparentemente, resultou na morte de Reyes e Morrison. A ONU aprovou o Ato Petras, que resultou no desligamento da Overwatch e proibiu qualquer atividade semelhante.</div>
                 <div class="col-xl-6">
                     <img src="../img/historia/queda.png" class="img-fluid" alt="queda-overwatch-foto" title="queda-overwatch-foto">
                 </div>
@@ -171,7 +171,7 @@
             <div class="row" style="margin-top: 4%; background-color: #CC9226;">
                 <div class="col-xl-6" style=" text-align: center; vertical-align: center; font-weight: bold; font-size: 18px;">O primeiro game começa seis anos após a aprovação deste ato. Sem a presença da Overwatch, grandes corporações começaram a brigar por poder e o terrorismo aumentou em várias partes do mundo. Além disso, surgiram indícios de uma segunda Crise Omnic.
                     O gorila Winston, ex-integrante da Overwatch, decidiu recriar a equipe, mesmo com o Ato Petras em vigência, recrutando tanto antigos parceiros quanto novos integrantes. 
-                    Também é revelada a informação de que Reyes e Morrison não morreram na explosão, que foi causada por eles mesmos por conta de uma luta. Reyes se tornou um terrorista e assumiu a identidade de Reaper, enquanto que Morrison virou um vigilante conhecido pelo nome de Soldado 76, que quer descobrir as verdadeiras razões por trás do desligamento da Overwatch.</div>
+                    Também é revelada a informaão de que Reyes e Morrison não morreram na explosão, que foi causada por eles mesmos por conta de uma luta. Reyes se tornou um terrorista e assumiu a identidade de Reaper, enquanto que Morrison virou um vigilante conhecido pelo nome de Soldado 76, que quer descobrir as verdadeiras razões por trás do desligamento da Overwatch.</div>
                 <div class="col-xl-6">
                     <img src="../img/historia/recall.jpg" class="img-fluid" alt="winston-foto" title="winston-foto">
                 </div>
@@ -191,7 +191,7 @@
                 <div class="col-xl-12" style="background-color: #C4C4C4; text-align: center; padding: 1%; margin-top: 5%; width: 50%; margin-left: 25%;"><h2>Overwatch 2</h2></div>
             </div>
             <div class="row" style="margin-top: 4%; background-color: #CC9226;">
-                <div class="col-xl-6" style=" text-align: center; vertical-align: center; font-weight: bold; font-size: 24px;">Overwatch 2 foi revelado como uma sequência para o FPS da Blizzard na BlizzCon 2019. O novo game FPS traz missões de campanha e cooperativas, um sistema de progressão de níveis, customização de habilidades dos heróis, mapas novos e personagens novos. Além de continuar a história do primeiro jogo. A data de lançamento de Overwatch 2 ainda não é certa.</div>
+                <div class="col-xl-6" style=" text-align: center; vertical-align: center; font-weight: bold; font-size: 24px;">Overwatch 2 foi revelado como uma sequência para o FPS da Blizzard na BlizzCon 2019. O novo game FPS traz misses de campanha e cooperativas, um sistema de progressão de níveis, customização de habilidades dos heróis, mapas novos e personagens novos. Alm de continuar a história do primeiro jogo. A data de lanamento de Overwatch 2 ainda não é certa.</div>
                 <div class="col-xl-6">
                     <img src="../img/historia/2.jpg" class="img-fluid" alt="winston-foto" title="winston-foto">
                 </div>

@@ -44,7 +44,7 @@
         background-image: url('../img/e-sports/esports.jpg'); /*imagem do topo*/
         background-position: 40% 14%;   
       }
-    }
+    
       /*Ordem da section*/
       .first-ov-video{
           order: 2;
@@ -64,11 +64,11 @@
       .second-ov-league{
           order: 1;
       }
-      
+    }
     
    </style>
 </head> 
- <body>
+ <body id="e-sports">
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
      <a class="navbar-brand" href="../index.php"><img src="../img/logo--overwatch.svg" alt="" width="30" height="30"></a>
@@ -93,11 +93,11 @@
       
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Histórias
+            Historias
           </a>
           <ul class="dropdown-menu bg-dark border-0" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item text-white" href="historia.php">Histórias</a></li>  
-            <li><a class="dropdown-item text-white" href="herois.php">Heróis</a></li>
+            <li><a class="dropdown-item text-white" href="historia.php">Historias</a></li>  
+            <li><a class="dropdown-item text-white" href="herois.php">Herois</a></li>
             <li><a class="dropdown-item text-white" href="quadrinho.php">Quadrinhos</a></li>
             <li><a class="dropdown-item text-white" href="mapas.php">Mapas</a></li>
           </ul>
@@ -113,9 +113,9 @@
         </li>
       
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Pesquisar conteúdo" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit"><i class="fa fa-search"></i></button>
+      <form method="POST" action="buscar.php" class="d-flex">
+        <input class="form-control me-2" name="buscar" type="search" placeholder="Pesquisar conteudo" aria-label="Pesquisar">
+        <button class="btn btn-outline-warning" type="submit"><i class="fa fa-search"></i></button>
       </form>
     </div>
   </div>
@@ -144,7 +144,7 @@
         </div>
         <div class="row pt-2 pb-2">
             <div class="col-12 col-md-7 first-ov-video">
-                <div class="h5 font-weight-bold">Seu caminho ao nível profissional de e-sports de Overwatch começa no modo Competitivo de jogo e leva até à Liga Overwatch. Seja você um veterano do palco global ou um novato, entrando pela primeira vez no jogo organizado, há um torneio de Overwatch para você assistir ou competir!</div>
+                <div class="h5 font-weight-bold">Seu caminho ao nível profissional de e-sports de Overwatch começa no modo Competitivo de jogo e leva at à Liga Overwatch. Seja você um veterano do palco global ou um novato, entrando pela primeira vez no jogo organizado, há um torneio de Overwatch para você assistir ou competir!</div>
             </div>
             <div class="col-12 col-md-5 second-ov-video">
                 <div class="card border">
@@ -163,7 +163,7 @@
             </div>
             <div class="col-12 col-md-7 bg-secondary">
                 <div class="h3 text-center pb-2">Diviso Aberta</div>
-                <div class="h5 font-weight-bold pb-5">Os jogadores de PC de Overwatch de qualquer nível de habilidade podem participar da Diviso Aberta de Overwatch escolhendo uma das regiões: Coreia, China, Austrália, América do Sul, América do Norte, Europa ou Pacfico. Se você é um herói de fila do competitivo que quer tentar o jogo competitivo organizado, essa é sua chance!</div>
+                <div class="h5 font-weight-bold pb-5">Os jogadores de PC de Overwatch de qualquer nível de habilidade podem participar da Diviso Aberta de Overwatch escolhendo uma das regiões: Coreia, China, Austrália, América do Sul, América do Norte, Europa ou Pacfico. Se voc é um herói de fila do competitivo que quer tentar o jogo competitivo organizado, essa é sua chance!</div>
                 <div class="d-grid gap-2 col-6 mx-auto">
                 <a href="https://playoverwatch.com/pt-br/esports/open-division/" class="btn btn-warning border border-0">Saiba Mais</a>
                 </div>
@@ -187,7 +187,7 @@
             </div>
             <div class="col-12 col-md-7 bg-secondary">
                 <div class="h3 text-center pb-5">Contender</div>
-                <div class="h5 font-weight-bold pb-5">Entrar na Overwatch Contenders é um grande marco para um aspirante a profissional de Overwatch. Em cada uma das sete regies, doze equipes reunirão times promissores para competir em vrias temporadas por ano. Aqueles que saírem vitoriosos terão mais chance de serem chamados por caça-talentos da Liga Overwatch.</div>
+                <div class="h5 font-weight-bold pb-5">Entrar na Overwatch Contenders  um grande marco para um aspirante a profissional de Overwatch. Em cada uma das sete regies, doze equipes reunirão times promissores para competir em vrias temporadas por ano. Aqueles que saírem vitoriosos terão mais chance de serem chamados por caça-talentos da Liga Overwatch.</div>
                 <div class="d-grid gap-2 col-6 mx-auto">
                 <a href="https://overwatchleague.com/en-us/contenders" class="btn btn-warning border border-0">Saiba Mais</a>
                 </div>
@@ -196,7 +196,7 @@
         <div class="row pt-2 pb-2">
             <div class="col-12 col-md-7 bg-secondary first-ov-league">
                 <div class="h3 text-center pb-2 first-ov-league">Overwatch League</div>
-                <div class="h5 font-weight-bold pb-4">A Liga Overwatch é a primeira liga global de e-sports com equipes baseadas em cidades, elaborada para celebrar os melhores dentre os melhores. Atualmente ela é formada por campeões escolhidos a dedo, mas os futuros competidores provavelmente serão selecionados por caça-talentos da Liga Overwatch dentre os talentos da Overwatch Contenders, garantindo que a Liga Overwatch seja sempre abastecida por atletas testados. Com a estabilidade dos salrios e benefícios, os jogadores de melhor carreira de Overwatch no mundo batalharão durante o ano em busca de sua vaga no Campeonato da Liga Overwatch… e de milhes de dólares em prêmio!</div>
+                <div class="h5 font-weight-bold pb-4">A Liga Overwatch é a primeira liga global de e-sports com equipes baseadas em cidades, elaborada para celebrar os melhores dentre os melhores. Atualmente ela é formada por campees escolhidos a dedo, mas os futuros competidores provavelmente sero selecionados por caa-talentos da Liga Overwatch dentre os talentos da Overwatch Contenders, garantindo que a Liga Overwatch seja sempre abastecida por atletas testados. Com a estabilidade dos salrios e benefícios, os jogadores de melhor carreira de Overwatch no mundo batalharo durante o ano em busca de sua vaga no Campeonato da Liga Overwatch e de milhes de dlares em prmio!</div>
                 <div class="d-grid gap-2 col-6 mx-auto">
                 <a href="https://overwatchleague.com/en-us/" class="btn btn-warning border border-0">Saiba Mais</a>
                 </div>

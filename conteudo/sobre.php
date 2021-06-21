@@ -28,10 +28,14 @@
     </style>
     <script>
         function opiniao(){
-    			var nome = document.getElementById('nome').value;
-				var comentario = document.getElementById('comentario').value;
-
-				alert("Nome: "+ nome + "\nSeu comentário: " + comentario);
+    			var n = document.getElementById("nome");
+                var e = document.getElementById("email");
+                var s = document.getElementById("comentario");
+                if (n.value && e.value && s.value != "") {
+                    alert("Obrigado(a) " + n.value + "\n" + "Vamos avaliar sua sugesto e poderemos entrar em contato com você sobre melhorias.")
+                } else {
+                    alert("Digite seu nome, e-mail e deixe sua sugestão")
+                }
 			}
     </script>
 </head>
@@ -80,9 +84,9 @@
         </li>
       
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Pesquisar contedo" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit"><i class="fa fa-search"></i></button>
+      <form method="POST" action="buscar.php" class="d-flex">
+        <input class="form-control me-2" name="buscar" type="search" placeholder="Pesquisar conteudo" aria-label="Pesquisar">
+        <button class="btn btn-outline-warning" type="submit"><i class="fa fa-search"></i></button>
       </form>
     </div>
   </div>
@@ -105,15 +109,15 @@
     <div class="row">
         <div class="col-sm-12 text-center" style="background: #353c42;color:white;padding:5px;border-radius:5px;">    
             <p>
-                Overwatch é um jogo de tiro em equipe que conta com um elenco diversificado de heróis poderosíssimos. Viaje pelo mundo, monte uma equipe e dispute objetivos em combates 6v6 de tirar o fôlego.
+               O site foi desenvolvido para um trabalho do curso de TI, onde nós presiavamos criar um site, então fizemos uma seleção onde Overwatch ganhou e então decidimos fazer uma fan page sobre, então se baseamos em referencias do jogo e focamos na historia, personagens, midia, eventos e mapas.
             </p>
             <p>
-                Ao entrar em uma partida de Overwatch, você precisa escolher um herói para jogar. Talvez um gorila da lua munido de uma bazuca lhe parea atraente. Talvez você prefira uma revolucionária que viaja no tempo. Ou será que um DJ com batidas matadoras faz mais o seu estilo? Não importa quem voc queira ser, na certa há um herói de Overwatch para você.
+               Para entrar em contato conosco, envie um email para "uchihamadaragadriel@gmail.com"
             </p>
         </div>
         <hr>
         <div class="col-sm-6 text-center col-centered">
-         <h5 class="text-center" style="background: steelblue;color: white;padding:5px;">Deixe sua opinião abaixo para melhorarmos o site</h5>
+         <h5 class="text-center" style="background: steelblue;color: white;padding:5px;">Deixe sua opiniao abaixo para melhorarmos nosso site e conteudos</h5>
         </div>
     </div>
     

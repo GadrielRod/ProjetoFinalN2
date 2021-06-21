@@ -1,71 +1,3421 @@
 <!doctype html>
 <html lang="pt-br">
-<head>   
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-  <link href="../css/estilo.css?versao=<?=filemtime('../css/estilo.css');?>" rel="stylesheet">   
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>OverFans - Mapas</title>
-  <link rel="icon" type="image/x-icon" href="../img/overwatch-icon.ico">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+    <link href="../css/estilo.css?versao=<?=filemtime('../css/estilo.css');?>" rel="stylesheet">
+    
+    <!--Lightbox-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js" integrity="sha512-k2GFCTbp9rQU412BStrcD/rlwv1PYec9SNrkbQlo6RZCf75l6KcC3UwDY8H5n5hl4v77IDtIPwOk9Dqjs/mMBQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" integrity="sha512-ZKX+BvQihRJPA8CROKBhDNvoc2aDMOdAlcm7TUQY+35XYtrd3yh95QOOhsPDQY9QnKE0Wqag9y38OIgEvb88cA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js" integrity="sha512-6gudNVbNM/cVsLUMOb8g2b/RBqtQJ3aDfRFgU+5paeaCTtbYY/Dg00MzZq7r6RvJGI2KKtPBhjkHGTL/iOe21A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <!--myEdition-->
+    <link href="../css/estilo_mapa.css" rel="stylesheet" rel="lightbox">
+    <script defer src="../js/javascript_mapa.js" rel="lightbox"></script>
+    <title>OverFans - Mapas</title>
+    <link rel="icon" type="image/x-icon" href="../img/overwatch-icon.ico">
+    <style>
+        .masthead {
+            height: 100vh;
+            min-height: 500px;
+            background-image: url('../img/mapas/mapaHeader.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .card:hover{
+            transform: scale(1.1);
+        }
+
+        /* background */
+        @media only screen and (max-width: 600px) {
+            .masthead {
+                background-image: url('../img/mapas/mapaHeader.jpg');
+                /*imagem do topo*/
+                background-position: 40% 14%;
+            }
+        }
+
+        /* TABLET */
+        @media only screen and (min-width:321px) and (max-width:766px) {
+            .masthead {
+                background-image: url('../img/mapas/mapaHeader.jpg');
+                /*imagem do topo*/
+                background-position: 40% 14%;
+            }
+
+        }
+              
+    </style>
 </head>
-  <body>
+
+<body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-     <a class="navbar-brand" href="index.php"><img src="../img/logo--overwatch.svg" alt="" width="30" height="30"></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link " aria-current="page" href="../index.php">Início</a>
-        </li>
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.php"><img src="../img/logo--overwatch.svg" alt="" width="30"
+                    height="30"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link " aria-current="page" href="../index.php">Incio</a>
+                    </li>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Eventos
-          </a>
-          <ul class="dropdown-menu bg-dark border-0" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item text-white" href="eventos.php">Eventos</a></li>
-            <li><a class="dropdown-item text-white" href="e-sports.php">E-sports</a></li>
-          </ul>
-        </li>
-      
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Histórias
-          </a>
-          <ul class="dropdown-menu bg-dark border-0" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item text-white" href="historia.php">Histórias</a></li>
-            <li><a class="dropdown-item text-white" href="herois.php">Heróis</a></li>
-            <li><a class="dropdown-item text-white" href="quadrinho.php">Quadrinhos</a></li>
-            <li><a class="dropdown-item text-white active" href="mapas.php">Mapas</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="skins.php">Skins</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="patches.php">Patches</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="sobre.php">Sobre</a>
-        </li>
-      
-      </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Pesquisar conteúdo" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit"><i class="fa fa-search"></i></button>
-      </form>
-    </div>
-  </div>
-</nav>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Eventos
+                        </a>
+                        <ul class="dropdown-menu bg-dark border-0" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item text-white" href="eventos.php">Eventos</a></li>
+                            <li><a class="dropdown-item text-white" href="e-sports.php">E-sports</a></li>
+                        </ul>
+                    </li>
 
-  </body>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Historias
+                        </a>
+                        <ul class="dropdown-menu bg-dark border-0" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item text-white" href="historia.php">Historias</a></li>
+                            <li><a class="dropdown-item text-white" href="herois.php">Herois</a></li>
+                            <li><a class="dropdown-item text-white" href="quadrinho.php">Quadrinhos</a></li>
+                            <li><a class="dropdown-item text-white active" href="mapas.php">Mapas</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="skins.php">Skins</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="patches.php">Patches</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sobre.php">Sobre</a>
+                    </li>
+
+                </ul>
+                <form method="POST" action="buscar.php" class="d-flex">
+                    <input class="form-control me-2" name="buscar" type="search" placeholder="Pesquisar conteudo" aria-label="Pesquisar">
+                    <button class="btn btn-outline-warning" type="submit"><i class="fa fa-search"></i></button>
+                  </form>
+            </div>
+        </div>
+    </nav>
+    <header class="masthead">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12 text-center text-white">
+                    <h1 class="gradient-text" class="font-weight-light" style="font-family: overFont;font-size:70px;">
+                        MAPAS</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="container">
+        <div class="list">
+            <button class="btn btn-primary" onclick="todos();">Todos Os Mapas</button>
+            <button class="btn btn-secondary text-dark" onclick="captura();">
+                <svg class="Svg-icon-2 Map-type" viewBox="0 0 123.3 102.3">
+                    <g>
+                        <path
+                            d="M110.6 37.6L64.2 14.8a2.5 2.5 0 0 0-3.6 2.3v80.8a1.7 1.7 0 0 0 1.7 1.7h2.2a1.7 1.7 0 0 0 1.7-1.7V60.5L110.6 40a1.3 1.3 0 0 0 0-2.4z"
+                            transform="translate(-2.4 -12.9)"></path>
+                        <path
+                            d="M95.7 91c-1.1-.3-1.9.6-.8 1.1 5.7 1.7 9.1 3.9 9.1 6.3 0 5.4-18.8 9.7-40.5 9.9S23 103.7 23 98.4c0-2.4 3.4-4.5 9.1-6.3 1-.5.2-1.4-.8-1.1-8.9 2.4-14.4 5.7-14.4 9.4 0 7 21.7 12.8 46.6 13h.3c25-.2 46.6-6 46.6-13-.3-3.7-5.8-7-14.7-9.4z"
+                            transform="translate(-2.4 -12.9)"></path>
+                    </g>
+                </svg>Captura A Bandeira</button>
+            <button class="btn btn-secondary text-dark" onclick="controle();">
+                <svg class="Svg-icon-2 Map-type" viewBox="0 0 64 64">
+                    <g>
+                        <path
+                            d="M54.94,29.44,34.56,9.06a3.63,3.63,0,0,0-5.12,0L9.06,29.44a3.63,3.63,0,0,0,0,5.12L29.44,54.94a3.63,3.63,0,0,0,5.12,0L54.94,34.56A3.63,3.63,0,0,0,54.94,29.44Zm-.9,3.9L33.35,54a1.91,1.91,0,0,1-2.69,0L10,33.35a1.91,1.91,0,0,1,0-2.69L30.65,10a1.91,1.91,0,0,1,2.69,0L54,30.65A1.91,1.91,0,0,1,54,33.35Z">
+                        </path>
+                        <path
+                            d="M34.21,12.21a3.13,3.13,0,0,0-4.41,0L12.21,29.79a3.13,3.13,0,0,0,0,4.41L29.79,51.79a3.13,3.13,0,0,0,4.41,0L51.79,34.21a3.13,3.13,0,0,0,0-4.41ZM33,49.17a1.49,1.49,0,0,1-2.1,0l-13-13h5.38v.55a1.3,1.3,0,0,0,2.24.89l5-5.32a.46.46,0,0,0,0-.63l-5-5.29a1.3,1.3,0,0,0-2.24.89v.55H18l13-13a1.49,1.49,0,0,1,2.1,0l13,13H40.66v-.55a1.3,1.3,0,0,0-2.24-.89l-5,5.29a.46.46,0,0,0,0,.63l5,5.32a1.3,1.3,0,0,0,2.24-.89v-.55H46Z">
+                        </path>
+                    </g>
+                </svg>Controle</button>
+            <button class="btn btn-secondary text-dark" onclick="ataque();">
+                <svg class="Svg-icon-2 Map-type" viewBox="0 0 64 64">
+                    <g>
+                        <rect x="22.15" y="19.88" width="19.69" height="19.69" rx="2.89" ry="2.89"
+                            transform="translate(-11.65 31.33) rotate(-45)"></rect>
+                        <path
+                            d="M12.54,29.29A19.47,19.47,0,0,0,46.41,42.8h0l-2.66-2.28h0a16,16,0,1,1-12.5-26.75h0v-3.5h0A19.47,19.47,0,0,0,12.54,29.29Z">
+                        </path>
+                        <path
+                            d="M48,29.72a15.89,15.89,0,0,1-3.25,9.65l2.66,2.28A19.47,19.47,0,0,0,32.75,10.27v3.51A16,16,0,0,1,48,29.72Z">
+                        </path>
+                        <path
+                            d="M32.37,7A22.73,22.73,0,0,0,13.47,42.89h0v-2.8h0A21.4,21.4,0,0,1,11.4,24.51,20.84,20.84,0,0,1,27.13,9a21.25,21.25,0,0,1,23.4,31h0v2.8h0A22.73,22.73,0,0,0,32.37,7Z">
+                        </path>
+                        <path
+                            d="M32,51a21.19,21.19,0,0,1-16.66-8.08A.21.21,0,0,0,15,43v1.68a.21.21,0,0,0,.05.14,22.71,22.71,0,0,0,12,7.08.22.22,0,0,1,.13.08l0,0,4.31,4.78a.65.65,0,0,0,.91,0L36.75,52a.21.21,0,0,1,.1-.06A22.71,22.71,0,0,0,49,44.83a.21.21,0,0,0,.05-.14V43a.21.21,0,0,0-.37-.13A21.19,21.19,0,0,1,32,51Z">
+                        </path>
+                    </g>
+                </svg>Ataque</button>
+            <button class="btn btn-secondary text-dark" onclick="escolta();">
+                <svg class="Svg-icon-2 Map-type" viewBox="0 0 64 64">
+                    <g>
+                        <rect x="10.38" y="24.34" width="21.03" height="14.39" rx="0.81" ry="0.81"></rect>
+                        <path
+                            d="M60.62,37.83h0c0-.23,0-.47,0-.72h0a.28.28,0,0,0,.28-.24.26.26,0,0,0-.26-.29h-.09c0-.24,0-.47,0-.72h.08a.28.28,0,0,0,.28-.24.26.26,0,0,0-.26-.29H60.5l0-.72h.13a.26.26,0,0,0,.26-.29.28.28,0,0,0-.28-.24h-.12l0-.74h0a.57.57,0,0,0,.53-.63.59.59,0,0,0-.59-.5h-.06c-.5-2.43-2.65-4.26-6-4.26H49.44c-1.26-2.15-1.91-3.59-2.45-3.87a16.68,16.68,0,0,0-6.19-.89c-3.43,0-4.64.13-5,.35s-.59.19-.59,1.48v5.42H34.7V23.8a.6.6,0,0,0-.6-.6H32.66a.6.6,0,0,0-.6.6V39.27H3.39a.39.39,0,0,0-.39.39v1.81a.39.39,0,0,0,.39.39h1a.14.14,0,0,1,.14.14v.24a.47.47,0,0,0,.47.47H8.49A.47.47,0,0,0,9,42.25V42a.14.14,0,0,1,.14-.14h3.34a.14.14,0,0,0,.09,0,6,6,0,0,1,4.06-1.48,6,6,0,0,1,4.06,1.48.14.14,0,0,0,.09,0H22a.14.14,0,0,1,.14.14v.24a.47.47,0,0,0,.47.47h1.72a.14.14,0,0,0,.1,0l.24-.24a.14.14,0,0,1,.2,0l.24.24a.14.14,0,0,0,.1,0H27a.14.14,0,0,0,.1,0l.11-.11a.14.14,0,0,1,.2,0l.11.11a.14.14,0,0,0,.1,0h1.82a.14.14,0,0,0,.1,0l.24-.24a.14.14,0,0,1,.2,0l.24.24a.14.14,0,0,0,.1,0h1.42a.47.47,0,0,0,.47-.47V42a.14.14,0,0,1,.14-.14h11.2a1.8,1.8,0,0,0-.26.81c0,1.16.83,1.35,2.14,1.2h0c0-.11,2.29-4,5.91-3.89a7.79,7.79,0,0,1,5.92,3.64s0,.09,0,.13h0c1.51.17,2.49,0,2.49-1.23a2.42,2.42,0,0,0-.6-1.24h0c1.32-.3,1.5-1.43,1.47-2.92h0a.27.27,0,0,0,.26-.2A.26.26,0,0,0,60.62,37.83ZM47.5,28l-5.07.24h0c-1.67,0-1.92.21-1.92-.29s-.08-1.74-.08-2.23,0-.86.58-.86,3.47-.08,4.06,0a1.37,1.37,0,0,1,1.32.92L47.5,28Z">
+                        </path>
+                        <path
+                            d="M51.36,45.39a1.21,1.21,0,1,0,1.53,1.17A1.38,1.38,0,0,0,51.36,45.39Zm0,2a.64.64,0,1,1,.8-.62A.73.73,0,0,1,51.36,47.39Z">
+                        </path>
+                        <path
+                            d="M53.12,41.63l.06-.31a.51.51,0,0,0-.51-.51H50.06a.51.51,0,0,0-.51.51l.07.31c-2.49.58-4.3,2.35-4.3,4.46a3.92,3.92,0,0,0,1,2.55h0a.26.26,0,0,0,0,.37l.93.93a.26.26,0,0,0,.37,0l.11-.16a7.51,7.51,0,0,0,7.32,0l.11.16a.26.26,0,0,0,.37,0l.93-.93a.26.26,0,0,0,0-.37h0a3.91,3.91,0,0,0,1-2.55C57.41,44,55.6,42.21,53.12,41.63Zm-2.51.08h1.49a.3.3,0,0,1,.29.29l-.25,1.36a.3.3,0,0,1-.29.29h-.94a.3.3,0,0,1-.29-.29L50.32,42A.3.3,0,0,1,50.61,41.71ZM48,48.85l-.4.57a.15.15,0,0,1-.21,0l-.54-.54a.15.15,0,0,1,0-.21l.6-.37a.15.15,0,0,1,.21,0l.34.34,0,0v.08A.15.15,0,0,1,48,48.85Zm3.41.49c-1.75,0-3.17-1.09-3.17-2.44s1.42-2.44,3.17-2.44,3.17,1.09,3.17,2.44S53.11,49.33,51.36,49.33Zm4.55-.45-.54.54a.15.15,0,0,1-.21,0l-.4-.57,0,0a.63.63,0,0,1,0-.09.14.14,0,0,1,0-.08l.34-.34a.15.15,0,0,1,.21,0l.6.37A.15.15,0,0,1,55.91,48.89Z">
+                        </path>
+                        <path
+                            d="M16.8,45.33a1.23,1.23,0,1,0,0,2.38,1.23,1.23,0,1,0,0-2.38Zm0,2a.64.64,0,1,1,.8-.62A.73.73,0,0,1,16.8,47.35Z">
+                        </path>
+                        <path
+                            d="M18.56,41.51l.06-.31a.52.52,0,0,0-.51-.52H15.5a.52.52,0,0,0-.51.52l.07.31c-2.49.58-4.3,2.38-4.3,4.52a4,4,0,0,0,1,2.59h0a.27.27,0,0,0,0,.37l.93.95a.26.26,0,0,0,.37,0l.11-.16a7.43,7.43,0,0,0,7.32,0l.11.16a.26.26,0,0,0,.37,0l.93-.95a.27.27,0,0,0,0-.37h0a4,4,0,0,0,1-2.59C22.85,43.9,21,42.1,18.56,41.51Zm-2.51.08h1.49a.3.3,0,0,1,.29.3l-.25,1.37a.3.3,0,0,1-.29.3h-.94a.3.3,0,0,1-.29-.3l-.31-1.37A.3.3,0,0,1,16.06,41.59ZM13.4,48.82l-.4.58a.15.15,0,0,1-.21,0l-.54-.54a.15.15,0,0,1,0-.21l.6-.38a.15.15,0,0,1,.21,0l.34.34,0,0v.08A.15.15,0,0,1,13.4,48.82Zm3.41.49c-1.75,0-3.17-1.11-3.17-2.48s1.42-2.48,3.17-2.48S20,45.47,20,46.84,18.56,49.32,16.8,49.32Zm4.55-.45-.54.54a.15.15,0,0,1-.21,0l-.4-.58,0,0a.65.65,0,0,1,0-.09.15.15,0,0,1,0-.08l.34-.34a.15.15,0,0,1,.21,0l.6.38A.15.15,0,0,1,21.35,48.86Z">
+                        </path>
+                        <rect x="38.04" y="14.19" width="6.12" height="6.12" rx="0.82" ry="0.82"
+                            transform="translate(-0.16 34.12) rotate(-45)"></rect>
+                    </g>
+                </svg>Escolta</button>
+            <button class="btn btn-secondary text-dark" onclick="hibrido();">
+                <svg class="Svg-icon-2 Map-type" viewBox="0 0 64 64">
+                    <g>
+                        <rect x="12.56" y="23.95" width="11.82" height="11.82" rx="1.74" ry="1.74"
+                            transform="translate(-15.71 21.8) rotate(-45)"></rect>
+                        <path d="M28.81,24.41a11.69,11.69,0,0,0-9.9-6.23v2.11a9.59,9.59,0,0,1,8.91,7.5Z"></path>
+                        <path d="M18,20.28h0v-2.1h0a11.69,11.69,0,1,0,6.36,21.77l1-3.46A9.58,9.58,0,1,1,18,20.28Z">
+                        </path>
+                        <path
+                            d="M24,41.33A12.75,12.75,0,0,1,8.46,37.76a.13.13,0,0,0-.23.08v1a.13.13,0,0,0,0,.08,13.64,13.64,0,0,0,7.21,4.25.13.13,0,0,1,.08.05l0,0,2.59,2.87a.39.39,0,0,0,.55,0l2.61-2.89.06,0a13.54,13.54,0,0,0,2.31-.72Z">
+                        </path>
+                        <path
+                            d="M6.1,26.72a12.52,12.52,0,0,1,9.45-9.29,12.77,12.77,0,0,1,13.75,5.69L29.62,22A13.65,13.65,0,1,0,7.34,37.76h0V36.08h0A12.85,12.85,0,0,1,6.1,26.72Z">
+                        </path>
+                        <path
+                            d="M58.8,34.15h0c0-.23,0-.46,0-.7h0a.27.27,0,0,0,.27-.23.26.26,0,0,0-.26-.28h-.08c0-.23,0-.46,0-.7h.08a.27.27,0,0,0,.27-.23.26.26,0,0,0-.26-.28h-.11l0-.7h.12a.26.26,0,0,0,.26-.28.27.27,0,0,0-.27-.23h-.12l0-.72h0a.55.55,0,0,0,.52-.61.57.57,0,0,0-.58-.49h-.06C58,26.27,56,24.47,52.69,24.47H47.87c-1.23-2.1-1.87-3.51-2.4-3.79a16.33,16.33,0,0,0-6.06-.87c-.88,0-1.61,0-2.22,0L31.88,38.09h10.2a1.77,1.77,0,0,0-.26.8c0,1.14.81,1.32,2.1,1.18h0c0-.11,2.24-3.88,5.79-3.81a7.63,7.63,0,0,1,5.8,3.56s0,.09,0,.13h0c1.48.17,2.43,0,2.43-1.21a2.37,2.37,0,0,0-.58-1.22h0c1.29-.3,1.47-1.4,1.44-2.86h0a.26.26,0,0,0,.26-.19A.26.26,0,0,0,58.8,34.15ZM46,24.54l-5,.23h0c-1.64,0-1.88.2-1.88-.29S39,22.78,39,22.3s0-.85.57-.85,3.4-.08,4,0a1.34,1.34,0,0,1,1.3.9L46,24.54Z">
+                        </path>
+                        <path
+                            d="M49.74,41.55a1.19,1.19,0,1,0,1.49,1.15A1.36,1.36,0,0,0,49.74,41.55Zm0,2a.62.62,0,1,1,.78-.6A.71.71,0,0,1,49.74,43.5Z">
+                        </path>
+                        <path
+                            d="M51.47,37.86l.06-.3a.5.5,0,0,0-.5-.5H48.47a.5.5,0,0,0-.5.5l.07.3c-2.44.56-4.21,2.31-4.21,4.37a3.83,3.83,0,0,0,1,2.5h0a.26.26,0,0,0,0,.36l.91.91a.26.26,0,0,0,.36,0l.11-.16a7.36,7.36,0,0,0,7.17,0l.11.16a.26.26,0,0,0,.36,0l.91-.91a.26.26,0,0,0,0-.36h0a3.83,3.83,0,0,0,1-2.5C55.66,40.16,53.9,38.43,51.47,37.86ZM49,37.94h1.46a.29.29,0,0,1,.29.29l-.24,1.33a.29.29,0,0,1-.29.29h-.92a.29.29,0,0,1-.29-.29l-.3-1.33A.29.29,0,0,1,49,37.94Zm-2.6,7-.39.56a.15.15,0,0,1-.21,0L45.29,45a.15.15,0,0,1,0-.21l.58-.37a.15.15,0,0,1,.21,0l.33.33,0,0v.08A.14.14,0,0,1,46.41,44.93Zm3.34.48c-1.72,0-3.11-1.07-3.11-2.39s1.39-2.39,3.11-2.39,3.11,1.07,3.11,2.39S51.46,45.41,49.74,45.41ZM54.2,45l-.52.52a.15.15,0,0,1-.21,0l-.39-.56,0,0a.61.61,0,0,1,0-.09.14.14,0,0,1,0-.08l.33-.33a.15.15,0,0,1,.21,0l.58.37A.15.15,0,0,1,54.2,45Z">
+                        </path>
+                        <polygon points="34.57 12 23.4 51.21 26.11 52 37.27 12.79 34.57 12"></polygon>
+                    </g>
+                </svg>Hbrido</button>
+            <button class="btn btn-secondary text-dark" onclick="eliminacao();">
+                <svg class="Svg-icon-2 Map-type" viewBox="0 0 123.3 102.3">
+                    <g>
+                        <path
+                            d="M73.5 86.2c.1-.5 10.1-.6 10.9-2.3s-1.5-4.9-1.5-5.8S93 63.3 93 62.4 88.1 51.5 85.3 47 74 38.8 64.9 38.3h-1.7c-9.1.4-17.8 4.4-20.4 8.7S35 61.4 35 62.4s10.1 14.8 10.1 15.7-2.3 4-1.5 5.8 10.8 1.8 10.9 2.3-.3 6.6.3 7.5 8.8 5.9 9.2 5.9 8.5-5 9.2-5.9.2-7 .3-7.5zm-15-14.3c-.6.1-1.1 1.1-1.5 1.3a5.9 5.9 0 0 1-3.4-.1 5.4 5.4 0 0 0-3.1 0c-.8.2-4.7-4.9-5.3-6.3s-2.2-6.5-2-6.8 3.1.3 3.7.6a112.3 112.3 0 0 1 8.1 7.8 7.7 7.7 0 0 0 3.9 2.3c.3.2.2 1.1-.4 1.2zM64 86.7a16.3 16.3 0 0 1-3.7-3.3 70.2 70.2 0 0 1 3.7-7.5 70.2 70.2 0 0 1 3.7 7.4 16.3 16.3 0 0 1-3.7 3.4zm7-13.5c-.4-.2-1-1.2-1.5-1.3s-.6-1-.2-1.1a7.7 7.7 0 0 0 3.9-2.3 112.3 112.3 0 0 1 8.1-7.8c.5-.2 3.5-.8 3.7-.6s-1.6 5.3-2.1 6.8-4.5 6.6-5.3 6.3a5.4 5.4 0 0 0-3.1 0 5.9 5.9 0 0 1-3.5 0z"
+                            transform="translate(-2.4 -12.9)"></path>
+                        <path
+                            d="M89 85a.3.3 0 0 0-.5.2c.2.7.5 1.5-.1 1.8s-10.7 1.8-10.9 2.3 0 3 0 5.3L94 111.1c1.4 1.4 12.5 2.8 13 2.4s-1.2-11.5-1.9-12.2z"
+                            transform="translate(-2.4 -12.9)"></path>
+                        <path
+                            d="M39.5 87.1c-.5-.3-.2-1.2-.1-1.8a.3.3 0 0 0-.4-.3l-16 16.2c-.7.7-2.5 11.7-1.9 12.2s11.6-1 13-2.4l16.2-16.3c0-2.3.2-4.8 0-5.3s-9.4-1.5-10.8-2.3z"
+                            transform="translate(-2.4 -12.9)"></path>
+                        <path
+                            d="M120.2 21.7l-1.8-5.1a1.6 1.6 0 0 0-1.2-1.1l-5.3-1a1.6 1.6 0 0 0-1.6.5l-3.5 4.1a1.6 1.6 0 0 0-.3 1.6l.3.8a.3.3 0 0 1-.1.3h-.1L92.3 36.4 79.1 23.1c-1.3-1.3-.9 1.2-.6 2.3s2.8 9.1 3.8 10.2l3.2 3.4-.5.3-.9.7a.8.8 0 0 0 .1 1.3 13.6 13.6 0 0 1 4.7 4.2 59.7 59.7 0 0 1 2.6 5.7 1.3 1.3 0 0 0 1.9.5l2.6-2 3.2 3.1c1.2 1.1 6.3 2.3 9.4 3.3s3.2-.2 2.2-1.2L98.3 42.4 113 27.8h.3l1.6.3a1.6 1.6 0 0 0 1.6-.5l3.5-4.1a1.6 1.6 0 0 0 .2-1.8z"
+                            transform="translate(-2.4 -12.9)"></path>
+                        <path
+                            d="M32 49.6l2.6 2a1.3 1.3 0 0 0 1.9-.5 59.7 59.7 0 0 1 2.6-5.7 13.6 13.6 0 0 1 4.7-4.2.8.8 0 0 0 .1-1.3l-.9-.7-.5-.3 3.2-3.4c.9-1.1 3.5-9.1 3.8-10.2s.7-3.6-.6-2.3L35.7 36.4 21.4 22h-.1a.3.3 0 0 1-.1-.3l.3-.8a1.6 1.6 0 0 0-.3-1.6l-3.5-4.1a1.6 1.6 0 0 0-1.6-.5l-5.3 1a1.6 1.6 0 0 0-1.2 1.1l-1.8 4.9a1.6 1.6 0 0 0 .3 1.6l3.5 4.1a1.6 1.6 0 0 0 1.6.5l1.6-.3h.2l14.7 14.8-12.4 12.5c-1 .9-.8 2.1 2.2 1.2s8.1-2.2 9.4-3.3z"
+                            transform="translate(-2.4 -12.9)"></path>
+                    </g>
+                </svg>Eliminaão</button>
+            <button class="btn btn-secondary text-dark" onclick="combate();">
+                <svg class="Svg-icon-2 Map-type" viewBox="0 0 123.3 102.3">
+                    <g>
+                        <path
+                            d="M84.14 91.33c3-4.88 6.11-9.63 9.27-14.32-.95-3-1.91-6.08-2.94-9.07-.77-2.24-1.58-4.46-2.47-6.62a17.36 17.36 0 0 0-1.06-2.12c-.09-.16-.19-.29-.29-.44a15.66 15.66 0 0 0-1-1.44l-.28-.32a15.27 15.27 0 0 0-1.26-1.33l-.17-.16c-5.84-5.3-12.65-5.43-19.94-5.79-7.29.37-14.1.5-19.94 5.78l-.17.16A15.27 15.27 0 0 0 42.63 57l-.28.33a15.66 15.66 0 0 0-1 1.44c-.09.15-.2.29-.29.44A17.36 17.36 0 0 0 40 61.32c-.89 2.16-1.69 4.38-2.47 6.62-1 3-2 6-2.94 9.07 3.16 4.69 6.27 9.45 9.27 14.32-.52 2-.86 4.27-1.29 6.41 3.79.79 8.07 1 11.57 2.13-.09 1.33 0 6.55.1 7.64 1.48.52 9.75 6 9.75 6s8.28-5.46 9.75-6c.13-1.09.19-6.31.1-7.64 3.5-1.11 7.78-1.35 11.57-2.13-.41-2.14-.75-4.38-1.27-6.41zM59.22 84q-.61.91-1.14 1.86a1 1 0 0 1-.29.23c-3.22-.51-5.8.71-8.14 0-1.12-.34-4.58-4.24-5.36-5.46-1.32-2.09-1.74-4.88-2.62-6.95a1.11 1.11 0 0 0 0-.81c-.13-.29-.25-.65-.39-1a22.58 22.58 0 0 1 4.11.92c2 .81 3.74 3.29 5.57 5 2 1.9 4.11 3.36 5.57 5 1.06.14 2 .37 3 .59zM64 100.72a29 29 0 0 0-4-3.37c.89-3.35 3-5.44 4-8.75 1 3.31 3.11 5.4 4 8.76a29 29 0 0 0-4 3.36zM78.35 86.1c-2.34.71-4.92-.51-8.14 0a1 1 0 0 1-.29-.23q-.53-1-1.14-1.86l-.31-.64c1-.22 2-.44 3-.59 1.46-1.63 3.53-3.1 5.57-5 1.83-1.69 3.59-4.17 5.57-5a22.58 22.58 0 0 1 4.11-.92c-.15.35-.27.71-.39 1a1.11 1.11 0 0 0 0 .81c-.88 2.07-1.3 4.86-2.62 6.95-.77 1.24-4.24 5.15-5.36 5.48z"
+                            transform="translate(-2.38 -12.86)"></path>
+                        <path
+                            d="M89.89 22.65c-2.62 1.69-6 4.13-7.17 6.11a7.83 7.83 0 0 0-2.25-2.91.94.94 0 0 0-1.51.83v.33A4.69 4.69 0 0 1 77.91 30c-2.26 2.84-4.06 3.07-5.68 2.8l-.06.09v-.1a5.77 5.77 0 0 1-3.6-9.12 1.54 1.54 0 0 0 .05-1.75c-1.12-1.73-2.93-5.1-3.91-7a.78.78 0 0 0-1.38 0c-1 1.82-2.77 5.09-3.89 6.79a1.54 1.54 0 0 0 0 1.76 5.77 5.77 0 0 1-3.61 9.11v.1l-.06-.09c-1.63.27-3.42 0-5.7-2.8A4.66 4.66 0 0 1 49 26.86v-.36a.94.94 0 0 0-1.51-.83 7.83 7.83 0 0 0-2.25 2.91c-1.19-2-4.55-4.41-7.17-6.11a.94.94 0 0 0-1.32 1.27 57.41 57.41 0 0 1 6.91 16.46 3.39 3.39 0 0 0 1.33 2v2.7h.06a2.88 2.88 0 0 0-1.53 2.2 2.67 2.67 0 0 0 1.28 2c5.81-3.46 12-3.77 18.11-4.06h2.17c6 .3 12.26.6 18 4a2.62 2.62 0 0 0 1.22-2 2.88 2.88 0 0 0-1.53-2.2h.06v-2.6a3.4 3.4 0 0 0 1.47-2.11 57.52 57.52 0 0 1 6.86-16.3.94.94 0 0 0-1.27-1.18z"
+                            transform="translate(-2.38 -12.86)"></path>
+                        <path
+                            d="M114.35 89.62c2.42-4 4.93-7.89 7.48-11.74-.76-2.49-1.54-5-2.37-7.43-.62-1.84-1.27-3.66-2-5.43a14.31 14.31 0 0 0-.85-1.74c-.07-.13-.16-.24-.23-.36a12.87 12.87 0 0 0-.81-1.18l-.23-.27a12.43 12.43 0 0 0-1-1.09l-.14-.13c-4.71-4.33-12.07-4.44-18-4.74l-1.68-.09c-1.28.29-2.55.64-3.8 1 .08.12.16.24.24.38a22 22 0 0 1 1.34 2.7c.81 2 1.61 4.12 2.53 6.78v.09c1.08 3.14 2.07 6.27 3 9.2l.67 2.15-1.2 1.91c-3.16 4.7-5.79 8.73-8.16 12.54.19.92.36 1.85.53 2.76.12.64.24 1.29.36 1.92l.89 4.55s-1 1.3-1 1.54c1.1.59 8 4.86 8 4.86s6.84-4.47 8-4.9c.1-.89.16-5.17.08-6.26 2.82-.91 6.27-1.1 9.33-1.75-.33-1.77-.56-3.6-.98-5.27zm-16.17 7.7c-1.5-.61-2.34-2-3.67-2.76.77-2.63 2.23-4.47 3.18-6.9.06-.22.21-.32.49-.28.77 2.72 2.44 4.43 3.19 7.18a22.9 22.9 0 0 0-3.19 2.76zm11.5-12c-1.89.59-4-.42-6.57 0a.79.79 0 0 1-.24-.19q-.43-.78-.92-1.53l-.25-.53c.8-.18 1.59-.36 2.44-.48 1.18-1.34 2.85-2.54 4.49-4.09 1.47-1.39 2.9-3.42 4.49-4.09a18 18 0 0 1 3.32-.75c-.12.29-.21.58-.32.82a.92.92 0 0 0 0 .66c-.71 1.7-1 4-2.11 5.7-.63 1.02-3.42 4.22-4.32 4.5zm-80.24-7.56l.67-2.15c.91-2.92 1.9-6.06 3-9.2v-.09c.92-2.66 1.72-4.82 2.53-6.79A22 22 0 0 1 37 56.84c.08-.13.16-.25.24-.37-1.25-.4-2.52-.75-3.8-1l-1.68.09c-5.88.3-13.25.41-18 4.74l-.14.13a12.42 12.42 0 0 0-1 1.09l-.23.27a12.85 12.85 0 0 0-.81 1.18c-.08.12-.16.24-.23.36a14.33 14.33 0 0 0-.81 1.67c-.72 1.77-1.37 3.59-2 5.43-.83 2.45-1.61 4.94-2.37 7.43 2.55 3.85 5.06 7.74 7.48 11.74-.42 1.66-.7 3.5-1 5.26 3.05.65 6.51.84 9.33 1.75-.07 1.09 0 5.37.08 6.26 1.19.43 8 4.9 8 4.9s6.93-4.27 8-4.86c0-.25-1-1.54-1-1.54l.94-4.53c.12-.63.24-1.28.36-1.92.17-.91.34-1.84.53-2.76-2.38-3.81-5-7.84-8.16-12.54zM26 83.62q-.49.74-.92 1.53a.79.79 0 0 1-.24.19c-2.59-.42-4.67.59-6.57 0-.9-.28-3.7-3.48-4.32-4.48-1.06-1.71-1.4-4-2.11-5.7a.92.92 0 0 0 0-.66c-.1-.24-.2-.54-.32-.82a18 18 0 0 1 3.32.75c1.59.67 3 2.7 4.49 4.09 1.64 1.55 3.31 2.76 4.49 4.09.85.12 1.65.3 2.44.48zm3.78 13.7a22.9 22.9 0 0 0-3.19-2.76c.75-2.75 2.42-4.46 3.19-7.18.29 0 .43.06.49.28.95 2.43 2.41 4.27 3.18 6.9-1.29.8-2.13 2.15-3.63 2.76z"
+                            transform="translate(-2.38 -12.86)"></path>
+                    </g>
+                </svg>Combate Até A Morte</button>
+            <button class="btn btn-secondary text-dark" onclick="combateEquipe();">
+                <svg class="Svg-icon-2 Map-type" viewBox="0 0 123.3 102.3">
+                    <path
+                        d="M43 38.83a14.78 14.78 0 0 0-1.22 1.29l-.27.32a15.22 15.22 0 0 0-1 1.4c-.09.15-.19.28-.28.43a16.85 16.85 0 0 0-1 2.06c-.86 2.1-1.64 4.25-2.39 6.42-1 2.9-1.93 5.84-2.85 8.79C37 64.1 40 68.7 42.93 73.43c-.5 2-.84 4.14-1.24 6.22 3.66.77 7.81 1 11.19 2.07-.09 1.29 0 6.35.1 7.41 1.43.51 9.44 5.8 9.44 5.8v-12.4a28.09 28.09 0 0 0-3.91-3.26c.9-3.25 3-5.28 3.91-8.49V33.07c-7.06.35-13.64.48-19.29 5.61zm6.81 21.46c2 1.84 4 3.26 5.39 4.84 1 .14 2 .36 2.93.57l-.3.62q-.59.88-1.1 1.81a1 1 0 0 1-.29.23c-3.11-.5-5.61.69-7.88 0-1.08-.33-4.43-4.11-5.18-5.29-1.27-2-1.68-4.73-2.53-6.74a1.07 1.07 0 0 0 0-.78c-.12-.28-.24-.63-.38-1a21.81 21.81 0 0 1 4 .89c1.82.81 3.53 3.21 5.29 4.85zM29 60.27l.65-2.08c.88-2.83 1.84-5.88 2.89-8.92v-.09c.89-2.58 1.67-4.67 2.45-6.58a21.34 21.34 0 0 1 1.3-2.6c.07-.13.15-.24.23-.36-1.21-.39-2.43-.73-3.67-1l-1.63.08c-5.69.29-12.81.39-17.37 4.6l-.13.12a12 12 0 0 0-1 1.06l-.22.26a12.47 12.47 0 0 0-.79 1.15c-.07.12-.15.23-.22.35a13.9 13.9 0 0 0-.82 1.69c-.67 1.68-1.3 3.45-1.91 5.23C8 55.56 7.21 58 6.47 60.39c2.46 3.73 4.89 7.51 7.23 11.39-.41 1.61-.67 3.39-1 5.1 3 .63 6.3.82 9 1.7-.07 1.06 0 5.21.08 6.07 1.15.42 7.77 4.75 7.77 4.75s6.7-4.14 7.77-4.71c0-.24-1-1.5-1-1.5l.86-4.41c.12-.62.23-1.24.35-1.86.16-.88.32-1.78.51-2.68-2.3-3.69-4.84-7.6-7.9-12.16zm-3.3 5.68q-.47.72-.89 1.48a.76.76 0 0 1-.23.19c-2.51-.41-4.52.57-6.35 0-.87-.27-3.58-3.37-4.18-4.34-1-1.66-1.36-3.88-2-5.52a.89.89 0 0 0 0-.64c-.1-.23-.19-.52-.31-.8a17.34 17.34 0 0 1 3.21.73c1.54.65 2.92 2.62 4.34 4 1.59 1.51 3.2 2.67 4.34 4 .82.11 1.59.29 2.36.47zm3.66 13.29a22.18 22.18 0 0 0-3.08-2.68c.72-2.67 2.34-4.33 3.08-7 .28 0 .42.06.48.27.92 2.36 2.33 4.14 3.08 6.69-1.32.81-2.13 2.13-3.58 2.71zm56-5.8c2.9-4.73 5.91-9.34 9-13.89-.92-2.95-1.85-5.89-2.85-8.79-.75-2.17-1.53-4.32-2.39-6.42a16.84 16.84 0 0 0-1-2.06c-.09-.15-.19-.28-.28-.43a15.19 15.19 0 0 0-1-1.4l-.27-.32a14.79 14.79 0 0 0-1.22-1.29l-.17-.15c-5.65-5.13-12.23-5.25-19.29-5.61v37.7c.92 3.21 3 5.24 3.91 8.49a28.1 28.1 0 0 0-3.91 3.26v12.4s8-5.29 9.44-5.8c.12-1.06.19-6.12.1-7.41 3.38-1.08 7.53-1.3 11.19-2.07-.42-2.08-.75-4.25-1.25-6.22zM82 78.88a44.86 44.86 0 0 0-7 1.4l-1.13.36.08 1.19c.07 1 0 4.59 0 6.33-1.58.85-4.36 2.61-6.47 4v-9a20.86 20.86 0 0 1 2.25-1.85l1.08-.82.79-.62-.27-1a19.65 19.65 0 0 0-2.12-4.66 18.12 18.12 0 0 1-1.74-3.65v-35.9c6.38.32 11.93.75 16.77 5.15l.14.13a13.36 13.36 0 0 1 1.1 1.16l.11.13.13.16a13.63 13.63 0 0 1 .88 1.26l.14.22.11.17a15.31 15.31 0 0 1 .93 1.87c.74 1.81 1.49 3.83 2.36 6.34.93 2.71 1.8 5.45 2.61 8-3.36 5-6.1 9.26-8.6 13.34l-.34.55.16.62c.34 1.32.6 2.78.86 4.2l.08.44c-1.01.2-1.97.34-2.91.48zm32.61-7.11c2.34-3.88 4.77-7.65 7.23-11.39-.74-2.42-1.49-4.83-2.3-7.21-.6-1.78-1.23-3.55-1.92-5.26a13.91 13.91 0 0 0-.82-1.69c-.07-.12-.15-.23-.22-.35a12.41 12.41 0 0 0-.79-1.15l-.22-.26a12 12 0 0 0-1-1.06l-.13-.12c-4.56-4.2-11.68-4.31-17.37-4.6l-1.63-.08c-1.24.28-2.46.62-3.67 1 .08.12.16.24.23.36a21.33 21.33 0 0 1 1.3 2.62c.78 1.91 1.56 4 2.45 6.58v.09c1 3 2 6.09 2.89 8.92l.65 2.08-1.19 1.83c-3.06 4.56-5.6 8.46-7.9 12.16.19.9.35 1.8.51 2.68.11.62.23 1.25.35 1.86l.86 4.41s-1 1.26-1 1.5c1.06.57 7.77 4.71 7.77 4.71s6.62-4.34 7.77-4.75c.1-.87.15-5 .08-6.07 2.73-.88 6.07-1.07 9-1.7-.27-1.72-.54-3.49-.95-5.11zM111.82 76a35.85 35.85 0 0 0-5.71 1.16l-1.12.36.08 1.18c.05.78 0 3.55 0 5-1.66.91-4.65 2.83-6.34 3.93-1.32-.81-3.94-2.42-5.62-3.43l.44-.55-.13-.69-.86-4.41c-.12-.6-.23-1.21-.34-1.81v-.05c-.12-.68-.25-1.39-.39-2.09 2.17-3.6 4.59-7.31 7.52-11.67l1.22-1.81.41-.6-.22-.69-.65-2.08c-.88-2.84-1.85-5.89-2.9-9v-.09C96.28 46.07 95.49 44 94.7 42c-.21-.5-.43-1-.68-1.5q.79-.22 1.56-.4H98c5.41.26 11.54.56 15.43 4.15l.11.1a10.57 10.57 0 0 1 .86.93l.09.11.1.12a10.9 10.9 0 0 1 .69 1l.12.19.08.12a12.4 12.4 0 0 1 .73 1.5c.6 1.48 1.2 3.13 1.89 5.18.74 2.18 1.42 4.37 2.06 6.45-2.68 4.07-4.87 7.53-6.87 10.84l-.33.54.15.61c.27 1.07.47 2.21.69 3.42v.1zM87.48 56.33a1.08 1.08 0 0 1 0-.78c.12-.28.24-.63.38-1a21.81 21.81 0 0 0-4 .89c-1.91.79-3.62 3.2-5.39 4.84-2 1.84-4 3.26-5.39 4.84-1 .14-2 .36-2.93.57l.3.62q.59.88 1.1 1.81a1 1 0 0 0 .28.23c3.11-.5 5.61.69 7.88 0 1.08-.33 4.43-4.11 5.18-5.29 1.34-2.06 1.75-4.73 2.59-6.73zm11 13.54c-.92 2.36-2.33 4.14-3.08 6.69 1.29.78 2.1 2.09 3.55 2.68a22.16 22.16 0 0 1 3.05-2.68c-.72-2.67-2.34-4.33-3.08-7-.24 0-.38.1-.44.31zm17.82-12.12a.89.89 0 0 1 0-.64c.1-.23.19-.52.31-.8a17.33 17.33 0 0 0-3.21.73c-1.54.65-2.92 2.62-4.34 4-1.59 1.51-3.2 2.67-4.34 4-.82.11-1.59.29-2.36.47l.24.51q.47.72.89 1.48a.77.77 0 0 0 .23.19c2.51-.41 4.52.57 6.35 0 .87-.27 3.58-3.37 4.18-4.34 1.04-1.73 1.37-3.95 2.05-5.6z"
+                        transform="translate(-2.38 -12.86)"></path>
+                </svg>Combate Até A Morte Em Equipe</button>
+        </div>
+        <div class="mapa">
+            <div id="todos">
+                <div class="row">
+                    <div class="col">
+                        <div class="h5 text-uppercase fw-bolder">Todos os Mapas</div>
+                        <p class="fw-normal fst-italic">
+                            Em Overwatch, os heris lutam em diversos locais ao redor do mundo. Das maravilhas
+                            tecnológicas de Busan aos montes nevados do Nepal, cada mapa conta com objetivos, segredos e
+                            estratégias a serem exploradas.
+                        </p>
+                    </div>
+                </div>
+                <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-3">
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/ayutthaya.png" data-lightbox="todos" data-title="Ayutthaya">
+                                <img src="../img/mapas/maps/ayutthaya.png" class="card-img-top" alt="ayutthaya"
+                                title="ayutthaya"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder">
+                                    <img class="img-fluid" src="../img/mapas/pais/Thailand.png" alt="Thailand" title="Thailand">
+                                    Ayutthaya</h5>
+                                <div class="card-text"><svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <g>
+                                            <path
+                                                d="M110.6 37.6L64.2 14.8a2.5 2.5 0 0 0-3.6 2.3v80.8a1.7 1.7 0 0 0 1.7 1.7h2.2a1.7 1.7 0 0 0 1.7-1.7V60.5L110.6 40a1.3 1.3 0 0 0 0-2.4z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M95.7 91c-1.1-.3-1.9.6-.8 1.1 5.7 1.7 9.1 3.9 9.1 6.3 0 5.4-18.8 9.7-40.5 9.9S23 103.7 23 98.4c0-2.4 3.4-4.5 9.1-6.3 1-.5.2-1.4-.8-1.1-8.9 2.4-14.4 5.7-14.4 9.4 0 7 21.7 12.8 46.6 13h.3c25-.2 46.6-6 46.6-13-.3-3.7-5.8-7-14.7-9.4z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/blizzard world.png" data-lightbox="todos" data-title="Blizzar World">
+                                <img src="../img/mapas/maps/blizzard world.png" class="card-img-top" alt="blizzard world"
+                                title="blizzard world"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/USA.png" alt="USA" title="USA">
+                                    Blizzard World</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 64 64">
+                                        <g>
+                                            <rect x="12.56" y="23.95" width="11.82" height="11.82" rx="1.74" ry="1.74"
+                                                transform="translate(-15.71 21.8) rotate(-45)"></rect>
+                                            <path
+                                                d="M28.81,24.41a11.69,11.69,0,0,0-9.9-6.23v2.11a9.59,9.59,0,0,1,8.91,7.5Z">
+                                            </path>
+                                            <path
+                                                d="M18,20.28h0v-2.1h0a11.69,11.69,0,1,0,6.36,21.77l1-3.46A9.58,9.58,0,1,1,18,20.28Z">
+                                            </path>
+                                            <path
+                                                d="M24,41.33A12.75,12.75,0,0,1,8.46,37.76a.13.13,0,0,0-.23.08v1a.13.13,0,0,0,0,.08,13.64,13.64,0,0,0,7.21,4.25.13.13,0,0,1,.08.05l0,0,2.59,2.87a.39.39,0,0,0,.55,0l2.61-2.89.06,0a13.54,13.54,0,0,0,2.31-.72Z">
+                                            </path>
+                                            <path
+                                                d="M6.1,26.72a12.52,12.52,0,0,1,9.45-9.29,12.77,12.77,0,0,1,13.75,5.69L29.62,22A13.65,13.65,0,1,0,7.34,37.76h0V36.08h0A12.85,12.85,0,0,1,6.1,26.72Z">
+                                            </path>
+                                            <path
+                                                d="M58.8,34.15h0c0-.23,0-.46,0-.7h0a.27.27,0,0,0,.27-.23.26.26,0,0,0-.26-.28h-.08c0-.23,0-.46,0-.7h.08a.27.27,0,0,0,.27-.23.26.26,0,0,0-.26-.28h-.11l0-.7h.12a.26.26,0,0,0,.26-.28.27.27,0,0,0-.27-.23h-.12l0-.72h0a.55.55,0,0,0,.52-.61.57.57,0,0,0-.58-.49h-.06C58,26.27,56,24.47,52.69,24.47H47.87c-1.23-2.1-1.87-3.51-2.4-3.79a16.33,16.33,0,0,0-6.06-.87c-.88,0-1.61,0-2.22,0L31.88,38.09h10.2a1.77,1.77,0,0,0-.26.8c0,1.14.81,1.32,2.1,1.18h0c0-.11,2.24-3.88,5.79-3.81a7.63,7.63,0,0,1,5.8,3.56s0,.09,0,.13h0c1.48.17,2.43,0,2.43-1.21a2.37,2.37,0,0,0-.58-1.22h0c1.29-.3,1.47-1.4,1.44-2.86h0a.26.26,0,0,0,.26-.19A.26.26,0,0,0,58.8,34.15ZM46,24.54l-5,.23h0c-1.64,0-1.88.2-1.88-.29S39,22.78,39,22.3s0-.85.57-.85,3.4-.08,4,0a1.34,1.34,0,0,1,1.3.9L46,24.54Z">
+                                            </path>
+                                            <path
+                                                d="M49.74,41.55a1.19,1.19,0,1,0,1.49,1.15A1.36,1.36,0,0,0,49.74,41.55Zm0,2a.62.62,0,1,1,.78-.6A.71.71,0,0,1,49.74,43.5Z">
+                                            </path>
+                                            <path
+                                                d="M51.47,37.86l.06-.3a.5.5,0,0,0-.5-.5H48.47a.5.5,0,0,0-.5.5l.07.3c-2.44.56-4.21,2.31-4.21,4.37a3.83,3.83,0,0,0,1,2.5h0a.26.26,0,0,0,0,.36l.91.91a.26.26,0,0,0,.36,0l.11-.16a7.36,7.36,0,0,0,7.17,0l.11.16a.26.26,0,0,0,.36,0l.91-.91a.26.26,0,0,0,0-.36h0a3.83,3.83,0,0,0,1-2.5C55.66,40.16,53.9,38.43,51.47,37.86ZM49,37.94h1.46a.29.29,0,0,1,.29.29l-.24,1.33a.29.29,0,0,1-.29.29h-.92a.29.29,0,0,1-.29-.29l-.3-1.33A.29.29,0,0,1,49,37.94Zm-2.6,7-.39.56a.15.15,0,0,1-.21,0L45.29,45a.15.15,0,0,1,0-.21l.58-.37a.15.15,0,0,1,.21,0l.33.33,0,0v.08A.14.14,0,0,1,46.41,44.93Zm3.34.48c-1.72,0-3.11-1.07-3.11-2.39s1.39-2.39,3.11-2.39,3.11,1.07,3.11,2.39S51.46,45.41,49.74,45.41ZM54.2,45l-.52.52a.15.15,0,0,1-.21,0l-.39-.56,0,0a.61.61,0,0,1,0-.09.14.14,0,0,1,0-.08l.33-.33a.15.15,0,0,1,.21,0l.58.37A.15.15,0,0,1,54.2,45Z">
+                                            </path>
+                                            <polygon points="34.57 12 23.4 51.21 26.11 52 37.27 12.79 34.57 12">
+                                            </polygon>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/busan.png" data-lightbox="todos" data-title="Busan">
+                                <img src="../img/mapas/maps/busan.png" class="card-img-top" alt="busan" title="busan"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/Korea.png" alt="Korea" title="Korea">
+                                    Busan</h5>
+                                <div class="card-text"> <svg class="Svg-icon Map-type" viewBox="0 0 64 64">
+                                        <g>
+                                            <path
+                                                d="M54.94,29.44,34.56,9.06a3.63,3.63,0,0,0-5.12,0L9.06,29.44a3.63,3.63,0,0,0,0,5.12L29.44,54.94a3.63,3.63,0,0,0,5.12,0L54.94,34.56A3.63,3.63,0,0,0,54.94,29.44Zm-.9,3.9L33.35,54a1.91,1.91,0,0,1-2.69,0L10,33.35a1.91,1.91,0,0,1,0-2.69L30.65,10a1.91,1.91,0,0,1,2.69,0L54,30.65A1.91,1.91,0,0,1,54,33.35Z">
+                                            </path>
+                                            <path
+                                                d="M34.21,12.21a3.13,3.13,0,0,0-4.41,0L12.21,29.79a3.13,3.13,0,0,0,0,4.41L29.79,51.79a3.13,3.13,0,0,0,4.41,0L51.79,34.21a3.13,3.13,0,0,0,0-4.41ZM33,49.17a1.49,1.49,0,0,1-2.1,0l-13-13h5.38v.55a1.3,1.3,0,0,0,2.24.89l5-5.32a.46.46,0,0,0,0-.63l-5-5.29a1.3,1.3,0,0,0-2.24.89v.55H18l13-13a1.49,1.49,0,0,1,2.1,0l13,13H40.66v-.55a1.3,1.3,0,0,0-2.24-.89l-5,5.29a.46.46,0,0,0,0,.63l5,5.32a1.3,1.3,0,0,0,2.24-.89v-.55H46Z">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/castillo.png" data-lightbox="todos" data-title="Castillo">
+                                <img src="../img/mapas/maps/castillo.png" class="card-img-top" alt="castillo"
+                                title="castillo"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"> <img class="img-fluid"
+                                        src="../img/mapas/pais/Mexico.png" alt="Mexico" title="Mexico">
+                                    Castillo</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <g>
+                                            <path
+                                                d="M73.5 86.2c.1-.5 10.1-.6 10.9-2.3s-1.5-4.9-1.5-5.8S93 63.3 93 62.4 88.1 51.5 85.3 47 74 38.8 64.9 38.3h-1.7c-9.1.4-17.8 4.4-20.4 8.7S35 61.4 35 62.4s10.1 14.8 10.1 15.7-2.3 4-1.5 5.8 10.8 1.8 10.9 2.3-.3 6.6.3 7.5 8.8 5.9 9.2 5.9 8.5-5 9.2-5.9.2-7 .3-7.5zm-15-14.3c-.6.1-1.1 1.1-1.5 1.3a5.9 5.9 0 0 1-3.4-.1 5.4 5.4 0 0 0-3.1 0c-.8.2-4.7-4.9-5.3-6.3s-2.2-6.5-2-6.8 3.1.3 3.7.6a112.3 112.3 0 0 1 8.1 7.8 7.7 7.7 0 0 0 3.9 2.3c.3.2.2 1.1-.4 1.2zM64 86.7a16.3 16.3 0 0 1-3.7-3.3 70.2 70.2 0 0 1 3.7-7.5 70.2 70.2 0 0 1 3.7 7.4 16.3 16.3 0 0 1-3.7 3.4zm7-13.5c-.4-.2-1-1.2-1.5-1.3s-.6-1-.2-1.1a7.7 7.7 0 0 0 3.9-2.3 112.3 112.3 0 0 1 8.1-7.8c.5-.2 3.5-.8 3.7-.6s-1.6 5.3-2.1 6.8-4.5 6.6-5.3 6.3a5.4 5.4 0 0 0-3.1 0 5.9 5.9 0 0 1-3.5 0z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M89 85a.3.3 0 0 0-.5.2c.2.7.5 1.5-.1 1.8s-10.7 1.8-10.9 2.3 0 3 0 5.3L94 111.1c1.4 1.4 12.5 2.8 13 2.4s-1.2-11.5-1.9-12.2z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M39.5 87.1c-.5-.3-.2-1.2-.1-1.8a.3.3 0 0 0-.4-.3l-16 16.2c-.7.7-2.5 11.7-1.9 12.2s11.6-1 13-2.4l16.2-16.3c0-2.3.2-4.8 0-5.3s-9.4-1.5-10.8-2.3z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M120.2 21.7l-1.8-5.1a1.6 1.6 0 0 0-1.2-1.1l-5.3-1a1.6 1.6 0 0 0-1.6.5l-3.5 4.1a1.6 1.6 0 0 0-.3 1.6l.3.8a.3.3 0 0 1-.1.3h-.1L92.3 36.4 79.1 23.1c-1.3-1.3-.9 1.2-.6 2.3s2.8 9.1 3.8 10.2l3.2 3.4-.5.3-.9.7a.8.8 0 0 0 .1 1.3 13.6 13.6 0 0 1 4.7 4.2 59.7 59.7 0 0 1 2.6 5.7 1.3 1.3 0 0 0 1.9.5l2.6-2 3.2 3.1c1.2 1.1 6.3 2.3 9.4 3.3s3.2-.2 2.2-1.2L98.3 42.4 113 27.8h.3l1.6.3a1.6 1.6 0 0 0 1.6-.5l3.5-4.1a1.6 1.6 0 0 0 .2-1.8z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M32 49.6l2.6 2a1.3 1.3 0 0 0 1.9-.5 59.7 59.7 0 0 1 2.6-5.7 13.6 13.6 0 0 1 4.7-4.2.8.8 0 0 0 .1-1.3l-.9-.7-.5-.3 3.2-3.4c.9-1.1 3.5-9.1 3.8-10.2s.7-3.6-.6-2.3L35.7 36.4 21.4 22h-.1a.3.3 0 0 1-.1-.3l.3-.8a1.6 1.6 0 0 0-.3-1.6l-3.5-4.1a1.6 1.6 0 0 0-1.6-.5l-5.3 1a1.6 1.6 0 0 0-1.2 1.1l-1.8 4.9a1.6 1.6 0 0 0 .3 1.6l3.5 4.1a1.6 1.6 0 0 0 1.6.5l1.6-.3h.2l14.7 14.8-12.4 12.5c-1 .9-.8 2.1 2.2 1.2s8.1-2.2 9.4-3.3z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <path
+                                            d="M43 38.83a14.78 14.78 0 0 0-1.22 1.29l-.27.32a15.22 15.22 0 0 0-1 1.4c-.09.15-.19.28-.28.43a16.85 16.85 0 0 0-1 2.06c-.86 2.1-1.64 4.25-2.39 6.42-1 2.9-1.93 5.84-2.85 8.79C37 64.1 40 68.7 42.93 73.43c-.5 2-.84 4.14-1.24 6.22 3.66.77 7.81 1 11.19 2.07-.09 1.29 0 6.35.1 7.41 1.43.51 9.44 5.8 9.44 5.8v-12.4a28.09 28.09 0 0 0-3.91-3.26c.9-3.25 3-5.28 3.91-8.49V33.07c-7.06.35-13.64.48-19.29 5.61zm6.81 21.46c2 1.84 4 3.26 5.39 4.84 1 .14 2 .36 2.93.57l-.3.62q-.59.88-1.1 1.81a1 1 0 0 1-.29.23c-3.11-.5-5.61.69-7.88 0-1.08-.33-4.43-4.11-5.18-5.29-1.27-2-1.68-4.73-2.53-6.74a1.07 1.07 0 0 0 0-.78c-.12-.28-.24-.63-.38-1a21.81 21.81 0 0 1 4 .89c1.82.81 3.53 3.21 5.29 4.85zM29 60.27l.65-2.08c.88-2.83 1.84-5.88 2.89-8.92v-.09c.89-2.58 1.67-4.67 2.45-6.58a21.34 21.34 0 0 1 1.3-2.6c.07-.13.15-.24.23-.36-1.21-.39-2.43-.73-3.67-1l-1.63.08c-5.69.29-12.81.39-17.37 4.6l-.13.12a12 12 0 0 0-1 1.06l-.22.26a12.47 12.47 0 0 0-.79 1.15c-.07.12-.15.23-.22.35a13.9 13.9 0 0 0-.82 1.69c-.67 1.68-1.3 3.45-1.91 5.23C8 55.56 7.21 58 6.47 60.39c2.46 3.73 4.89 7.51 7.23 11.39-.41 1.61-.67 3.39-1 5.1 3 .63 6.3.82 9 1.7-.07 1.06 0 5.21.08 6.07 1.15.42 7.77 4.75 7.77 4.75s6.7-4.14 7.77-4.71c0-.24-1-1.5-1-1.5l.86-4.41c.12-.62.23-1.24.35-1.86.16-.88.32-1.78.51-2.68-2.3-3.69-4.84-7.6-7.9-12.16zm-3.3 5.68q-.47.72-.89 1.48a.76.76 0 0 1-.23.19c-2.51-.41-4.52.57-6.35 0-.87-.27-3.58-3.37-4.18-4.34-1-1.66-1.36-3.88-2-5.52a.89.89 0 0 0 0-.64c-.1-.23-.19-.52-.31-.8a17.34 17.34 0 0 1 3.21.73c1.54.65 2.92 2.62 4.34 4 1.59 1.51 3.2 2.67 4.34 4 .82.11 1.59.29 2.36.47zm3.66 13.29a22.18 22.18 0 0 0-3.08-2.68c.72-2.67 2.34-4.33 3.08-7 .28 0 .42.06.48.27.92 2.36 2.33 4.14 3.08 6.69-1.32.81-2.13 2.13-3.58 2.71zm56-5.8c2.9-4.73 5.91-9.34 9-13.89-.92-2.95-1.85-5.89-2.85-8.79-.75-2.17-1.53-4.32-2.39-6.42a16.84 16.84 0 0 0-1-2.06c-.09-.15-.19-.28-.28-.43a15.19 15.19 0 0 0-1-1.4l-.27-.32a14.79 14.79 0 0 0-1.22-1.29l-.17-.15c-5.65-5.13-12.23-5.25-19.29-5.61v37.7c.92 3.21 3 5.24 3.91 8.49a28.1 28.1 0 0 0-3.91 3.26v12.4s8-5.29 9.44-5.8c.12-1.06.19-6.12.1-7.41 3.38-1.08 7.53-1.3 11.19-2.07-.42-2.08-.75-4.25-1.25-6.22zM82 78.88a44.86 44.86 0 0 0-7 1.4l-1.13.36.08 1.19c.07 1 0 4.59 0 6.33-1.58.85-4.36 2.61-6.47 4v-9a20.86 20.86 0 0 1 2.25-1.85l1.08-.82.79-.62-.27-1a19.65 19.65 0 0 0-2.12-4.66 18.12 18.12 0 0 1-1.74-3.65v-35.9c6.38.32 11.93.75 16.77 5.15l.14.13a13.36 13.36 0 0 1 1.1 1.16l.11.13.13.16a13.63 13.63 0 0 1 .88 1.26l.14.22.11.17a15.31 15.31 0 0 1 .93 1.87c.74 1.81 1.49 3.83 2.36 6.34.93 2.71 1.8 5.45 2.61 8-3.36 5-6.1 9.26-8.6 13.34l-.34.55.16.62c.34 1.32.6 2.78.86 4.2l.08.44c-1.01.2-1.97.34-2.91.48zm32.61-7.11c2.34-3.88 4.77-7.65 7.23-11.39-.74-2.42-1.49-4.83-2.3-7.21-.6-1.78-1.23-3.55-1.92-5.26a13.91 13.91 0 0 0-.82-1.69c-.07-.12-.15-.23-.22-.35a12.41 12.41 0 0 0-.79-1.15l-.22-.26a12 12 0 0 0-1-1.06l-.13-.12c-4.56-4.2-11.68-4.31-17.37-4.6l-1.63-.08c-1.24.28-2.46.62-3.67 1 .08.12.16.24.23.36a21.33 21.33 0 0 1 1.3 2.62c.78 1.91 1.56 4 2.45 6.58v.09c1 3 2 6.09 2.89 8.92l.65 2.08-1.19 1.83c-3.06 4.56-5.6 8.46-7.9 12.16.19.9.35 1.8.51 2.68.11.62.23 1.25.35 1.86l.86 4.41s-1 1.26-1 1.5c1.06.57 7.77 4.71 7.77 4.71s6.62-4.34 7.77-4.75c.1-.87.15-5 .08-6.07 2.73-.88 6.07-1.07 9-1.7-.27-1.72-.54-3.49-.95-5.11zM111.82 76a35.85 35.85 0 0 0-5.71 1.16l-1.12.36.08 1.18c.05.78 0 3.55 0 5-1.66.91-4.65 2.83-6.34 3.93-1.32-.81-3.94-2.42-5.62-3.43l.44-.55-.13-.69-.86-4.41c-.12-.6-.23-1.21-.34-1.81v-.05c-.12-.68-.25-1.39-.39-2.09 2.17-3.6 4.59-7.31 7.52-11.67l1.22-1.81.41-.6-.22-.69-.65-2.08c-.88-2.84-1.85-5.89-2.9-9v-.09C96.28 46.07 95.49 44 94.7 42c-.21-.5-.43-1-.68-1.5q.79-.22 1.56-.4H98c5.41.26 11.54.56 15.43 4.15l.11.1a10.57 10.57 0 0 1 .86.93l.09.11.1.12a10.9 10.9 0 0 1 .69 1l.12.19.08.12a12.4 12.4 0 0 1 .73 1.5c.6 1.48 1.2 3.13 1.89 5.18.74 2.18 1.42 4.37 2.06 6.45-2.68 4.07-4.87 7.53-6.87 10.84l-.33.54.15.61c.27 1.07.47 2.21.69 3.42v.1zM87.48 56.33a1.08 1.08 0 0 1 0-.78c.12-.28.24-.63.38-1a21.81 21.81 0 0 0-4 .89c-1.91.79-3.62 3.2-5.39 4.84-2 1.84-4 3.26-5.39 4.84-1 .14-2 .36-2.93.57l.3.62q.59.88 1.1 1.81a1 1 0 0 0 .28.23c3.11-.5 5.61.69 7.88 0 1.08-.33 4.43-4.11 5.18-5.29 1.34-2.06 1.75-4.73 2.59-6.73zm11 13.54c-.92 2.36-2.33 4.14-3.08 6.69 1.29.78 2.1 2.09 3.55 2.68a22.16 22.16 0 0 1 3.05-2.68c-.72-2.67-2.34-4.33-3.08-7-.24 0-.38.1-.44.31zm17.82-12.12a.89.89 0 0 1 0-.64c.1-.23.19-.52.31-.8a17.33 17.33 0 0 0-3.21.73c-1.54.65-2.92 2.62-4.34 4-1.59 1.51-3.2 2.67-4.34 4-.82.11-1.59.29-2.36.47l.24.51q.47.72.89 1.48a.77.77 0 0 0 .23.19c2.51-.41 4.52.57 6.35 0 .87-.27 3.58-3.37 4.18-4.34 1.04-1.73 1.37-3.95 2.05-5.6z"
+                                            transform="translate(-2.38 -12.86)"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/chateau guillard.png" data-lightbox="todos" data-title="Chateau Guillard">
+                                <img src="../img/mapas/maps/chateau guillard.png" class="card-img-top"
+                                alt="chateau guillard" title="chateau guillard"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/France.png" alt="France" title="France">
+                                    Chateau Guillard</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <g>
+                                            <path
+                                                d="M84.14 91.33c3-4.88 6.11-9.63 9.27-14.32-.95-3-1.91-6.08-2.94-9.07-.77-2.24-1.58-4.46-2.47-6.62a17.36 17.36 0 0 0-1.06-2.12c-.09-.16-.19-.29-.29-.44a15.66 15.66 0 0 0-1-1.44l-.28-.32a15.27 15.27 0 0 0-1.26-1.33l-.17-.16c-5.84-5.3-12.65-5.43-19.94-5.79-7.29.37-14.1.5-19.94 5.78l-.17.16A15.27 15.27 0 0 0 42.63 57l-.28.33a15.66 15.66 0 0 0-1 1.44c-.09.15-.2.29-.29.44A17.36 17.36 0 0 0 40 61.32c-.89 2.16-1.69 4.38-2.47 6.62-1 3-2 6-2.94 9.07 3.16 4.69 6.27 9.45 9.27 14.32-.52 2-.86 4.27-1.29 6.41 3.79.79 8.07 1 11.57 2.13-.09 1.33 0 6.55.1 7.64 1.48.52 9.75 6 9.75 6s8.28-5.46 9.75-6c.13-1.09.19-6.31.1-7.64 3.5-1.11 7.78-1.35 11.57-2.13-.41-2.14-.75-4.38-1.27-6.41zM59.22 84q-.61.91-1.14 1.86a1 1 0 0 1-.29.23c-3.22-.51-5.8.71-8.14 0-1.12-.34-4.58-4.24-5.36-5.46-1.32-2.09-1.74-4.88-2.62-6.95a1.11 1.11 0 0 0 0-.81c-.13-.29-.25-.65-.39-1a22.58 22.58 0 0 1 4.11.92c2 .81 3.74 3.29 5.57 5 2 1.9 4.11 3.36 5.57 5 1.06.14 2 .37 3 .59zM64 100.72a29 29 0 0 0-4-3.37c.89-3.35 3-5.44 4-8.75 1 3.31 3.11 5.4 4 8.76a29 29 0 0 0-4 3.36zM78.35 86.1c-2.34.71-4.92-.51-8.14 0a1 1 0 0 1-.29-.23q-.53-1-1.14-1.86l-.31-.64c1-.22 2-.44 3-.59 1.46-1.63 3.53-3.1 5.57-5 1.83-1.69 3.59-4.17 5.57-5a22.58 22.58 0 0 1 4.11-.92c-.15.35-.27.71-.39 1a1.11 1.11 0 0 0 0 .81c-.88 2.07-1.3 4.86-2.62 6.95-.77 1.24-4.24 5.15-5.36 5.48z"
+                                                transform="translate(-2.38 -12.86)"></path>
+                                            <path
+                                                d="M89.89 22.65c-2.62 1.69-6 4.13-7.17 6.11a7.83 7.83 0 0 0-2.25-2.91.94.94 0 0 0-1.51.83v.33A4.69 4.69 0 0 1 77.91 30c-2.26 2.84-4.06 3.07-5.68 2.8l-.06.09v-.1a5.77 5.77 0 0 1-3.6-9.12 1.54 1.54 0 0 0 .05-1.75c-1.12-1.73-2.93-5.1-3.91-7a.78.78 0 0 0-1.38 0c-1 1.82-2.77 5.09-3.89 6.79a1.54 1.54 0 0 0 0 1.76 5.77 5.77 0 0 1-3.61 9.11v.1l-.06-.09c-1.63.27-3.42 0-5.7-2.8A4.66 4.66 0 0 1 49 26.86v-.36a.94.94 0 0 0-1.51-.83 7.83 7.83 0 0 0-2.25 2.91c-1.19-2-4.55-4.41-7.17-6.11a.94.94 0 0 0-1.32 1.27 57.41 57.41 0 0 1 6.91 16.46 3.39 3.39 0 0 0 1.33 2v2.7h.06a2.88 2.88 0 0 0-1.53 2.2 2.67 2.67 0 0 0 1.28 2c5.81-3.46 12-3.77 18.11-4.06h2.17c6 .3 12.26.6 18 4a2.62 2.62 0 0 0 1.22-2 2.88 2.88 0 0 0-1.53-2.2h.06v-2.6a3.4 3.4 0 0 0 1.47-2.11 57.52 57.52 0 0 1 6.86-16.3.94.94 0 0 0-1.27-1.18z"
+                                                transform="translate(-2.38 -12.86)"></path>
+                                            <path
+                                                d="M114.35 89.62c2.42-4 4.93-7.89 7.48-11.74-.76-2.49-1.54-5-2.37-7.43-.62-1.84-1.27-3.66-2-5.43a14.31 14.31 0 0 0-.85-1.74c-.07-.13-.16-.24-.23-.36a12.87 12.87 0 0 0-.81-1.18l-.23-.27a12.43 12.43 0 0 0-1-1.09l-.14-.13c-4.71-4.33-12.07-4.44-18-4.74l-1.68-.09c-1.28.29-2.55.64-3.8 1 .08.12.16.24.24.38a22 22 0 0 1 1.34 2.7c.81 2 1.61 4.12 2.53 6.78v.09c1.08 3.14 2.07 6.27 3 9.2l.67 2.15-1.2 1.91c-3.16 4.7-5.79 8.73-8.16 12.54.19.92.36 1.85.53 2.76.12.64.24 1.29.36 1.92l.89 4.55s-1 1.3-1 1.54c1.1.59 8 4.86 8 4.86s6.84-4.47 8-4.9c.1-.89.16-5.17.08-6.26 2.82-.91 6.27-1.1 9.33-1.75-.33-1.77-.56-3.6-.98-5.27zm-16.17 7.7c-1.5-.61-2.34-2-3.67-2.76.77-2.63 2.23-4.47 3.18-6.9.06-.22.21-.32.49-.28.77 2.72 2.44 4.43 3.19 7.18a22.9 22.9 0 0 0-3.19 2.76zm11.5-12c-1.89.59-4-.42-6.57 0a.79.79 0 0 1-.24-.19q-.43-.78-.92-1.53l-.25-.53c.8-.18 1.59-.36 2.44-.48 1.18-1.34 2.85-2.54 4.49-4.09 1.47-1.39 2.9-3.42 4.49-4.09a18 18 0 0 1 3.32-.75c-.12.29-.21.58-.32.82a.92.92 0 0 0 0 .66c-.71 1.7-1 4-2.11 5.7-.63 1.02-3.42 4.22-4.32 4.5zm-80.24-7.56l.67-2.15c.91-2.92 1.9-6.06 3-9.2v-.09c.92-2.66 1.72-4.82 2.53-6.79A22 22 0 0 1 37 56.84c.08-.13.16-.25.24-.37-1.25-.4-2.52-.75-3.8-1l-1.68.09c-5.88.3-13.25.41-18 4.74l-.14.13a12.42 12.42 0 0 0-1 1.09l-.23.27a12.85 12.85 0 0 0-.81 1.18c-.08.12-.16.24-.23.36a14.33 14.33 0 0 0-.81 1.67c-.72 1.77-1.37 3.59-2 5.43-.83 2.45-1.61 4.94-2.37 7.43 2.55 3.85 5.06 7.74 7.48 11.74-.42 1.66-.7 3.5-1 5.26 3.05.65 6.51.84 9.33 1.75-.07 1.09 0 5.37.08 6.26 1.19.43 8 4.9 8 4.9s6.93-4.27 8-4.86c0-.25-1-1.54-1-1.54l.94-4.53c.12-.63.24-1.28.36-1.92.17-.91.34-1.84.53-2.76-2.38-3.81-5-7.84-8.16-12.54zM26 83.62q-.49.74-.92 1.53a.79.79 0 0 1-.24.19c-2.59-.42-4.67.59-6.57 0-.9-.28-3.7-3.48-4.32-4.48-1.06-1.71-1.4-4-2.11-5.7a.92.92 0 0 0 0-.66c-.1-.24-.2-.54-.32-.82a18 18 0 0 1 3.32.75c1.59.67 3 2.7 4.49 4.09 1.64 1.55 3.31 2.76 4.49 4.09.85.12 1.65.3 2.44.48zm3.78 13.7a22.9 22.9 0 0 0-3.19-2.76c.75-2.75 2.42-4.46 3.19-7.18.29 0 .43.06.49.28.95 2.43 2.41 4.27 3.18 6.9-1.29.8-2.13 2.15-3.63 2.76z"
+                                                transform="translate(-2.38 -12.86)"></path>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <path
+                                            d="M43 38.83a14.78 14.78 0 0 0-1.22 1.29l-.27.32a15.22 15.22 0 0 0-1 1.4c-.09.15-.19.28-.28.43a16.85 16.85 0 0 0-1 2.06c-.86 2.1-1.64 4.25-2.39 6.42-1 2.9-1.93 5.84-2.85 8.79C37 64.1 40 68.7 42.93 73.43c-.5 2-.84 4.14-1.24 6.22 3.66.77 7.81 1 11.19 2.07-.09 1.29 0 6.35.1 7.41 1.43.51 9.44 5.8 9.44 5.8v-12.4a28.09 28.09 0 0 0-3.91-3.26c.9-3.25 3-5.28 3.91-8.49V33.07c-7.06.35-13.64.48-19.29 5.61zm6.81 21.46c2 1.84 4 3.26 5.39 4.84 1 .14 2 .36 2.93.57l-.3.62q-.59.88-1.1 1.81a1 1 0 0 1-.29.23c-3.11-.5-5.61.69-7.88 0-1.08-.33-4.43-4.11-5.18-5.29-1.27-2-1.68-4.73-2.53-6.74a1.07 1.07 0 0 0 0-.78c-.12-.28-.24-.63-.38-1a21.81 21.81 0 0 1 4 .89c1.82.81 3.53 3.21 5.29 4.85zM29 60.27l.65-2.08c.88-2.83 1.84-5.88 2.89-8.92v-.09c.89-2.58 1.67-4.67 2.45-6.58a21.34 21.34 0 0 1 1.3-2.6c.07-.13.15-.24.23-.36-1.21-.39-2.43-.73-3.67-1l-1.63.08c-5.69.29-12.81.39-17.37 4.6l-.13.12a12 12 0 0 0-1 1.06l-.22.26a12.47 12.47 0 0 0-.79 1.15c-.07.12-.15.23-.22.35a13.9 13.9 0 0 0-.82 1.69c-.67 1.68-1.3 3.45-1.91 5.23C8 55.56 7.21 58 6.47 60.39c2.46 3.73 4.89 7.51 7.23 11.39-.41 1.61-.67 3.39-1 5.1 3 .63 6.3.82 9 1.7-.07 1.06 0 5.21.08 6.07 1.15.42 7.77 4.75 7.77 4.75s6.7-4.14 7.77-4.71c0-.24-1-1.5-1-1.5l.86-4.41c.12-.62.23-1.24.35-1.86.16-.88.32-1.78.51-2.68-2.3-3.69-4.84-7.6-7.9-12.16zm-3.3 5.68q-.47.72-.89 1.48a.76.76 0 0 1-.23.19c-2.51-.41-4.52.57-6.35 0-.87-.27-3.58-3.37-4.18-4.34-1-1.66-1.36-3.88-2-5.52a.89.89 0 0 0 0-.64c-.1-.23-.19-.52-.31-.8a17.34 17.34 0 0 1 3.21.73c1.54.65 2.92 2.62 4.34 4 1.59 1.51 3.2 2.67 4.34 4 .82.11 1.59.29 2.36.47zm3.66 13.29a22.18 22.18 0 0 0-3.08-2.68c.72-2.67 2.34-4.33 3.08-7 .28 0 .42.06.48.27.92 2.36 2.33 4.14 3.08 6.69-1.32.81-2.13 2.13-3.58 2.71zm56-5.8c2.9-4.73 5.91-9.34 9-13.89-.92-2.95-1.85-5.89-2.85-8.79-.75-2.17-1.53-4.32-2.39-6.42a16.84 16.84 0 0 0-1-2.06c-.09-.15-.19-.28-.28-.43a15.19 15.19 0 0 0-1-1.4l-.27-.32a14.79 14.79 0 0 0-1.22-1.29l-.17-.15c-5.65-5.13-12.23-5.25-19.29-5.61v37.7c.92 3.21 3 5.24 3.91 8.49a28.1 28.1 0 0 0-3.91 3.26v12.4s8-5.29 9.44-5.8c.12-1.06.19-6.12.1-7.41 3.38-1.08 7.53-1.3 11.19-2.07-.42-2.08-.75-4.25-1.25-6.22zM82 78.88a44.86 44.86 0 0 0-7 1.4l-1.13.36.08 1.19c.07 1 0 4.59 0 6.33-1.58.85-4.36 2.61-6.47 4v-9a20.86 20.86 0 0 1 2.25-1.85l1.08-.82.79-.62-.27-1a19.65 19.65 0 0 0-2.12-4.66 18.12 18.12 0 0 1-1.74-3.65v-35.9c6.38.32 11.93.75 16.77 5.15l.14.13a13.36 13.36 0 0 1 1.1 1.16l.11.13.13.16a13.63 13.63 0 0 1 .88 1.26l.14.22.11.17a15.31 15.31 0 0 1 .93 1.87c.74 1.81 1.49 3.83 2.36 6.34.93 2.71 1.8 5.45 2.61 8-3.36 5-6.1 9.26-8.6 13.34l-.34.55.16.62c.34 1.32.6 2.78.86 4.2l.08.44c-1.01.2-1.97.34-2.91.48zm32.61-7.11c2.34-3.88 4.77-7.65 7.23-11.39-.74-2.42-1.49-4.83-2.3-7.21-.6-1.78-1.23-3.55-1.92-5.26a13.91 13.91 0 0 0-.82-1.69c-.07-.12-.15-.23-.22-.35a12.41 12.41 0 0 0-.79-1.15l-.22-.26a12 12 0 0 0-1-1.06l-.13-.12c-4.56-4.2-11.68-4.31-17.37-4.6l-1.63-.08c-1.24.28-2.46.62-3.67 1 .08.12.16.24.23.36a21.33 21.33 0 0 1 1.3 2.62c.78 1.91 1.56 4 2.45 6.58v.09c1 3 2 6.09 2.89 8.92l.65 2.08-1.19 1.83c-3.06 4.56-5.6 8.46-7.9 12.16.19.9.35 1.8.51 2.68.11.62.23 1.25.35 1.86l.86 4.41s-1 1.26-1 1.5c1.06.57 7.77 4.71 7.77 4.71s6.62-4.34 7.77-4.75c.1-.87.15-5 .08-6.07 2.73-.88 6.07-1.07 9-1.7-.27-1.72-.54-3.49-.95-5.11zM111.82 76a35.85 35.85 0 0 0-5.71 1.16l-1.12.36.08 1.18c.05.78 0 3.55 0 5-1.66.91-4.65 2.83-6.34 3.93-1.32-.81-3.94-2.42-5.62-3.43l.44-.55-.13-.69-.86-4.41c-.12-.6-.23-1.21-.34-1.81v-.05c-.12-.68-.25-1.39-.39-2.09 2.17-3.6 4.59-7.31 7.52-11.67l1.22-1.81.41-.6-.22-.69-.65-2.08c-.88-2.84-1.85-5.89-2.9-9v-.09C96.28 46.07 95.49 44 94.7 42c-.21-.5-.43-1-.68-1.5q.79-.22 1.56-.4H98c5.41.26 11.54.56 15.43 4.15l.11.1a10.57 10.57 0 0 1 .86.93l.09.11.1.12a10.9 10.9 0 0 1 .69 1l.12.19.08.12a12.4 12.4 0 0 1 .73 1.5c.6 1.48 1.2 3.13 1.89 5.18.74 2.18 1.42 4.37 2.06 6.45-2.68 4.07-4.87 7.53-6.87 10.84l-.33.54.15.61c.27 1.07.47 2.21.69 3.42v.1zM87.48 56.33a1.08 1.08 0 0 1 0-.78c.12-.28.24-.63.38-1a21.81 21.81 0 0 0-4 .89c-1.91.79-3.62 3.2-5.39 4.84-2 1.84-4 3.26-5.39 4.84-1 .14-2 .36-2.93.57l.3.62q.59.88 1.1 1.81a1 1 0 0 0 .28.23c3.11-.5 5.61.69 7.88 0 1.08-.33 4.43-4.11 5.18-5.29 1.34-2.06 1.75-4.73 2.59-6.73zm11 13.54c-.92 2.36-2.33 4.14-3.08 6.69 1.29.78 2.1 2.09 3.55 2.68a22.16 22.16 0 0 1 3.05-2.68c-.72-2.67-2.34-4.33-3.08-7-.24 0-.38.1-.44.31zm17.82-12.12a.89.89 0 0 1 0-.64c.1-.23.19-.52.31-.8a17.33 17.33 0 0 0-3.21.73c-1.54.65-2.92 2.62-4.34 4-1.59 1.51-3.2 2.67-4.34 4-.82.11-1.59.29-2.36.47l.24.51q.47.72.89 1.48a.77.77 0 0 0 .23.19c2.51-.41 4.52.57 6.35 0 .87-.27 3.58-3.37 4.18-4.34 1.04-1.73 1.37-3.95 2.05-5.6z"
+                                            transform="translate(-2.38 -12.86)"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/colonia lunar horizon.png" data-lightbox="todos" data-title="Colonia Lunar Horizon">
+                                <img src="../img/mapas/maps/colonia lunar horizon.png" class="card-img-top"
+                                alt="colonia lunar horizon" title="colonia lunar horizon"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder">
+                                    <img class="img-fluid" src="../img/mapas/pais/Moon.png" alt="Moon" title="Moon">
+                                    Colonia Lunar Horizon</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 64 64">
+                                        <g>
+                                            <rect x="22.15" y="19.88" width="19.69" height="19.69" rx="2.89" ry="2.89"
+                                                transform="translate(-11.65 31.33) rotate(-45)"></rect>
+                                            <path
+                                                d="M12.54,29.29A19.47,19.47,0,0,0,46.41,42.8h0l-2.66-2.28h0a16,16,0,1,1-12.5-26.75h0v-3.5h0A19.47,19.47,0,0,0,12.54,29.29Z">
+                                            </path>
+                                            <path
+                                                d="M48,29.72a15.89,15.89,0,0,1-3.25,9.65l2.66,2.28A19.47,19.47,0,0,0,32.75,10.27v3.51A16,16,0,0,1,48,29.72Z">
+                                            </path>
+                                            <path
+                                                d="M32.37,7A22.73,22.73,0,0,0,13.47,42.89h0v-2.8h0A21.4,21.4,0,0,1,11.4,24.51,20.84,20.84,0,0,1,27.13,9a21.25,21.25,0,0,1,23.4,31h0v2.8h0A22.73,22.73,0,0,0,32.37,7Z">
+                                            </path>
+                                            <path
+                                                d="M32,51a21.19,21.19,0,0,1-16.66-8.08A.21.21,0,0,0,15,43v1.68a.21.21,0,0,0,.05.14,22.71,22.71,0,0,0,12,7.08.22.22,0,0,1,.13.08l0,0,4.31,4.78a.65.65,0,0,0,.91,0L36.75,52a.21.21,0,0,1,.1-.06A22.71,22.71,0,0,0,49,44.83a.21.21,0,0,0,.05-.14V43a.21.21,0,0,0-.37-.13A21.19,21.19,0,0,1,32,51Z">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/dorado.png" data-lightbox="todos" data-title="Dorado">
+                                <img src="../img/mapas/maps/dorado.png" class="card-img-top" alt="dorado" title="dorado"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/Mexico.png" alt="Mexico" title="Mexico">
+                                    Dorado</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <g>
+                                            <path
+                                                d="M84.14 91.33c3-4.88 6.11-9.63 9.27-14.32-.95-3-1.91-6.08-2.94-9.07-.77-2.24-1.58-4.46-2.47-6.62a17.36 17.36 0 0 0-1.06-2.12c-.09-.16-.19-.29-.29-.44a15.66 15.66 0 0 0-1-1.44l-.28-.32a15.27 15.27 0 0 0-1.26-1.33l-.17-.16c-5.84-5.3-12.65-5.43-19.94-5.79-7.29.37-14.1.5-19.94 5.78l-.17.16A15.27 15.27 0 0 0 42.63 57l-.28.33a15.66 15.66 0 0 0-1 1.44c-.09.15-.2.29-.29.44A17.36 17.36 0 0 0 40 61.32c-.89 2.16-1.69 4.38-2.47 6.62-1 3-2 6-2.94 9.07 3.16 4.69 6.27 9.45 9.27 14.32-.52 2-.86 4.27-1.29 6.41 3.79.79 8.07 1 11.57 2.13-.09 1.33 0 6.55.1 7.64 1.48.52 9.75 6 9.75 6s8.28-5.46 9.75-6c.13-1.09.19-6.31.1-7.64 3.5-1.11 7.78-1.35 11.57-2.13-.41-2.14-.75-4.38-1.27-6.41zM59.22 84q-.61.91-1.14 1.86a1 1 0 0 1-.29.23c-3.22-.51-5.8.71-8.14 0-1.12-.34-4.58-4.24-5.36-5.46-1.32-2.09-1.74-4.88-2.62-6.95a1.11 1.11 0 0 0 0-.81c-.13-.29-.25-.65-.39-1a22.58 22.58 0 0 1 4.11.92c2 .81 3.74 3.29 5.57 5 2 1.9 4.11 3.36 5.57 5 1.06.14 2 .37 3 .59zM64 100.72a29 29 0 0 0-4-3.37c.89-3.35 3-5.44 4-8.75 1 3.31 3.11 5.4 4 8.76a29 29 0 0 0-4 3.36zM78.35 86.1c-2.34.71-4.92-.51-8.14 0a1 1 0 0 1-.29-.23q-.53-1-1.14-1.86l-.31-.64c1-.22 2-.44 3-.59 1.46-1.63 3.53-3.1 5.57-5 1.83-1.69 3.59-4.17 5.57-5a22.58 22.58 0 0 1 4.11-.92c-.15.35-.27.71-.39 1a1.11 1.11 0 0 0 0 .81c-.88 2.07-1.3 4.86-2.62 6.95-.77 1.24-4.24 5.15-5.36 5.48z"
+                                                transform="translate(-2.38 -12.86)"></path>
+                                            <path
+                                                d="M89.89 22.65c-2.62 1.69-6 4.13-7.17 6.11a7.83 7.83 0 0 0-2.25-2.91.94.94 0 0 0-1.51.83v.33A4.69 4.69 0 0 1 77.91 30c-2.26 2.84-4.06 3.07-5.68 2.8l-.06.09v-.1a5.77 5.77 0 0 1-3.6-9.12 1.54 1.54 0 0 0 .05-1.75c-1.12-1.73-2.93-5.1-3.91-7a.78.78 0 0 0-1.38 0c-1 1.82-2.77 5.09-3.89 6.79a1.54 1.54 0 0 0 0 1.76 5.77 5.77 0 0 1-3.61 9.11v.1l-.06-.09c-1.63.27-3.42 0-5.7-2.8A4.66 4.66 0 0 1 49 26.86v-.36a.94.94 0 0 0-1.51-.83 7.83 7.83 0 0 0-2.25 2.91c-1.19-2-4.55-4.41-7.17-6.11a.94.94 0 0 0-1.32 1.27 57.41 57.41 0 0 1 6.91 16.46 3.39 3.39 0 0 0 1.33 2v2.7h.06a2.88 2.88 0 0 0-1.53 2.2 2.67 2.67 0 0 0 1.28 2c5.81-3.46 12-3.77 18.11-4.06h2.17c6 .3 12.26.6 18 4a2.62 2.62 0 0 0 1.22-2 2.88 2.88 0 0 0-1.53-2.2h.06v-2.6a3.4 3.4 0 0 0 1.47-2.11 57.52 57.52 0 0 1 6.86-16.3.94.94 0 0 0-1.27-1.18z"
+                                                transform="translate(-2.38 -12.86)"></path>
+                                            <path
+                                                d="M114.35 89.62c2.42-4 4.93-7.89 7.48-11.74-.76-2.49-1.54-5-2.37-7.43-.62-1.84-1.27-3.66-2-5.43a14.31 14.31 0 0 0-.85-1.74c-.07-.13-.16-.24-.23-.36a12.87 12.87 0 0 0-.81-1.18l-.23-.27a12.43 12.43 0 0 0-1-1.09l-.14-.13c-4.71-4.33-12.07-4.44-18-4.74l-1.68-.09c-1.28.29-2.55.64-3.8 1 .08.12.16.24.24.38a22 22 0 0 1 1.34 2.7c.81 2 1.61 4.12 2.53 6.78v.09c1.08 3.14 2.07 6.27 3 9.2l.67 2.15-1.2 1.91c-3.16 4.7-5.79 8.73-8.16 12.54.19.92.36 1.85.53 2.76.12.64.24 1.29.36 1.92l.89 4.55s-1 1.3-1 1.54c1.1.59 8 4.86 8 4.86s6.84-4.47 8-4.9c.1-.89.16-5.17.08-6.26 2.82-.91 6.27-1.1 9.33-1.75-.33-1.77-.56-3.6-.98-5.27zm-16.17 7.7c-1.5-.61-2.34-2-3.67-2.76.77-2.63 2.23-4.47 3.18-6.9.06-.22.21-.32.49-.28.77 2.72 2.44 4.43 3.19 7.18a22.9 22.9 0 0 0-3.19 2.76zm11.5-12c-1.89.59-4-.42-6.57 0a.79.79 0 0 1-.24-.19q-.43-.78-.92-1.53l-.25-.53c.8-.18 1.59-.36 2.44-.48 1.18-1.34 2.85-2.54 4.49-4.09 1.47-1.39 2.9-3.42 4.49-4.09a18 18 0 0 1 3.32-.75c-.12.29-.21.58-.32.82a.92.92 0 0 0 0 .66c-.71 1.7-1 4-2.11 5.7-.63 1.02-3.42 4.22-4.32 4.5zm-80.24-7.56l.67-2.15c.91-2.92 1.9-6.06 3-9.2v-.09c.92-2.66 1.72-4.82 2.53-6.79A22 22 0 0 1 37 56.84c.08-.13.16-.25.24-.37-1.25-.4-2.52-.75-3.8-1l-1.68.09c-5.88.3-13.25.41-18 4.74l-.14.13a12.42 12.42 0 0 0-1 1.09l-.23.27a12.85 12.85 0 0 0-.81 1.18c-.08.12-.16.24-.23.36a14.33 14.33 0 0 0-.81 1.67c-.72 1.77-1.37 3.59-2 5.43-.83 2.45-1.61 4.94-2.37 7.43 2.55 3.85 5.06 7.74 7.48 11.74-.42 1.66-.7 3.5-1 5.26 3.05.65 6.51.84 9.33 1.75-.07 1.09 0 5.37.08 6.26 1.19.43 8 4.9 8 4.9s6.93-4.27 8-4.86c0-.25-1-1.54-1-1.54l.94-4.53c.12-.63.24-1.28.36-1.92.17-.91.34-1.84.53-2.76-2.38-3.81-5-7.84-8.16-12.54zM26 83.62q-.49.74-.92 1.53a.79.79 0 0 1-.24.19c-2.59-.42-4.67.59-6.57 0-.9-.28-3.7-3.48-4.32-4.48-1.06-1.71-1.4-4-2.11-5.7a.92.92 0 0 0 0-.66c-.1-.24-.2-.54-.32-.82a18 18 0 0 1 3.32.75c1.59.67 3 2.7 4.49 4.09 1.64 1.55 3.31 2.76 4.49 4.09.85.12 1.65.3 2.44.48zm3.78 13.7a22.9 22.9 0 0 0-3.19-2.76c.75-2.75 2.42-4.46 3.19-7.18.29 0 .43.06.49.28.95 2.43 2.41 4.27 3.18 6.9-1.29.8-2.13 2.15-3.63 2.76z"
+                                                transform="translatea(-2.38 -12.86)"></path>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 64 64">
+                                        <g>
+                                            <rect x="10.38" y="24.34" width="21.03" height="14.39" rx="0.81" ry="0.81">
+                                            </rect>
+                                            <path
+                                                d="M60.62,37.83h0c0-.23,0-.47,0-.72h0a.28.28,0,0,0,.28-.24.26.26,0,0,0-.26-.29h-.09c0-.24,0-.47,0-.72h.08a.28.28,0,0,0,.28-.24.26.26,0,0,0-.26-.29H60.5l0-.72h.13a.26.26,0,0,0,.26-.29.28.28,0,0,0-.28-.24h-.12l0-.74h0a.57.57,0,0,0,.53-.63.59.59,0,0,0-.59-.5h-.06c-.5-2.43-2.65-4.26-6-4.26H49.44c-1.26-2.15-1.91-3.59-2.45-3.87a16.68,16.68,0,0,0-6.19-.89c-3.43,0-4.64.13-5,.35s-.59.19-.59,1.48v5.42H34.7V23.8a.6.6,0,0,0-.6-.6H32.66a.6.6,0,0,0-.6.6V39.27H3.39a.39.39,0,0,0-.39.39v1.81a.39.39,0,0,0,.39.39h1a.14.14,0,0,1,.14.14v.24a.47.47,0,0,0,.47.47H8.49A.47.47,0,0,0,9,42.25V42a.14.14,0,0,1,.14-.14h3.34a.14.14,0,0,0,.09,0,6,6,0,0,1,4.06-1.48,6,6,0,0,1,4.06,1.48.14.14,0,0,0,.09,0H22a.14.14,0,0,1,.14.14v.24a.47.47,0,0,0,.47.47h1.72a.14.14,0,0,0,.1,0l.24-.24a.14.14,0,0,1,.2,0l.24.24a.14.14,0,0,0,.1,0H27a.14.14,0,0,0,.1,0l.11-.11a.14.14,0,0,1,.2,0l.11.11a.14.14,0,0,0,.1,0h1.82a.14.14,0,0,0,.1,0l.24-.24a.14.14,0,0,1,.2,0l.24.24a.14.14,0,0,0,.1,0h1.42a.47.47,0,0,0,.47-.47V42a.14.14,0,0,1,.14-.14h11.2a1.8,1.8,0,0,0-.26.81c0,1.16.83,1.35,2.14,1.2h0c0-.11,2.29-4,5.91-3.89a7.79,7.79,0,0,1,5.92,3.64s0,.09,0,.13h0c1.51.17,2.49,0,2.49-1.23a2.42,2.42,0,0,0-.6-1.24h0c1.32-.3,1.5-1.43,1.47-2.92h0a.27.27,0,0,0,.26-.2A.26.26,0,0,0,60.62,37.83ZM47.5,28l-5.07.24h0c-1.67,0-1.92.21-1.92-.29s-.08-1.74-.08-2.23,0-.86.58-.86,3.47-.08,4.06,0a1.37,1.37,0,0,1,1.32.92L47.5,28Z">
+                                            </path>
+                                            <path
+                                                d="M51.36,45.39a1.21,1.21,0,1,0,1.53,1.17A1.38,1.38,0,0,0,51.36,45.39Zm0,2a.64.64,0,1,1,.8-.62A.73.73,0,0,1,51.36,47.39Z">
+                                            </path>
+                                            <path
+                                                d="M53.12,41.63l.06-.31a.51.51,0,0,0-.51-.51H50.06a.51.51,0,0,0-.51.51l.07.31c-2.49.58-4.3,2.35-4.3,4.46a3.92,3.92,0,0,0,1,2.55h0a.26.26,0,0,0,0,.37l.93.93a.26.26,0,0,0,.37,0l.11-.16a7.51,7.51,0,0,0,7.32,0l.11.16a.26.26,0,0,0,.37,0l.93-.93a.26.26,0,0,0,0-.37h0a3.91,3.91,0,0,0,1-2.55C57.41,44,55.6,42.21,53.12,41.63Zm-2.51.08h1.49a.3.3,0,0,1,.29.29l-.25,1.36a.3.3,0,0,1-.29.29h-.94a.3.3,0,0,1-.29-.29L50.32,42A.3.3,0,0,1,50.61,41.71ZM48,48.85l-.4.57a.15.15,0,0,1-.21,0l-.54-.54a.15.15,0,0,1,0-.21l.6-.37a.15.15,0,0,1,.21,0l.34.34,0,0v.08A.15.15,0,0,1,48,48.85Zm3.41.49c-1.75,0-3.17-1.09-3.17-2.44s1.42-2.44,3.17-2.44,3.17,1.09,3.17,2.44S53.11,49.33,51.36,49.33Zm4.55-.45-.54.54a.15.15,0,0,1-.21,0l-.4-.57,0,0a.63.63,0,0,1,0-.09.14.14,0,0,1,0-.08l.34-.34a.15.15,0,0,1,.21,0l.6.37A.15.15,0,0,1,55.91,48.89Z">
+                                            </path>
+                                            <path
+                                                d="M16.8,45.33a1.23,1.23,0,1,0,0,2.38,1.23,1.23,0,1,0,0-2.38Zm0,2a.64.64,0,1,1,.8-.62A.73.73,0,0,1,16.8,47.35Z">
+                                            </path>
+                                            <path
+                                                d="M18.56,41.51l.06-.31a.52.52,0,0,0-.51-.52H15.5a.52.52,0,0,0-.51.52l.07.31c-2.49.58-4.3,2.38-4.3,4.52a4,4,0,0,0,1,2.59h0a.27.27,0,0,0,0,.37l.93.95a.26.26,0,0,0,.37,0l.11-.16a7.43,7.43,0,0,0,7.32,0l.11.16a.26.26,0,0,0,.37,0l.93-.95a.27.27,0,0,0,0-.37h0a4,4,0,0,0,1-2.59C22.85,43.9,21,42.1,18.56,41.51Zm-2.51.08h1.49a.3.3,0,0,1,.29.3l-.25,1.37a.3.3,0,0,1-.29.3h-.94a.3.3,0,0,1-.29-.3l-.31-1.37A.3.3,0,0,1,16.06,41.59ZM13.4,48.82l-.4.58a.15.15,0,0,1-.21,0l-.54-.54a.15.15,0,0,1,0-.21l.6-.38a.15.15,0,0,1,.21,0l.34.34,0,0v.08A.15.15,0,0,1,13.4,48.82Zm3.41.49c-1.75,0-3.17-1.11-3.17-2.48s1.42-2.48,3.17-2.48S20,45.47,20,46.84,18.56,49.32,16.8,49.32Zm4.55-.45-.54.54a.15.15,0,0,1-.21,0l-.4-.58,0,0a.65.65,0,0,1,0-.09.15.15,0,0,1,0-.08l.34-.34a.15.15,0,0,1,.21,0l.6.38A.15.15,0,0,1,21.35,48.86Z">
+                                            </path>
+                                            <rect x="38.04" y="14.19" width="6.12" height="6.12" rx="0.82" ry="0.82"
+                                                transform="translate(-0.16 34.12) rotate(-45)"></rect>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <path
+                                            d="M43 38.83a14.78 14.78 0 0 0-1.22 1.29l-.27.32a15.22 15.22 0 0 0-1 1.4c-.09.15-.19.28-.28.43a16.85 16.85 0 0 0-1 2.06c-.86 2.1-1.64 4.25-2.39 6.42-1 2.9-1.93 5.84-2.85 8.79C37 64.1 40 68.7 42.93 73.43c-.5 2-.84 4.14-1.24 6.22 3.66.77 7.81 1 11.19 2.07-.09 1.29 0 6.35.1 7.41 1.43.51 9.44 5.8 9.44 5.8v-12.4a28.09 28.09 0 0 0-3.91-3.26c.9-3.25 3-5.28 3.91-8.49V33.07c-7.06.35-13.64.48-19.29 5.61zm6.81 21.46c2 1.84 4 3.26 5.39 4.84 1 .14 2 .36 2.93.57l-.3.62q-.59.88-1.1 1.81a1 1 0 0 1-.29.23c-3.11-.5-5.61.69-7.88 0-1.08-.33-4.43-4.11-5.18-5.29-1.27-2-1.68-4.73-2.53-6.74a1.07 1.07 0 0 0 0-.78c-.12-.28-.24-.63-.38-1a21.81 21.81 0 0 1 4 .89c1.82.81 3.53 3.21 5.29 4.85zM29 60.27l.65-2.08c.88-2.83 1.84-5.88 2.89-8.92v-.09c.89-2.58 1.67-4.67 2.45-6.58a21.34 21.34 0 0 1 1.3-2.6c.07-.13.15-.24.23-.36-1.21-.39-2.43-.73-3.67-1l-1.63.08c-5.69.29-12.81.39-17.37 4.6l-.13.12a12 12 0 0 0-1 1.06l-.22.26a12.47 12.47 0 0 0-.79 1.15c-.07.12-.15.23-.22.35a13.9 13.9 0 0 0-.82 1.69c-.67 1.68-1.3 3.45-1.91 5.23C8 55.56 7.21 58 6.47 60.39c2.46 3.73 4.89 7.51 7.23 11.39-.41 1.61-.67 3.39-1 5.1 3 .63 6.3.82 9 1.7-.07 1.06 0 5.21.08 6.07 1.15.42 7.77 4.75 7.77 4.75s6.7-4.14 7.77-4.71c0-.24-1-1.5-1-1.5l.86-4.41c.12-.62.23-1.24.35-1.86.16-.88.32-1.78.51-2.68-2.3-3.69-4.84-7.6-7.9-12.16zm-3.3 5.68q-.47.72-.89 1.48a.76.76 0 0 1-.23.19c-2.51-.41-4.52.57-6.35 0-.87-.27-3.58-3.37-4.18-4.34-1-1.66-1.36-3.88-2-5.52a.89.89 0 0 0 0-.64c-.1-.23-.19-.52-.31-.8a17.34 17.34 0 0 1 3.21.73c1.54.65 2.92 2.62 4.34 4 1.59 1.51 3.2 2.67 4.34 4 .82.11 1.59.29 2.36.47zm3.66 13.29a22.18 22.18 0 0 0-3.08-2.68c.72-2.67 2.34-4.33 3.08-7 .28 0 .42.06.48.27.92 2.36 2.33 4.14 3.08 6.69-1.32.81-2.13 2.13-3.58 2.71zm56-5.8c2.9-4.73 5.91-9.34 9-13.89-.92-2.95-1.85-5.89-2.85-8.79-.75-2.17-1.53-4.32-2.39-6.42a16.84 16.84 0 0 0-1-2.06c-.09-.15-.19-.28-.28-.43a15.19 15.19 0 0 0-1-1.4l-.27-.32a14.79 14.79 0 0 0-1.22-1.29l-.17-.15c-5.65-5.13-12.23-5.25-19.29-5.61v37.7c.92 3.21 3 5.24 3.91 8.49a28.1 28.1 0 0 0-3.91 3.26v12.4s8-5.29 9.44-5.8c.12-1.06.19-6.12.1-7.41 3.38-1.08 7.53-1.3 11.19-2.07-.42-2.08-.75-4.25-1.25-6.22zM82 78.88a44.86 44.86 0 0 0-7 1.4l-1.13.36.08 1.19c.07 1 0 4.59 0 6.33-1.58.85-4.36 2.61-6.47 4v-9a20.86 20.86 0 0 1 2.25-1.85l1.08-.82.79-.62-.27-1a19.65 19.65 0 0 0-2.12-4.66 18.12 18.12 0 0 1-1.74-3.65v-35.9c6.38.32 11.93.75 16.77 5.15l.14.13a13.36 13.36 0 0 1 1.1 1.16l.11.13.13.16a13.63 13.63 0 0 1 .88 1.26l.14.22.11.17a15.31 15.31 0 0 1 .93 1.87c.74 1.81 1.49 3.83 2.36 6.34.93 2.71 1.8 5.45 2.61 8-3.36 5-6.1 9.26-8.6 13.34l-.34.55.16.62c.34 1.32.6 2.78.86 4.2l.08.44c-1.01.2-1.97.34-2.91.48zm32.61-7.11c2.34-3.88 4.77-7.65 7.23-11.39-.74-2.42-1.49-4.83-2.3-7.21-.6-1.78-1.23-3.55-1.92-5.26a13.91 13.91 0 0 0-.82-1.69c-.07-.12-.15-.23-.22-.35a12.41 12.41 0 0 0-.79-1.15l-.22-.26a12 12 0 0 0-1-1.06l-.13-.12c-4.56-4.2-11.68-4.31-17.37-4.6l-1.63-.08c-1.24.28-2.46.62-3.67 1 .08.12.16.24.23.36a21.33 21.33 0 0 1 1.3 2.62c.78 1.91 1.56 4 2.45 6.58v.09c1 3 2 6.09 2.89 8.92l.65 2.08-1.19 1.83c-3.06 4.56-5.6 8.46-7.9 12.16.19.9.35 1.8.51 2.68.11.62.23 1.25.35 1.86l.86 4.41s-1 1.26-1 1.5c1.06.57 7.77 4.71 7.77 4.71s6.62-4.34 7.77-4.75c.1-.87.15-5 .08-6.07 2.73-.88 6.07-1.07 9-1.7-.27-1.72-.54-3.49-.95-5.11zM111.82 76a35.85 35.85 0 0 0-5.71 1.16l-1.12.36.08 1.18c.05.78 0 3.55 0 5-1.66.91-4.65 2.83-6.34 3.93-1.32-.81-3.94-2.42-5.62-3.43l.44-.55-.13-.69-.86-4.41c-.12-.6-.23-1.21-.34-1.81v-.05c-.12-.68-.25-1.39-.39-2.09 2.17-3.6 4.59-7.31 7.52-11.67l1.22-1.81.41-.6-.22-.69-.65-2.08c-.88-2.84-1.85-5.89-2.9-9v-.09C96.28 46.07 95.49 44 94.7 42c-.21-.5-.43-1-.68-1.5q.79-.22 1.56-.4H98c5.41.26 11.54.56 15.43 4.15l.11.1a10.57 10.57 0 0 1 .86.93l.09.11.1.12a10.9 10.9 0 0 1 .69 1l.12.19.08.12a12.4 12.4 0 0 1 .73 1.5c.6 1.48 1.2 3.13 1.89 5.18.74 2.18 1.42 4.37 2.06 6.45-2.68 4.07-4.87 7.53-6.87 10.84l-.33.54.15.61c.27 1.07.47 2.21.69 3.42v.1zM87.48 56.33a1.08 1.08 0 0 1 0-.78c.12-.28.24-.63.38-1a21.81 21.81 0 0 0-4 .89c-1.91.79-3.62 3.2-5.39 4.84-2 1.84-4 3.26-5.39 4.84-1 .14-2 .36-2.93.57l.3.62q.59.88 1.1 1.81a1 1 0 0 0 .28.23c3.11-.5 5.61.69 7.88 0 1.08-.33 4.43-4.11 5.18-5.29 1.34-2.06 1.75-4.73 2.59-6.73zm11 13.54c-.92 2.36-2.33 4.14-3.08 6.69 1.29.78 2.1 2.09 3.55 2.68a22.16 22.16 0 0 1 3.05-2.68c-.72-2.67-2.34-4.33-3.08-7-.24 0-.38.1-.44.31zm17.82-12.12a.89.89 0 0 1 0-.64c.1-.23.19-.52.31-.8a17.33 17.33 0 0 0-3.21.73c-1.54.65-2.92 2.62-4.34 4-1.59 1.51-3.2 2.67-4.34 4-.82.11-1.59.29-2.36.47l.24.51q.47.72.89 1.48a.77.77 0 0 0 .23.19c2.51-.41 4.52.57 6.35 0 .87-.27 3.58-3.37 4.18-4.34 1.04-1.73 1.37-3.95 2.05-5.6z"
+                                            transform="translate(-2.38 -12.86)"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/ecoponto antartica.png" data-lightbox="todos" data-title="Ecoponto Antartica">
+                                <img src="../img/mapas/maps/ecoponto antartica.png" class="card-img-top"
+                                alt="ecoponto antartica" title="ecoponto antartica"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/OW.png" alt="OW" title="OW">
+                                    Ecoponto: Antártica</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <g>
+                                            <path
+                                                d="M73.5 86.2c.1-.5 10.1-.6 10.9-2.3s-1.5-4.9-1.5-5.8S93 63.3 93 62.4 88.1 51.5 85.3 47 74 38.8 64.9 38.3h-1.7c-9.1.4-17.8 4.4-20.4 8.7S35 61.4 35 62.4s10.1 14.8 10.1 15.7-2.3 4-1.5 5.8 10.8 1.8 10.9 2.3-.3 6.6.3 7.5 8.8 5.9 9.2 5.9 8.5-5 9.2-5.9.2-7 .3-7.5zm-15-14.3c-.6.1-1.1 1.1-1.5 1.3a5.9 5.9 0 0 1-3.4-.1 5.4 5.4 0 0 0-3.1 0c-.8.2-4.7-4.9-5.3-6.3s-2.2-6.5-2-6.8 3.1.3 3.7.6a112.3 112.3 0 0 1 8.1 7.8 7.7 7.7 0 0 0 3.9 2.3c.3.2.2 1.1-.4 1.2zM64 86.7a16.3 16.3 0 0 1-3.7-3.3 70.2 70.2 0 0 1 3.7-7.5 70.2 70.2 0 0 1 3.7 7.4 16.3 16.3 0 0 1-3.7 3.4zm7-13.5c-.4-.2-1-1.2-1.5-1.3s-.6-1-.2-1.1a7.7 7.7 0 0 0 3.9-2.3 112.3 112.3 0 0 1 8.1-7.8c.5-.2 3.5-.8 3.7-.6s-1.6 5.3-2.1 6.8-4.5 6.6-5.3 6.3a5.4 5.4 0 0 0-3.1 0 5.9 5.9 0 0 1-3.5 0z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M89 85a.3.3 0 0 0-.5.2c.2.7.5 1.5-.1 1.8s-10.7 1.8-10.9 2.3 0 3 0 5.3L94 111.1c1.4 1.4 12.5 2.8 13 2.4s-1.2-11.5-1.9-12.2z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M39.5 87.1c-.5-.3-.2-1.2-.1-1.8a.3.3 0 0 0-.4-.3l-16 16.2c-.7.7-2.5 11.7-1.9 12.2s11.6-1 13-2.4l16.2-16.3c0-2.3.2-4.8 0-5.3s-9.4-1.5-10.8-2.3z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M120.2 21.7l-1.8-5.1a1.6 1.6 0 0 0-1.2-1.1l-5.3-1a1.6 1.6 0 0 0-1.6.5l-3.5 4.1a1.6 1.6 0 0 0-.3 1.6l.3.8a.3.3 0 0 1-.1.3h-.1L92.3 36.4 79.1 23.1c-1.3-1.3-.9 1.2-.6 2.3s2.8 9.1 3.8 10.2l3.2 3.4-.5.3-.9.7a.8.8 0 0 0 .1 1.3 13.6 13.6 0 0 1 4.7 4.2 59.7 59.7 0 0 1 2.6 5.7 1.3 1.3 0 0 0 1.9.5l2.6-2 3.2 3.1c1.2 1.1 6.3 2.3 9.4 3.3s3.2-.2 2.2-1.2L98.3 42.4 113 27.8h.3l1.6.3a1.6 1.6 0 0 0 1.6-.5l3.5-4.1a1.6 1.6 0 0 0 .2-1.8z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M32 49.6l2.6 2a1.3 1.3 0 0 0 1.9-.5 59.7 59.7 0 0 1 2.6-5.7 13.6 13.6 0 0 1 4.7-4.2.8.8 0 0 0 .1-1.3l-.9-.7-.5-.3 3.2-3.4c.9-1.1 3.5-9.1 3.8-10.2s.7-3.6-.6-2.3L35.7 36.4 21.4 22h-.1a.3.3 0 0 1-.1-.3l.3-.8a1.6 1.6 0 0 0-.3-1.6l-3.5-4.1a1.6 1.6 0 0 0-1.6-.5l-5.3 1a1.6 1.6 0 0 0-1.2 1.1l-1.8 4.9a1.6 1.6 0 0 0 .3 1.6l3.5 4.1a1.6 1.6 0 0 0 1.6.5l1.6-.3h.2l14.7 14.8-12.4 12.5c-1 .9-.8 2.1 2.2 1.2s8.1-2.2 9.4-3.3z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <path
+                                            d="M43 38.83a14.78 14.78 0 0 0-1.22 1.29l-.27.32a15.22 15.22 0 0 0-1 1.4c-.09.15-.19.28-.28.43a16.85 16.85 0 0 0-1 2.06c-.86 2.1-1.64 4.25-2.39 6.42-1 2.9-1.93 5.84-2.85 8.79C37 64.1 40 68.7 42.93 73.43c-.5 2-.84 4.14-1.24 6.22 3.66.77 7.81 1 11.19 2.07-.09 1.29 0 6.35.1 7.41 1.43.51 9.44 5.8 9.44 5.8v-12.4a28.09 28.09 0 0 0-3.91-3.26c.9-3.25 3-5.28 3.91-8.49V33.07c-7.06.35-13.64.48-19.29 5.61zm6.81 21.46c2 1.84 4 3.26 5.39 4.84 1 .14 2 .36 2.93.57l-.3.62q-.59.88-1.1 1.81a1 1 0 0 1-.29.23c-3.11-.5-5.61.69-7.88 0-1.08-.33-4.43-4.11-5.18-5.29-1.27-2-1.68-4.73-2.53-6.74a1.07 1.07 0 0 0 0-.78c-.12-.28-.24-.63-.38-1a21.81 21.81 0 0 1 4 .89c1.82.81 3.53 3.21 5.29 4.85zM29 60.27l.65-2.08c.88-2.83 1.84-5.88 2.89-8.92v-.09c.89-2.58 1.67-4.67 2.45-6.58a21.34 21.34 0 0 1 1.3-2.6c.07-.13.15-.24.23-.36-1.21-.39-2.43-.73-3.67-1l-1.63.08c-5.69.29-12.81.39-17.37 4.6l-.13.12a12 12 0 0 0-1 1.06l-.22.26a12.47 12.47 0 0 0-.79 1.15c-.07.12-.15.23-.22.35a13.9 13.9 0 0 0-.82 1.69c-.67 1.68-1.3 3.45-1.91 5.23C8 55.56 7.21 58 6.47 60.39c2.46 3.73 4.89 7.51 7.23 11.39-.41 1.61-.67 3.39-1 5.1 3 .63 6.3.82 9 1.7-.07 1.06 0 5.21.08 6.07 1.15.42 7.77 4.75 7.77 4.75s6.7-4.14 7.77-4.71c0-.24-1-1.5-1-1.5l.86-4.41c.12-.62.23-1.24.35-1.86.16-.88.32-1.78.51-2.68-2.3-3.69-4.84-7.6-7.9-12.16zm-3.3 5.68q-.47.72-.89 1.48a.76.76 0 0 1-.23.19c-2.51-.41-4.52.57-6.35 0-.87-.27-3.58-3.37-4.18-4.34-1-1.66-1.36-3.88-2-5.52a.89.89 0 0 0 0-.64c-.1-.23-.19-.52-.31-.8a17.34 17.34 0 0 1 3.21.73c1.54.65 2.92 2.62 4.34 4 1.59 1.51 3.2 2.67 4.34 4 .82.11 1.59.29 2.36.47zm3.66 13.29a22.18 22.18 0 0 0-3.08-2.68c.72-2.67 2.34-4.33 3.08-7 .28 0 .42.06.48.27.92 2.36 2.33 4.14 3.08 6.69-1.32.81-2.13 2.13-3.58 2.71zm56-5.8c2.9-4.73 5.91-9.34 9-13.89-.92-2.95-1.85-5.89-2.85-8.79-.75-2.17-1.53-4.32-2.39-6.42a16.84 16.84 0 0 0-1-2.06c-.09-.15-.19-.28-.28-.43a15.19 15.19 0 0 0-1-1.4l-.27-.32a14.79 14.79 0 0 0-1.22-1.29l-.17-.15c-5.65-5.13-12.23-5.25-19.29-5.61v37.7c.92 3.21 3 5.24 3.91 8.49a28.1 28.1 0 0 0-3.91 3.26v12.4s8-5.29 9.44-5.8c.12-1.06.19-6.12.1-7.41 3.38-1.08 7.53-1.3 11.19-2.07-.42-2.08-.75-4.25-1.25-6.22zM82 78.88a44.86 44.86 0 0 0-7 1.4l-1.13.36.08 1.19c.07 1 0 4.59 0 6.33-1.58.85-4.36 2.61-6.47 4v-9a20.86 20.86 0 0 1 2.25-1.85l1.08-.82.79-.62-.27-1a19.65 19.65 0 0 0-2.12-4.66 18.12 18.12 0 0 1-1.74-3.65v-35.9c6.38.32 11.93.75 16.77 5.15l.14.13a13.36 13.36 0 0 1 1.1 1.16l.11.13.13.16a13.63 13.63 0 0 1 .88 1.26l.14.22.11.17a15.31 15.31 0 0 1 .93 1.87c.74 1.81 1.49 3.83 2.36 6.34.93 2.71 1.8 5.45 2.61 8-3.36 5-6.1 9.26-8.6 13.34l-.34.55.16.62c.34 1.32.6 2.78.86 4.2l.08.44c-1.01.2-1.97.34-2.91.48zm32.61-7.11c2.34-3.88 4.77-7.65 7.23-11.39-.74-2.42-1.49-4.83-2.3-7.21-.6-1.78-1.23-3.55-1.92-5.26a13.91 13.91 0 0 0-.82-1.69c-.07-.12-.15-.23-.22-.35a12.41 12.41 0 0 0-.79-1.15l-.22-.26a12 12 0 0 0-1-1.06l-.13-.12c-4.56-4.2-11.68-4.31-17.37-4.6l-1.63-.08c-1.24.28-2.46.62-3.67 1 .08.12.16.24.23.36a21.33 21.33 0 0 1 1.3 2.62c.78 1.91 1.56 4 2.45 6.58v.09c1 3 2 6.09 2.89 8.92l.65 2.08-1.19 1.83c-3.06 4.56-5.6 8.46-7.9 12.16.19.9.35 1.8.51 2.68.11.62.23 1.25.35 1.86l.86 4.41s-1 1.26-1 1.5c1.06.57 7.77 4.71 7.77 4.71s6.62-4.34 7.77-4.75c.1-.87.15-5 .08-6.07 2.73-.88 6.07-1.07 9-1.7-.27-1.72-.54-3.49-.95-5.11zM111.82 76a35.85 35.85 0 0 0-5.71 1.16l-1.12.36.08 1.18c.05.78 0 3.55 0 5-1.66.91-4.65 2.83-6.34 3.93-1.32-.81-3.94-2.42-5.62-3.43l.44-.55-.13-.69-.86-4.41c-.12-.6-.23-1.21-.34-1.81v-.05c-.12-.68-.25-1.39-.39-2.09 2.17-3.6 4.59-7.31 7.52-11.67l1.22-1.81.41-.6-.22-.69-.65-2.08c-.88-2.84-1.85-5.89-2.9-9v-.09C96.28 46.07 95.49 44 94.7 42c-.21-.5-.43-1-.68-1.5q.79-.22 1.56-.4H98c5.41.26 11.54.56 15.43 4.15l.11.1a10.57 10.57 0 0 1 .86.93l.09.11.1.12a10.9 10.9 0 0 1 .69 1l.12.19.08.12a12.4 12.4 0 0 1 .73 1.5c.6 1.48 1.2 3.13 1.89 5.18.74 2.18 1.42 4.37 2.06 6.45-2.68 4.07-4.87 7.53-6.87 10.84l-.33.54.15.61c.27 1.07.47 2.21.69 3.42v.1zM87.48 56.33a1.08 1.08 0 0 1 0-.78c.12-.28.24-.63.38-1a21.81 21.81 0 0 0-4 .89c-1.91.79-3.62 3.2-5.39 4.84-2 1.84-4 3.26-5.39 4.84-1 .14-2 .36-2.93.57l.3.62q.59.88 1.1 1.81a1 1 0 0 0 .28.23c3.11-.5 5.61.69 7.88 0 1.08-.33 4.43-4.11 5.18-5.29 1.34-2.06 1.75-4.73 2.59-6.73zm11 13.54c-.92 2.36-2.33 4.14-3.08 6.69 1.29.78 2.1 2.09 3.55 2.68a22.16 22.16 0 0 1 3.05-2.68c-.72-2.67-2.34-4.33-3.08-7-.24 0-.38.1-.44.31zm17.82-12.12a.89.89 0 0 1 0-.64c.1-.23.19-.52.31-.8a17.33 17.33 0 0 0-3.21.73c-1.54.65-2.92 2.62-4.34 4-1.59 1.51-3.2 2.67-4.34 4-.82.11-1.59.29-2.36.47l.24.51q.47.72.89 1.48a.77.77 0 0 0 .23.19c2.51-.41 4.52.57 6.35 0 .87-.27 3.58-3.37 4.18-4.34 1.04-1.73 1.37-3.95 2.05-5.6z"
+                                            transform="translate(-2.38 -12.86)"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/eichenwalde.png" data-lightbox="todos" data-title="Eichenwalde">
+                                <img src="../img/mapas/maps/eichenwalde.png" class="card-img-top" alt="eichenwalde"
+                                title="eichenwalde"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/Germany.png" alt="Germany" title="Germany">
+                                    Eichenwalde</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <g>
+                                            <path
+                                                d="M84.14 91.33c3-4.88 6.11-9.63 9.27-14.32-.95-3-1.91-6.08-2.94-9.07-.77-2.24-1.58-4.46-2.47-6.62a17.36 17.36 0 0 0-1.06-2.12c-.09-.16-.19-.29-.29-.44a15.66 15.66 0 0 0-1-1.44l-.28-.32a15.27 15.27 0 0 0-1.26-1.33l-.17-.16c-5.84-5.3-12.65-5.43-19.94-5.79-7.29.37-14.1.5-19.94 5.78l-.17.16A15.27 15.27 0 0 0 42.63 57l-.28.33a15.66 15.66 0 0 0-1 1.44c-.09.15-.2.29-.29.44A17.36 17.36 0 0 0 40 61.32c-.89 2.16-1.69 4.38-2.47 6.62-1 3-2 6-2.94 9.07 3.16 4.69 6.27 9.45 9.27 14.32-.52 2-.86 4.27-1.29 6.41 3.79.79 8.07 1 11.57 2.13-.09 1.33 0 6.55.1 7.64 1.48.52 9.75 6 9.75 6s8.28-5.46 9.75-6c.13-1.09.19-6.31.1-7.64 3.5-1.11 7.78-1.35 11.57-2.13-.41-2.14-.75-4.38-1.27-6.41zM59.22 84q-.61.91-1.14 1.86a1 1 0 0 1-.29.23c-3.22-.51-5.8.71-8.14 0-1.12-.34-4.58-4.24-5.36-5.46-1.32-2.09-1.74-4.88-2.62-6.95a1.11 1.11 0 0 0 0-.81c-.13-.29-.25-.65-.39-1a22.58 22.58 0 0 1 4.11.92c2 .81 3.74 3.29 5.57 5 2 1.9 4.11 3.36 5.57 5 1.06.14 2 .37 3 .59zM64 100.72a29 29 0 0 0-4-3.37c.89-3.35 3-5.44 4-8.75 1 3.31 3.11 5.4 4 8.76a29 29 0 0 0-4 3.36zM78.35 86.1c-2.34.71-4.92-.51-8.14 0a1 1 0 0 1-.29-.23q-.53-1-1.14-1.86l-.31-.64c1-.22 2-.44 3-.59 1.46-1.63 3.53-3.1 5.57-5 1.83-1.69 3.59-4.17 5.57-5a22.58 22.58 0 0 1 4.11-.92c-.15.35-.27.71-.39 1a1.11 1.11 0 0 0 0 .81c-.88 2.07-1.3 4.86-2.62 6.95-.77 1.24-4.24 5.15-5.36 5.48z"
+                                                transform="translate(-2.38 -12.86)"></path>
+                                            <path
+                                                d="M89.89 22.65c-2.62 1.69-6 4.13-7.17 6.11a7.83 7.83 0 0 0-2.25-2.91.94.94 0 0 0-1.51.83v.33A4.69 4.69 0 0 1 77.91 30c-2.26 2.84-4.06 3.07-5.68 2.8l-.06.09v-.1a5.77 5.77 0 0 1-3.6-9.12 1.54 1.54 0 0 0 .05-1.75c-1.12-1.73-2.93-5.1-3.91-7a.78.78 0 0 0-1.38 0c-1 1.82-2.77 5.09-3.89 6.79a1.54 1.54 0 0 0 0 1.76 5.77 5.77 0 0 1-3.61 9.11v.1l-.06-.09c-1.63.27-3.42 0-5.7-2.8A4.66 4.66 0 0 1 49 26.86v-.36a.94.94 0 0 0-1.51-.83 7.83 7.83 0 0 0-2.25 2.91c-1.19-2-4.55-4.41-7.17-6.11a.94.94 0 0 0-1.32 1.27 57.41 57.41 0 0 1 6.91 16.46 3.39 3.39 0 0 0 1.33 2v2.7h.06a2.88 2.88 0 0 0-1.53 2.2 2.67 2.67 0 0 0 1.28 2c5.81-3.46 12-3.77 18.11-4.06h2.17c6 .3 12.26.6 18 4a2.62 2.62 0 0 0 1.22-2 2.88 2.88 0 0 0-1.53-2.2h.06v-2.6a3.4 3.4 0 0 0 1.47-2.11 57.52 57.52 0 0 1 6.86-16.3.94.94 0 0 0-1.27-1.18z"
+                                                transform="translate(-2.38 -12.86)"></path>
+                                            <path
+                                                d="M114.35 89.62c2.42-4 4.93-7.89 7.48-11.74-.76-2.49-1.54-5-2.37-7.43-.62-1.84-1.27-3.66-2-5.43a14.31 14.31 0 0 0-.85-1.74c-.07-.13-.16-.24-.23-.36a12.87 12.87 0 0 0-.81-1.18l-.23-.27a12.43 12.43 0 0 0-1-1.09l-.14-.13c-4.71-4.33-12.07-4.44-18-4.74l-1.68-.09c-1.28.29-2.55.64-3.8 1 .08.12.16.24.24.38a22 22 0 0 1 1.34 2.7c.81 2 1.61 4.12 2.53 6.78v.09c1.08 3.14 2.07 6.27 3 9.2l.67 2.15-1.2 1.91c-3.16 4.7-5.79 8.73-8.16 12.54.19.92.36 1.85.53 2.76.12.64.24 1.29.36 1.92l.89 4.55s-1 1.3-1 1.54c1.1.59 8 4.86 8 4.86s6.84-4.47 8-4.9c.1-.89.16-5.17.08-6.26 2.82-.91 6.27-1.1 9.33-1.75-.33-1.77-.56-3.6-.98-5.27zm-16.17 7.7c-1.5-.61-2.34-2-3.67-2.76.77-2.63 2.23-4.47 3.18-6.9.06-.22.21-.32.49-.28.77 2.72 2.44 4.43 3.19 7.18a22.9 22.9 0 0 0-3.19 2.76zm11.5-12c-1.89.59-4-.42-6.57 0a.79.79 0 0 1-.24-.19q-.43-.78-.92-1.53l-.25-.53c.8-.18 1.59-.36 2.44-.48 1.18-1.34 2.85-2.54 4.49-4.09 1.47-1.39 2.9-3.42 4.49-4.09a18 18 0 0 1 3.32-.75c-.12.29-.21.58-.32.82a.92.92 0 0 0 0 .66c-.71 1.7-1 4-2.11 5.7-.63 1.02-3.42 4.22-4.32 4.5zm-80.24-7.56l.67-2.15c.91-2.92 1.9-6.06 3-9.2v-.09c.92-2.66 1.72-4.82 2.53-6.79A22 22 0 0 1 37 56.84c.08-.13.16-.25.24-.37-1.25-.4-2.52-.75-3.8-1l-1.68.09c-5.88.3-13.25.41-18 4.74l-.14.13a12.42 12.42 0 0 0-1 1.09l-.23.27a12.85 12.85 0 0 0-.81 1.18c-.08.12-.16.24-.23.36a14.33 14.33 0 0 0-.81 1.67c-.72 1.77-1.37 3.59-2 5.43-.83 2.45-1.61 4.94-2.37 7.43 2.55 3.85 5.06 7.74 7.48 11.74-.42 1.66-.7 3.5-1 5.26 3.05.65 6.51.84 9.33 1.75-.07 1.09 0 5.37.08 6.26 1.19.43 8 4.9 8 4.9s6.93-4.27 8-4.86c0-.25-1-1.54-1-1.54l.94-4.53c.12-.63.24-1.28.36-1.92.17-.91.34-1.84.53-2.76-2.38-3.81-5-7.84-8.16-12.54zM26 83.62q-.49.74-.92 1.53a.79.79 0 0 1-.24.19c-2.59-.42-4.67.59-6.57 0-.9-.28-3.7-3.48-4.32-4.48-1.06-1.71-1.4-4-2.11-5.7a.92.92 0 0 0 0-.66c-.1-.24-.2-.54-.32-.82a18 18 0 0 1 3.32.75c1.59.67 3 2.7 4.49 4.09 1.64 1.55 3.31 2.76 4.49 4.09.85.12 1.65.3 2.44.48zm3.78 13.7a22.9 22.9 0 0 0-3.19-2.76c.75-2.75 2.42-4.46 3.19-7.18.29 0 .43.06.49.28.95 2.43 2.41 4.27 3.18 6.9-1.29.8-2.13 2.15-3.63 2.76z"
+                                                transform="translatea(-2.38 -12.86)"></path>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 64 64">
+                                        <g>
+                                            <rect x="12.56" y="23.95" width="11.82" height="11.82" rx="1.74" ry="1.74"
+                                                transform="translate(-15.71 21.8) rotate(-45)"></rect>
+                                            <path
+                                                d="M28.81,24.41a11.69,11.69,0,0,0-9.9-6.23v2.11a9.59,9.59,0,0,1,8.91,7.5Z">
+                                            </path>
+                                            <path
+                                                d="M18,20.28h0v-2.1h0a11.69,11.69,0,1,0,6.36,21.77l1-3.46A9.58,9.58,0,1,1,18,20.28Z">
+                                            </path>
+                                            <path
+                                                d="M24,41.33A12.75,12.75,0,0,1,8.46,37.76a.13.13,0,0,0-.23.08v1a.13.13,0,0,0,0,.08,13.64,13.64,0,0,0,7.21,4.25.13.13,0,0,1,.08.05l0,0,2.59,2.87a.39.39,0,0,0,.55,0l2.61-2.89.06,0a13.54,13.54,0,0,0,2.31-.72Z">
+                                            </path>
+                                            <path
+                                                d="M6.1,26.72a12.52,12.52,0,0,1,9.45-9.29,12.77,12.77,0,0,1,13.75,5.69L29.62,22A13.65,13.65,0,1,0,7.34,37.76h0V36.08h0A12.85,12.85,0,0,1,6.1,26.72Z">
+                                            </path>
+                                            <path
+                                                d="M58.8,34.15h0c0-.23,0-.46,0-.7h0a.27.27,0,0,0,.27-.23.26.26,0,0,0-.26-.28h-.08c0-.23,0-.46,0-.7h.08a.27.27,0,0,0,.27-.23.26.26,0,0,0-.26-.28h-.11l0-.7h.12a.26.26,0,0,0,.26-.28.27.27,0,0,0-.27-.23h-.12l0-.72h0a.55.55,0,0,0,.52-.61.57.57,0,0,0-.58-.49h-.06C58,26.27,56,24.47,52.69,24.47H47.87c-1.23-2.1-1.87-3.51-2.4-3.79a16.33,16.33,0,0,0-6.06-.87c-.88,0-1.61,0-2.22,0L31.88,38.09h10.2a1.77,1.77,0,0,0-.26.8c0,1.14.81,1.32,2.1,1.18h0c0-.11,2.24-3.88,5.79-3.81a7.63,7.63,0,0,1,5.8,3.56s0,.09,0,.13h0c1.48.17,2.43,0,2.43-1.21a2.37,2.37,0,0,0-.58-1.22h0c1.29-.3,1.47-1.4,1.44-2.86h0a.26.26,0,0,0,.26-.19A.26.26,0,0,0,58.8,34.15ZM46,24.54l-5,.23h0c-1.64,0-1.88.2-1.88-.29S39,22.78,39,22.3s0-.85.57-.85,3.4-.08,4,0a1.34,1.34,0,0,1,1.3.9L46,24.54Z">
+                                            </path>
+                                            <path
+                                                d="M49.74,41.55a1.19,1.19,0,1,0,1.49,1.15A1.36,1.36,0,0,0,49.74,41.55Zm0,2a.62.62,0,1,1,.78-.6A.71.71,0,0,1,49.74,43.5Z">
+                                            </path>
+                                            <path
+                                                d="M51.47,37.86l.06-.3a.5.5,0,0,0-.5-.5H48.47a.5.5,0,0,0-.5.5l.07.3c-2.44.56-4.21,2.31-4.21,4.37a3.83,3.83,0,0,0,1,2.5h0a.26.26,0,0,0,0,.36l.91.91a.26.26,0,0,0,.36,0l.11-.16a7.36,7.36,0,0,0,7.17,0l.11.16a.26.26,0,0,0,.36,0l.91-.91a.26.26,0,0,0,0-.36h0a3.83,3.83,0,0,0,1-2.5C55.66,40.16,53.9,38.43,51.47,37.86ZM49,37.94h1.46a.29.29,0,0,1,.29.29l-.24,1.33a.29.29,0,0,1-.29.29h-.92a.29.29,0,0,1-.29-.29l-.3-1.33A.29.29,0,0,1,49,37.94Zm-2.6,7-.39.56a.15.15,0,0,1-.21,0L45.29,45a.15.15,0,0,1,0-.21l.58-.37a.15.15,0,0,1,.21,0l.33.33,0,0v.08A.14.14,0,0,1,46.41,44.93Zm3.34.48c-1.72,0-3.11-1.07-3.11-2.39s1.39-2.39,3.11-2.39,3.11,1.07,3.11,2.39S51.46,45.41,49.74,45.41ZM54.2,45l-.52.52a.15.15,0,0,1-.21,0l-.39-.56,0,0a.61.61,0,0,1,0-.09.14.14,0,0,1,0-.08l.33-.33a.15.15,0,0,1,.21,0l.58.37A.15.15,0,0,1,54.2,45Z">
+                                            </path>
+                                            <polygon points="34.57 12 23.4 51.21 26.11 52 37.27 12.79 34.57 12">
+                                            </polygon>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <path
+                                            d="M43 38.83a14.78 14.78 0 0 0-1.22 1.29l-.27.32a15.22 15.22 0 0 0-1 1.4c-.09.15-.19.28-.28.43a16.85 16.85 0 0 0-1 2.06c-.86 2.1-1.64 4.25-2.39 6.42-1 2.9-1.93 5.84-2.85 8.79C37 64.1 40 68.7 42.93 73.43c-.5 2-.84 4.14-1.24 6.22 3.66.77 7.81 1 11.19 2.07-.09 1.29 0 6.35.1 7.41 1.43.51 9.44 5.8 9.44 5.8v-12.4a28.09 28.09 0 0 0-3.91-3.26c.9-3.25 3-5.28 3.91-8.49V33.07c-7.06.35-13.64.48-19.29 5.61zm6.81 21.46c2 1.84 4 3.26 5.39 4.84 1 .14 2 .36 2.93.57l-.3.62q-.59.88-1.1 1.81a1 1 0 0 1-.29.23c-3.11-.5-5.61.69-7.88 0-1.08-.33-4.43-4.11-5.18-5.29-1.27-2-1.68-4.73-2.53-6.74a1.07 1.07 0 0 0 0-.78c-.12-.28-.24-.63-.38-1a21.81 21.81 0 0 1 4 .89c1.82.81 3.53 3.21 5.29 4.85zM29 60.27l.65-2.08c.88-2.83 1.84-5.88 2.89-8.92v-.09c.89-2.58 1.67-4.67 2.45-6.58a21.34 21.34 0 0 1 1.3-2.6c.07-.13.15-.24.23-.36-1.21-.39-2.43-.73-3.67-1l-1.63.08c-5.69.29-12.81.39-17.37 4.6l-.13.12a12 12 0 0 0-1 1.06l-.22.26a12.47 12.47 0 0 0-.79 1.15c-.07.12-.15.23-.22.35a13.9 13.9 0 0 0-.82 1.69c-.67 1.68-1.3 3.45-1.91 5.23C8 55.56 7.21 58 6.47 60.39c2.46 3.73 4.89 7.51 7.23 11.39-.41 1.61-.67 3.39-1 5.1 3 .63 6.3.82 9 1.7-.07 1.06 0 5.21.08 6.07 1.15.42 7.77 4.75 7.77 4.75s6.7-4.14 7.77-4.71c0-.24-1-1.5-1-1.5l.86-4.41c.12-.62.23-1.24.35-1.86.16-.88.32-1.78.51-2.68-2.3-3.69-4.84-7.6-7.9-12.16zm-3.3 5.68q-.47.72-.89 1.48a.76.76 0 0 1-.23.19c-2.51-.41-4.52.57-6.35 0-.87-.27-3.58-3.37-4.18-4.34-1-1.66-1.36-3.88-2-5.52a.89.89 0 0 0 0-.64c-.1-.23-.19-.52-.31-.8a17.34 17.34 0 0 1 3.21.73c1.54.65 2.92 2.62 4.34 4 1.59 1.51 3.2 2.67 4.34 4 .82.11 1.59.29 2.36.47zm3.66 13.29a22.18 22.18 0 0 0-3.08-2.68c.72-2.67 2.34-4.33 3.08-7 .28 0 .42.06.48.27.92 2.36 2.33 4.14 3.08 6.69-1.32.81-2.13 2.13-3.58 2.71zm56-5.8c2.9-4.73 5.91-9.34 9-13.89-.92-2.95-1.85-5.89-2.85-8.79-.75-2.17-1.53-4.32-2.39-6.42a16.84 16.84 0 0 0-1-2.06c-.09-.15-.19-.28-.28-.43a15.19 15.19 0 0 0-1-1.4l-.27-.32a14.79 14.79 0 0 0-1.22-1.29l-.17-.15c-5.65-5.13-12.23-5.25-19.29-5.61v37.7c.92 3.21 3 5.24 3.91 8.49a28.1 28.1 0 0 0-3.91 3.26v12.4s8-5.29 9.44-5.8c.12-1.06.19-6.12.1-7.41 3.38-1.08 7.53-1.3 11.19-2.07-.42-2.08-.75-4.25-1.25-6.22zM82 78.88a44.86 44.86 0 0 0-7 1.4l-1.13.36.08 1.19c.07 1 0 4.59 0 6.33-1.58.85-4.36 2.61-6.47 4v-9a20.86 20.86 0 0 1 2.25-1.85l1.08-.82.79-.62-.27-1a19.65 19.65 0 0 0-2.12-4.66 18.12 18.12 0 0 1-1.74-3.65v-35.9c6.38.32 11.93.75 16.77 5.15l.14.13a13.36 13.36 0 0 1 1.1 1.16l.11.13.13.16a13.63 13.63 0 0 1 .88 1.26l.14.22.11.17a15.31 15.31 0 0 1 .93 1.87c.74 1.81 1.49 3.83 2.36 6.34.93 2.71 1.8 5.45 2.61 8-3.36 5-6.1 9.26-8.6 13.34l-.34.55.16.62c.34 1.32.6 2.78.86 4.2l.08.44c-1.01.2-1.97.34-2.91.48zm32.61-7.11c2.34-3.88 4.77-7.65 7.23-11.39-.74-2.42-1.49-4.83-2.3-7.21-.6-1.78-1.23-3.55-1.92-5.26a13.91 13.91 0 0 0-.82-1.69c-.07-.12-.15-.23-.22-.35a12.41 12.41 0 0 0-.79-1.15l-.22-.26a12 12 0 0 0-1-1.06l-.13-.12c-4.56-4.2-11.68-4.31-17.37-4.6l-1.63-.08c-1.24.28-2.46.62-3.67 1 .08.12.16.24.23.36a21.33 21.33 0 0 1 1.3 2.62c.78 1.91 1.56 4 2.45 6.58v.09c1 3 2 6.09 2.89 8.92l.65 2.08-1.19 1.83c-3.06 4.56-5.6 8.46-7.9 12.16.19.9.35 1.8.51 2.68.11.62.23 1.25.35 1.86l.86 4.41s-1 1.26-1 1.5c1.06.57 7.77 4.71 7.77 4.71s6.62-4.34 7.77-4.75c.1-.87.15-5 .08-6.07 2.73-.88 6.07-1.07 9-1.7-.27-1.72-.54-3.49-.95-5.11zM111.82 76a35.85 35.85 0 0 0-5.71 1.16l-1.12.36.08 1.18c.05.78 0 3.55 0 5-1.66.91-4.65 2.83-6.34 3.93-1.32-.81-3.94-2.42-5.62-3.43l.44-.55-.13-.69-.86-4.41c-.12-.6-.23-1.21-.34-1.81v-.05c-.12-.68-.25-1.39-.39-2.09 2.17-3.6 4.59-7.31 7.52-11.67l1.22-1.81.41-.6-.22-.69-.65-2.08c-.88-2.84-1.85-5.89-2.9-9v-.09C96.28 46.07 95.49 44 94.7 42c-.21-.5-.43-1-.68-1.5q.79-.22 1.56-.4H98c5.41.26 11.54.56 15.43 4.15l.11.1a10.57 10.57 0 0 1 .86.93l.09.11.1.12a10.9 10.9 0 0 1 .69 1l.12.19.08.12a12.4 12.4 0 0 1 .73 1.5c.6 1.48 1.2 3.13 1.89 5.18.74 2.18 1.42 4.37 2.06 6.45-2.68 4.07-4.87 7.53-6.87 10.84l-.33.54.15.61c.27 1.07.47 2.21.69 3.42v.1zM87.48 56.33a1.08 1.08 0 0 1 0-.78c.12-.28.24-.63.38-1a21.81 21.81 0 0 0-4 .89c-1.91.79-3.62 3.2-5.39 4.84-2 1.84-4 3.26-5.39 4.84-1 .14-2 .36-2.93.57l.3.62q.59.88 1.1 1.81a1 1 0 0 0 .28.23c3.11-.5 5.61.69 7.88 0 1.08-.33 4.43-4.11 5.18-5.29 1.34-2.06 1.75-4.73 2.59-6.73zm11 13.54c-.92 2.36-2.33 4.14-3.08 6.69 1.29.78 2.1 2.09 3.55 2.68a22.16 22.16 0 0 1 3.05-2.68c-.72-2.67-2.34-4.33-3.08-7-.24 0-.38.1-.44.31zm17.82-12.12a.89.89 0 0 1 0-.64c.1-.23.19-.52.31-.8a17.33 17.33 0 0 0-3.21.73c-1.54.65-2.92 2.62-4.34 4-1.59 1.51-3.2 2.67-4.34 4-.82.11-1.59.29-2.36.47l.24.51q.47.72.89 1.48a.77.77 0 0 0 .23.19c2.51-.41 4.52.57 6.35 0 .87-.27 3.58-3.37 4.18-4.34 1.04-1.73 1.37-3.95 2.05-5.6z"
+                                            transform="translate(-2.38 -12.86)"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/floresta negra.png" data-lightbox="todos" data-title="Floresta Negra">
+                                <img src="../img/mapas/maps/floresta negra.png" class="card-img-top" alt="floresta negra"
+                                title="floresta negra"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/Germany.png" alt="Germany" title="Germany">
+                                    Floresta Negra</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <g>
+                                            <path
+                                                d="M73.5 86.2c.1-.5 10.1-.6 10.9-2.3s-1.5-4.9-1.5-5.8S93 63.3 93 62.4 88.1 51.5 85.3 47 74 38.8 64.9 38.3h-1.7c-9.1.4-17.8 4.4-20.4 8.7S35 61.4 35 62.4s10.1 14.8 10.1 15.7-2.3 4-1.5 5.8 10.8 1.8 10.9 2.3-.3 6.6.3 7.5 8.8 5.9 9.2 5.9 8.5-5 9.2-5.9.2-7 .3-7.5zm-15-14.3c-.6.1-1.1 1.1-1.5 1.3a5.9 5.9 0 0 1-3.4-.1 5.4 5.4 0 0 0-3.1 0c-.8.2-4.7-4.9-5.3-6.3s-2.2-6.5-2-6.8 3.1.3 3.7.6a112.3 112.3 0 0 1 8.1 7.8 7.7 7.7 0 0 0 3.9 2.3c.3.2.2 1.1-.4 1.2zM64 86.7a16.3 16.3 0 0 1-3.7-3.3 70.2 70.2 0 0 1 3.7-7.5 70.2 70.2 0 0 1 3.7 7.4 16.3 16.3 0 0 1-3.7 3.4zm7-13.5c-.4-.2-1-1.2-1.5-1.3s-.6-1-.2-1.1a7.7 7.7 0 0 0 3.9-2.3 112.3 112.3 0 0 1 8.1-7.8c.5-.2 3.5-.8 3.7-.6s-1.6 5.3-2.1 6.8-4.5 6.6-5.3 6.3a5.4 5.4 0 0 0-3.1 0 5.9 5.9 0 0 1-3.5 0z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M89 85a.3.3 0 0 0-.5.2c.2.7.5 1.5-.1 1.8s-10.7 1.8-10.9 2.3 0 3 0 5.3L94 111.1c1.4 1.4 12.5 2.8 13 2.4s-1.2-11.5-1.9-12.2z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M39.5 87.1c-.5-.3-.2-1.2-.1-1.8a.3.3 0 0 0-.4-.3l-16 16.2c-.7.7-2.5 11.7-1.9 12.2s11.6-1 13-2.4l16.2-16.3c0-2.3.2-4.8 0-5.3s-9.4-1.5-10.8-2.3z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M120.2 21.7l-1.8-5.1a1.6 1.6 0 0 0-1.2-1.1l-5.3-1a1.6 1.6 0 0 0-1.6.5l-3.5 4.1a1.6 1.6 0 0 0-.3 1.6l.3.8a.3.3 0 0 1-.1.3h-.1L92.3 36.4 79.1 23.1c-1.3-1.3-.9 1.2-.6 2.3s2.8 9.1 3.8 10.2l3.2 3.4-.5.3-.9.7a.8.8 0 0 0 .1 1.3 13.6 13.6 0 0 1 4.7 4.2 59.7 59.7 0 0 1 2.6 5.7 1.3 1.3 0 0 0 1.9.5l2.6-2 3.2 3.1c1.2 1.1 6.3 2.3 9.4 3.3s3.2-.2 2.2-1.2L98.3 42.4 113 27.8h.3l1.6.3a1.6 1.6 0 0 0 1.6-.5l3.5-4.1a1.6 1.6 0 0 0 .2-1.8z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M32 49.6l2.6 2a1.3 1.3 0 0 0 1.9-.5 59.7 59.7 0 0 1 2.6-5.7 13.6 13.6 0 0 1 4.7-4.2.8.8 0 0 0 .1-1.3l-.9-.7-.5-.3 3.2-3.4c.9-1.1 3.5-9.1 3.8-10.2s.7-3.6-.6-2.3L35.7 36.4 21.4 22h-.1a.3.3 0 0 1-.1-.3l.3-.8a1.6 1.6 0 0 0-.3-1.6l-3.5-4.1a1.6 1.6 0 0 0-1.6-.5l-5.3 1a1.6 1.6 0 0 0-1.2 1.1l-1.8 4.9a1.6 1.6 0 0 0 .3 1.6l3.5 4.1a1.6 1.6 0 0 0 1.6.5l1.6-.3h.2l14.7 14.8-12.4 12.5c-1 .9-.8 2.1 2.2 1.2s8.1-2.2 9.4-3.3z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <path
+                                            d="M43 38.83a14.78 14.78 0 0 0-1.22 1.29l-.27.32a15.22 15.22 0 0 0-1 1.4c-.09.15-.19.28-.28.43a16.85 16.85 0 0 0-1 2.06c-.86 2.1-1.64 4.25-2.39 6.42-1 2.9-1.93 5.84-2.85 8.79C37 64.1 40 68.7 42.93 73.43c-.5 2-.84 4.14-1.24 6.22 3.66.77 7.81 1 11.19 2.07-.09 1.29 0 6.35.1 7.41 1.43.51 9.44 5.8 9.44 5.8v-12.4a28.09 28.09 0 0 0-3.91-3.26c.9-3.25 3-5.28 3.91-8.49V33.07c-7.06.35-13.64.48-19.29 5.61zm6.81 21.46c2 1.84 4 3.26 5.39 4.84 1 .14 2 .36 2.93.57l-.3.62q-.59.88-1.1 1.81a1 1 0 0 1-.29.23c-3.11-.5-5.61.69-7.88 0-1.08-.33-4.43-4.11-5.18-5.29-1.27-2-1.68-4.73-2.53-6.74a1.07 1.07 0 0 0 0-.78c-.12-.28-.24-.63-.38-1a21.81 21.81 0 0 1 4 .89c1.82.81 3.53 3.21 5.29 4.85zM29 60.27l.65-2.08c.88-2.83 1.84-5.88 2.89-8.92v-.09c.89-2.58 1.67-4.67 2.45-6.58a21.34 21.34 0 0 1 1.3-2.6c.07-.13.15-.24.23-.36-1.21-.39-2.43-.73-3.67-1l-1.63.08c-5.69.29-12.81.39-17.37 4.6l-.13.12a12 12 0 0 0-1 1.06l-.22.26a12.47 12.47 0 0 0-.79 1.15c-.07.12-.15.23-.22.35a13.9 13.9 0 0 0-.82 1.69c-.67 1.68-1.3 3.45-1.91 5.23C8 55.56 7.21 58 6.47 60.39c2.46 3.73 4.89 7.51 7.23 11.39-.41 1.61-.67 3.39-1 5.1 3 .63 6.3.82 9 1.7-.07 1.06 0 5.21.08 6.07 1.15.42 7.77 4.75 7.77 4.75s6.7-4.14 7.77-4.71c0-.24-1-1.5-1-1.5l.86-4.41c.12-.62.23-1.24.35-1.86.16-.88.32-1.78.51-2.68-2.3-3.69-4.84-7.6-7.9-12.16zm-3.3 5.68q-.47.72-.89 1.48a.76.76 0 0 1-.23.19c-2.51-.41-4.52.57-6.35 0-.87-.27-3.58-3.37-4.18-4.34-1-1.66-1.36-3.88-2-5.52a.89.89 0 0 0 0-.64c-.1-.23-.19-.52-.31-.8a17.34 17.34 0 0 1 3.21.73c1.54.65 2.92 2.62 4.34 4 1.59 1.51 3.2 2.67 4.34 4 .82.11 1.59.29 2.36.47zm3.66 13.29a22.18 22.18 0 0 0-3.08-2.68c.72-2.67 2.34-4.33 3.08-7 .28 0 .42.06.48.27.92 2.36 2.33 4.14 3.08 6.69-1.32.81-2.13 2.13-3.58 2.71zm56-5.8c2.9-4.73 5.91-9.34 9-13.89-.92-2.95-1.85-5.89-2.85-8.79-.75-2.17-1.53-4.32-2.39-6.42a16.84 16.84 0 0 0-1-2.06c-.09-.15-.19-.28-.28-.43a15.19 15.19 0 0 0-1-1.4l-.27-.32a14.79 14.79 0 0 0-1.22-1.29l-.17-.15c-5.65-5.13-12.23-5.25-19.29-5.61v37.7c.92 3.21 3 5.24 3.91 8.49a28.1 28.1 0 0 0-3.91 3.26v12.4s8-5.29 9.44-5.8c.12-1.06.19-6.12.1-7.41 3.38-1.08 7.53-1.3 11.19-2.07-.42-2.08-.75-4.25-1.25-6.22zM82 78.88a44.86 44.86 0 0 0-7 1.4l-1.13.36.08 1.19c.07 1 0 4.59 0 6.33-1.58.85-4.36 2.61-6.47 4v-9a20.86 20.86 0 0 1 2.25-1.85l1.08-.82.79-.62-.27-1a19.65 19.65 0 0 0-2.12-4.66 18.12 18.12 0 0 1-1.74-3.65v-35.9c6.38.32 11.93.75 16.77 5.15l.14.13a13.36 13.36 0 0 1 1.1 1.16l.11.13.13.16a13.63 13.63 0 0 1 .88 1.26l.14.22.11.17a15.31 15.31 0 0 1 .93 1.87c.74 1.81 1.49 3.83 2.36 6.34.93 2.71 1.8 5.45 2.61 8-3.36 5-6.1 9.26-8.6 13.34l-.34.55.16.62c.34 1.32.6 2.78.86 4.2l.08.44c-1.01.2-1.97.34-2.91.48zm32.61-7.11c2.34-3.88 4.77-7.65 7.23-11.39-.74-2.42-1.49-4.83-2.3-7.21-.6-1.78-1.23-3.55-1.92-5.26a13.91 13.91 0 0 0-.82-1.69c-.07-.12-.15-.23-.22-.35a12.41 12.41 0 0 0-.79-1.15l-.22-.26a12 12 0 0 0-1-1.06l-.13-.12c-4.56-4.2-11.68-4.31-17.37-4.6l-1.63-.08c-1.24.28-2.46.62-3.67 1 .08.12.16.24.23.36a21.33 21.33 0 0 1 1.3 2.62c.78 1.91 1.56 4 2.45 6.58v.09c1 3 2 6.09 2.89 8.92l.65 2.08-1.19 1.83c-3.06 4.56-5.6 8.46-7.9 12.16.19.9.35 1.8.51 2.68.11.62.23 1.25.35 1.86l.86 4.41s-1 1.26-1 1.5c1.06.57 7.77 4.71 7.77 4.71s6.62-4.34 7.77-4.75c.1-.87.15-5 .08-6.07 2.73-.88 6.07-1.07 9-1.7-.27-1.72-.54-3.49-.95-5.11zM111.82 76a35.85 35.85 0 0 0-5.71 1.16l-1.12.36.08 1.18c.05.78 0 3.55 0 5-1.66.91-4.65 2.83-6.34 3.93-1.32-.81-3.94-2.42-5.62-3.43l.44-.55-.13-.69-.86-4.41c-.12-.6-.23-1.21-.34-1.81v-.05c-.12-.68-.25-1.39-.39-2.09 2.17-3.6 4.59-7.31 7.52-11.67l1.22-1.81.41-.6-.22-.69-.65-2.08c-.88-2.84-1.85-5.89-2.9-9v-.09C96.28 46.07 95.49 44 94.7 42c-.21-.5-.43-1-.68-1.5q.79-.22 1.56-.4H98c5.41.26 11.54.56 15.43 4.15l.11.1a10.57 10.57 0 0 1 .86.93l.09.11.1.12a10.9 10.9 0 0 1 .69 1l.12.19.08.12a12.4 12.4 0 0 1 .73 1.5c.6 1.48 1.2 3.13 1.89 5.18.74 2.18 1.42 4.37 2.06 6.45-2.68 4.07-4.87 7.53-6.87 10.84l-.33.54.15.61c.27 1.07.47 2.21.69 3.42v.1zM87.48 56.33a1.08 1.08 0 0 1 0-.78c.12-.28.24-.63.38-1a21.81 21.81 0 0 0-4 .89c-1.91.79-3.62 3.2-5.39 4.84-2 1.84-4 3.26-5.39 4.84-1 .14-2 .36-2.93.57l.3.62q.59.88 1.1 1.81a1 1 0 0 0 .28.23c3.11-.5 5.61.69 7.88 0 1.08-.33 4.43-4.11 5.18-5.29 1.34-2.06 1.75-4.73 2.59-6.73zm11 13.54c-.92 2.36-2.33 4.14-3.08 6.69 1.29.78 2.1 2.09 3.55 2.68a22.16 22.16 0 0 1 3.05-2.68c-.72-2.67-2.34-4.33-3.08-7-.24 0-.38.1-.44.31zm17.82-12.12a.89.89 0 0 1 0-.64c.1-.23.19-.52.31-.8a17.33 17.33 0 0 0-3.21.73c-1.54.65-2.92 2.62-4.34 4-1.59 1.51-3.2 2.67-4.34 4-.82.11-1.59.29-2.36.47l.24.51q.47.72.89 1.48a.77.77 0 0 0 .23.19c2.51-.41 4.52.57 6.35 0 .87-.27 3.58-3.37 4.18-4.34 1.04-1.73 1.37-3.95 2.05-5.6z"
+                                            transform="translate(-2.38 -12.86)"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/hanamura.png" data-lightbox="todos" data-title="Hanamura">
+                                <img src="../img/mapas/maps/hanamura.png" class="card-img-top" alt="hanamura"
+                                title="hanamura"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/Japan.png" alt="Japan" title="Japan">
+                                    Hanamura</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 64 64">
+                                        <g>
+                                            <rect x="22.15" y="19.88" width="19.69" height="19.69" rx="2.89" ry="2.89"
+                                                transform="translate(-11.65 31.33) rotate(-45)"></rect>
+                                            <path
+                                                d="M12.54,29.29A19.47,19.47,0,0,0,46.41,42.8h0l-2.66-2.28h0a16,16,0,1,1-12.5-26.75h0v-3.5h0A19.47,19.47,0,0,0,12.54,29.29Z">
+                                            </path>
+                                            <path
+                                                d="M48,29.72a15.89,15.89,0,0,1-3.25,9.65l2.66,2.28A19.47,19.47,0,0,0,32.75,10.27v3.51A16,16,0,0,1,48,29.72Z">
+                                            </path>
+                                            <path
+                                                d="M32.37,7A22.73,22.73,0,0,0,13.47,42.89h0v-2.8h0A21.4,21.4,0,0,1,11.4,24.51,20.84,20.84,0,0,1,27.13,9a21.25,21.25,0,0,1,23.4,31h0v2.8h0A22.73,22.73,0,0,0,32.37,7Z">
+                                            </path>
+                                            <path
+                                                d="M32,51a21.19,21.19,0,0,1-16.66-8.08A.21.21,0,0,0,15,43v1.68a.21.21,0,0,0,.05.14,22.71,22.71,0,0,0,12,7.08.22.22,0,0,1,.13.08l0,0,4.31,4.78a.65.65,0,0,0,.91,0L36.75,52a.21.21,0,0,1,.1-.06A22.71,22.71,0,0,0,49,44.83a.21.21,0,0,0,.05-.14V43a.21.21,0,0,0-.37-.13A21.19,21.19,0,0,1,32,51Z">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/havana.png" data-lightbox="todos" data-title="Havana">
+                                <img src="../img/mapas/maps/havana.png" class="card-img-top" alt="havana" title="havana"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/Cuba.png" alt="Cuba" title="Cuba">
+                                    Havana</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 64 64">
+                                        <g>
+                                            <rect x="10.38" y="24.34" width="21.03" height="14.39" rx="0.81" ry="0.81">
+                                            </rect>
+                                            <path
+                                                d="M60.62,37.83h0c0-.23,0-.47,0-.72h0a.28.28,0,0,0,.28-.24.26.26,0,0,0-.26-.29h-.09c0-.24,0-.47,0-.72h.08a.28.28,0,0,0,.28-.24.26.26,0,0,0-.26-.29H60.5l0-.72h.13a.26.26,0,0,0,.26-.29.28.28,0,0,0-.28-.24h-.12l0-.74h0a.57.57,0,0,0,.53-.63.59.59,0,0,0-.59-.5h-.06c-.5-2.43-2.65-4.26-6-4.26H49.44c-1.26-2.15-1.91-3.59-2.45-3.87a16.68,16.68,0,0,0-6.19-.89c-3.43,0-4.64.13-5,.35s-.59.19-.59,1.48v5.42H34.7V23.8a.6.6,0,0,0-.6-.6H32.66a.6.6,0,0,0-.6.6V39.27H3.39a.39.39,0,0,0-.39.39v1.81a.39.39,0,0,0,.39.39h1a.14.14,0,0,1,.14.14v.24a.47.47,0,0,0,.47.47H8.49A.47.47,0,0,0,9,42.25V42a.14.14,0,0,1,.14-.14h3.34a.14.14,0,0,0,.09,0,6,6,0,0,1,4.06-1.48,6,6,0,0,1,4.06,1.48.14.14,0,0,0,.09,0H22a.14.14,0,0,1,.14.14v.24a.47.47,0,0,0,.47.47h1.72a.14.14,0,0,0,.1,0l.24-.24a.14.14,0,0,1,.2,0l.24.24a.14.14,0,0,0,.1,0H27a.14.14,0,0,0,.1,0l.11-.11a.14.14,0,0,1,.2,0l.11.11a.14.14,0,0,0,.1,0h1.82a.14.14,0,0,0,.1,0l.24-.24a.14.14,0,0,1,.2,0l.24.24a.14.14,0,0,0,.1,0h1.42a.47.47,0,0,0,.47-.47V42a.14.14,0,0,1,.14-.14h11.2a1.8,1.8,0,0,0-.26.81c0,1.16.83,1.35,2.14,1.2h0c0-.11,2.29-4,5.91-3.89a7.79,7.79,0,0,1,5.92,3.64s0,.09,0,.13h0c1.51.17,2.49,0,2.49-1.23a2.42,2.42,0,0,0-.6-1.24h0c1.32-.3,1.5-1.43,1.47-2.92h0a.27.27,0,0,0,.26-.2A.26.26,0,0,0,60.62,37.83ZM47.5,28l-5.07.24h0c-1.67,0-1.92.21-1.92-.29s-.08-1.74-.08-2.23,0-.86.58-.86,3.47-.08,4.06,0a1.37,1.37,0,0,1,1.32.92L47.5,28Z">
+                                            </path>
+                                            <path
+                                                d="M51.36,45.39a1.21,1.21,0,1,0,1.53,1.17A1.38,1.38,0,0,0,51.36,45.39Zm0,2a.64.64,0,1,1,.8-.62A.73.73,0,0,1,51.36,47.39Z">
+                                            </path>
+                                            <path
+                                                d="M53.12,41.63l.06-.31a.51.51,0,0,0-.51-.51H50.06a.51.51,0,0,0-.51.51l.07.31c-2.49.58-4.3,2.35-4.3,4.46a3.92,3.92,0,0,0,1,2.55h0a.26.26,0,0,0,0,.37l.93.93a.26.26,0,0,0,.37,0l.11-.16a7.51,7.51,0,0,0,7.32,0l.11.16a.26.26,0,0,0,.37,0l.93-.93a.26.26,0,0,0,0-.37h0a3.91,3.91,0,0,0,1-2.55C57.41,44,55.6,42.21,53.12,41.63Zm-2.51.08h1.49a.3.3,0,0,1,.29.29l-.25,1.36a.3.3,0,0,1-.29.29h-.94a.3.3,0,0,1-.29-.29L50.32,42A.3.3,0,0,1,50.61,41.71ZM48,48.85l-.4.57a.15.15,0,0,1-.21,0l-.54-.54a.15.15,0,0,1,0-.21l.6-.37a.15.15,0,0,1,.21,0l.34.34,0,0v.08A.15.15,0,0,1,48,48.85Zm3.41.49c-1.75,0-3.17-1.09-3.17-2.44s1.42-2.44,3.17-2.44,3.17,1.09,3.17,2.44S53.11,49.33,51.36,49.33Zm4.55-.45-.54.54a.15.15,0,0,1-.21,0l-.4-.57,0,0a.63.63,0,0,1,0-.09.14.14,0,0,1,0-.08l.34-.34a.15.15,0,0,1,.21,0l.6.37A.15.15,0,0,1,55.91,48.89Z">
+                                            </path>
+                                            <path
+                                                d="M16.8,45.33a1.23,1.23,0,1,0,0,2.38,1.23,1.23,0,1,0,0-2.38Zm0,2a.64.64,0,1,1,.8-.62A.73.73,0,0,1,16.8,47.35Z">
+                                            </path>
+                                            <path
+                                                d="M18.56,41.51l.06-.31a.52.52,0,0,0-.51-.52H15.5a.52.52,0,0,0-.51.52l.07.31c-2.49.58-4.3,2.38-4.3,4.52a4,4,0,0,0,1,2.59h0a.27.27,0,0,0,0,.37l.93.95a.26.26,0,0,0,.37,0l.11-.16a7.43,7.43,0,0,0,7.32,0l.11.16a.26.26,0,0,0,.37,0l.93-.95a.27.27,0,0,0,0-.37h0a4,4,0,0,0,1-2.59C22.85,43.9,21,42.1,18.56,41.51Zm-2.51.08h1.49a.3.3,0,0,1,.29.3l-.25,1.37a.3.3,0,0,1-.29.3h-.94a.3.3,0,0,1-.29-.3l-.31-1.37A.3.3,0,0,1,16.06,41.59ZM13.4,48.82l-.4.58a.15.15,0,0,1-.21,0l-.54-.54a.15.15,0,0,1,0-.21l.6-.38a.15.15,0,0,1,.21,0l.34.34,0,0v.08A.15.15,0,0,1,13.4,48.82Zm3.41.49c-1.75,0-3.17-1.11-3.17-2.48s1.42-2.48,3.17-2.48S20,45.47,20,46.84,18.56,49.32,16.8,49.32Zm4.55-.45-.54.54a.15.15,0,0,1-.21,0l-.4-.58,0,0a.65.65,0,0,1,0-.09.15.15,0,0,1,0-.08l.34-.34a.15.15,0,0,1,.21,0l.6.38A.15.15,0,0,1,21.35,48.86Z">
+                                            </path>
+                                            <rect x="38.04" y="14.19" width="6.12" height="6.12" rx="0.82" ry="0.82"
+                                                transform="translate(-0.16 34.12) rotate(-45)"></rect>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/hollywold.png" data-lightbox="todos" data-title="Hollywold">
+                                <img src="../img/mapas/maps/hollywold.png" class="card-img-top" alt="hollywold"
+                                title="hollywold"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/USA.png" alt="USA" title="USA">
+                                    Hollywood</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <g>
+                                            <path
+                                                d="M84.14 91.33c3-4.88 6.11-9.63 9.27-14.32-.95-3-1.91-6.08-2.94-9.07-.77-2.24-1.58-4.46-2.47-6.62a17.36 17.36 0 0 0-1.06-2.12c-.09-.16-.19-.29-.29-.44a15.66 15.66 0 0 0-1-1.44l-.28-.32a15.27 15.27 0 0 0-1.26-1.33l-.17-.16c-5.84-5.3-12.65-5.43-19.94-5.79-7.29.37-14.1.5-19.94 5.78l-.17.16A15.27 15.27 0 0 0 42.63 57l-.28.33a15.66 15.66 0 0 0-1 1.44c-.09.15-.2.29-.29.44A17.36 17.36 0 0 0 40 61.32c-.89 2.16-1.69 4.38-2.47 6.62-1 3-2 6-2.94 9.07 3.16 4.69 6.27 9.45 9.27 14.32-.52 2-.86 4.27-1.29 6.41 3.79.79 8.07 1 11.57 2.13-.09 1.33 0 6.55.1 7.64 1.48.52 9.75 6 9.75 6s8.28-5.46 9.75-6c.13-1.09.19-6.31.1-7.64 3.5-1.11 7.78-1.35 11.57-2.13-.41-2.14-.75-4.38-1.27-6.41zM59.22 84q-.61.91-1.14 1.86a1 1 0 0 1-.29.23c-3.22-.51-5.8.71-8.14 0-1.12-.34-4.58-4.24-5.36-5.46-1.32-2.09-1.74-4.88-2.62-6.95a1.11 1.11 0 0 0 0-.81c-.13-.29-.25-.65-.39-1a22.58 22.58 0 0 1 4.11.92c2 .81 3.74 3.29 5.57 5 2 1.9 4.11 3.36 5.57 5 1.06.14 2 .37 3 .59zM64 100.72a29 29 0 0 0-4-3.37c.89-3.35 3-5.44 4-8.75 1 3.31 3.11 5.4 4 8.76a29 29 0 0 0-4 3.36zM78.35 86.1c-2.34.71-4.92-.51-8.14 0a1 1 0 0 1-.29-.23q-.53-1-1.14-1.86l-.31-.64c1-.22 2-.44 3-.59 1.46-1.63 3.53-3.1 5.57-5 1.83-1.69 3.59-4.17 5.57-5a22.58 22.58 0 0 1 4.11-.92c-.15.35-.27.71-.39 1a1.11 1.11 0 0 0 0 .81c-.88 2.07-1.3 4.86-2.62 6.95-.77 1.24-4.24 5.15-5.36 5.48z"
+                                                transform="translate(-2.38 -12.86)"></path>
+                                            <path
+                                                d="M89.89 22.65c-2.62 1.69-6 4.13-7.17 6.11a7.83 7.83 0 0 0-2.25-2.91.94.94 0 0 0-1.51.83v.33A4.69 4.69 0 0 1 77.91 30c-2.26 2.84-4.06 3.07-5.68 2.8l-.06.09v-.1a5.77 5.77 0 0 1-3.6-9.12 1.54 1.54 0 0 0 .05-1.75c-1.12-1.73-2.93-5.1-3.91-7a.78.78 0 0 0-1.38 0c-1 1.82-2.77 5.09-3.89 6.79a1.54 1.54 0 0 0 0 1.76 5.77 5.77 0 0 1-3.61 9.11v.1l-.06-.09c-1.63.27-3.42 0-5.7-2.8A4.66 4.66 0 0 1 49 26.86v-.36a.94.94 0 0 0-1.51-.83 7.83 7.83 0 0 0-2.25 2.91c-1.19-2-4.55-4.41-7.17-6.11a.94.94 0 0 0-1.32 1.27 57.41 57.41 0 0 1 6.91 16.46 3.39 3.39 0 0 0 1.33 2v2.7h.06a2.88 2.88 0 0 0-1.53 2.2 2.67 2.67 0 0 0 1.28 2c5.81-3.46 12-3.77 18.11-4.06h2.17c6 .3 12.26.6 18 4a2.62 2.62 0 0 0 1.22-2 2.88 2.88 0 0 0-1.53-2.2h.06v-2.6a3.4 3.4 0 0 0 1.47-2.11 57.52 57.52 0 0 1 6.86-16.3.94.94 0 0 0-1.27-1.18z"
+                                                transform="translate(-2.38 -12.86)"></path>
+                                            <path
+                                                d="M114.35 89.62c2.42-4 4.93-7.89 7.48-11.74-.76-2.49-1.54-5-2.37-7.43-.62-1.84-1.27-3.66-2-5.43a14.31 14.31 0 0 0-.85-1.74c-.07-.13-.16-.24-.23-.36a12.87 12.87 0 0 0-.81-1.18l-.23-.27a12.43 12.43 0 0 0-1-1.09l-.14-.13c-4.71-4.33-12.07-4.44-18-4.74l-1.68-.09c-1.28.29-2.55.64-3.8 1 .08.12.16.24.24.38a22 22 0 0 1 1.34 2.7c.81 2 1.61 4.12 2.53 6.78v.09c1.08 3.14 2.07 6.27 3 9.2l.67 2.15-1.2 1.91c-3.16 4.7-5.79 8.73-8.16 12.54.19.92.36 1.85.53 2.76.12.64.24 1.29.36 1.92l.89 4.55s-1 1.3-1 1.54c1.1.59 8 4.86 8 4.86s6.84-4.47 8-4.9c.1-.89.16-5.17.08-6.26 2.82-.91 6.27-1.1 9.33-1.75-.33-1.77-.56-3.6-.98-5.27zm-16.17 7.7c-1.5-.61-2.34-2-3.67-2.76.77-2.63 2.23-4.47 3.18-6.9.06-.22.21-.32.49-.28.77 2.72 2.44 4.43 3.19 7.18a22.9 22.9 0 0 0-3.19 2.76zm11.5-12c-1.89.59-4-.42-6.57 0a.79.79 0 0 1-.24-.19q-.43-.78-.92-1.53l-.25-.53c.8-.18 1.59-.36 2.44-.48 1.18-1.34 2.85-2.54 4.49-4.09 1.47-1.39 2.9-3.42 4.49-4.09a18 18 0 0 1 3.32-.75c-.12.29-.21.58-.32.82a.92.92 0 0 0 0 .66c-.71 1.7-1 4-2.11 5.7-.63 1.02-3.42 4.22-4.32 4.5zm-80.24-7.56l.67-2.15c.91-2.92 1.9-6.06 3-9.2v-.09c.92-2.66 1.72-4.82 2.53-6.79A22 22 0 0 1 37 56.84c.08-.13.16-.25.24-.37-1.25-.4-2.52-.75-3.8-1l-1.68.09c-5.88.3-13.25.41-18 4.74l-.14.13a12.42 12.42 0 0 0-1 1.09l-.23.27a12.85 12.85 0 0 0-.81 1.18c-.08.12-.16.24-.23.36a14.33 14.33 0 0 0-.81 1.67c-.72 1.77-1.37 3.59-2 5.43-.83 2.45-1.61 4.94-2.37 7.43 2.55 3.85 5.06 7.74 7.48 11.74-.42 1.66-.7 3.5-1 5.26 3.05.65 6.51.84 9.33 1.75-.07 1.09 0 5.37.08 6.26 1.19.43 8 4.9 8 4.9s6.93-4.27 8-4.86c0-.25-1-1.54-1-1.54l.94-4.53c.12-.63.24-1.28.36-1.92.17-.91.34-1.84.53-2.76-2.38-3.81-5-7.84-8.16-12.54zM26 83.62q-.49.74-.92 1.53a.79.79 0 0 1-.24.19c-2.59-.42-4.67.59-6.57 0-.9-.28-3.7-3.48-4.32-4.48-1.06-1.71-1.4-4-2.11-5.7a.92.92 0 0 0 0-.66c-.1-.24-.2-.54-.32-.82a18 18 0 0 1 3.32.75c1.59.67 3 2.7 4.49 4.09 1.64 1.55 3.31 2.76 4.49 4.09.85.12 1.65.3 2.44.48zm3.78 13.7a22.9 22.9 0 0 0-3.19-2.76c.75-2.75 2.42-4.46 3.19-7.18.29 0 .43.06.49.28.95 2.43 2.41 4.27 3.18 6.9-1.29.8-2.13 2.15-3.63 2.76z"
+                                                transform="translatea(-2.38 -12.86)"></path>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 64 64">
+                                        <g>
+                                            <rect x="12.56" y="23.95" width="11.82" height="11.82" rx="1.74" ry="1.74"
+                                                transform="translate(-15.71 21.8) rotate(-45)"></rect>
+                                            <path
+                                                d="M28.81,24.41a11.69,11.69,0,0,0-9.9-6.23v2.11a9.59,9.59,0,0,1,8.91,7.5Z">
+                                            </path>
+                                            <path
+                                                d="M18,20.28h0v-2.1h0a11.69,11.69,0,1,0,6.36,21.77l1-3.46A9.58,9.58,0,1,1,18,20.28Z">
+                                            </path>
+                                            <path
+                                                d="M24,41.33A12.75,12.75,0,0,1,8.46,37.76a.13.13,0,0,0-.23.08v1a.13.13,0,0,0,0,.08,13.64,13.64,0,0,0,7.21,4.25.13.13,0,0,1,.08.05l0,0,2.59,2.87a.39.39,0,0,0,.55,0l2.61-2.89.06,0a13.54,13.54,0,0,0,2.31-.72Z">
+                                            </path>
+                                            <path
+                                                d="M6.1,26.72a12.52,12.52,0,0,1,9.45-9.29,12.77,12.77,0,0,1,13.75,5.69L29.62,22A13.65,13.65,0,1,0,7.34,37.76h0V36.08h0A12.85,12.85,0,0,1,6.1,26.72Z">
+                                            </path>
+                                            <path
+                                                d="M58.8,34.15h0c0-.23,0-.46,0-.7h0a.27.27,0,0,0,.27-.23.26.26,0,0,0-.26-.28h-.08c0-.23,0-.46,0-.7h.08a.27.27,0,0,0,.27-.23.26.26,0,0,0-.26-.28h-.11l0-.7h.12a.26.26,0,0,0,.26-.28.27.27,0,0,0-.27-.23h-.12l0-.72h0a.55.55,0,0,0,.52-.61.57.57,0,0,0-.58-.49h-.06C58,26.27,56,24.47,52.69,24.47H47.87c-1.23-2.1-1.87-3.51-2.4-3.79a16.33,16.33,0,0,0-6.06-.87c-.88,0-1.61,0-2.22,0L31.88,38.09h10.2a1.77,1.77,0,0,0-.26.8c0,1.14.81,1.32,2.1,1.18h0c0-.11,2.24-3.88,5.79-3.81a7.63,7.63,0,0,1,5.8,3.56s0,.09,0,.13h0c1.48.17,2.43,0,2.43-1.21a2.37,2.37,0,0,0-.58-1.22h0c1.29-.3,1.47-1.4,1.44-2.86h0a.26.26,0,0,0,.26-.19A.26.26,0,0,0,58.8,34.15ZM46,24.54l-5,.23h0c-1.64,0-1.88.2-1.88-.29S39,22.78,39,22.3s0-.85.57-.85,3.4-.08,4,0a1.34,1.34,0,0,1,1.3.9L46,24.54Z">
+                                            </path>
+                                            <path
+                                                d="M49.74,41.55a1.19,1.19,0,1,0,1.49,1.15A1.36,1.36,0,0,0,49.74,41.55Zm0,2a.62.62,0,1,1,.78-.6A.71.71,0,0,1,49.74,43.5Z">
+                                            </path>
+                                            <path
+                                                d="M51.47,37.86l.06-.3a.5.5,0,0,0-.5-.5H48.47a.5.5,0,0,0-.5.5l.07.3c-2.44.56-4.21,2.31-4.21,4.37a3.83,3.83,0,0,0,1,2.5h0a.26.26,0,0,0,0,.36l.91.91a.26.26,0,0,0,.36,0l.11-.16a7.36,7.36,0,0,0,7.17,0l.11.16a.26.26,0,0,0,.36,0l.91-.91a.26.26,0,0,0,0-.36h0a3.83,3.83,0,0,0,1-2.5C55.66,40.16,53.9,38.43,51.47,37.86ZM49,37.94h1.46a.29.29,0,0,1,.29.29l-.24,1.33a.29.29,0,0,1-.29.29h-.92a.29.29,0,0,1-.29-.29l-.3-1.33A.29.29,0,0,1,49,37.94Zm-2.6,7-.39.56a.15.15,0,0,1-.21,0L45.29,45a.15.15,0,0,1,0-.21l.58-.37a.15.15,0,0,1,.21,0l.33.33,0,0v.08A.14.14,0,0,1,46.41,44.93Zm3.34.48c-1.72,0-3.11-1.07-3.11-2.39s1.39-2.39,3.11-2.39,3.11,1.07,3.11,2.39S51.46,45.41,49.74,45.41ZM54.2,45l-.52.52a.15.15,0,0,1-.21,0l-.39-.56,0,0a.61.61,0,0,1,0-.09.14.14,0,0,1,0-.08l.33-.33a.15.15,0,0,1,.21,0l.58.37A.15.15,0,0,1,54.2,45Z">
+                                            </path>
+                                            <polygon points="34.57 12 23.4 51.21 26.11 52 37.27 12.79 34.57 12">
+                                            </polygon>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <path
+                                            d="M43 38.83a14.78 14.78 0 0 0-1.22 1.29l-.27.32a15.22 15.22 0 0 0-1 1.4c-.09.15-.19.28-.28.43a16.85 16.85 0 0 0-1 2.06c-.86 2.1-1.64 4.25-2.39 6.42-1 2.9-1.93 5.84-2.85 8.79C37 64.1 40 68.7 42.93 73.43c-.5 2-.84 4.14-1.24 6.22 3.66.77 7.81 1 11.19 2.07-.09 1.29 0 6.35.1 7.41 1.43.51 9.44 5.8 9.44 5.8v-12.4a28.09 28.09 0 0 0-3.91-3.26c.9-3.25 3-5.28 3.91-8.49V33.07c-7.06.35-13.64.48-19.29 5.61zm6.81 21.46c2 1.84 4 3.26 5.39 4.84 1 .14 2 .36 2.93.57l-.3.62q-.59.88-1.1 1.81a1 1 0 0 1-.29.23c-3.11-.5-5.61.69-7.88 0-1.08-.33-4.43-4.11-5.18-5.29-1.27-2-1.68-4.73-2.53-6.74a1.07 1.07 0 0 0 0-.78c-.12-.28-.24-.63-.38-1a21.81 21.81 0 0 1 4 .89c1.82.81 3.53 3.21 5.29 4.85zM29 60.27l.65-2.08c.88-2.83 1.84-5.88 2.89-8.92v-.09c.89-2.58 1.67-4.67 2.45-6.58a21.34 21.34 0 0 1 1.3-2.6c.07-.13.15-.24.23-.36-1.21-.39-2.43-.73-3.67-1l-1.63.08c-5.69.29-12.81.39-17.37 4.6l-.13.12a12 12 0 0 0-1 1.06l-.22.26a12.47 12.47 0 0 0-.79 1.15c-.07.12-.15.23-.22.35a13.9 13.9 0 0 0-.82 1.69c-.67 1.68-1.3 3.45-1.91 5.23C8 55.56 7.21 58 6.47 60.39c2.46 3.73 4.89 7.51 7.23 11.39-.41 1.61-.67 3.39-1 5.1 3 .63 6.3.82 9 1.7-.07 1.06 0 5.21.08 6.07 1.15.42 7.77 4.75 7.77 4.75s6.7-4.14 7.77-4.71c0-.24-1-1.5-1-1.5l.86-4.41c.12-.62.23-1.24.35-1.86.16-.88.32-1.78.51-2.68-2.3-3.69-4.84-7.6-7.9-12.16zm-3.3 5.68q-.47.72-.89 1.48a.76.76 0 0 1-.23.19c-2.51-.41-4.52.57-6.35 0-.87-.27-3.58-3.37-4.18-4.34-1-1.66-1.36-3.88-2-5.52a.89.89 0 0 0 0-.64c-.1-.23-.19-.52-.31-.8a17.34 17.34 0 0 1 3.21.73c1.54.65 2.92 2.62 4.34 4 1.59 1.51 3.2 2.67 4.34 4 .82.11 1.59.29 2.36.47zm3.66 13.29a22.18 22.18 0 0 0-3.08-2.68c.72-2.67 2.34-4.33 3.08-7 .28 0 .42.06.48.27.92 2.36 2.33 4.14 3.08 6.69-1.32.81-2.13 2.13-3.58 2.71zm56-5.8c2.9-4.73 5.91-9.34 9-13.89-.92-2.95-1.85-5.89-2.85-8.79-.75-2.17-1.53-4.32-2.39-6.42a16.84 16.84 0 0 0-1-2.06c-.09-.15-.19-.28-.28-.43a15.19 15.19 0 0 0-1-1.4l-.27-.32a14.79 14.79 0 0 0-1.22-1.29l-.17-.15c-5.65-5.13-12.23-5.25-19.29-5.61v37.7c.92 3.21 3 5.24 3.91 8.49a28.1 28.1 0 0 0-3.91 3.26v12.4s8-5.29 9.44-5.8c.12-1.06.19-6.12.1-7.41 3.38-1.08 7.53-1.3 11.19-2.07-.42-2.08-.75-4.25-1.25-6.22zM82 78.88a44.86 44.86 0 0 0-7 1.4l-1.13.36.08 1.19c.07 1 0 4.59 0 6.33-1.58.85-4.36 2.61-6.47 4v-9a20.86 20.86 0 0 1 2.25-1.85l1.08-.82.79-.62-.27-1a19.65 19.65 0 0 0-2.12-4.66 18.12 18.12 0 0 1-1.74-3.65v-35.9c6.38.32 11.93.75 16.77 5.15l.14.13a13.36 13.36 0 0 1 1.1 1.16l.11.13.13.16a13.63 13.63 0 0 1 .88 1.26l.14.22.11.17a15.31 15.31 0 0 1 .93 1.87c.74 1.81 1.49 3.83 2.36 6.34.93 2.71 1.8 5.45 2.61 8-3.36 5-6.1 9.26-8.6 13.34l-.34.55.16.62c.34 1.32.6 2.78.86 4.2l.08.44c-1.01.2-1.97.34-2.91.48zm32.61-7.11c2.34-3.88 4.77-7.65 7.23-11.39-.74-2.42-1.49-4.83-2.3-7.21-.6-1.78-1.23-3.55-1.92-5.26a13.91 13.91 0 0 0-.82-1.69c-.07-.12-.15-.23-.22-.35a12.41 12.41 0 0 0-.79-1.15l-.22-.26a12 12 0 0 0-1-1.06l-.13-.12c-4.56-4.2-11.68-4.31-17.37-4.6l-1.63-.08c-1.24.28-2.46.62-3.67 1 .08.12.16.24.23.36a21.33 21.33 0 0 1 1.3 2.62c.78 1.91 1.56 4 2.45 6.58v.09c1 3 2 6.09 2.89 8.92l.65 2.08-1.19 1.83c-3.06 4.56-5.6 8.46-7.9 12.16.19.9.35 1.8.51 2.68.11.62.23 1.25.35 1.86l.86 4.41s-1 1.26-1 1.5c1.06.57 7.77 4.71 7.77 4.71s6.62-4.34 7.77-4.75c.1-.87.15-5 .08-6.07 2.73-.88 6.07-1.07 9-1.7-.27-1.72-.54-3.49-.95-5.11zM111.82 76a35.85 35.85 0 0 0-5.71 1.16l-1.12.36.08 1.18c.05.78 0 3.55 0 5-1.66.91-4.65 2.83-6.34 3.93-1.32-.81-3.94-2.42-5.62-3.43l.44-.55-.13-.69-.86-4.41c-.12-.6-.23-1.21-.34-1.81v-.05c-.12-.68-.25-1.39-.39-2.09 2.17-3.6 4.59-7.31 7.52-11.67l1.22-1.81.41-.6-.22-.69-.65-2.08c-.88-2.84-1.85-5.89-2.9-9v-.09C96.28 46.07 95.49 44 94.7 42c-.21-.5-.43-1-.68-1.5q.79-.22 1.56-.4H98c5.41.26 11.54.56 15.43 4.15l.11.1a10.57 10.57 0 0 1 .86.93l.09.11.1.12a10.9 10.9 0 0 1 .69 1l.12.19.08.12a12.4 12.4 0 0 1 .73 1.5c.6 1.48 1.2 3.13 1.89 5.18.74 2.18 1.42 4.37 2.06 6.45-2.68 4.07-4.87 7.53-6.87 10.84l-.33.54.15.61c.27 1.07.47 2.21.69 3.42v.1zM87.48 56.33a1.08 1.08 0 0 1 0-.78c.12-.28.24-.63.38-1a21.81 21.81 0 0 0-4 .89c-1.91.79-3.62 3.2-5.39 4.84-2 1.84-4 3.26-5.39 4.84-1 .14-2 .36-2.93.57l.3.62q.59.88 1.1 1.81a1 1 0 0 0 .28.23c3.11-.5 5.61.69 7.88 0 1.08-.33 4.43-4.11 5.18-5.29 1.34-2.06 1.75-4.73 2.59-6.73zm11 13.54c-.92 2.36-2.33 4.14-3.08 6.69 1.29.78 2.1 2.09 3.55 2.68a22.16 22.16 0 0 1 3.05-2.68c-.72-2.67-2.34-4.33-3.08-7-.24 0-.38.1-.44.31zm17.82-12.12a.89.89 0 0 1 0-.64c.1-.23.19-.52.31-.8a17.33 17.33 0 0 0-3.21.73c-1.54.65-2.92 2.62-4.34 4-1.59 1.51-3.2 2.67-4.34 4-.82.11-1.59.29-2.36.47l.24.51q.47.72.89 1.48a.77.77 0 0 0 .23.19c2.51-.41 4.52.57 6.35 0 .87-.27 3.58-3.37 4.18-4.34 1.04-1.73 1.37-3.95 2.05-5.6z"
+                                            transform="translate(-2.38 -12.86)"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/ilios.png" data-lightbox="todos" data-title="Ilios">
+                                <img src="../img/mapas/maps/ilios.png" class="card-img-top" alt="ilios" title="ilios"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/Greece.png" alt="Greece" title="Greece">
+                                    Ilios</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 64 64">
+                                        <g>
+                                            <path
+                                                d="M54.94,29.44,34.56,9.06a3.63,3.63,0,0,0-5.12,0L9.06,29.44a3.63,3.63,0,0,0,0,5.12L29.44,54.94a3.63,3.63,0,0,0,5.12,0L54.94,34.56A3.63,3.63,0,0,0,54.94,29.44Zm-.9,3.9L33.35,54a1.91,1.91,0,0,1-2.69,0L10,33.35a1.91,1.91,0,0,1,0-2.69L30.65,10a1.91,1.91,0,0,1,2.69,0L54,30.65A1.91,1.91,0,0,1,54,33.35Z">
+                                            </path>
+                                            <path
+                                                d="M34.21,12.21a3.13,3.13,0,0,0-4.41,0L12.21,29.79a3.13,3.13,0,0,0,0,4.41L29.79,51.79a3.13,3.13,0,0,0,4.41,0L51.79,34.21a3.13,3.13,0,0,0,0-4.41ZM33,49.17a1.49,1.49,0,0,1-2.1,0l-13-13h5.38v.55a1.3,1.3,0,0,0,2.24.89l5-5.32a.46.46,0,0,0,0-.63l-5-5.29a1.3,1.3,0,0,0-2.24.89v.55H18l13-13a1.49,1.49,0,0,1,2.1,0l13,13H40.66v-.55a1.3,1.3,0,0,0-2.24-.89l-5,5.29a.46.46,0,0,0,0,.63l5,5.32a1.3,1.3,0,0,0,2.24-.89v-.55H46Z">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <g>
+                                            <path
+                                                d="M110.6 37.6L64.2 14.8a2.5 2.5 0 0 0-3.6 2.3v80.8a1.7 1.7 0 0 0 1.7 1.7h2.2a1.7 1.7 0 0 0 1.7-1.7V60.5L110.6 40a1.3 1.3 0 0 0 0-2.4z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M95.7 91c-1.1-.3-1.9.6-.8 1.1 5.7 1.7 9.1 3.9 9.1 6.3 0 5.4-18.8 9.7-40.5 9.9S23 103.7 23 98.4c0-2.4 3.4-4.5 9.1-6.3 1-.5.2-1.4-.8-1.1-8.9 2.4-14.4 5.7-14.4 9.4 0 7 21.7 12.8 46.6 13h.3c25-.2 46.6-6 46.6-13-.3-3.7-5.8-7-14.7-9.4z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/industrias volskaya.png" data-lightbox="todos" data-title="Industrias Volskaya">
+                                <img src="../img/mapas/maps/industrias volskaya.png" class="card-img-top"
+                                alt="industrias volskaya" title="industrias volskaya"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/Russia.png" alt="Russia" title="Russia">
+                                    Insdústrias Volskaya</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 64 64">
+                                        <g>
+                                            <rect x="22.15" y="19.88" width="19.69" height="19.69" rx="2.89" ry="2.89"
+                                                transform="translate(-11.65 31.33) rotate(-45)"></rect>
+                                            <path
+                                                d="M12.54,29.29A19.47,19.47,0,0,0,46.41,42.8h0l-2.66-2.28h0a16,16,0,1,1-12.5-26.75h0v-3.5h0A19.47,19.47,0,0,0,12.54,29.29Z">
+                                            </path>
+                                            <path
+                                                d="M48,29.72a15.89,15.89,0,0,1-3.25,9.65l2.66,2.28A19.47,19.47,0,0,0,32.75,10.27v3.51A16,16,0,0,1,48,29.72Z">
+                                            </path>
+                                            <path
+                                                d="M32.37,7A22.73,22.73,0,0,0,13.47,42.89h0v-2.8h0A21.4,21.4,0,0,1,11.4,24.51,20.84,20.84,0,0,1,27.13,9a21.25,21.25,0,0,1,23.4,31h0v2.8h0A22.73,22.73,0,0,0,32.37,7Z">
+                                            </path>
+                                            <path
+                                                d="M32,51a21.19,21.19,0,0,1-16.66-8.08A.21.21,0,0,0,15,43v1.68a.21.21,0,0,0,.05.14,22.71,22.71,0,0,0,12,7.08.22.22,0,0,1,.13.08l0,0,4.31,4.78a.65.65,0,0,0,.91,0L36.75,52a.21.21,0,0,1,.1-.06A22.71,22.71,0,0,0,49,44.83a.21.21,0,0,0,.05-.14V43a.21.21,0,0,0-.37-.13A21.19,21.19,0,0,1,32,51Z">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/junkertown.png" data-lightbox="todos" data-title="Junkertown">
+                                <img src="../img/mapas/maps/junkertown.png" class="card-img-top" alt="junkertown"
+                                title="junkertown"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/Australia.png" alt="Australia" title="Australia">
+                                    Junkertown</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 64 64">
+                                        <g>
+                                            <rect x="10.38" y="24.34" width="21.03" height="14.39" rx="0.81" ry="0.81">
+                                            </rect>
+                                            <path
+                                                d="M60.62,37.83h0c0-.23,0-.47,0-.72h0a.28.28,0,0,0,.28-.24.26.26,0,0,0-.26-.29h-.09c0-.24,0-.47,0-.72h.08a.28.28,0,0,0,.28-.24.26.26,0,0,0-.26-.29H60.5l0-.72h.13a.26.26,0,0,0,.26-.29.28.28,0,0,0-.28-.24h-.12l0-.74h0a.57.57,0,0,0,.53-.63.59.59,0,0,0-.59-.5h-.06c-.5-2.43-2.65-4.26-6-4.26H49.44c-1.26-2.15-1.91-3.59-2.45-3.87a16.68,16.68,0,0,0-6.19-.89c-3.43,0-4.64.13-5,.35s-.59.19-.59,1.48v5.42H34.7V23.8a.6.6,0,0,0-.6-.6H32.66a.6.6,0,0,0-.6.6V39.27H3.39a.39.39,0,0,0-.39.39v1.81a.39.39,0,0,0,.39.39h1a.14.14,0,0,1,.14.14v.24a.47.47,0,0,0,.47.47H8.49A.47.47,0,0,0,9,42.25V42a.14.14,0,0,1,.14-.14h3.34a.14.14,0,0,0,.09,0,6,6,0,0,1,4.06-1.48,6,6,0,0,1,4.06,1.48.14.14,0,0,0,.09,0H22a.14.14,0,0,1,.14.14v.24a.47.47,0,0,0,.47.47h1.72a.14.14,0,0,0,.1,0l.24-.24a.14.14,0,0,1,.2,0l.24.24a.14.14,0,0,0,.1,0H27a.14.14,0,0,0,.1,0l.11-.11a.14.14,0,0,1,.2,0l.11.11a.14.14,0,0,0,.1,0h1.82a.14.14,0,0,0,.1,0l.24-.24a.14.14,0,0,1,.2,0l.24.24a.14.14,0,0,0,.1,0h1.42a.47.47,0,0,0,.47-.47V42a.14.14,0,0,1,.14-.14h11.2a1.8,1.8,0,0,0-.26.81c0,1.16.83,1.35,2.14,1.2h0c0-.11,2.29-4,5.91-3.89a7.79,7.79,0,0,1,5.92,3.64s0,.09,0,.13h0c1.51.17,2.49,0,2.49-1.23a2.42,2.42,0,0,0-.6-1.24h0c1.32-.3,1.5-1.43,1.47-2.92h0a.27.27,0,0,0,.26-.2A.26.26,0,0,0,60.62,37.83ZM47.5,28l-5.07.24h0c-1.67,0-1.92.21-1.92-.29s-.08-1.74-.08-2.23,0-.86.58-.86,3.47-.08,4.06,0a1.37,1.37,0,0,1,1.32.92L47.5,28Z">
+                                            </path>
+                                            <path
+                                                d="M51.36,45.39a1.21,1.21,0,1,0,1.53,1.17A1.38,1.38,0,0,0,51.36,45.39Zm0,2a.64.64,0,1,1,.8-.62A.73.73,0,0,1,51.36,47.39Z">
+                                            </path>
+                                            <path
+                                                d="M53.12,41.63l.06-.31a.51.51,0,0,0-.51-.51H50.06a.51.51,0,0,0-.51.51l.07.31c-2.49.58-4.3,2.35-4.3,4.46a3.92,3.92,0,0,0,1,2.55h0a.26.26,0,0,0,0,.37l.93.93a.26.26,0,0,0,.37,0l.11-.16a7.51,7.51,0,0,0,7.32,0l.11.16a.26.26,0,0,0,.37,0l.93-.93a.26.26,0,0,0,0-.37h0a3.91,3.91,0,0,0,1-2.55C57.41,44,55.6,42.21,53.12,41.63Zm-2.51.08h1.49a.3.3,0,0,1,.29.29l-.25,1.36a.3.3,0,0,1-.29.29h-.94a.3.3,0,0,1-.29-.29L50.32,42A.3.3,0,0,1,50.61,41.71ZM48,48.85l-.4.57a.15.15,0,0,1-.21,0l-.54-.54a.15.15,0,0,1,0-.21l.6-.37a.15.15,0,0,1,.21,0l.34.34,0,0v.08A.15.15,0,0,1,48,48.85Zm3.41.49c-1.75,0-3.17-1.09-3.17-2.44s1.42-2.44,3.17-2.44,3.17,1.09,3.17,2.44S53.11,49.33,51.36,49.33Zm4.55-.45-.54.54a.15.15,0,0,1-.21,0l-.4-.57,0,0a.63.63,0,0,1,0-.09.14.14,0,0,1,0-.08l.34-.34a.15.15,0,0,1,.21,0l.6.37A.15.15,0,0,1,55.91,48.89Z">
+                                            </path>
+                                            <path
+                                                d="M16.8,45.33a1.23,1.23,0,1,0,0,2.38,1.23,1.23,0,1,0,0-2.38Zm0,2a.64.64,0,1,1,.8-.62A.73.73,0,0,1,16.8,47.35Z">
+                                            </path>
+                                            <path
+                                                d="M18.56,41.51l.06-.31a.52.52,0,0,0-.51-.52H15.5a.52.52,0,0,0-.51.52l.07.31c-2.49.58-4.3,2.38-4.3,4.52a4,4,0,0,0,1,2.59h0a.27.27,0,0,0,0,.37l.93.95a.26.26,0,0,0,.37,0l.11-.16a7.43,7.43,0,0,0,7.32,0l.11.16a.26.26,0,0,0,.37,0l.93-.95a.27.27,0,0,0,0-.37h0a4,4,0,0,0,1-2.59C22.85,43.9,21,42.1,18.56,41.51Zm-2.51.08h1.49a.3.3,0,0,1,.29.3l-.25,1.37a.3.3,0,0,1-.29.3h-.94a.3.3,0,0,1-.29-.3l-.31-1.37A.3.3,0,0,1,16.06,41.59ZM13.4,48.82l-.4.58a.15.15,0,0,1-.21,0l-.54-.54a.15.15,0,0,1,0-.21l.6-.38a.15.15,0,0,1,.21,0l.34.34,0,0v.08A.15.15,0,0,1,13.4,48.82Zm3.41.49c-1.75,0-3.17-1.11-3.17-2.48s1.42-2.48,3.17-2.48S20,45.47,20,46.84,18.56,49.32,16.8,49.32Zm4.55-.45-.54.54a.15.15,0,0,1-.21,0l-.4-.58,0,0a.65.65,0,0,1,0-.09.15.15,0,0,1,0-.08l.34-.34a.15.15,0,0,1,.21,0l.6.38A.15.15,0,0,1,21.35,48.86Z">
+                                            </path>
+                                            <rect x="38.04" y="14.19" width="6.12" height="6.12" rx="0.82" ry="0.82"
+                                                transform="translate(-0.16 34.12) rotate(-45)"></rect>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/kanezaka.png" data-lightbox="todos" data-title="kanezaka">
+                                <img src="../img/mapas/maps/kanezaka.png" class="card-img-top" alt="kanezaka"
+                                title="kanezaka"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/Japan.png" alt="Japan" title="Japan">
+                                    Kanezaka</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <g>
+                                            <path
+                                                d="M84.14 91.33c3-4.88 6.11-9.63 9.27-14.32-.95-3-1.91-6.08-2.94-9.07-.77-2.24-1.58-4.46-2.47-6.62a17.36 17.36 0 0 0-1.06-2.12c-.09-.16-.19-.29-.29-.44a15.66 15.66 0 0 0-1-1.44l-.28-.32a15.27 15.27 0 0 0-1.26-1.33l-.17-.16c-5.84-5.3-12.65-5.43-19.94-5.79-7.29.37-14.1.5-19.94 5.78l-.17.16A15.27 15.27 0 0 0 42.63 57l-.28.33a15.66 15.66 0 0 0-1 1.44c-.09.15-.2.29-.29.44A17.36 17.36 0 0 0 40 61.32c-.89 2.16-1.69 4.38-2.47 6.62-1 3-2 6-2.94 9.07 3.16 4.69 6.27 9.45 9.27 14.32-.52 2-.86 4.27-1.29 6.41 3.79.79 8.07 1 11.57 2.13-.09 1.33 0 6.55.1 7.64 1.48.52 9.75 6 9.75 6s8.28-5.46 9.75-6c.13-1.09.19-6.31.1-7.64 3.5-1.11 7.78-1.35 11.57-2.13-.41-2.14-.75-4.38-1.27-6.41zM59.22 84q-.61.91-1.14 1.86a1 1 0 0 1-.29.23c-3.22-.51-5.8.71-8.14 0-1.12-.34-4.58-4.24-5.36-5.46-1.32-2.09-1.74-4.88-2.62-6.95a1.11 1.11 0 0 0 0-.81c-.13-.29-.25-.65-.39-1a22.58 22.58 0 0 1 4.11.92c2 .81 3.74 3.29 5.57 5 2 1.9 4.11 3.36 5.57 5 1.06.14 2 .37 3 .59zM64 100.72a29 29 0 0 0-4-3.37c.89-3.35 3-5.44 4-8.75 1 3.31 3.11 5.4 4 8.76a29 29 0 0 0-4 3.36zM78.35 86.1c-2.34.71-4.92-.51-8.14 0a1 1 0 0 1-.29-.23q-.53-1-1.14-1.86l-.31-.64c1-.22 2-.44 3-.59 1.46-1.63 3.53-3.1 5.57-5 1.83-1.69 3.59-4.17 5.57-5a22.58 22.58 0 0 1 4.11-.92c-.15.35-.27.71-.39 1a1.11 1.11 0 0 0 0 .81c-.88 2.07-1.3 4.86-2.62 6.95-.77 1.24-4.24 5.15-5.36 5.48z"
+                                                transform="translate(-2.38 -12.86)"></path>
+                                            <path
+                                                d="M89.89 22.65c-2.62 1.69-6 4.13-7.17 6.11a7.83 7.83 0 0 0-2.25-2.91.94.94 0 0 0-1.51.83v.33A4.69 4.69 0 0 1 77.91 30c-2.26 2.84-4.06 3.07-5.68 2.8l-.06.09v-.1a5.77 5.77 0 0 1-3.6-9.12 1.54 1.54 0 0 0 .05-1.75c-1.12-1.73-2.93-5.1-3.91-7a.78.78 0 0 0-1.38 0c-1 1.82-2.77 5.09-3.89 6.79a1.54 1.54 0 0 0 0 1.76 5.77 5.77 0 0 1-3.61 9.11v.1l-.06-.09c-1.63.27-3.42 0-5.7-2.8A4.66 4.66 0 0 1 49 26.86v-.36a.94.94 0 0 0-1.51-.83 7.83 7.83 0 0 0-2.25 2.91c-1.19-2-4.55-4.41-7.17-6.11a.94.94 0 0 0-1.32 1.27 57.41 57.41 0 0 1 6.91 16.46 3.39 3.39 0 0 0 1.33 2v2.7h.06a2.88 2.88 0 0 0-1.53 2.2 2.67 2.67 0 0 0 1.28 2c5.81-3.46 12-3.77 18.11-4.06h2.17c6 .3 12.26.6 18 4a2.62 2.62 0 0 0 1.22-2 2.88 2.88 0 0 0-1.53-2.2h.06v-2.6a3.4 3.4 0 0 0 1.47-2.11 57.52 57.52 0 0 1 6.86-16.3.94.94 0 0 0-1.27-1.18z"
+                                                transform="translate(-2.38 -12.86)"></path>
+                                            <path
+                                                d="M114.35 89.62c2.42-4 4.93-7.89 7.48-11.74-.76-2.49-1.54-5-2.37-7.43-.62-1.84-1.27-3.66-2-5.43a14.31 14.31 0 0 0-.85-1.74c-.07-.13-.16-.24-.23-.36a12.87 12.87 0 0 0-.81-1.18l-.23-.27a12.43 12.43 0 0 0-1-1.09l-.14-.13c-4.71-4.33-12.07-4.44-18-4.74l-1.68-.09c-1.28.29-2.55.64-3.8 1 .08.12.16.24.24.38a22 22 0 0 1 1.34 2.7c.81 2 1.61 4.12 2.53 6.78v.09c1.08 3.14 2.07 6.27 3 9.2l.67 2.15-1.2 1.91c-3.16 4.7-5.79 8.73-8.16 12.54.19.92.36 1.85.53 2.76.12.64.24 1.29.36 1.92l.89 4.55s-1 1.3-1 1.54c1.1.59 8 4.86 8 4.86s6.84-4.47 8-4.9c.1-.89.16-5.17.08-6.26 2.82-.91 6.27-1.1 9.33-1.75-.33-1.77-.56-3.6-.98-5.27zm-16.17 7.7c-1.5-.61-2.34-2-3.67-2.76.77-2.63 2.23-4.47 3.18-6.9.06-.22.21-.32.49-.28.77 2.72 2.44 4.43 3.19 7.18a22.9 22.9 0 0 0-3.19 2.76zm11.5-12c-1.89.59-4-.42-6.57 0a.79.79 0 0 1-.24-.19q-.43-.78-.92-1.53l-.25-.53c.8-.18 1.59-.36 2.44-.48 1.18-1.34 2.85-2.54 4.49-4.09 1.47-1.39 2.9-3.42 4.49-4.09a18 18 0 0 1 3.32-.75c-.12.29-.21.58-.32.82a.92.92 0 0 0 0 .66c-.71 1.7-1 4-2.11 5.7-.63 1.02-3.42 4.22-4.32 4.5zm-80.24-7.56l.67-2.15c.91-2.92 1.9-6.06 3-9.2v-.09c.92-2.66 1.72-4.82 2.53-6.79A22 22 0 0 1 37 56.84c.08-.13.16-.25.24-.37-1.25-.4-2.52-.75-3.8-1l-1.68.09c-5.88.3-13.25.41-18 4.74l-.14.13a12.42 12.42 0 0 0-1 1.09l-.23.27a12.85 12.85 0 0 0-.81 1.18c-.08.12-.16.24-.23.36a14.33 14.33 0 0 0-.81 1.67c-.72 1.77-1.37 3.59-2 5.43-.83 2.45-1.61 4.94-2.37 7.43 2.55 3.85 5.06 7.74 7.48 11.74-.42 1.66-.7 3.5-1 5.26 3.05.65 6.51.84 9.33 1.75-.07 1.09 0 5.37.08 6.26 1.19.43 8 4.9 8 4.9s6.93-4.27 8-4.86c0-.25-1-1.54-1-1.54l.94-4.53c.12-.63.24-1.28.36-1.92.17-.91.34-1.84.53-2.76-2.38-3.81-5-7.84-8.16-12.54zM26 83.62q-.49.74-.92 1.53a.79.79 0 0 1-.24.19c-2.59-.42-4.67.59-6.57 0-.9-.28-3.7-3.48-4.32-4.48-1.06-1.71-1.4-4-2.11-5.7a.92.92 0 0 0 0-.66c-.1-.24-.2-.54-.32-.82a18 18 0 0 1 3.32.75c1.59.67 3 2.7 4.49 4.09 1.64 1.55 3.31 2.76 4.49 4.09.85.12 1.65.3 2.44.48zm3.78 13.7a22.9 22.9 0 0 0-3.19-2.76c.75-2.75 2.42-4.46 3.19-7.18.29 0 .43.06.49.28.95 2.43 2.41 4.27 3.18 6.9-1.29.8-2.13 2.15-3.63 2.76z"
+                                                transform="translatea(-2.38 -12.86)"></path>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <path
+                                            d="M43 38.83a14.78 14.78 0 0 0-1.22 1.29l-.27.32a15.22 15.22 0 0 0-1 1.4c-.09.15-.19.28-.28.43a16.85 16.85 0 0 0-1 2.06c-.86 2.1-1.64 4.25-2.39 6.42-1 2.9-1.93 5.84-2.85 8.79C37 64.1 40 68.7 42.93 73.43c-.5 2-.84 4.14-1.24 6.22 3.66.77 7.81 1 11.19 2.07-.09 1.29 0 6.35.1 7.41 1.43.51 9.44 5.8 9.44 5.8v-12.4a28.09 28.09 0 0 0-3.91-3.26c.9-3.25 3-5.28 3.91-8.49V33.07c-7.06.35-13.64.48-19.29 5.61zm6.81 21.46c2 1.84 4 3.26 5.39 4.84 1 .14 2 .36 2.93.57l-.3.62q-.59.88-1.1 1.81a1 1 0 0 1-.29.23c-3.11-.5-5.61.69-7.88 0-1.08-.33-4.43-4.11-5.18-5.29-1.27-2-1.68-4.73-2.53-6.74a1.07 1.07 0 0 0 0-.78c-.12-.28-.24-.63-.38-1a21.81 21.81 0 0 1 4 .89c1.82.81 3.53 3.21 5.29 4.85zM29 60.27l.65-2.08c.88-2.83 1.84-5.88 2.89-8.92v-.09c.89-2.58 1.67-4.67 2.45-6.58a21.34 21.34 0 0 1 1.3-2.6c.07-.13.15-.24.23-.36-1.21-.39-2.43-.73-3.67-1l-1.63.08c-5.69.29-12.81.39-17.37 4.6l-.13.12a12 12 0 0 0-1 1.06l-.22.26a12.47 12.47 0 0 0-.79 1.15c-.07.12-.15.23-.22.35a13.9 13.9 0 0 0-.82 1.69c-.67 1.68-1.3 3.45-1.91 5.23C8 55.56 7.21 58 6.47 60.39c2.46 3.73 4.89 7.51 7.23 11.39-.41 1.61-.67 3.39-1 5.1 3 .63 6.3.82 9 1.7-.07 1.06 0 5.21.08 6.07 1.15.42 7.77 4.75 7.77 4.75s6.7-4.14 7.77-4.71c0-.24-1-1.5-1-1.5l.86-4.41c.12-.62.23-1.24.35-1.86.16-.88.32-1.78.51-2.68-2.3-3.69-4.84-7.6-7.9-12.16zm-3.3 5.68q-.47.72-.89 1.48a.76.76 0 0 1-.23.19c-2.51-.41-4.52.57-6.35 0-.87-.27-3.58-3.37-4.18-4.34-1-1.66-1.36-3.88-2-5.52a.89.89 0 0 0 0-.64c-.1-.23-.19-.52-.31-.8a17.34 17.34 0 0 1 3.21.73c1.54.65 2.92 2.62 4.34 4 1.59 1.51 3.2 2.67 4.34 4 .82.11 1.59.29 2.36.47zm3.66 13.29a22.18 22.18 0 0 0-3.08-2.68c.72-2.67 2.34-4.33 3.08-7 .28 0 .42.06.48.27.92 2.36 2.33 4.14 3.08 6.69-1.32.81-2.13 2.13-3.58 2.71zm56-5.8c2.9-4.73 5.91-9.34 9-13.89-.92-2.95-1.85-5.89-2.85-8.79-.75-2.17-1.53-4.32-2.39-6.42a16.84 16.84 0 0 0-1-2.06c-.09-.15-.19-.28-.28-.43a15.19 15.19 0 0 0-1-1.4l-.27-.32a14.79 14.79 0 0 0-1.22-1.29l-.17-.15c-5.65-5.13-12.23-5.25-19.29-5.61v37.7c.92 3.21 3 5.24 3.91 8.49a28.1 28.1 0 0 0-3.91 3.26v12.4s8-5.29 9.44-5.8c.12-1.06.19-6.12.1-7.41 3.38-1.08 7.53-1.3 11.19-2.07-.42-2.08-.75-4.25-1.25-6.22zM82 78.88a44.86 44.86 0 0 0-7 1.4l-1.13.36.08 1.19c.07 1 0 4.59 0 6.33-1.58.85-4.36 2.61-6.47 4v-9a20.86 20.86 0 0 1 2.25-1.85l1.08-.82.79-.62-.27-1a19.65 19.65 0 0 0-2.12-4.66 18.12 18.12 0 0 1-1.74-3.65v-35.9c6.38.32 11.93.75 16.77 5.15l.14.13a13.36 13.36 0 0 1 1.1 1.16l.11.13.13.16a13.63 13.63 0 0 1 .88 1.26l.14.22.11.17a15.31 15.31 0 0 1 .93 1.87c.74 1.81 1.49 3.83 2.36 6.34.93 2.71 1.8 5.45 2.61 8-3.36 5-6.1 9.26-8.6 13.34l-.34.55.16.62c.34 1.32.6 2.78.86 4.2l.08.44c-1.01.2-1.97.34-2.91.48zm32.61-7.11c2.34-3.88 4.77-7.65 7.23-11.39-.74-2.42-1.49-4.83-2.3-7.21-.6-1.78-1.23-3.55-1.92-5.26a13.91 13.91 0 0 0-.82-1.69c-.07-.12-.15-.23-.22-.35a12.41 12.41 0 0 0-.79-1.15l-.22-.26a12 12 0 0 0-1-1.06l-.13-.12c-4.56-4.2-11.68-4.31-17.37-4.6l-1.63-.08c-1.24.28-2.46.62-3.67 1 .08.12.16.24.23.36a21.33 21.33 0 0 1 1.3 2.62c.78 1.91 1.56 4 2.45 6.58v.09c1 3 2 6.09 2.89 8.92l.65 2.08-1.19 1.83c-3.06 4.56-5.6 8.46-7.9 12.16.19.9.35 1.8.51 2.68.11.62.23 1.25.35 1.86l.86 4.41s-1 1.26-1 1.5c1.06.57 7.77 4.71 7.77 4.71s6.62-4.34 7.77-4.75c.1-.87.15-5 .08-6.07 2.73-.88 6.07-1.07 9-1.7-.27-1.72-.54-3.49-.95-5.11zM111.82 76a35.85 35.85 0 0 0-5.71 1.16l-1.12.36.08 1.18c.05.78 0 3.55 0 5-1.66.91-4.65 2.83-6.34 3.93-1.32-.81-3.94-2.42-5.62-3.43l.44-.55-.13-.69-.86-4.41c-.12-.6-.23-1.21-.34-1.81v-.05c-.12-.68-.25-1.39-.39-2.09 2.17-3.6 4.59-7.31 7.52-11.67l1.22-1.81.41-.6-.22-.69-.65-2.08c-.88-2.84-1.85-5.89-2.9-9v-.09C96.28 46.07 95.49 44 94.7 42c-.21-.5-.43-1-.68-1.5q.79-.22 1.56-.4H98c5.41.26 11.54.56 15.43 4.15l.11.1a10.57 10.57 0 0 1 .86.93l.09.11.1.12a10.9 10.9 0 0 1 .69 1l.12.19.08.12a12.4 12.4 0 0 1 .73 1.5c.6 1.48 1.2 3.13 1.89 5.18.74 2.18 1.42 4.37 2.06 6.45-2.68 4.07-4.87 7.53-6.87 10.84l-.33.54.15.61c.27 1.07.47 2.21.69 3.42v.1zM87.48 56.33a1.08 1.08 0 0 1 0-.78c.12-.28.24-.63.38-1a21.81 21.81 0 0 0-4 .89c-1.91.79-3.62 3.2-5.39 4.84-2 1.84-4 3.26-5.39 4.84-1 .14-2 .36-2.93.57l.3.62q.59.88 1.1 1.81a1 1 0 0 0 .28.23c3.11-.5 5.61.69 7.88 0 1.08-.33 4.43-4.11 5.18-5.29 1.34-2.06 1.75-4.73 2.59-6.73zm11 13.54c-.92 2.36-2.33 4.14-3.08 6.69 1.29.78 2.1 2.09 3.55 2.68a22.16 22.16 0 0 1 3.05-2.68c-.72-2.67-2.34-4.33-3.08-7-.24 0-.38.1-.44.31zm17.82-12.12a.89.89 0 0 1 0-.64c.1-.23.19-.52.31-.8a17.33 17.33 0 0 0-3.21.73c-1.54.65-2.92 2.62-4.34 4-1.59 1.51-3.2 2.67-4.34 4-.82.11-1.59.29-2.36.47l.24.51q.47.72.89 1.48a.77.77 0 0 0 .23.19c2.51-.41 4.52.57 6.35 0 .87-.27 3.58-3.37 4.18-4.34 1.04-1.73 1.37-3.95 2.05-5.6z"
+                                            transform="translate(-2.38 -12.86)"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/kings row.png" data-lightbox="todos" data-title="Kings Row">
+                                <img src="../img/mapas/maps/kings row.png" class="card-img-top" alt="kings row"
+                                title="kings row"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/UK.png" alt="UK" title="UK">
+                                    King's Row</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <g>
+                                            <path
+                                                d="M84.14 91.33c3-4.88 6.11-9.63 9.27-14.32-.95-3-1.91-6.08-2.94-9.07-.77-2.24-1.58-4.46-2.47-6.62a17.36 17.36 0 0 0-1.06-2.12c-.09-.16-.19-.29-.29-.44a15.66 15.66 0 0 0-1-1.44l-.28-.32a15.27 15.27 0 0 0-1.26-1.33l-.17-.16c-5.84-5.3-12.65-5.43-19.94-5.79-7.29.37-14.1.5-19.94 5.78l-.17.16A15.27 15.27 0 0 0 42.63 57l-.28.33a15.66 15.66 0 0 0-1 1.44c-.09.15-.2.29-.29.44A17.36 17.36 0 0 0 40 61.32c-.89 2.16-1.69 4.38-2.47 6.62-1 3-2 6-2.94 9.07 3.16 4.69 6.27 9.45 9.27 14.32-.52 2-.86 4.27-1.29 6.41 3.79.79 8.07 1 11.57 2.13-.09 1.33 0 6.55.1 7.64 1.48.52 9.75 6 9.75 6s8.28-5.46 9.75-6c.13-1.09.19-6.31.1-7.64 3.5-1.11 7.78-1.35 11.57-2.13-.41-2.14-.75-4.38-1.27-6.41zM59.22 84q-.61.91-1.14 1.86a1 1 0 0 1-.29.23c-3.22-.51-5.8.71-8.14 0-1.12-.34-4.58-4.24-5.36-5.46-1.32-2.09-1.74-4.88-2.62-6.95a1.11 1.11 0 0 0 0-.81c-.13-.29-.25-.65-.39-1a22.58 22.58 0 0 1 4.11.92c2 .81 3.74 3.29 5.57 5 2 1.9 4.11 3.36 5.57 5 1.06.14 2 .37 3 .59zM64 100.72a29 29 0 0 0-4-3.37c.89-3.35 3-5.44 4-8.75 1 3.31 3.11 5.4 4 8.76a29 29 0 0 0-4 3.36zM78.35 86.1c-2.34.71-4.92-.51-8.14 0a1 1 0 0 1-.29-.23q-.53-1-1.14-1.86l-.31-.64c1-.22 2-.44 3-.59 1.46-1.63 3.53-3.1 5.57-5 1.83-1.69 3.59-4.17 5.57-5a22.58 22.58 0 0 1 4.11-.92c-.15.35-.27.71-.39 1a1.11 1.11 0 0 0 0 .81c-.88 2.07-1.3 4.86-2.62 6.95-.77 1.24-4.24 5.15-5.36 5.48z"
+                                                transform="translate(-2.38 -12.86)"></path>
+                                            <path
+                                                d="M89.89 22.65c-2.62 1.69-6 4.13-7.17 6.11a7.83 7.83 0 0 0-2.25-2.91.94.94 0 0 0-1.51.83v.33A4.69 4.69 0 0 1 77.91 30c-2.26 2.84-4.06 3.07-5.68 2.8l-.06.09v-.1a5.77 5.77 0 0 1-3.6-9.12 1.54 1.54 0 0 0 .05-1.75c-1.12-1.73-2.93-5.1-3.91-7a.78.78 0 0 0-1.38 0c-1 1.82-2.77 5.09-3.89 6.79a1.54 1.54 0 0 0 0 1.76 5.77 5.77 0 0 1-3.61 9.11v.1l-.06-.09c-1.63.27-3.42 0-5.7-2.8A4.66 4.66 0 0 1 49 26.86v-.36a.94.94 0 0 0-1.51-.83 7.83 7.83 0 0 0-2.25 2.91c-1.19-2-4.55-4.41-7.17-6.11a.94.94 0 0 0-1.32 1.27 57.41 57.41 0 0 1 6.91 16.46 3.39 3.39 0 0 0 1.33 2v2.7h.06a2.88 2.88 0 0 0-1.53 2.2 2.67 2.67 0 0 0 1.28 2c5.81-3.46 12-3.77 18.11-4.06h2.17c6 .3 12.26.6 18 4a2.62 2.62 0 0 0 1.22-2 2.88 2.88 0 0 0-1.53-2.2h.06v-2.6a3.4 3.4 0 0 0 1.47-2.11 57.52 57.52 0 0 1 6.86-16.3.94.94 0 0 0-1.27-1.18z"
+                                                transform="translate(-2.38 -12.86)"></path>
+                                            <path
+                                                d="M114.35 89.62c2.42-4 4.93-7.89 7.48-11.74-.76-2.49-1.54-5-2.37-7.43-.62-1.84-1.27-3.66-2-5.43a14.31 14.31 0 0 0-.85-1.74c-.07-.13-.16-.24-.23-.36a12.87 12.87 0 0 0-.81-1.18l-.23-.27a12.43 12.43 0 0 0-1-1.09l-.14-.13c-4.71-4.33-12.07-4.44-18-4.74l-1.68-.09c-1.28.29-2.55.64-3.8 1 .08.12.16.24.24.38a22 22 0 0 1 1.34 2.7c.81 2 1.61 4.12 2.53 6.78v.09c1.08 3.14 2.07 6.27 3 9.2l.67 2.15-1.2 1.91c-3.16 4.7-5.79 8.73-8.16 12.54.19.92.36 1.85.53 2.76.12.64.24 1.29.36 1.92l.89 4.55s-1 1.3-1 1.54c1.1.59 8 4.86 8 4.86s6.84-4.47 8-4.9c.1-.89.16-5.17.08-6.26 2.82-.91 6.27-1.1 9.33-1.75-.33-1.77-.56-3.6-.98-5.27zm-16.17 7.7c-1.5-.61-2.34-2-3.67-2.76.77-2.63 2.23-4.47 3.18-6.9.06-.22.21-.32.49-.28.77 2.72 2.44 4.43 3.19 7.18a22.9 22.9 0 0 0-3.19 2.76zm11.5-12c-1.89.59-4-.42-6.57 0a.79.79 0 0 1-.24-.19q-.43-.78-.92-1.53l-.25-.53c.8-.18 1.59-.36 2.44-.48 1.18-1.34 2.85-2.54 4.49-4.09 1.47-1.39 2.9-3.42 4.49-4.09a18 18 0 0 1 3.32-.75c-.12.29-.21.58-.32.82a.92.92 0 0 0 0 .66c-.71 1.7-1 4-2.11 5.7-.63 1.02-3.42 4.22-4.32 4.5zm-80.24-7.56l.67-2.15c.91-2.92 1.9-6.06 3-9.2v-.09c.92-2.66 1.72-4.82 2.53-6.79A22 22 0 0 1 37 56.84c.08-.13.16-.25.24-.37-1.25-.4-2.52-.75-3.8-1l-1.68.09c-5.88.3-13.25.41-18 4.74l-.14.13a12.42 12.42 0 0 0-1 1.09l-.23.27a12.85 12.85 0 0 0-.81 1.18c-.08.12-.16.24-.23.36a14.33 14.33 0 0 0-.81 1.67c-.72 1.77-1.37 3.59-2 5.43-.83 2.45-1.61 4.94-2.37 7.43 2.55 3.85 5.06 7.74 7.48 11.74-.42 1.66-.7 3.5-1 5.26 3.05.65 6.51.84 9.33 1.75-.07 1.09 0 5.37.08 6.26 1.19.43 8 4.9 8 4.9s6.93-4.27 8-4.86c0-.25-1-1.54-1-1.54l.94-4.53c.12-.63.24-1.28.36-1.92.17-.91.34-1.84.53-2.76-2.38-3.81-5-7.84-8.16-12.54zM26 83.62q-.49.74-.92 1.53a.79.79 0 0 1-.24.19c-2.59-.42-4.67.59-6.57 0-.9-.28-3.7-3.48-4.32-4.48-1.06-1.71-1.4-4-2.11-5.7a.92.92 0 0 0 0-.66c-.1-.24-.2-.54-.32-.82a18 18 0 0 1 3.32.75c1.59.67 3 2.7 4.49 4.09 1.64 1.55 3.31 2.76 4.49 4.09.85.12 1.65.3 2.44.48zm3.78 13.7a22.9 22.9 0 0 0-3.19-2.76c.75-2.75 2.42-4.46 3.19-7.18.29 0 .43.06.49.28.95 2.43 2.41 4.27 3.18 6.9-1.29.8-2.13 2.15-3.63 2.76z"
+                                                transform="translatea(-2.38 -12.86)"></path>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 64 64">
+                                        <g>
+                                            <rect x="12.56" y="23.95" width="11.82" height="11.82" rx="1.74" ry="1.74"
+                                                transform="translate(-15.71 21.8) rotate(-45)"></rect>
+                                            <path
+                                                d="M28.81,24.41a11.69,11.69,0,0,0-9.9-6.23v2.11a9.59,9.59,0,0,1,8.91,7.5Z">
+                                            </path>
+                                            <path
+                                                d="M18,20.28h0v-2.1h0a11.69,11.69,0,1,0,6.36,21.77l1-3.46A9.58,9.58,0,1,1,18,20.28Z">
+                                            </path>
+                                            <path
+                                                d="M24,41.33A12.75,12.75,0,0,1,8.46,37.76a.13.13,0,0,0-.23.08v1a.13.13,0,0,0,0,.08,13.64,13.64,0,0,0,7.21,4.25.13.13,0,0,1,.08.05l0,0,2.59,2.87a.39.39,0,0,0,.55,0l2.61-2.89.06,0a13.54,13.54,0,0,0,2.31-.72Z">
+                                            </path>
+                                            <path
+                                                d="M6.1,26.72a12.52,12.52,0,0,1,9.45-9.29,12.77,12.77,0,0,1,13.75,5.69L29.62,22A13.65,13.65,0,1,0,7.34,37.76h0V36.08h0A12.85,12.85,0,0,1,6.1,26.72Z">
+                                            </path>
+                                            <path
+                                                d="M58.8,34.15h0c0-.23,0-.46,0-.7h0a.27.27,0,0,0,.27-.23.26.26,0,0,0-.26-.28h-.08c0-.23,0-.46,0-.7h.08a.27.27,0,0,0,.27-.23.26.26,0,0,0-.26-.28h-.11l0-.7h.12a.26.26,0,0,0,.26-.28.27.27,0,0,0-.27-.23h-.12l0-.72h0a.55.55,0,0,0,.52-.61.57.57,0,0,0-.58-.49h-.06C58,26.27,56,24.47,52.69,24.47H47.87c-1.23-2.1-1.87-3.51-2.4-3.79a16.33,16.33,0,0,0-6.06-.87c-.88,0-1.61,0-2.22,0L31.88,38.09h10.2a1.77,1.77,0,0,0-.26.8c0,1.14.81,1.32,2.1,1.18h0c0-.11,2.24-3.88,5.79-3.81a7.63,7.63,0,0,1,5.8,3.56s0,.09,0,.13h0c1.48.17,2.43,0,2.43-1.21a2.37,2.37,0,0,0-.58-1.22h0c1.29-.3,1.47-1.4,1.44-2.86h0a.26.26,0,0,0,.26-.19A.26.26,0,0,0,58.8,34.15ZM46,24.54l-5,.23h0c-1.64,0-1.88.2-1.88-.29S39,22.78,39,22.3s0-.85.57-.85,3.4-.08,4,0a1.34,1.34,0,0,1,1.3.9L46,24.54Z">
+                                            </path>
+                                            <path
+                                                d="M49.74,41.55a1.19,1.19,0,1,0,1.49,1.15A1.36,1.36,0,0,0,49.74,41.55Zm0,2a.62.62,0,1,1,.78-.6A.71.71,0,0,1,49.74,43.5Z">
+                                            </path>
+                                            <path
+                                                d="M51.47,37.86l.06-.3a.5.5,0,0,0-.5-.5H48.47a.5.5,0,0,0-.5.5l.07.3c-2.44.56-4.21,2.31-4.21,4.37a3.83,3.83,0,0,0,1,2.5h0a.26.26,0,0,0,0,.36l.91.91a.26.26,0,0,0,.36,0l.11-.16a7.36,7.36,0,0,0,7.17,0l.11.16a.26.26,0,0,0,.36,0l.91-.91a.26.26,0,0,0,0-.36h0a3.83,3.83,0,0,0,1-2.5C55.66,40.16,53.9,38.43,51.47,37.86ZM49,37.94h1.46a.29.29,0,0,1,.29.29l-.24,1.33a.29.29,0,0,1-.29.29h-.92a.29.29,0,0,1-.29-.29l-.3-1.33A.29.29,0,0,1,49,37.94Zm-2.6,7-.39.56a.15.15,0,0,1-.21,0L45.29,45a.15.15,0,0,1,0-.21l.58-.37a.15.15,0,0,1,.21,0l.33.33,0,0v.08A.14.14,0,0,1,46.41,44.93Zm3.34.48c-1.72,0-3.11-1.07-3.11-2.39s1.39-2.39,3.11-2.39,3.11,1.07,3.11,2.39S51.46,45.41,49.74,45.41ZM54.2,45l-.52.52a.15.15,0,0,1-.21,0l-.39-.56,0,0a.61.61,0,0,1,0-.09.14.14,0,0,1,0-.08l.33-.33a.15.15,0,0,1,.21,0l.58.37A.15.15,0,0,1,54.2,45Z">
+                                            </path>
+                                            <polygon points="34.57 12 23.4 51.21 26.11 52 37.27 12.79 34.57 12">
+                                            </polygon>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <path
+                                            d="M43 38.83a14.78 14.78 0 0 0-1.22 1.29l-.27.32a15.22 15.22 0 0 0-1 1.4c-.09.15-.19.28-.28.43a16.85 16.85 0 0 0-1 2.06c-.86 2.1-1.64 4.25-2.39 6.42-1 2.9-1.93 5.84-2.85 8.79C37 64.1 40 68.7 42.93 73.43c-.5 2-.84 4.14-1.24 6.22 3.66.77 7.81 1 11.19 2.07-.09 1.29 0 6.35.1 7.41 1.43.51 9.44 5.8 9.44 5.8v-12.4a28.09 28.09 0 0 0-3.91-3.26c.9-3.25 3-5.28 3.91-8.49V33.07c-7.06.35-13.64.48-19.29 5.61zm6.81 21.46c2 1.84 4 3.26 5.39 4.84 1 .14 2 .36 2.93.57l-.3.62q-.59.88-1.1 1.81a1 1 0 0 1-.29.23c-3.11-.5-5.61.69-7.88 0-1.08-.33-4.43-4.11-5.18-5.29-1.27-2-1.68-4.73-2.53-6.74a1.07 1.07 0 0 0 0-.78c-.12-.28-.24-.63-.38-1a21.81 21.81 0 0 1 4 .89c1.82.81 3.53 3.21 5.29 4.85zM29 60.27l.65-2.08c.88-2.83 1.84-5.88 2.89-8.92v-.09c.89-2.58 1.67-4.67 2.45-6.58a21.34 21.34 0 0 1 1.3-2.6c.07-.13.15-.24.23-.36-1.21-.39-2.43-.73-3.67-1l-1.63.08c-5.69.29-12.81.39-17.37 4.6l-.13.12a12 12 0 0 0-1 1.06l-.22.26a12.47 12.47 0 0 0-.79 1.15c-.07.12-.15.23-.22.35a13.9 13.9 0 0 0-.82 1.69c-.67 1.68-1.3 3.45-1.91 5.23C8 55.56 7.21 58 6.47 60.39c2.46 3.73 4.89 7.51 7.23 11.39-.41 1.61-.67 3.39-1 5.1 3 .63 6.3.82 9 1.7-.07 1.06 0 5.21.08 6.07 1.15.42 7.77 4.75 7.77 4.75s6.7-4.14 7.77-4.71c0-.24-1-1.5-1-1.5l.86-4.41c.12-.62.23-1.24.35-1.86.16-.88.32-1.78.51-2.68-2.3-3.69-4.84-7.6-7.9-12.16zm-3.3 5.68q-.47.72-.89 1.48a.76.76 0 0 1-.23.19c-2.51-.41-4.52.57-6.35 0-.87-.27-3.58-3.37-4.18-4.34-1-1.66-1.36-3.88-2-5.52a.89.89 0 0 0 0-.64c-.1-.23-.19-.52-.31-.8a17.34 17.34 0 0 1 3.21.73c1.54.65 2.92 2.62 4.34 4 1.59 1.51 3.2 2.67 4.34 4 .82.11 1.59.29 2.36.47zm3.66 13.29a22.18 22.18 0 0 0-3.08-2.68c.72-2.67 2.34-4.33 3.08-7 .28 0 .42.06.48.27.92 2.36 2.33 4.14 3.08 6.69-1.32.81-2.13 2.13-3.58 2.71zm56-5.8c2.9-4.73 5.91-9.34 9-13.89-.92-2.95-1.85-5.89-2.85-8.79-.75-2.17-1.53-4.32-2.39-6.42a16.84 16.84 0 0 0-1-2.06c-.09-.15-.19-.28-.28-.43a15.19 15.19 0 0 0-1-1.4l-.27-.32a14.79 14.79 0 0 0-1.22-1.29l-.17-.15c-5.65-5.13-12.23-5.25-19.29-5.61v37.7c.92 3.21 3 5.24 3.91 8.49a28.1 28.1 0 0 0-3.91 3.26v12.4s8-5.29 9.44-5.8c.12-1.06.19-6.12.1-7.41 3.38-1.08 7.53-1.3 11.19-2.07-.42-2.08-.75-4.25-1.25-6.22zM82 78.88a44.86 44.86 0 0 0-7 1.4l-1.13.36.08 1.19c.07 1 0 4.59 0 6.33-1.58.85-4.36 2.61-6.47 4v-9a20.86 20.86 0 0 1 2.25-1.85l1.08-.82.79-.62-.27-1a19.65 19.65 0 0 0-2.12-4.66 18.12 18.12 0 0 1-1.74-3.65v-35.9c6.38.32 11.93.75 16.77 5.15l.14.13a13.36 13.36 0 0 1 1.1 1.16l.11.13.13.16a13.63 13.63 0 0 1 .88 1.26l.14.22.11.17a15.31 15.31 0 0 1 .93 1.87c.74 1.81 1.49 3.83 2.36 6.34.93 2.71 1.8 5.45 2.61 8-3.36 5-6.1 9.26-8.6 13.34l-.34.55.16.62c.34 1.32.6 2.78.86 4.2l.08.44c-1.01.2-1.97.34-2.91.48zm32.61-7.11c2.34-3.88 4.77-7.65 7.23-11.39-.74-2.42-1.49-4.83-2.3-7.21-.6-1.78-1.23-3.55-1.92-5.26a13.91 13.91 0 0 0-.82-1.69c-.07-.12-.15-.23-.22-.35a12.41 12.41 0 0 0-.79-1.15l-.22-.26a12 12 0 0 0-1-1.06l-.13-.12c-4.56-4.2-11.68-4.31-17.37-4.6l-1.63-.08c-1.24.28-2.46.62-3.67 1 .08.12.16.24.23.36a21.33 21.33 0 0 1 1.3 2.62c.78 1.91 1.56 4 2.45 6.58v.09c1 3 2 6.09 2.89 8.92l.65 2.08-1.19 1.83c-3.06 4.56-5.6 8.46-7.9 12.16.19.9.35 1.8.51 2.68.11.62.23 1.25.35 1.86l.86 4.41s-1 1.26-1 1.5c1.06.57 7.77 4.71 7.77 4.71s6.62-4.34 7.77-4.75c.1-.87.15-5 .08-6.07 2.73-.88 6.07-1.07 9-1.7-.27-1.72-.54-3.49-.95-5.11zM111.82 76a35.85 35.85 0 0 0-5.71 1.16l-1.12.36.08 1.18c.05.78 0 3.55 0 5-1.66.91-4.65 2.83-6.34 3.93-1.32-.81-3.94-2.42-5.62-3.43l.44-.55-.13-.69-.86-4.41c-.12-.6-.23-1.21-.34-1.81v-.05c-.12-.68-.25-1.39-.39-2.09 2.17-3.6 4.59-7.31 7.52-11.67l1.22-1.81.41-.6-.22-.69-.65-2.08c-.88-2.84-1.85-5.89-2.9-9v-.09C96.28 46.07 95.49 44 94.7 42c-.21-.5-.43-1-.68-1.5q.79-.22 1.56-.4H98c5.41.26 11.54.56 15.43 4.15l.11.1a10.57 10.57 0 0 1 .86.93l.09.11.1.12a10.9 10.9 0 0 1 .69 1l.12.19.08.12a12.4 12.4 0 0 1 .73 1.5c.6 1.48 1.2 3.13 1.89 5.18.74 2.18 1.42 4.37 2.06 6.45-2.68 4.07-4.87 7.53-6.87 10.84l-.33.54.15.61c.27 1.07.47 2.21.69 3.42v.1zM87.48 56.33a1.08 1.08 0 0 1 0-.78c.12-.28.24-.63.38-1a21.81 21.81 0 0 0-4 .89c-1.91.79-3.62 3.2-5.39 4.84-2 1.84-4 3.26-5.39 4.84-1 .14-2 .36-2.93.57l.3.62q.59.88 1.1 1.81a1 1 0 0 0 .28.23c3.11-.5 5.61.69 7.88 0 1.08-.33 4.43-4.11 5.18-5.29 1.34-2.06 1.75-4.73 2.59-6.73zm11 13.54c-.92 2.36-2.33 4.14-3.08 6.69 1.29.78 2.1 2.09 3.55 2.68a22.16 22.16 0 0 1 3.05-2.68c-.72-2.67-2.34-4.33-3.08-7-.24 0-.38.1-.44.31zm17.82-12.12a.89.89 0 0 1 0-.64c.1-.23.19-.52.31-.8a17.33 17.33 0 0 0-3.21.73c-1.54.65-2.92 2.62-4.34 4-1.59 1.51-3.2 2.67-4.34 4-.82.11-1.59.29-2.36.47l.24.51q.47.72.89 1.48a.77.77 0 0 0 .23.19c2.51-.41 4.52.57 6.35 0 .87-.27 3.58-3.37 4.18-4.34 1.04-1.73 1.37-3.95 2.05-5.6z"
+                                            transform="translate(-2.38 -12.86)"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/necropole.png" data-lightbox="todos" data-title="Necropole">
+                                <img src="../img/mapas/maps/necropole.png" class="card-img-top" alt="necropole"
+                                title="necropole"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/Egypt.png" alt="Egypt" title="Egypt">
+                                    Necropole</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <g>
+                                            <path
+                                                d="M73.5 86.2c.1-.5 10.1-.6 10.9-2.3s-1.5-4.9-1.5-5.8S93 63.3 93 62.4 88.1 51.5 85.3 47 74 38.8 64.9 38.3h-1.7c-9.1.4-17.8 4.4-20.4 8.7S35 61.4 35 62.4s10.1 14.8 10.1 15.7-2.3 4-1.5 5.8 10.8 1.8 10.9 2.3-.3 6.6.3 7.5 8.8 5.9 9.2 5.9 8.5-5 9.2-5.9.2-7 .3-7.5zm-15-14.3c-.6.1-1.1 1.1-1.5 1.3a5.9 5.9 0 0 1-3.4-.1 5.4 5.4 0 0 0-3.1 0c-.8.2-4.7-4.9-5.3-6.3s-2.2-6.5-2-6.8 3.1.3 3.7.6a112.3 112.3 0 0 1 8.1 7.8 7.7 7.7 0 0 0 3.9 2.3c.3.2.2 1.1-.4 1.2zM64 86.7a16.3 16.3 0 0 1-3.7-3.3 70.2 70.2 0 0 1 3.7-7.5 70.2 70.2 0 0 1 3.7 7.4 16.3 16.3 0 0 1-3.7 3.4zm7-13.5c-.4-.2-1-1.2-1.5-1.3s-.6-1-.2-1.1a7.7 7.7 0 0 0 3.9-2.3 112.3 112.3 0 0 1 8.1-7.8c.5-.2 3.5-.8 3.7-.6s-1.6 5.3-2.1 6.8-4.5 6.6-5.3 6.3a5.4 5.4 0 0 0-3.1 0 5.9 5.9 0 0 1-3.5 0z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M89 85a.3.3 0 0 0-.5.2c.2.7.5 1.5-.1 1.8s-10.7 1.8-10.9 2.3 0 3 0 5.3L94 111.1c1.4 1.4 12.5 2.8 13 2.4s-1.2-11.5-1.9-12.2z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M39.5 87.1c-.5-.3-.2-1.2-.1-1.8a.3.3 0 0 0-.4-.3l-16 16.2c-.7.7-2.5 11.7-1.9 12.2s11.6-1 13-2.4l16.2-16.3c0-2.3.2-4.8 0-5.3s-9.4-1.5-10.8-2.3z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M120.2 21.7l-1.8-5.1a1.6 1.6 0 0 0-1.2-1.1l-5.3-1a1.6 1.6 0 0 0-1.6.5l-3.5 4.1a1.6 1.6 0 0 0-.3 1.6l.3.8a.3.3 0 0 1-.1.3h-.1L92.3 36.4 79.1 23.1c-1.3-1.3-.9 1.2-.6 2.3s2.8 9.1 3.8 10.2l3.2 3.4-.5.3-.9.7a.8.8 0 0 0 .1 1.3 13.6 13.6 0 0 1 4.7 4.2 59.7 59.7 0 0 1 2.6 5.7 1.3 1.3 0 0 0 1.9.5l2.6-2 3.2 3.1c1.2 1.1 6.3 2.3 9.4 3.3s3.2-.2 2.2-1.2L98.3 42.4 113 27.8h.3l1.6.3a1.6 1.6 0 0 0 1.6-.5l3.5-4.1a1.6 1.6 0 0 0 .2-1.8z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M32 49.6l2.6 2a1.3 1.3 0 0 0 1.9-.5 59.7 59.7 0 0 1 2.6-5.7 13.6 13.6 0 0 1 4.7-4.2.8.8 0 0 0 .1-1.3l-.9-.7-.5-.3 3.2-3.4c.9-1.1 3.5-9.1 3.8-10.2s.7-3.6-.6-2.3L35.7 36.4 21.4 22h-.1a.3.3 0 0 1-.1-.3l.3-.8a1.6 1.6 0 0 0-.3-1.6l-3.5-4.1a1.6 1.6 0 0 0-1.6-.5l-5.3 1a1.6 1.6 0 0 0-1.2 1.1l-1.8 4.9a1.6 1.6 0 0 0 .3 1.6l3.5 4.1a1.6 1.6 0 0 0 1.6.5l1.6-.3h.2l14.7 14.8-12.4 12.5c-1 .9-.8 2.1 2.2 1.2s8.1-2.2 9.4-3.3z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <path
+                                            d="M43 38.83a14.78 14.78 0 0 0-1.22 1.29l-.27.32a15.22 15.22 0 0 0-1 1.4c-.09.15-.19.28-.28.43a16.85 16.85 0 0 0-1 2.06c-.86 2.1-1.64 4.25-2.39 6.42-1 2.9-1.93 5.84-2.85 8.79C37 64.1 40 68.7 42.93 73.43c-.5 2-.84 4.14-1.24 6.22 3.66.77 7.81 1 11.19 2.07-.09 1.29 0 6.35.1 7.41 1.43.51 9.44 5.8 9.44 5.8v-12.4a28.09 28.09 0 0 0-3.91-3.26c.9-3.25 3-5.28 3.91-8.49V33.07c-7.06.35-13.64.48-19.29 5.61zm6.81 21.46c2 1.84 4 3.26 5.39 4.84 1 .14 2 .36 2.93.57l-.3.62q-.59.88-1.1 1.81a1 1 0 0 1-.29.23c-3.11-.5-5.61.69-7.88 0-1.08-.33-4.43-4.11-5.18-5.29-1.27-2-1.68-4.73-2.53-6.74a1.07 1.07 0 0 0 0-.78c-.12-.28-.24-.63-.38-1a21.81 21.81 0 0 1 4 .89c1.82.81 3.53 3.21 5.29 4.85zM29 60.27l.65-2.08c.88-2.83 1.84-5.88 2.89-8.92v-.09c.89-2.58 1.67-4.67 2.45-6.58a21.34 21.34 0 0 1 1.3-2.6c.07-.13.15-.24.23-.36-1.21-.39-2.43-.73-3.67-1l-1.63.08c-5.69.29-12.81.39-17.37 4.6l-.13.12a12 12 0 0 0-1 1.06l-.22.26a12.47 12.47 0 0 0-.79 1.15c-.07.12-.15.23-.22.35a13.9 13.9 0 0 0-.82 1.69c-.67 1.68-1.3 3.45-1.91 5.23C8 55.56 7.21 58 6.47 60.39c2.46 3.73 4.89 7.51 7.23 11.39-.41 1.61-.67 3.39-1 5.1 3 .63 6.3.82 9 1.7-.07 1.06 0 5.21.08 6.07 1.15.42 7.77 4.75 7.77 4.75s6.7-4.14 7.77-4.71c0-.24-1-1.5-1-1.5l.86-4.41c.12-.62.23-1.24.35-1.86.16-.88.32-1.78.51-2.68-2.3-3.69-4.84-7.6-7.9-12.16zm-3.3 5.68q-.47.72-.89 1.48a.76.76 0 0 1-.23.19c-2.51-.41-4.52.57-6.35 0-.87-.27-3.58-3.37-4.18-4.34-1-1.66-1.36-3.88-2-5.52a.89.89 0 0 0 0-.64c-.1-.23-.19-.52-.31-.8a17.34 17.34 0 0 1 3.21.73c1.54.65 2.92 2.62 4.34 4 1.59 1.51 3.2 2.67 4.34 4 .82.11 1.59.29 2.36.47zm3.66 13.29a22.18 22.18 0 0 0-3.08-2.68c.72-2.67 2.34-4.33 3.08-7 .28 0 .42.06.48.27.92 2.36 2.33 4.14 3.08 6.69-1.32.81-2.13 2.13-3.58 2.71zm56-5.8c2.9-4.73 5.91-9.34 9-13.89-.92-2.95-1.85-5.89-2.85-8.79-.75-2.17-1.53-4.32-2.39-6.42a16.84 16.84 0 0 0-1-2.06c-.09-.15-.19-.28-.28-.43a15.19 15.19 0 0 0-1-1.4l-.27-.32a14.79 14.79 0 0 0-1.22-1.29l-.17-.15c-5.65-5.13-12.23-5.25-19.29-5.61v37.7c.92 3.21 3 5.24 3.91 8.49a28.1 28.1 0 0 0-3.91 3.26v12.4s8-5.29 9.44-5.8c.12-1.06.19-6.12.1-7.41 3.38-1.08 7.53-1.3 11.19-2.07-.42-2.08-.75-4.25-1.25-6.22zM82 78.88a44.86 44.86 0 0 0-7 1.4l-1.13.36.08 1.19c.07 1 0 4.59 0 6.33-1.58.85-4.36 2.61-6.47 4v-9a20.86 20.86 0 0 1 2.25-1.85l1.08-.82.79-.62-.27-1a19.65 19.65 0 0 0-2.12-4.66 18.12 18.12 0 0 1-1.74-3.65v-35.9c6.38.32 11.93.75 16.77 5.15l.14.13a13.36 13.36 0 0 1 1.1 1.16l.11.13.13.16a13.63 13.63 0 0 1 .88 1.26l.14.22.11.17a15.31 15.31 0 0 1 .93 1.87c.74 1.81 1.49 3.83 2.36 6.34.93 2.71 1.8 5.45 2.61 8-3.36 5-6.1 9.26-8.6 13.34l-.34.55.16.62c.34 1.32.6 2.78.86 4.2l.08.44c-1.01.2-1.97.34-2.91.48zm32.61-7.11c2.34-3.88 4.77-7.65 7.23-11.39-.74-2.42-1.49-4.83-2.3-7.21-.6-1.78-1.23-3.55-1.92-5.26a13.91 13.91 0 0 0-.82-1.69c-.07-.12-.15-.23-.22-.35a12.41 12.41 0 0 0-.79-1.15l-.22-.26a12 12 0 0 0-1-1.06l-.13-.12c-4.56-4.2-11.68-4.31-17.37-4.6l-1.63-.08c-1.24.28-2.46.62-3.67 1 .08.12.16.24.23.36a21.33 21.33 0 0 1 1.3 2.62c.78 1.91 1.56 4 2.45 6.58v.09c1 3 2 6.09 2.89 8.92l.65 2.08-1.19 1.83c-3.06 4.56-5.6 8.46-7.9 12.16.19.9.35 1.8.51 2.68.11.62.23 1.25.35 1.86l.86 4.41s-1 1.26-1 1.5c1.06.57 7.77 4.71 7.77 4.71s6.62-4.34 7.77-4.75c.1-.87.15-5 .08-6.07 2.73-.88 6.07-1.07 9-1.7-.27-1.72-.54-3.49-.95-5.11zM111.82 76a35.85 35.85 0 0 0-5.71 1.16l-1.12.36.08 1.18c.05.78 0 3.55 0 5-1.66.91-4.65 2.83-6.34 3.93-1.32-.81-3.94-2.42-5.62-3.43l.44-.55-.13-.69-.86-4.41c-.12-.6-.23-1.21-.34-1.81v-.05c-.12-.68-.25-1.39-.39-2.09 2.17-3.6 4.59-7.31 7.52-11.67l1.22-1.81.41-.6-.22-.69-.65-2.08c-.88-2.84-1.85-5.89-2.9-9v-.09C96.28 46.07 95.49 44 94.7 42c-.21-.5-.43-1-.68-1.5q.79-.22 1.56-.4H98c5.41.26 11.54.56 15.43 4.15l.11.1a10.57 10.57 0 0 1 .86.93l.09.11.1.12a10.9 10.9 0 0 1 .69 1l.12.19.08.12a12.4 12.4 0 0 1 .73 1.5c.6 1.48 1.2 3.13 1.89 5.18.74 2.18 1.42 4.37 2.06 6.45-2.68 4.07-4.87 7.53-6.87 10.84l-.33.54.15.61c.27 1.07.47 2.21.69 3.42v.1zM87.48 56.33a1.08 1.08 0 0 1 0-.78c.12-.28.24-.63.38-1a21.81 21.81 0 0 0-4 .89c-1.91.79-3.62 3.2-5.39 4.84-2 1.84-4 3.26-5.39 4.84-1 .14-2 .36-2.93.57l.3.62q.59.88 1.1 1.81a1 1 0 0 0 .28.23c3.11-.5 5.61.69 7.88 0 1.08-.33 4.43-4.11 5.18-5.29 1.34-2.06 1.75-4.73 2.59-6.73zm11 13.54c-.92 2.36-2.33 4.14-3.08 6.69 1.29.78 2.1 2.09 3.55 2.68a22.16 22.16 0 0 1 3.05-2.68c-.72-2.67-2.34-4.33-3.08-7-.24 0-.38.1-.44.31zm17.82-12.12a.89.89 0 0 1 0-.64c.1-.23.19-.52.31-.8a17.33 17.33 0 0 0-3.21.73c-1.54.65-2.92 2.62-4.34 4-1.59 1.51-3.2 2.67-4.34 4-.82.11-1.59.29-2.36.47l.24.51q.47.72.89 1.48a.77.77 0 0 0 .23.19c2.51-.41 4.52.57 6.35 0 .87-.27 3.58-3.37 4.18-4.34 1.04-1.73 1.37-3.95 2.05-5.6z"
+                                            transform="translate(-2.38 -12.86)"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/nepal.png" data-lightbox="todos" data-title="Nepal">
+                                <img src="../img/mapas/maps/nepal.png" class="card-img-top" alt="nepal" title="nepal"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/Nepal.png" alt="Nepal" title="Nepal">
+                                    Nepal</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 64 64">
+                                        <g>
+                                            <path
+                                                d="M54.94,29.44,34.56,9.06a3.63,3.63,0,0,0-5.12,0L9.06,29.44a3.63,3.63,0,0,0,0,5.12L29.44,54.94a3.63,3.63,0,0,0,5.12,0L54.94,34.56A3.63,3.63,0,0,0,54.94,29.44Zm-.9,3.9L33.35,54a1.91,1.91,0,0,1-2.69,0L10,33.35a1.91,1.91,0,0,1,0-2.69L30.65,10a1.91,1.91,0,0,1,2.69,0L54,30.65A1.91,1.91,0,0,1,54,33.35Z">
+                                            </path>
+                                            <path
+                                                d="M34.21,12.21a3.13,3.13,0,0,0-4.41,0L12.21,29.79a3.13,3.13,0,0,0,0,4.41L29.79,51.79a3.13,3.13,0,0,0,4.41,0L51.79,34.21a3.13,3.13,0,0,0,0-4.41ZM33,49.17a1.49,1.49,0,0,1-2.1,0l-13-13h5.38v.55a1.3,1.3,0,0,0,2.24.89l5-5.32a.46.46,0,0,0,0-.63l-5-5.29a1.3,1.3,0,0,0-2.24.89v.55H18l13-13a1.49,1.49,0,0,1,2.1,0l13,13H40.66v-.55a1.3,1.3,0,0,0-2.24-.89l-5,5.29a.46.46,0,0,0,0,.63l5,5.32a1.3,1.3,0,0,0,2.24-.89v-.55H46Z">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <g>
+                                            <path
+                                                d="M110.6 37.6L64.2 14.8a2.5 2.5 0 0 0-3.6 2.3v80.8a1.7 1.7 0 0 0 1.7 1.7h2.2a1.7 1.7 0 0 0 1.7-1.7V60.5L110.6 40a1.3 1.3 0 0 0 0-2.4z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M95.7 91c-1.1-.3-1.9.6-.8 1.1 5.7 1.7 9.1 3.9 9.1 6.3 0 5.4-18.8 9.7-40.5 9.9S23 103.7 23 98.4c0-2.4 3.4-4.5 9.1-6.3 1-.5.2-1.4-.8-1.1-8.9 2.4-14.4 5.7-14.4 9.4 0 7 21.7 12.8 46.6 13h.3c25-.2 46.6-6 46.6-13-.3-3.7-5.8-7-14.7-9.4z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/numbani.png" data-lightbox="todos" data-title="Numbani">
+                                <img src="../img/mapas/maps/numbani.png" class="card-img-top" alt="numbani" title="numbani"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/Nigeria.png" alt="Nigeria" title="Nigeria">
+                                    Numbani</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 64 64">
+                                        <g>
+                                            <rect x="12.56" y="23.95" width="11.82" height="11.82" rx="1.74" ry="1.74"
+                                                transform="translate(-15.71 21.8) rotate(-45)"></rect>
+                                            <path
+                                                d="M28.81,24.41a11.69,11.69,0,0,0-9.9-6.23v2.11a9.59,9.59,0,0,1,8.91,7.5Z">
+                                            </path>
+                                            <path
+                                                d="M18,20.28h0v-2.1h0a11.69,11.69,0,1,0,6.36,21.77l1-3.46A9.58,9.58,0,1,1,18,20.28Z">
+                                            </path>
+                                            <path
+                                                d="M24,41.33A12.75,12.75,0,0,1,8.46,37.76a.13.13,0,0,0-.23.08v1a.13.13,0,0,0,0,.08,13.64,13.64,0,0,0,7.21,4.25.13.13,0,0,1,.08.05l0,0,2.59,2.87a.39.39,0,0,0,.55,0l2.61-2.89.06,0a13.54,13.54,0,0,0,2.31-.72Z">
+                                            </path>
+                                            <path
+                                                d="M6.1,26.72a12.52,12.52,0,0,1,9.45-9.29,12.77,12.77,0,0,1,13.75,5.69L29.62,22A13.65,13.65,0,1,0,7.34,37.76h0V36.08h0A12.85,12.85,0,0,1,6.1,26.72Z">
+                                            </path>
+                                            <path
+                                                d="M58.8,34.15h0c0-.23,0-.46,0-.7h0a.27.27,0,0,0,.27-.23.26.26,0,0,0-.26-.28h-.08c0-.23,0-.46,0-.7h.08a.27.27,0,0,0,.27-.23.26.26,0,0,0-.26-.28h-.11l0-.7h.12a.26.26,0,0,0,.26-.28.27.27,0,0,0-.27-.23h-.12l0-.72h0a.55.55,0,0,0,.52-.61.57.57,0,0,0-.58-.49h-.06C58,26.27,56,24.47,52.69,24.47H47.87c-1.23-2.1-1.87-3.51-2.4-3.79a16.33,16.33,0,0,0-6.06-.87c-.88,0-1.61,0-2.22,0L31.88,38.09h10.2a1.77,1.77,0,0,0-.26.8c0,1.14.81,1.32,2.1,1.18h0c0-.11,2.24-3.88,5.79-3.81a7.63,7.63,0,0,1,5.8,3.56s0,.09,0,.13h0c1.48.17,2.43,0,2.43-1.21a2.37,2.37,0,0,0-.58-1.22h0c1.29-.3,1.47-1.4,1.44-2.86h0a.26.26,0,0,0,.26-.19A.26.26,0,0,0,58.8,34.15ZM46,24.54l-5,.23h0c-1.64,0-1.88.2-1.88-.29S39,22.78,39,22.3s0-.85.57-.85,3.4-.08,4,0a1.34,1.34,0,0,1,1.3.9L46,24.54Z">
+                                            </path>
+                                            <path
+                                                d="M49.74,41.55a1.19,1.19,0,1,0,1.49,1.15A1.36,1.36,0,0,0,49.74,41.55Zm0,2a.62.62,0,1,1,.78-.6A.71.71,0,0,1,49.74,43.5Z">
+                                            </path>
+                                            <path
+                                                d="M51.47,37.86l.06-.3a.5.5,0,0,0-.5-.5H48.47a.5.5,0,0,0-.5.5l.07.3c-2.44.56-4.21,2.31-4.21,4.37a3.83,3.83,0,0,0,1,2.5h0a.26.26,0,0,0,0,.36l.91.91a.26.26,0,0,0,.36,0l.11-.16a7.36,7.36,0,0,0,7.17,0l.11.16a.26.26,0,0,0,.36,0l.91-.91a.26.26,0,0,0,0-.36h0a3.83,3.83,0,0,0,1-2.5C55.66,40.16,53.9,38.43,51.47,37.86ZM49,37.94h1.46a.29.29,0,0,1,.29.29l-.24,1.33a.29.29,0,0,1-.29.29h-.92a.29.29,0,0,1-.29-.29l-.3-1.33A.29.29,0,0,1,49,37.94Zm-2.6,7-.39.56a.15.15,0,0,1-.21,0L45.29,45a.15.15,0,0,1,0-.21l.58-.37a.15.15,0,0,1,.21,0l.33.33,0,0v.08A.14.14,0,0,1,46.41,44.93Zm3.34.48c-1.72,0-3.11-1.07-3.11-2.39s1.39-2.39,3.11-2.39,3.11,1.07,3.11,2.39S51.46,45.41,49.74,45.41ZM54.2,45l-.52.52a.15.15,0,0,1-.21,0l-.39-.56,0,0a.61.61,0,0,1,0-.09.14.14,0,0,1,0-.08l.33-.33a.15.15,0,0,1,.21,0l.58.37A.15.15,0,0,1,54.2,45Z">
+                                            </path>
+                                            <polygon points="34.57 12 23.4 51.21 26.11 52 37.27 12.79 34.57 12">
+                                            </polygon>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/oasis.png" data-lightbox="todos" data-title="Oasis">
+                                <img src="../img/mapas/maps/oasis.png" class="card-img-top" alt="oasis" title="oasis"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/Iraq.png" alt="Iraq" title="Iraq">
+                                    Oasis</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 64 64">
+                                        <g>
+                                            <path
+                                                d="M54.94,29.44,34.56,9.06a3.63,3.63,0,0,0-5.12,0L9.06,29.44a3.63,3.63,0,0,0,0,5.12L29.44,54.94a3.63,3.63,0,0,0,5.12,0L54.94,34.56A3.63,3.63,0,0,0,54.94,29.44Zm-.9,3.9L33.35,54a1.91,1.91,0,0,1-2.69,0L10,33.35a1.91,1.91,0,0,1,0-2.69L30.65,10a1.91,1.91,0,0,1,2.69,0L54,30.65A1.91,1.91,0,0,1,54,33.35Z">
+                                            </path>
+                                            <path
+                                                d="M34.21,12.21a3.13,3.13,0,0,0-4.41,0L12.21,29.79a3.13,3.13,0,0,0,0,4.41L29.79,51.79a3.13,3.13,0,0,0,4.41,0L51.79,34.21a3.13,3.13,0,0,0,0-4.41ZM33,49.17a1.49,1.49,0,0,1-2.1,0l-13-13h5.38v.55a1.3,1.3,0,0,0,2.24.89l5-5.32a.46.46,0,0,0,0-.63l-5-5.29a1.3,1.3,0,0,0-2.24.89v.55H18l13-13a1.49,1.49,0,0,1,2.1,0l13,13H40.66v-.55a1.3,1.3,0,0,0-2.24-.89l-5,5.29a.46.46,0,0,0,0,.63l5,5.32a1.3,1.3,0,0,0,2.24-.89v-.55H46Z">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <g>
+                                            <path
+                                                d="M110.6 37.6L64.2 14.8a2.5 2.5 0 0 0-3.6 2.3v80.8a1.7 1.7 0 0 0 1.7 1.7h2.2a1.7 1.7 0 0 0 1.7-1.7V60.5L110.6 40a1.3 1.3 0 0 0 0-2.4z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M95.7 91c-1.1-.3-1.9.6-.8 1.1 5.7 1.7 9.1 3.9 9.1 6.3 0 5.4-18.8 9.7-40.5 9.9S23 103.7 23 98.4c0-2.4 3.4-4.5 9.1-6.3 1-.5.2-1.4-.8-1.1-8.9 2.4-14.4 5.7-14.4 9.4 0 7 21.7 12.8 46.6 13h.3c25-.2 46.6-6 46.6-13-.3-3.7-5.8-7-14.7-9.4z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/observatorio gibraltar.png" data-lightbox="todos" data-title="Observatorio Gibraltar">
+                                <img src="../img/mapas/maps/observatorio gibraltar.png" class="card-img-top"
+                                alt="observatorio gibraltar" title="observatorio gibraltar"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/OW.png" alt="OW" title="OW">
+                                    Observatório: Gibraltar</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 64 64">
+                                        <g>
+                                            <rect x="10.38" y="24.34" width="21.03" height="14.39" rx="0.81" ry="0.81">
+                                            </rect>
+                                            <path
+                                                d="M60.62,37.83h0c0-.23,0-.47,0-.72h0a.28.28,0,0,0,.28-.24.26.26,0,0,0-.26-.29h-.09c0-.24,0-.47,0-.72h.08a.28.28,0,0,0,.28-.24.26.26,0,0,0-.26-.29H60.5l0-.72h.13a.26.26,0,0,0,.26-.29.28.28,0,0,0-.28-.24h-.12l0-.74h0a.57.57,0,0,0,.53-.63.59.59,0,0,0-.59-.5h-.06c-.5-2.43-2.65-4.26-6-4.26H49.44c-1.26-2.15-1.91-3.59-2.45-3.87a16.68,16.68,0,0,0-6.19-.89c-3.43,0-4.64.13-5,.35s-.59.19-.59,1.48v5.42H34.7V23.8a.6.6,0,0,0-.6-.6H32.66a.6.6,0,0,0-.6.6V39.27H3.39a.39.39,0,0,0-.39.39v1.81a.39.39,0,0,0,.39.39h1a.14.14,0,0,1,.14.14v.24a.47.47,0,0,0,.47.47H8.49A.47.47,0,0,0,9,42.25V42a.14.14,0,0,1,.14-.14h3.34a.14.14,0,0,0,.09,0,6,6,0,0,1,4.06-1.48,6,6,0,0,1,4.06,1.48.14.14,0,0,0,.09,0H22a.14.14,0,0,1,.14.14v.24a.47.47,0,0,0,.47.47h1.72a.14.14,0,0,0,.1,0l.24-.24a.14.14,0,0,1,.2,0l.24.24a.14.14,0,0,0,.1,0H27a.14.14,0,0,0,.1,0l.11-.11a.14.14,0,0,1,.2,0l.11.11a.14.14,0,0,0,.1,0h1.82a.14.14,0,0,0,.1,0l.24-.24a.14.14,0,0,1,.2,0l.24.24a.14.14,0,0,0,.1,0h1.42a.47.47,0,0,0,.47-.47V42a.14.14,0,0,1,.14-.14h11.2a1.8,1.8,0,0,0-.26.81c0,1.16.83,1.35,2.14,1.2h0c0-.11,2.29-4,5.91-3.89a7.79,7.79,0,0,1,5.92,3.64s0,.09,0,.13h0c1.51.17,2.49,0,2.49-1.23a2.42,2.42,0,0,0-.6-1.24h0c1.32-.3,1.5-1.43,1.47-2.92h0a.27.27,0,0,0,.26-.2A.26.26,0,0,0,60.62,37.83ZM47.5,28l-5.07.24h0c-1.67,0-1.92.21-1.92-.29s-.08-1.74-.08-2.23,0-.86.58-.86,3.47-.08,4.06,0a1.37,1.37,0,0,1,1.32.92L47.5,28Z">
+                                            </path>
+                                            <path
+                                                d="M51.36,45.39a1.21,1.21,0,1,0,1.53,1.17A1.38,1.38,0,0,0,51.36,45.39Zm0,2a.64.64,0,1,1,.8-.62A.73.73,0,0,1,51.36,47.39Z">
+                                            </path>
+                                            <path
+                                                d="M53.12,41.63l.06-.31a.51.51,0,0,0-.51-.51H50.06a.51.51,0,0,0-.51.51l.07.31c-2.49.58-4.3,2.35-4.3,4.46a3.92,3.92,0,0,0,1,2.55h0a.26.26,0,0,0,0,.37l.93.93a.26.26,0,0,0,.37,0l.11-.16a7.51,7.51,0,0,0,7.32,0l.11.16a.26.26,0,0,0,.37,0l.93-.93a.26.26,0,0,0,0-.37h0a3.91,3.91,0,0,0,1-2.55C57.41,44,55.6,42.21,53.12,41.63Zm-2.51.08h1.49a.3.3,0,0,1,.29.29l-.25,1.36a.3.3,0,0,1-.29.29h-.94a.3.3,0,0,1-.29-.29L50.32,42A.3.3,0,0,1,50.61,41.71ZM48,48.85l-.4.57a.15.15,0,0,1-.21,0l-.54-.54a.15.15,0,0,1,0-.21l.6-.37a.15.15,0,0,1,.21,0l.34.34,0,0v.08A.15.15,0,0,1,48,48.85Zm3.41.49c-1.75,0-3.17-1.09-3.17-2.44s1.42-2.44,3.17-2.44,3.17,1.09,3.17,2.44S53.11,49.33,51.36,49.33Zm4.55-.45-.54.54a.15.15,0,0,1-.21,0l-.4-.57,0,0a.63.63,0,0,1,0-.09.14.14,0,0,1,0-.08l.34-.34a.15.15,0,0,1,.21,0l.6.37A.15.15,0,0,1,55.91,48.89Z">
+                                            </path>
+                                            <path
+                                                d="M16.8,45.33a1.23,1.23,0,1,0,0,2.38,1.23,1.23,0,1,0,0-2.38Zm0,2a.64.64,0,1,1,.8-.62A.73.73,0,0,1,16.8,47.35Z">
+                                            </path>
+                                            <path
+                                                d="M18.56,41.51l.06-.31a.52.52,0,0,0-.51-.52H15.5a.52.52,0,0,0-.51.52l.07.31c-2.49.58-4.3,2.38-4.3,4.52a4,4,0,0,0,1,2.59h0a.27.27,0,0,0,0,.37l.93.95a.26.26,0,0,0,.37,0l.11-.16a7.43,7.43,0,0,0,7.32,0l.11.16a.26.26,0,0,0,.37,0l.93-.95a.27.27,0,0,0,0-.37h0a4,4,0,0,0,1-2.59C22.85,43.9,21,42.1,18.56,41.51Zm-2.51.08h1.49a.3.3,0,0,1,.29.3l-.25,1.37a.3.3,0,0,1-.29.3h-.94a.3.3,0,0,1-.29-.3l-.31-1.37A.3.3,0,0,1,16.06,41.59ZM13.4,48.82l-.4.58a.15.15,0,0,1-.21,0l-.54-.54a.15.15,0,0,1,0-.21l.6-.38a.15.15,0,0,1,.21,0l.34.34,0,0v.08A.15.15,0,0,1,13.4,48.82Zm3.41.49c-1.75,0-3.17-1.11-3.17-2.48s1.42-2.48,3.17-2.48S20,45.47,20,46.84,18.56,49.32,16.8,49.32Zm4.55-.45-.54.54a.15.15,0,0,1-.21,0l-.4-.58,0,0a.65.65,0,0,1,0-.09.15.15,0,0,1,0-.08l.34-.34a.15.15,0,0,1,.21,0l.6.38A.15.15,0,0,1,21.35,48.86Z">
+                                            </path>
+                                            <rect x="38.04" y="14.19" width="6.12" height="6.12" rx="0.82" ry="0.82"
+                                                transform="translate(-0.16 34.12) rotate(-45)"></rect>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/paris.png" data-lightbox="todos" data-title="paris">
+                                <img src="../img/mapas/maps/paris.png" class="card-img-top" alt="paris" title="paris"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/France.png" alt="France" title="France">
+                                    Paris</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 64 64">
+                                        <g>
+                                            <rect x="22.15" y="19.88" width="19.69" height="19.69" rx="2.89" ry="2.89"
+                                                transform="translate(-11.65 31.33) rotate(-45)"></rect>
+                                            <path
+                                                d="M12.54,29.29A19.47,19.47,0,0,0,46.41,42.8h0l-2.66-2.28h0a16,16,0,1,1-12.5-26.75h0v-3.5h0A19.47,19.47,0,0,0,12.54,29.29Z">
+                                            </path>
+                                            <path
+                                                d="M48,29.72a15.89,15.89,0,0,1-3.25,9.65l2.66,2.28A19.47,19.47,0,0,0,32.75,10.27v3.51A16,16,0,0,1,48,29.72Z">
+                                            </path>
+                                            <path
+                                                d="M32.37,7A22.73,22.73,0,0,0,13.47,42.89h0v-2.8h0A21.4,21.4,0,0,1,11.4,24.51,20.84,20.84,0,0,1,27.13,9a21.25,21.25,0,0,1,23.4,31h0v2.8h0A22.73,22.73,0,0,0,32.37,7Z">
+                                            </path>
+                                            <path
+                                                d="M32,51a21.19,21.19,0,0,1-16.66-8.08A.21.21,0,0,0,15,43v1.68a.21.21,0,0,0,.05.14,22.71,22.71,0,0,0,12,7.08.22.22,0,0,1,.13.08l0,0,4.31,4.78a.65.65,0,0,0,.91,0L36.75,52a.21.21,0,0,1,.1-.06A22.71,22.71,0,0,0,49,44.83a.21.21,0,0,0,.05-.14V43a.21.21,0,0,0-.37-.13A21.19,21.19,0,0,1,32,51Z">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/petra.png" data-lightbox="todos" data-title="Petra">
+                                <img src="../img/mapas/maps/petra.png" class="card-img-top" alt="petra" title="petra"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/Jordan.png" alt="Jordan" title="Jordan">
+                                    Petra</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <g>
+                                            <path
+                                                d="M84.14 91.33c3-4.88 6.11-9.63 9.27-14.32-.95-3-1.91-6.08-2.94-9.07-.77-2.24-1.58-4.46-2.47-6.62a17.36 17.36 0 0 0-1.06-2.12c-.09-.16-.19-.29-.29-.44a15.66 15.66 0 0 0-1-1.44l-.28-.32a15.27 15.27 0 0 0-1.26-1.33l-.17-.16c-5.84-5.3-12.65-5.43-19.94-5.79-7.29.37-14.1.5-19.94 5.78l-.17.16A15.27 15.27 0 0 0 42.63 57l-.28.33a15.66 15.66 0 0 0-1 1.44c-.09.15-.2.29-.29.44A17.36 17.36 0 0 0 40 61.32c-.89 2.16-1.69 4.38-2.47 6.62-1 3-2 6-2.94 9.07 3.16 4.69 6.27 9.45 9.27 14.32-.52 2-.86 4.27-1.29 6.41 3.79.79 8.07 1 11.57 2.13-.09 1.33 0 6.55.1 7.64 1.48.52 9.75 6 9.75 6s8.28-5.46 9.75-6c.13-1.09.19-6.31.1-7.64 3.5-1.11 7.78-1.35 11.57-2.13-.41-2.14-.75-4.38-1.27-6.41zM59.22 84q-.61.91-1.14 1.86a1 1 0 0 1-.29.23c-3.22-.51-5.8.71-8.14 0-1.12-.34-4.58-4.24-5.36-5.46-1.32-2.09-1.74-4.88-2.62-6.95a1.11 1.11 0 0 0 0-.81c-.13-.29-.25-.65-.39-1a22.58 22.58 0 0 1 4.11.92c2 .81 3.74 3.29 5.57 5 2 1.9 4.11 3.36 5.57 5 1.06.14 2 .37 3 .59zM64 100.72a29 29 0 0 0-4-3.37c.89-3.35 3-5.44 4-8.75 1 3.31 3.11 5.4 4 8.76a29 29 0 0 0-4 3.36zM78.35 86.1c-2.34.71-4.92-.51-8.14 0a1 1 0 0 1-.29-.23q-.53-1-1.14-1.86l-.31-.64c1-.22 2-.44 3-.59 1.46-1.63 3.53-3.1 5.57-5 1.83-1.69 3.59-4.17 5.57-5a22.58 22.58 0 0 1 4.11-.92c-.15.35-.27.71-.39 1a1.11 1.11 0 0 0 0 .81c-.88 2.07-1.3 4.86-2.62 6.95-.77 1.24-4.24 5.15-5.36 5.48z"
+                                                transform="translate(-2.38 -12.86)"></path>
+                                            <path
+                                                d="M89.89 22.65c-2.62 1.69-6 4.13-7.17 6.11a7.83 7.83 0 0 0-2.25-2.91.94.94 0 0 0-1.51.83v.33A4.69 4.69 0 0 1 77.91 30c-2.26 2.84-4.06 3.07-5.68 2.8l-.06.09v-.1a5.77 5.77 0 0 1-3.6-9.12 1.54 1.54 0 0 0 .05-1.75c-1.12-1.73-2.93-5.1-3.91-7a.78.78 0 0 0-1.38 0c-1 1.82-2.77 5.09-3.89 6.79a1.54 1.54 0 0 0 0 1.76 5.77 5.77 0 0 1-3.61 9.11v.1l-.06-.09c-1.63.27-3.42 0-5.7-2.8A4.66 4.66 0 0 1 49 26.86v-.36a.94.94 0 0 0-1.51-.83 7.83 7.83 0 0 0-2.25 2.91c-1.19-2-4.55-4.41-7.17-6.11a.94.94 0 0 0-1.32 1.27 57.41 57.41 0 0 1 6.91 16.46 3.39 3.39 0 0 0 1.33 2v2.7h.06a2.88 2.88 0 0 0-1.53 2.2 2.67 2.67 0 0 0 1.28 2c5.81-3.46 12-3.77 18.11-4.06h2.17c6 .3 12.26.6 18 4a2.62 2.62 0 0 0 1.22-2 2.88 2.88 0 0 0-1.53-2.2h.06v-2.6a3.4 3.4 0 0 0 1.47-2.11 57.52 57.52 0 0 1 6.86-16.3.94.94 0 0 0-1.27-1.18z"
+                                                transform="translate(-2.38 -12.86)"></path>
+                                            <path
+                                                d="M114.35 89.62c2.42-4 4.93-7.89 7.48-11.74-.76-2.49-1.54-5-2.37-7.43-.62-1.84-1.27-3.66-2-5.43a14.31 14.31 0 0 0-.85-1.74c-.07-.13-.16-.24-.23-.36a12.87 12.87 0 0 0-.81-1.18l-.23-.27a12.43 12.43 0 0 0-1-1.09l-.14-.13c-4.71-4.33-12.07-4.44-18-4.74l-1.68-.09c-1.28.29-2.55.64-3.8 1 .08.12.16.24.24.38a22 22 0 0 1 1.34 2.7c.81 2 1.61 4.12 2.53 6.78v.09c1.08 3.14 2.07 6.27 3 9.2l.67 2.15-1.2 1.91c-3.16 4.7-5.79 8.73-8.16 12.54.19.92.36 1.85.53 2.76.12.64.24 1.29.36 1.92l.89 4.55s-1 1.3-1 1.54c1.1.59 8 4.86 8 4.86s6.84-4.47 8-4.9c.1-.89.16-5.17.08-6.26 2.82-.91 6.27-1.1 9.33-1.75-.33-1.77-.56-3.6-.98-5.27zm-16.17 7.7c-1.5-.61-2.34-2-3.67-2.76.77-2.63 2.23-4.47 3.18-6.9.06-.22.21-.32.49-.28.77 2.72 2.44 4.43 3.19 7.18a22.9 22.9 0 0 0-3.19 2.76zm11.5-12c-1.89.59-4-.42-6.57 0a.79.79 0 0 1-.24-.19q-.43-.78-.92-1.53l-.25-.53c.8-.18 1.59-.36 2.44-.48 1.18-1.34 2.85-2.54 4.49-4.09 1.47-1.39 2.9-3.42 4.49-4.09a18 18 0 0 1 3.32-.75c-.12.29-.21.58-.32.82a.92.92 0 0 0 0 .66c-.71 1.7-1 4-2.11 5.7-.63 1.02-3.42 4.22-4.32 4.5zm-80.24-7.56l.67-2.15c.91-2.92 1.9-6.06 3-9.2v-.09c.92-2.66 1.72-4.82 2.53-6.79A22 22 0 0 1 37 56.84c.08-.13.16-.25.24-.37-1.25-.4-2.52-.75-3.8-1l-1.68.09c-5.88.3-13.25.41-18 4.74l-.14.13a12.42 12.42 0 0 0-1 1.09l-.23.27a12.85 12.85 0 0 0-.81 1.18c-.08.12-.16.24-.23.36a14.33 14.33 0 0 0-.81 1.67c-.72 1.77-1.37 3.59-2 5.43-.83 2.45-1.61 4.94-2.37 7.43 2.55 3.85 5.06 7.74 7.48 11.74-.42 1.66-.7 3.5-1 5.26 3.05.65 6.51.84 9.33 1.75-.07 1.09 0 5.37.08 6.26 1.19.43 8 4.9 8 4.9s6.93-4.27 8-4.86c0-.25-1-1.54-1-1.54l.94-4.53c.12-.63.24-1.28.36-1.92.17-.91.34-1.84.53-2.76-2.38-3.81-5-7.84-8.16-12.54zM26 83.62q-.49.74-.92 1.53a.79.79 0 0 1-.24.19c-2.59-.42-4.67.59-6.57 0-.9-.28-3.7-3.48-4.32-4.48-1.06-1.71-1.4-4-2.11-5.7a.92.92 0 0 0 0-.66c-.1-.24-.2-.54-.32-.82a18 18 0 0 1 3.32.75c1.59.67 3 2.7 4.49 4.09 1.64 1.55 3.31 2.76 4.49 4.09.85.12 1.65.3 2.44.48zm3.78 13.7a22.9 22.9 0 0 0-3.19-2.76c.75-2.75 2.42-4.46 3.19-7.18.29 0 .43.06.49.28.95 2.43 2.41 4.27 3.18 6.9-1.29.8-2.13 2.15-3.63 2.76z"
+                                                transform="translatea(-2.38 -12.86)"></path>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <path
+                                            d="M43 38.83a14.78 14.78 0 0 0-1.22 1.29l-.27.32a15.22 15.22 0 0 0-1 1.4c-.09.15-.19.28-.28.43a16.85 16.85 0 0 0-1 2.06c-.86 2.1-1.64 4.25-2.39 6.42-1 2.9-1.93 5.84-2.85 8.79C37 64.1 40 68.7 42.93 73.43c-.5 2-.84 4.14-1.24 6.22 3.66.77 7.81 1 11.19 2.07-.09 1.29 0 6.35.1 7.41 1.43.51 9.44 5.8 9.44 5.8v-12.4a28.09 28.09 0 0 0-3.91-3.26c.9-3.25 3-5.28 3.91-8.49V33.07c-7.06.35-13.64.48-19.29 5.61zm6.81 21.46c2 1.84 4 3.26 5.39 4.84 1 .14 2 .36 2.93.57l-.3.62q-.59.88-1.1 1.81a1 1 0 0 1-.29.23c-3.11-.5-5.61.69-7.88 0-1.08-.33-4.43-4.11-5.18-5.29-1.27-2-1.68-4.73-2.53-6.74a1.07 1.07 0 0 0 0-.78c-.12-.28-.24-.63-.38-1a21.81 21.81 0 0 1 4 .89c1.82.81 3.53 3.21 5.29 4.85zM29 60.27l.65-2.08c.88-2.83 1.84-5.88 2.89-8.92v-.09c.89-2.58 1.67-4.67 2.45-6.58a21.34 21.34 0 0 1 1.3-2.6c.07-.13.15-.24.23-.36-1.21-.39-2.43-.73-3.67-1l-1.63.08c-5.69.29-12.81.39-17.37 4.6l-.13.12a12 12 0 0 0-1 1.06l-.22.26a12.47 12.47 0 0 0-.79 1.15c-.07.12-.15.23-.22.35a13.9 13.9 0 0 0-.82 1.69c-.67 1.68-1.3 3.45-1.91 5.23C8 55.56 7.21 58 6.47 60.39c2.46 3.73 4.89 7.51 7.23 11.39-.41 1.61-.67 3.39-1 5.1 3 .63 6.3.82 9 1.7-.07 1.06 0 5.21.08 6.07 1.15.42 7.77 4.75 7.77 4.75s6.7-4.14 7.77-4.71c0-.24-1-1.5-1-1.5l.86-4.41c.12-.62.23-1.24.35-1.86.16-.88.32-1.78.51-2.68-2.3-3.69-4.84-7.6-7.9-12.16zm-3.3 5.68q-.47.72-.89 1.48a.76.76 0 0 1-.23.19c-2.51-.41-4.52.57-6.35 0-.87-.27-3.58-3.37-4.18-4.34-1-1.66-1.36-3.88-2-5.52a.89.89 0 0 0 0-.64c-.1-.23-.19-.52-.31-.8a17.34 17.34 0 0 1 3.21.73c1.54.65 2.92 2.62 4.34 4 1.59 1.51 3.2 2.67 4.34 4 .82.11 1.59.29 2.36.47zm3.66 13.29a22.18 22.18 0 0 0-3.08-2.68c.72-2.67 2.34-4.33 3.08-7 .28 0 .42.06.48.27.92 2.36 2.33 4.14 3.08 6.69-1.32.81-2.13 2.13-3.58 2.71zm56-5.8c2.9-4.73 5.91-9.34 9-13.89-.92-2.95-1.85-5.89-2.85-8.79-.75-2.17-1.53-4.32-2.39-6.42a16.84 16.84 0 0 0-1-2.06c-.09-.15-.19-.28-.28-.43a15.19 15.19 0 0 0-1-1.4l-.27-.32a14.79 14.79 0 0 0-1.22-1.29l-.17-.15c-5.65-5.13-12.23-5.25-19.29-5.61v37.7c.92 3.21 3 5.24 3.91 8.49a28.1 28.1 0 0 0-3.91 3.26v12.4s8-5.29 9.44-5.8c.12-1.06.19-6.12.1-7.41 3.38-1.08 7.53-1.3 11.19-2.07-.42-2.08-.75-4.25-1.25-6.22zM82 78.88a44.86 44.86 0 0 0-7 1.4l-1.13.36.08 1.19c.07 1 0 4.59 0 6.33-1.58.85-4.36 2.61-6.47 4v-9a20.86 20.86 0 0 1 2.25-1.85l1.08-.82.79-.62-.27-1a19.65 19.65 0 0 0-2.12-4.66 18.12 18.12 0 0 1-1.74-3.65v-35.9c6.38.32 11.93.75 16.77 5.15l.14.13a13.36 13.36 0 0 1 1.1 1.16l.11.13.13.16a13.63 13.63 0 0 1 .88 1.26l.14.22.11.17a15.31 15.31 0 0 1 .93 1.87c.74 1.81 1.49 3.83 2.36 6.34.93 2.71 1.8 5.45 2.61 8-3.36 5-6.1 9.26-8.6 13.34l-.34.55.16.62c.34 1.32.6 2.78.86 4.2l.08.44c-1.01.2-1.97.34-2.91.48zm32.61-7.11c2.34-3.88 4.77-7.65 7.23-11.39-.74-2.42-1.49-4.83-2.3-7.21-.6-1.78-1.23-3.55-1.92-5.26a13.91 13.91 0 0 0-.82-1.69c-.07-.12-.15-.23-.22-.35a12.41 12.41 0 0 0-.79-1.15l-.22-.26a12 12 0 0 0-1-1.06l-.13-.12c-4.56-4.2-11.68-4.31-17.37-4.6l-1.63-.08c-1.24.28-2.46.62-3.67 1 .08.12.16.24.23.36a21.33 21.33 0 0 1 1.3 2.62c.78 1.91 1.56 4 2.45 6.58v.09c1 3 2 6.09 2.89 8.92l.65 2.08-1.19 1.83c-3.06 4.56-5.6 8.46-7.9 12.16.19.9.35 1.8.51 2.68.11.62.23 1.25.35 1.86l.86 4.41s-1 1.26-1 1.5c1.06.57 7.77 4.71 7.77 4.71s6.62-4.34 7.77-4.75c.1-.87.15-5 .08-6.07 2.73-.88 6.07-1.07 9-1.7-.27-1.72-.54-3.49-.95-5.11zM111.82 76a35.85 35.85 0 0 0-5.71 1.16l-1.12.36.08 1.18c.05.78 0 3.55 0 5-1.66.91-4.65 2.83-6.34 3.93-1.32-.81-3.94-2.42-5.62-3.43l.44-.55-.13-.69-.86-4.41c-.12-.6-.23-1.21-.34-1.81v-.05c-.12-.68-.25-1.39-.39-2.09 2.17-3.6 4.59-7.31 7.52-11.67l1.22-1.81.41-.6-.22-.69-.65-2.08c-.88-2.84-1.85-5.89-2.9-9v-.09C96.28 46.07 95.49 44 94.7 42c-.21-.5-.43-1-.68-1.5q.79-.22 1.56-.4H98c5.41.26 11.54.56 15.43 4.15l.11.1a10.57 10.57 0 0 1 .86.93l.09.11.1.12a10.9 10.9 0 0 1 .69 1l.12.19.08.12a12.4 12.4 0 0 1 .73 1.5c.6 1.48 1.2 3.13 1.89 5.18.74 2.18 1.42 4.37 2.06 6.45-2.68 4.07-4.87 7.53-6.87 10.84l-.33.54.15.61c.27 1.07.47 2.21.69 3.42v.1zM87.48 56.33a1.08 1.08 0 0 1 0-.78c.12-.28.24-.63.38-1a21.81 21.81 0 0 0-4 .89c-1.91.79-3.62 3.2-5.39 4.84-2 1.84-4 3.26-5.39 4.84-1 .14-2 .36-2.93.57l.3.62q.59.88 1.1 1.81a1 1 0 0 0 .28.23c3.11-.5 5.61.69 7.88 0 1.08-.33 4.43-4.11 5.18-5.29 1.34-2.06 1.75-4.73 2.59-6.73zm11 13.54c-.92 2.36-2.33 4.14-3.08 6.69 1.29.78 2.1 2.09 3.55 2.68a22.16 22.16 0 0 1 3.05-2.68c-.72-2.67-2.34-4.33-3.08-7-.24 0-.38.1-.44.31zm17.82-12.12a.89.89 0 0 1 0-.64c.1-.23.19-.52.31-.8a17.33 17.33 0 0 0-3.21.73c-1.54.65-2.92 2.62-4.34 4-1.59 1.51-3.2 2.67-4.34 4-.82.11-1.59.29-2.36.47l.24.51q.47.72.89 1.48a.77.77 0 0 0 .23.19c2.51-.41 4.52.57 6.35 0 .87-.27 3.58-3.37 4.18-4.34 1.04-1.73 1.37-3.95 2.05-5.6z"
+                                            transform="translate(-2.38 -12.86)"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/rialto.png" data-lightbox="todos" data-title="Rialto">
+                                <img src="../img/mapas/maps/rialto.png" class="card-img-top" alt="rialto" title="rialto"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/Italy.png" alt="Italy" title="Italy">
+                                    Rialto</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 64 64">
+                                        <g>
+                                            <rect x="10.38" y="24.34" width="21.03" height="14.39" rx="0.81" ry="0.81">
+                                            </rect>
+                                            <path
+                                                d="M60.62,37.83h0c0-.23,0-.47,0-.72h0a.28.28,0,0,0,.28-.24.26.26,0,0,0-.26-.29h-.09c0-.24,0-.47,0-.72h.08a.28.28,0,0,0,.28-.24.26.26,0,0,0-.26-.29H60.5l0-.72h.13a.26.26,0,0,0,.26-.29.28.28,0,0,0-.28-.24h-.12l0-.74h0a.57.57,0,0,0,.53-.63.59.59,0,0,0-.59-.5h-.06c-.5-2.43-2.65-4.26-6-4.26H49.44c-1.26-2.15-1.91-3.59-2.45-3.87a16.68,16.68,0,0,0-6.19-.89c-3.43,0-4.64.13-5,.35s-.59.19-.59,1.48v5.42H34.7V23.8a.6.6,0,0,0-.6-.6H32.66a.6.6,0,0,0-.6.6V39.27H3.39a.39.39,0,0,0-.39.39v1.81a.39.39,0,0,0,.39.39h1a.14.14,0,0,1,.14.14v.24a.47.47,0,0,0,.47.47H8.49A.47.47,0,0,0,9,42.25V42a.14.14,0,0,1,.14-.14h3.34a.14.14,0,0,0,.09,0,6,6,0,0,1,4.06-1.48,6,6,0,0,1,4.06,1.48.14.14,0,0,0,.09,0H22a.14.14,0,0,1,.14.14v.24a.47.47,0,0,0,.47.47h1.72a.14.14,0,0,0,.1,0l.24-.24a.14.14,0,0,1,.2,0l.24.24a.14.14,0,0,0,.1,0H27a.14.14,0,0,0,.1,0l.11-.11a.14.14,0,0,1,.2,0l.11.11a.14.14,0,0,0,.1,0h1.82a.14.14,0,0,0,.1,0l.24-.24a.14.14,0,0,1,.2,0l.24.24a.14.14,0,0,0,.1,0h1.42a.47.47,0,0,0,.47-.47V42a.14.14,0,0,1,.14-.14h11.2a1.8,1.8,0,0,0-.26.81c0,1.16.83,1.35,2.14,1.2h0c0-.11,2.29-4,5.91-3.89a7.79,7.79,0,0,1,5.92,3.64s0,.09,0,.13h0c1.51.17,2.49,0,2.49-1.23a2.42,2.42,0,0,0-.6-1.24h0c1.32-.3,1.5-1.43,1.47-2.92h0a.27.27,0,0,0,.26-.2A.26.26,0,0,0,60.62,37.83ZM47.5,28l-5.07.24h0c-1.67,0-1.92.21-1.92-.29s-.08-1.74-.08-2.23,0-.86.58-.86,3.47-.08,4.06,0a1.37,1.37,0,0,1,1.32.92L47.5,28Z">
+                                            </path>
+                                            <path
+                                                d="M51.36,45.39a1.21,1.21,0,1,0,1.53,1.17A1.38,1.38,0,0,0,51.36,45.39Zm0,2a.64.64,0,1,1,.8-.62A.73.73,0,0,1,51.36,47.39Z">
+                                            </path>
+                                            <path
+                                                d="M53.12,41.63l.06-.31a.51.51,0,0,0-.51-.51H50.06a.51.51,0,0,0-.51.51l.07.31c-2.49.58-4.3,2.35-4.3,4.46a3.92,3.92,0,0,0,1,2.55h0a.26.26,0,0,0,0,.37l.93.93a.26.26,0,0,0,.37,0l.11-.16a7.51,7.51,0,0,0,7.32,0l.11.16a.26.26,0,0,0,.37,0l.93-.93a.26.26,0,0,0,0-.37h0a3.91,3.91,0,0,0,1-2.55C57.41,44,55.6,42.21,53.12,41.63Zm-2.51.08h1.49a.3.3,0,0,1,.29.29l-.25,1.36a.3.3,0,0,1-.29.29h-.94a.3.3,0,0,1-.29-.29L50.32,42A.3.3,0,0,1,50.61,41.71ZM48,48.85l-.4.57a.15.15,0,0,1-.21,0l-.54-.54a.15.15,0,0,1,0-.21l.6-.37a.15.15,0,0,1,.21,0l.34.34,0,0v.08A.15.15,0,0,1,48,48.85Zm3.41.49c-1.75,0-3.17-1.09-3.17-2.44s1.42-2.44,3.17-2.44,3.17,1.09,3.17,2.44S53.11,49.33,51.36,49.33Zm4.55-.45-.54.54a.15.15,0,0,1-.21,0l-.4-.57,0,0a.63.63,0,0,1,0-.09.14.14,0,0,1,0-.08l.34-.34a.15.15,0,0,1,.21,0l.6.37A.15.15,0,0,1,55.91,48.89Z">
+                                            </path>
+                                            <path
+                                                d="M16.8,45.33a1.23,1.23,0,1,0,0,2.38,1.23,1.23,0,1,0,0-2.38Zm0,2a.64.64,0,1,1,.8-.62A.73.73,0,0,1,16.8,47.35Z">
+                                            </path>
+                                            <path
+                                                d="M18.56,41.51l.06-.31a.52.52,0,0,0-.51-.52H15.5a.52.52,0,0,0-.51.52l.07.31c-2.49.58-4.3,2.38-4.3,4.52a4,4,0,0,0,1,2.59h0a.27.27,0,0,0,0,.37l.93.95a.26.26,0,0,0,.37,0l.11-.16a7.43,7.43,0,0,0,7.32,0l.11.16a.26.26,0,0,0,.37,0l.93-.95a.27.27,0,0,0,0-.37h0a4,4,0,0,0,1-2.59C22.85,43.9,21,42.1,18.56,41.51Zm-2.51.08h1.49a.3.3,0,0,1,.29.3l-.25,1.37a.3.3,0,0,1-.29.3h-.94a.3.3,0,0,1-.29-.3l-.31-1.37A.3.3,0,0,1,16.06,41.59ZM13.4,48.82l-.4.58a.15.15,0,0,1-.21,0l-.54-.54a.15.15,0,0,1,0-.21l.6-.38a.15.15,0,0,1,.21,0l.34.34,0,0v.08A.15.15,0,0,1,13.4,48.82Zm3.41.49c-1.75,0-3.17-1.11-3.17-2.48s1.42-2.48,3.17-2.48S20,45.47,20,46.84,18.56,49.32,16.8,49.32Zm4.55-.45-.54.54a.15.15,0,0,1-.21,0l-.4-.58,0,0a.65.65,0,0,1,0-.09.15.15,0,0,1,0-.08l.34-.34a.15.15,0,0,1,.21,0l.6.38A.15.15,0,0,1,21.35,48.86Z">
+                                            </path>
+                                            <rect x="38.04" y="14.19" width="6.12" height="6.12" rx="0.82" ry="0.82"
+                                                transform="translate(-0.16 34.12) rotate(-45)"></rect>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/rota 66.png" data-lightbox="todos" data-title="Rota 66">
+                                <img src="../img/mapas/maps/rota 66.png" class="card-img-top" alt="rota 66" title="rota 66"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/USA.png" alt="USA" title="USA">
+                                    Rota 66</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 64 64">
+                                        <g>
+                                            <rect x="10.38" y="24.34" width="21.03" height="14.39" rx="0.81" ry="0.81">
+                                            </rect>
+                                            <path
+                                                d="M60.62,37.83h0c0-.23,0-.47,0-.72h0a.28.28,0,0,0,.28-.24.26.26,0,0,0-.26-.29h-.09c0-.24,0-.47,0-.72h.08a.28.28,0,0,0,.28-.24.26.26,0,0,0-.26-.29H60.5l0-.72h.13a.26.26,0,0,0,.26-.29.28.28,0,0,0-.28-.24h-.12l0-.74h0a.57.57,0,0,0,.53-.63.59.59,0,0,0-.59-.5h-.06c-.5-2.43-2.65-4.26-6-4.26H49.44c-1.26-2.15-1.91-3.59-2.45-3.87a16.68,16.68,0,0,0-6.19-.89c-3.43,0-4.64.13-5,.35s-.59.19-.59,1.48v5.42H34.7V23.8a.6.6,0,0,0-.6-.6H32.66a.6.6,0,0,0-.6.6V39.27H3.39a.39.39,0,0,0-.39.39v1.81a.39.39,0,0,0,.39.39h1a.14.14,0,0,1,.14.14v.24a.47.47,0,0,0,.47.47H8.49A.47.47,0,0,0,9,42.25V42a.14.14,0,0,1,.14-.14h3.34a.14.14,0,0,0,.09,0,6,6,0,0,1,4.06-1.48,6,6,0,0,1,4.06,1.48.14.14,0,0,0,.09,0H22a.14.14,0,0,1,.14.14v.24a.47.47,0,0,0,.47.47h1.72a.14.14,0,0,0,.1,0l.24-.24a.14.14,0,0,1,.2,0l.24.24a.14.14,0,0,0,.1,0H27a.14.14,0,0,0,.1,0l.11-.11a.14.14,0,0,1,.2,0l.11.11a.14.14,0,0,0,.1,0h1.82a.14.14,0,0,0,.1,0l.24-.24a.14.14,0,0,1,.2,0l.24.24a.14.14,0,0,0,.1,0h1.42a.47.47,0,0,0,.47-.47V42a.14.14,0,0,1,.14-.14h11.2a1.8,1.8,0,0,0-.26.81c0,1.16.83,1.35,2.14,1.2h0c0-.11,2.29-4,5.91-3.89a7.79,7.79,0,0,1,5.92,3.64s0,.09,0,.13h0c1.51.17,2.49,0,2.49-1.23a2.42,2.42,0,0,0-.6-1.24h0c1.32-.3,1.5-1.43,1.47-2.92h0a.27.27,0,0,0,.26-.2A.26.26,0,0,0,60.62,37.83ZM47.5,28l-5.07.24h0c-1.67,0-1.92.21-1.92-.29s-.08-1.74-.08-2.23,0-.86.58-.86,3.47-.08,4.06,0a1.37,1.37,0,0,1,1.32.92L47.5,28Z">
+                                            </path>
+                                            <path
+                                                d="M51.36,45.39a1.21,1.21,0,1,0,1.53,1.17A1.38,1.38,0,0,0,51.36,45.39Zm0,2a.64.64,0,1,1,.8-.62A.73.73,0,0,1,51.36,47.39Z">
+                                            </path>
+                                            <path
+                                                d="M53.12,41.63l.06-.31a.51.51,0,0,0-.51-.51H50.06a.51.51,0,0,0-.51.51l.07.31c-2.49.58-4.3,2.35-4.3,4.46a3.92,3.92,0,0,0,1,2.55h0a.26.26,0,0,0,0,.37l.93.93a.26.26,0,0,0,.37,0l.11-.16a7.51,7.51,0,0,0,7.32,0l.11.16a.26.26,0,0,0,.37,0l.93-.93a.26.26,0,0,0,0-.37h0a3.91,3.91,0,0,0,1-2.55C57.41,44,55.6,42.21,53.12,41.63Zm-2.51.08h1.49a.3.3,0,0,1,.29.29l-.25,1.36a.3.3,0,0,1-.29.29h-.94a.3.3,0,0,1-.29-.29L50.32,42A.3.3,0,0,1,50.61,41.71ZM48,48.85l-.4.57a.15.15,0,0,1-.21,0l-.54-.54a.15.15,0,0,1,0-.21l.6-.37a.15.15,0,0,1,.21,0l.34.34,0,0v.08A.15.15,0,0,1,48,48.85Zm3.41.49c-1.75,0-3.17-1.09-3.17-2.44s1.42-2.44,3.17-2.44,3.17,1.09,3.17,2.44S53.11,49.33,51.36,49.33Zm4.55-.45-.54.54a.15.15,0,0,1-.21,0l-.4-.57,0,0a.63.63,0,0,1,0-.09.14.14,0,0,1,0-.08l.34-.34a.15.15,0,0,1,.21,0l.6.37A.15.15,0,0,1,55.91,48.89Z">
+                                            </path>
+                                            <path
+                                                d="M16.8,45.33a1.23,1.23,0,1,0,0,2.38,1.23,1.23,0,1,0,0-2.38Zm0,2a.64.64,0,1,1,.8-.62A.73.73,0,0,1,16.8,47.35Z">
+                                            </path>
+                                            <path
+                                                d="M18.56,41.51l.06-.31a.52.52,0,0,0-.51-.52H15.5a.52.52,0,0,0-.51.52l.07.31c-2.49.58-4.3,2.38-4.3,4.52a4,4,0,0,0,1,2.59h0a.27.27,0,0,0,0,.37l.93.95a.26.26,0,0,0,.37,0l.11-.16a7.43,7.43,0,0,0,7.32,0l.11.16a.26.26,0,0,0,.37,0l.93-.95a.27.27,0,0,0,0-.37h0a4,4,0,0,0,1-2.59C22.85,43.9,21,42.1,18.56,41.51Zm-2.51.08h1.49a.3.3,0,0,1,.29.3l-.25,1.37a.3.3,0,0,1-.29.3h-.94a.3.3,0,0,1-.29-.3l-.31-1.37A.3.3,0,0,1,16.06,41.59ZM13.4,48.82l-.4.58a.15.15,0,0,1-.21,0l-.54-.54a.15.15,0,0,1,0-.21l.6-.38a.15.15,0,0,1,.21,0l.34.34,0,0v.08A.15.15,0,0,1,13.4,48.82Zm3.41.49c-1.75,0-3.17-1.11-3.17-2.48s1.42-2.48,3.17-2.48S20,45.47,20,46.84,18.56,49.32,16.8,49.32Zm4.55-.45-.54.54a.15.15,0,0,1-.21,0l-.4-.58,0,0a.65.65,0,0,1,0-.09.15.15,0,0,1,0-.08l.34-.34a.15.15,0,0,1,.21,0l.6.38A.15.15,0,0,1,21.35,48.86Z">
+                                            </path>
+                                            <rect x="38.04" y="14.19" width="6.12" height="6.12" rx="0.82" ry="0.82"
+                                                transform="translate(-0.16 34.12) rotate(-45)"></rect>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/templo de anubis.png" data-lightbox="todos" data-title="Templo de Anubis">
+                                <img src="../img/mapas/maps/templo de anubis.png" class="card-img-top"
+                                alt="templo de anubis" title="templo de anubis"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/Egypt.png" alt="Egypt" title="Egypt">
+                                    Templo De Anubis</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 64 64">
+                                        <g>
+                                            <rect x="22.15" y="19.88" width="19.69" height="19.69" rx="2.89" ry="2.89"
+                                                transform="translate(-11.65 31.33) rotate(-45)"></rect>
+                                            <path
+                                                d="M12.54,29.29A19.47,19.47,0,0,0,46.41,42.8h0l-2.66-2.28h0a16,16,0,1,1-12.5-26.75h0v-3.5h0A19.47,19.47,0,0,0,12.54,29.29Z">
+                                            </path>
+                                            <path
+                                                d="M48,29.72a15.89,15.89,0,0,1-3.25,9.65l2.66,2.28A19.47,19.47,0,0,0,32.75,10.27v3.51A16,16,0,0,1,48,29.72Z">
+                                            </path>
+                                            <path
+                                                d="M32.37,7A22.73,22.73,0,0,0,13.47,42.89h0v-2.8h0A21.4,21.4,0,0,1,11.4,24.51,20.84,20.84,0,0,1,27.13,9a21.25,21.25,0,0,1,23.4,31h0v2.8h0A22.73,22.73,0,0,0,32.37,7Z">
+                                            </path>
+                                            <path
+                                                d="M32,51a21.19,21.19,0,0,1-16.66-8.08A.21.21,0,0,0,15,43v1.68a.21.21,0,0,0,.05.14,22.71,22.71,0,0,0,12,7.08.22.22,0,0,1,.13.08l0,0,4.31,4.78a.65.65,0,0,0,.91,0L36.75,52a.21.21,0,0,1,.1-.06A22.71,22.71,0,0,0,49,44.83a.21.21,0,0,0,.05-.14V43a.21.21,0,0,0-.37-.13A21.19,21.19,0,0,1,32,51Z">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/torre lijiang.png" data-lightbox="todos" data-title="torre lijiang">
+                                <img src="../img/mapas/maps/torre lijiang.png" class="card-img-top" alt="torre lijiang"
+                                title="torre lijiang"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/China.png" alt="China" title="China">
+                                    Torre Lijiang</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 64 64">
+                                        <g>
+                                            <path
+                                                d="M54.94,29.44,34.56,9.06a3.63,3.63,0,0,0-5.12,0L9.06,29.44a3.63,3.63,0,0,0,0,5.12L29.44,54.94a3.63,3.63,0,0,0,5.12,0L54.94,34.56A3.63,3.63,0,0,0,54.94,29.44Zm-.9,3.9L33.35,54a1.91,1.91,0,0,1-2.69,0L10,33.35a1.91,1.91,0,0,1,0-2.69L30.65,10a1.91,1.91,0,0,1,2.69,0L54,30.65A1.91,1.91,0,0,1,54,33.35Z">
+                                            </path>
+                                            <path
+                                                d="M34.21,12.21a3.13,3.13,0,0,0-4.41,0L12.21,29.79a3.13,3.13,0,0,0,0,4.41L29.79,51.79a3.13,3.13,0,0,0,4.41,0L51.79,34.21a3.13,3.13,0,0,0,0-4.41ZM33,49.17a1.49,1.49,0,0,1-2.1,0l-13-13h5.38v.55a1.3,1.3,0,0,0,2.24.89l5-5.32a.46.46,0,0,0,0-.63l-5-5.29a1.3,1.3,0,0,0-2.24.89v.55H18l13-13a1.49,1.49,0,0,1,2.1,0l13,13H40.66v-.55a1.3,1.3,0,0,0-2.24-.89l-5,5.29a.46.46,0,0,0,0,.63l5,5.32a1.3,1.3,0,0,0,2.24-.89v-.55H46Z">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <g>
+                                            <path
+                                                d="M110.6 37.6L64.2 14.8a2.5 2.5 0 0 0-3.6 2.3v80.8a1.7 1.7 0 0 0 1.7 1.7h2.2a1.7 1.7 0 0 0 1.7-1.7V60.5L110.6 40a1.3 1.3 0 0 0 0-2.4z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M95.7 91c-1.1-.3-1.9.6-.8 1.1 5.7 1.7 9.1 3.9 9.1 6.3 0 5.4-18.8 9.7-40.5 9.9S23 103.7 23 98.4c0-2.4 3.4-4.5 9.1-6.3 1-.5.2-1.4-.8-1.1-8.9 2.4-14.4 5.7-14.4 9.4 0 7 21.7 12.8 46.6 13h.3c25-.2 46.6-6 46.6-13-.3-3.7-5.8-7-14.7-9.4z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="captura">
+                <div class="row">
+                    <div class="col">
+                        <div class="h5 text-uppercase fw-bolder">Capture a bandeira</div>
+                        <p class="fw-normal fst-italic">
+                            As equipes competem para capturar a bandeira da equipe inimiga enquanto defendem a sua.
+                        </p>
+                    </div>
+                </div>
+                <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-3">
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/ayutthaya.png" data-lightbox="captura" data-title="Ayutthaya">
+                                <img src="../img/mapas/maps/ayutthaya.png" class="card-img-top" alt="ayutthaya"
+                                title="ayutthaya"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/Thailand.png" alt="Thailand" title="Thailand">
+                                    Ayutthaya</h5>
+                                <div class="card-text"><svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <g>
+                                            <path
+                                                d="M110.6 37.6L64.2 14.8a2.5 2.5 0 0 0-3.6 2.3v80.8a1.7 1.7 0 0 0 1.7 1.7h2.2a1.7 1.7 0 0 0 1.7-1.7V60.5L110.6 40a1.3 1.3 0 0 0 0-2.4z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M95.7 91c-1.1-.3-1.9.6-.8 1.1 5.7 1.7 9.1 3.9 9.1 6.3 0 5.4-18.8 9.7-40.5 9.9S23 103.7 23 98.4c0-2.4 3.4-4.5 9.1-6.3 1-.5.2-1.4-.8-1.1-8.9 2.4-14.4 5.7-14.4 9.4 0 7 21.7 12.8 46.6 13h.3c25-.2 46.6-6 46.6-13-.3-3.7-5.8-7-14.7-9.4z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/ilios.png" data-lightbox="captura" data-title="Ilios">
+                                <img src="../img/mapas/maps/ilios.png" class="card-img-top" alt="ilios" title="ilios"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/Greece.png" alt="Greece" title="Greece">
+                                    Ilios</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 64 64">
+                                        <g>
+                                            <path
+                                                d="M54.94,29.44,34.56,9.06a3.63,3.63,0,0,0-5.12,0L9.06,29.44a3.63,3.63,0,0,0,0,5.12L29.44,54.94a3.63,3.63,0,0,0,5.12,0L54.94,34.56A3.63,3.63,0,0,0,54.94,29.44Zm-.9,3.9L33.35,54a1.91,1.91,0,0,1-2.69,0L10,33.35a1.91,1.91,0,0,1,0-2.69L30.65,10a1.91,1.91,0,0,1,2.69,0L54,30.65A1.91,1.91,0,0,1,54,33.35Z">
+                                            </path>
+                                            <path
+                                                d="M34.21,12.21a3.13,3.13,0,0,0-4.41,0L12.21,29.79a3.13,3.13,0,0,0,0,4.41L29.79,51.79a3.13,3.13,0,0,0,4.41,0L51.79,34.21a3.13,3.13,0,0,0,0-4.41ZM33,49.17a1.49,1.49,0,0,1-2.1,0l-13-13h5.38v.55a1.3,1.3,0,0,0,2.24.89l5-5.32a.46.46,0,0,0,0-.63l-5-5.29a1.3,1.3,0,0,0-2.24.89v.55H18l13-13a1.49,1.49,0,0,1,2.1,0l13,13H40.66v-.55a1.3,1.3,0,0,0-2.24-.89l-5,5.29a.46.46,0,0,0,0,.63l5,5.32a1.3,1.3,0,0,0,2.24-.89v-.55H46Z">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <g>
+                                            <path
+                                                d="M110.6 37.6L64.2 14.8a2.5 2.5 0 0 0-3.6 2.3v80.8a1.7 1.7 0 0 0 1.7 1.7h2.2a1.7 1.7 0 0 0 1.7-1.7V60.5L110.6 40a1.3 1.3 0 0 0 0-2.4z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M95.7 91c-1.1-.3-1.9.6-.8 1.1 5.7 1.7 9.1 3.9 9.1 6.3 0 5.4-18.8 9.7-40.5 9.9S23 103.7 23 98.4c0-2.4 3.4-4.5 9.1-6.3 1-.5.2-1.4-.8-1.1-8.9 2.4-14.4 5.7-14.4 9.4 0 7 21.7 12.8 46.6 13h.3c25-.2 46.6-6 46.6-13-.3-3.7-5.8-7-14.7-9.4z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/nepal.png" data-lightbox="captura" data-title="Nepal">
+                                <img src="../img/mapas/maps/nepal.png" class="card-img-top" alt="nepal" title="nepal"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/Nepal.png" alt="Nepal" title="Nepal">
+                                    Nepal</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 64 64">
+                                        <g>
+                                            <path
+                                                d="M54.94,29.44,34.56,9.06a3.63,3.63,0,0,0-5.12,0L9.06,29.44a3.63,3.63,0,0,0,0,5.12L29.44,54.94a3.63,3.63,0,0,0,5.12,0L54.94,34.56A3.63,3.63,0,0,0,54.94,29.44Zm-.9,3.9L33.35,54a1.91,1.91,0,0,1-2.69,0L10,33.35a1.91,1.91,0,0,1,0-2.69L30.65,10a1.91,1.91,0,0,1,2.69,0L54,30.65A1.91,1.91,0,0,1,54,33.35Z">
+                                            </path>
+                                            <path
+                                                d="M34.21,12.21a3.13,3.13,0,0,0-4.41,0L12.21,29.79a3.13,3.13,0,0,0,0,4.41L29.79,51.79a3.13,3.13,0,0,0,4.41,0L51.79,34.21a3.13,3.13,0,0,0,0-4.41ZM33,49.17a1.49,1.49,0,0,1-2.1,0l-13-13h5.38v.55a1.3,1.3,0,0,0,2.24.89l5-5.32a.46.46,0,0,0,0-.63l-5-5.29a1.3,1.3,0,0,0-2.24.89v.55H18l13-13a1.49,1.49,0,0,1,2.1,0l13,13H40.66v-.55a1.3,1.3,0,0,0-2.24-.89l-5,5.29a.46.46,0,0,0,0,.63l5,5.32a1.3,1.3,0,0,0,2.24-.89v-.55H46Z">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <g>
+                                            <path
+                                                d="M110.6 37.6L64.2 14.8a2.5 2.5 0 0 0-3.6 2.3v80.8a1.7 1.7 0 0 0 1.7 1.7h2.2a1.7 1.7 0 0 0 1.7-1.7V60.5L110.6 40a1.3 1.3 0 0 0 0-2.4z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M95.7 91c-1.1-.3-1.9.6-.8 1.1 5.7 1.7 9.1 3.9 9.1 6.3 0 5.4-18.8 9.7-40.5 9.9S23 103.7 23 98.4c0-2.4 3.4-4.5 9.1-6.3 1-.5.2-1.4-.8-1.1-8.9 2.4-14.4 5.7-14.4 9.4 0 7 21.7 12.8 46.6 13h.3c25-.2 46.6-6 46.6-13-.3-3.7-5.8-7-14.7-9.4z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/oasis.png" data-lightbox="captura" data-title="Oasis">
+                                <img src="../img/mapas/maps/oasis.png" class="card-img-top" alt="oasis" title="oasis"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/Iraq.png" alt="Iraq" title="Iraq">
+                                    Oasis</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 64 64">
+                                        <g>
+                                            <path
+                                                d="M54.94,29.44,34.56,9.06a3.63,3.63,0,0,0-5.12,0L9.06,29.44a3.63,3.63,0,0,0,0,5.12L29.44,54.94a3.63,3.63,0,0,0,5.12,0L54.94,34.56A3.63,3.63,0,0,0,54.94,29.44Zm-.9,3.9L33.35,54a1.91,1.91,0,0,1-2.69,0L10,33.35a1.91,1.91,0,0,1,0-2.69L30.65,10a1.91,1.91,0,0,1,2.69,0L54,30.65A1.91,1.91,0,0,1,54,33.35Z">
+                                            </path>
+                                            <path
+                                                d="M34.21,12.21a3.13,3.13,0,0,0-4.41,0L12.21,29.79a3.13,3.13,0,0,0,0,4.41L29.79,51.79a3.13,3.13,0,0,0,4.41,0L51.79,34.21a3.13,3.13,0,0,0,0-4.41ZM33,49.17a1.49,1.49,0,0,1-2.1,0l-13-13h5.38v.55a1.3,1.3,0,0,0,2.24.89l5-5.32a.46.46,0,0,0,0-.63l-5-5.29a1.3,1.3,0,0,0-2.24.89v.55H18l13-13a1.49,1.49,0,0,1,2.1,0l13,13H40.66v-.55a1.3,1.3,0,0,0-2.24-.89l-5,5.29a.46.46,0,0,0,0,.63l5,5.32a1.3,1.3,0,0,0,2.24-.89v-.55H46Z">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <g>
+                                            <path
+                                                d="M110.6 37.6L64.2 14.8a2.5 2.5 0 0 0-3.6 2.3v80.8a1.7 1.7 0 0 0 1.7 1.7h2.2a1.7 1.7 0 0 0 1.7-1.7V60.5L110.6 40a1.3 1.3 0 0 0 0-2.4z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M95.7 91c-1.1-.3-1.9.6-.8 1.1 5.7 1.7 9.1 3.9 9.1 6.3 0 5.4-18.8 9.7-40.5 9.9S23 103.7 23 98.4c0-2.4 3.4-4.5 9.1-6.3 1-.5.2-1.4-.8-1.1-8.9 2.4-14.4 5.7-14.4 9.4 0 7 21.7 12.8 46.6 13h.3c25-.2 46.6-6 46.6-13-.3-3.7-5.8-7-14.7-9.4z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/torre lijiang.png" data-lightbox="captura" data-title="torre lijiang">
+                                <img src="../img/mapas/maps/torre lijiang.png" class="card-img-top" alt="torre lijiang"
+                                title="torre lijiang"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/China.png" alt="China" title="China">
+                                    Torre Lijiang</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 64 64">
+                                        <g>
+                                            <path
+                                                d="M54.94,29.44,34.56,9.06a3.63,3.63,0,0,0-5.12,0L9.06,29.44a3.63,3.63,0,0,0,0,5.12L29.44,54.94a3.63,3.63,0,0,0,5.12,0L54.94,34.56A3.63,3.63,0,0,0,54.94,29.44Zm-.9,3.9L33.35,54a1.91,1.91,0,0,1-2.69,0L10,33.35a1.91,1.91,0,0,1,0-2.69L30.65,10a1.91,1.91,0,0,1,2.69,0L54,30.65A1.91,1.91,0,0,1,54,33.35Z">
+                                            </path>
+                                            <path
+                                                d="M34.21,12.21a3.13,3.13,0,0,0-4.41,0L12.21,29.79a3.13,3.13,0,0,0,0,4.41L29.79,51.79a3.13,3.13,0,0,0,4.41,0L51.79,34.21a3.13,3.13,0,0,0,0-4.41ZM33,49.17a1.49,1.49,0,0,1-2.1,0l-13-13h5.38v.55a1.3,1.3,0,0,0,2.24.89l5-5.32a.46.46,0,0,0,0-.63l-5-5.29a1.3,1.3,0,0,0-2.24.89v.55H18l13-13a1.49,1.49,0,0,1,2.1,0l13,13H40.66v-.55a1.3,1.3,0,0,0-2.24-.89l-5,5.29a.46.46,0,0,0,0,.63l5,5.32a1.3,1.3,0,0,0,2.24-.89v-.55H46Z">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <g>
+                                            <path
+                                                d="M110.6 37.6L64.2 14.8a2.5 2.5 0 0 0-3.6 2.3v80.8a1.7 1.7 0 0 0 1.7 1.7h2.2a1.7 1.7 0 0 0 1.7-1.7V60.5L110.6 40a1.3 1.3 0 0 0 0-2.4z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M95.7 91c-1.1-.3-1.9.6-.8 1.1 5.7 1.7 9.1 3.9 9.1 6.3 0 5.4-18.8 9.7-40.5 9.9S23 103.7 23 98.4c0-2.4 3.4-4.5 9.1-6.3 1-.5.2-1.4-.8-1.1-8.9 2.4-14.4 5.7-14.4 9.4 0 7 21.7 12.8 46.6 13h.3c25-.2 46.6-6 46.6-13-.3-3.7-5.8-7-14.7-9.4z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="controle">
+                <div class="row">
+                    <div class="col">
+                        <div class="h5 text-uppercase fw-bolder">Controle</div>
+                        <p class="fw-normal fst-italic">
+                            As equipes lutam para tomar um objetivo. A primeira a ganhar duas rodadas vence o mapa.
+                        </p>
+                    </div>
+                </div>
+                <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-3">
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/busan.png" data-lightbox="controle" data-title="Busan">
+                                <img src="../img/mapas/maps/busan.png" class="card-img-top" alt="busan" title="busan"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/Korea.png" alt="Korea" title="Korea">
+                                    Busan</h5>
+                                <div class="card-text"> <svg class="Svg-icon Map-type" viewBox="0 0 64 64">
+                                        <g>
+                                            <path
+                                                d="M54.94,29.44,34.56,9.06a3.63,3.63,0,0,0-5.12,0L9.06,29.44a3.63,3.63,0,0,0,0,5.12L29.44,54.94a3.63,3.63,0,0,0,5.12,0L54.94,34.56A3.63,3.63,0,0,0,54.94,29.44Zm-.9,3.9L33.35,54a1.91,1.91,0,0,1-2.69,0L10,33.35a1.91,1.91,0,0,1,0-2.69L30.65,10a1.91,1.91,0,0,1,2.69,0L54,30.65A1.91,1.91,0,0,1,54,33.35Z">
+                                            </path>
+                                            <path
+                                                d="M34.21,12.21a3.13,3.13,0,0,0-4.41,0L12.21,29.79a3.13,3.13,0,0,0,0,4.41L29.79,51.79a3.13,3.13,0,0,0,4.41,0L51.79,34.21a3.13,3.13,0,0,0,0-4.41ZM33,49.17a1.49,1.49,0,0,1-2.1,0l-13-13h5.38v.55a1.3,1.3,0,0,0,2.24.89l5-5.32a.46.46,0,0,0,0-.63l-5-5.29a1.3,1.3,0,0,0-2.24.89v.55H18l13-13a1.49,1.49,0,0,1,2.1,0l13,13H40.66v-.55a1.3,1.3,0,0,0-2.24-.89l-5,5.29a.46.46,0,0,0,0,.63l5,5.32a1.3,1.3,0,0,0,2.24-.89v-.55H46Z">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/ilios.png" data-lightbox="controle" data-title="Ilios">
+                                <img src="../img/mapas/maps/ilios.png" class="card-img-top" alt="ilios" title="ilios"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/Greece.png" alt="Greece" title="Greece">
+                                    Ilios</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 64 64">
+                                        <g>
+                                            <path
+                                                d="M54.94,29.44,34.56,9.06a3.63,3.63,0,0,0-5.12,0L9.06,29.44a3.63,3.63,0,0,0,0,5.12L29.44,54.94a3.63,3.63,0,0,0,5.12,0L54.94,34.56A3.63,3.63,0,0,0,54.94,29.44Zm-.9,3.9L33.35,54a1.91,1.91,0,0,1-2.69,0L10,33.35a1.91,1.91,0,0,1,0-2.69L30.65,10a1.91,1.91,0,0,1,2.69,0L54,30.65A1.91,1.91,0,0,1,54,33.35Z">
+                                            </path>
+                                            <path
+                                                d="M34.21,12.21a3.13,3.13,0,0,0-4.41,0L12.21,29.79a3.13,3.13,0,0,0,0,4.41L29.79,51.79a3.13,3.13,0,0,0,4.41,0L51.79,34.21a3.13,3.13,0,0,0,0-4.41ZM33,49.17a1.49,1.49,0,0,1-2.1,0l-13-13h5.38v.55a1.3,1.3,0,0,0,2.24.89l5-5.32a.46.46,0,0,0,0-.63l-5-5.29a1.3,1.3,0,0,0-2.24.89v.55H18l13-13a1.49,1.49,0,0,1,2.1,0l13,13H40.66v-.55a1.3,1.3,0,0,0-2.24-.89l-5,5.29a.46.46,0,0,0,0,.63l5,5.32a1.3,1.3,0,0,0,2.24-.89v-.55H46Z">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <g>
+                                            <path
+                                                d="M110.6 37.6L64.2 14.8a2.5 2.5 0 0 0-3.6 2.3v80.8a1.7 1.7 0 0 0 1.7 1.7h2.2a1.7 1.7 0 0 0 1.7-1.7V60.5L110.6 40a1.3 1.3 0 0 0 0-2.4z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M95.7 91c-1.1-.3-1.9.6-.8 1.1 5.7 1.7 9.1 3.9 9.1 6.3 0 5.4-18.8 9.7-40.5 9.9S23 103.7 23 98.4c0-2.4 3.4-4.5 9.1-6.3 1-.5.2-1.4-.8-1.1-8.9 2.4-14.4 5.7-14.4 9.4 0 7 21.7 12.8 46.6 13h.3c25-.2 46.6-6 46.6-13-.3-3.7-5.8-7-14.7-9.4z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/nepal.png" data-lightbox="controle" data-title="Nepal">
+                                <img src="../img/mapas/maps/nepal.png" class="card-img-top" alt="nepal" title="nepal"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/Nepal.png" alt="Nepal" title="Nepal">
+                                    Nepal</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 64 64">
+                                        <g>
+                                            <path
+                                                d="M54.94,29.44,34.56,9.06a3.63,3.63,0,0,0-5.12,0L9.06,29.44a3.63,3.63,0,0,0,0,5.12L29.44,54.94a3.63,3.63,0,0,0,5.12,0L54.94,34.56A3.63,3.63,0,0,0,54.94,29.44Zm-.9,3.9L33.35,54a1.91,1.91,0,0,1-2.69,0L10,33.35a1.91,1.91,0,0,1,0-2.69L30.65,10a1.91,1.91,0,0,1,2.69,0L54,30.65A1.91,1.91,0,0,1,54,33.35Z">
+                                            </path>
+                                            <path
+                                                d="M34.21,12.21a3.13,3.13,0,0,0-4.41,0L12.21,29.79a3.13,3.13,0,0,0,0,4.41L29.79,51.79a3.13,3.13,0,0,0,4.41,0L51.79,34.21a3.13,3.13,0,0,0,0-4.41ZM33,49.17a1.49,1.49,0,0,1-2.1,0l-13-13h5.38v.55a1.3,1.3,0,0,0,2.24.89l5-5.32a.46.46,0,0,0,0-.63l-5-5.29a1.3,1.3,0,0,0-2.24.89v.55H18l13-13a1.49,1.49,0,0,1,2.1,0l13,13H40.66v-.55a1.3,1.3,0,0,0-2.24-.89l-5,5.29a.46.46,0,0,0,0,.63l5,5.32a1.3,1.3,0,0,0,2.24-.89v-.55H46Z">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <g>
+                                            <path
+                                                d="M110.6 37.6L64.2 14.8a2.5 2.5 0 0 0-3.6 2.3v80.8a1.7 1.7 0 0 0 1.7 1.7h2.2a1.7 1.7 0 0 0 1.7-1.7V60.5L110.6 40a1.3 1.3 0 0 0 0-2.4z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M95.7 91c-1.1-.3-1.9.6-.8 1.1 5.7 1.7 9.1 3.9 9.1 6.3 0 5.4-18.8 9.7-40.5 9.9S23 103.7 23 98.4c0-2.4 3.4-4.5 9.1-6.3 1-.5.2-1.4-.8-1.1-8.9 2.4-14.4 5.7-14.4 9.4 0 7 21.7 12.8 46.6 13h.3c25-.2 46.6-6 46.6-13-.3-3.7-5.8-7-14.7-9.4z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/oasis.png" data-lightbox="controle" data-title="Oasis">
+                                <img src="../img/mapas/maps/oasis.png" class="card-img-top" alt="oasis" title="oasis"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/Iraq.png" alt="Iraq" title="Iraq">
+                                    Oasis</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 64 64">
+                                        <g>
+                                            <path
+                                                d="M54.94,29.44,34.56,9.06a3.63,3.63,0,0,0-5.12,0L9.06,29.44a3.63,3.63,0,0,0,0,5.12L29.44,54.94a3.63,3.63,0,0,0,5.12,0L54.94,34.56A3.63,3.63,0,0,0,54.94,29.44Zm-.9,3.9L33.35,54a1.91,1.91,0,0,1-2.69,0L10,33.35a1.91,1.91,0,0,1,0-2.69L30.65,10a1.91,1.91,0,0,1,2.69,0L54,30.65A1.91,1.91,0,0,1,54,33.35Z">
+                                            </path>
+                                            <path
+                                                d="M34.21,12.21a3.13,3.13,0,0,0-4.41,0L12.21,29.79a3.13,3.13,0,0,0,0,4.41L29.79,51.79a3.13,3.13,0,0,0,4.41,0L51.79,34.21a3.13,3.13,0,0,0,0-4.41ZM33,49.17a1.49,1.49,0,0,1-2.1,0l-13-13h5.38v.55a1.3,1.3,0,0,0,2.24.89l5-5.32a.46.46,0,0,0,0-.63l-5-5.29a1.3,1.3,0,0,0-2.24.89v.55H18l13-13a1.49,1.49,0,0,1,2.1,0l13,13H40.66v-.55a1.3,1.3,0,0,0-2.24-.89l-5,5.29a.46.46,0,0,0,0,.63l5,5.32a1.3,1.3,0,0,0,2.24-.89v-.55H46Z">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <g>
+                                            <path
+                                                d="M110.6 37.6L64.2 14.8a2.5 2.5 0 0 0-3.6 2.3v80.8a1.7 1.7 0 0 0 1.7 1.7h2.2a1.7 1.7 0 0 0 1.7-1.7V60.5L110.6 40a1.3 1.3 0 0 0 0-2.4z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M95.7 91c-1.1-.3-1.9.6-.8 1.1 5.7 1.7 9.1 3.9 9.1 6.3 0 5.4-18.8 9.7-40.5 9.9S23 103.7 23 98.4c0-2.4 3.4-4.5 9.1-6.3 1-.5.2-1.4-.8-1.1-8.9 2.4-14.4 5.7-14.4 9.4 0 7 21.7 12.8 46.6 13h.3c25-.2 46.6-6 46.6-13-.3-3.7-5.8-7-14.7-9.4z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/torre lijiang.png" data-lightbox="controle" data-title="torre lijiang">
+                                <img src="../img/mapas/maps/torre lijiang.png" class="card-img-top" alt="torre lijiang"
+                                title="torre lijiang"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/China.png" alt="China" title="China">
+                                    Torre Lijiang</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 64 64">
+                                        <g>
+                                            <path
+                                                d="M54.94,29.44,34.56,9.06a3.63,3.63,0,0,0-5.12,0L9.06,29.44a3.63,3.63,0,0,0,0,5.12L29.44,54.94a3.63,3.63,0,0,0,5.12,0L54.94,34.56A3.63,3.63,0,0,0,54.94,29.44Zm-.9,3.9L33.35,54a1.91,1.91,0,0,1-2.69,0L10,33.35a1.91,1.91,0,0,1,0-2.69L30.65,10a1.91,1.91,0,0,1,2.69,0L54,30.65A1.91,1.91,0,0,1,54,33.35Z">
+                                            </path>
+                                            <path
+                                                d="M34.21,12.21a3.13,3.13,0,0,0-4.41,0L12.21,29.79a3.13,3.13,0,0,0,0,4.41L29.79,51.79a3.13,3.13,0,0,0,4.41,0L51.79,34.21a3.13,3.13,0,0,0,0-4.41ZM33,49.17a1.49,1.49,0,0,1-2.1,0l-13-13h5.38v.55a1.3,1.3,0,0,0,2.24.89l5-5.32a.46.46,0,0,0,0-.63l-5-5.29a1.3,1.3,0,0,0-2.24.89v.55H18l13-13a1.49,1.49,0,0,1,2.1,0l13,13H40.66v-.55a1.3,1.3,0,0,0-2.24-.89l-5,5.29a.46.46,0,0,0,0,.63l5,5.32a1.3,1.3,0,0,0,2.24-.89v-.55H46Z">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <g>
+                                            <path
+                                                d="M110.6 37.6L64.2 14.8a2.5 2.5 0 0 0-3.6 2.3v80.8a1.7 1.7 0 0 0 1.7 1.7h2.2a1.7 1.7 0 0 0 1.7-1.7V60.5L110.6 40a1.3 1.3 0 0 0 0-2.4z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M95.7 91c-1.1-.3-1.9.6-.8 1.1 5.7 1.7 9.1 3.9 9.1 6.3 0 5.4-18.8 9.7-40.5 9.9S23 103.7 23 98.4c0-2.4 3.4-4.5 9.1-6.3 1-.5.2-1.4-.8-1.1-8.9 2.4-14.4 5.7-14.4 9.4 0 7 21.7 12.8 46.6 13h.3c25-.2 46.6-6 46.6-13-.3-3.7-5.8-7-14.7-9.4z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="ataque">
+                <div class="row">
+                    <div class="col">
+                        <div class="h5 text-uppercase fw-bolder">Ataque</div>
+                        <p class="fw-normal fst-italic">
+                            Os atacantes lutam para capturar uma srie de objetivos; os defensores impedem o progresso
+                            deles até que o tempo se esgote.
+                        </p>
+                    </div>
+                </div>
+                <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-3">
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/colonia lunar horizon.png" data-lightbox="ataque" data-title="Colonia Lunar Horizon">
+                                <img src="../img/mapas/maps/colonia lunar horizon.png" class="card-img-top"
+                                alt="colonia lunar horizon" title="colonia lunar horizon"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder">
+                                    <img class="img-fluid" src="../img/mapas/pais/Moon.png" alt="Moon" title="Moon">
+                                    Colônia Lunar Horizon</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 64 64">
+                                        <g>
+                                            <rect x="22.15" y="19.88" width="19.69" height="19.69" rx="2.89" ry="2.89"
+                                                transform="translate(-11.65 31.33) rotate(-45)"></rect>
+                                            <path
+                                                d="M12.54,29.29A19.47,19.47,0,0,0,46.41,42.8h0l-2.66-2.28h0a16,16,0,1,1-12.5-26.75h0v-3.5h0A19.47,19.47,0,0,0,12.54,29.29Z">
+                                            </path>
+                                            <path
+                                                d="M48,29.72a15.89,15.89,0,0,1-3.25,9.65l2.66,2.28A19.47,19.47,0,0,0,32.75,10.27v3.51A16,16,0,0,1,48,29.72Z">
+                                            </path>
+                                            <path
+                                                d="M32.37,7A22.73,22.73,0,0,0,13.47,42.89h0v-2.8h0A21.4,21.4,0,0,1,11.4,24.51,20.84,20.84,0,0,1,27.13,9a21.25,21.25,0,0,1,23.4,31h0v2.8h0A22.73,22.73,0,0,0,32.37,7Z">
+                                            </path>
+                                            <path
+                                                d="M32,51a21.19,21.19,0,0,1-16.66-8.08A.21.21,0,0,0,15,43v1.68a.21.21,0,0,0,.05.14,22.71,22.71,0,0,0,12,7.08.22.22,0,0,1,.13.08l0,0,4.31,4.78a.65.65,0,0,0,.91,0L36.75,52a.21.21,0,0,1,.1-.06A22.71,22.71,0,0,0,49,44.83a.21.21,0,0,0,.05-.14V43a.21.21,0,0,0-.37-.13A21.19,21.19,0,0,1,32,51Z">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/hanamura.png" data-lightbox="ataque" data-title="Hanamura">
+                                <img src="../img/mapas/maps/hanamura.png" class="card-img-top" alt="hanamura"
+                                title="hanamura"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/Japan.png" alt="Japan" title="Japan">
+                                    Hanamura</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 64 64">
+                                        <g>
+                                            <rect x="22.15" y="19.88" width="19.69" height="19.69" rx="2.89" ry="2.89"
+                                                transform="translate(-11.65 31.33) rotate(-45)"></rect>
+                                            <path
+                                                d="M12.54,29.29A19.47,19.47,0,0,0,46.41,42.8h0l-2.66-2.28h0a16,16,0,1,1-12.5-26.75h0v-3.5h0A19.47,19.47,0,0,0,12.54,29.29Z">
+                                            </path>
+                                            <path
+                                                d="M48,29.72a15.89,15.89,0,0,1-3.25,9.65l2.66,2.28A19.47,19.47,0,0,0,32.75,10.27v3.51A16,16,0,0,1,48,29.72Z">
+                                            </path>
+                                            <path
+                                                d="M32.37,7A22.73,22.73,0,0,0,13.47,42.89h0v-2.8h0A21.4,21.4,0,0,1,11.4,24.51,20.84,20.84,0,0,1,27.13,9a21.25,21.25,0,0,1,23.4,31h0v2.8h0A22.73,22.73,0,0,0,32.37,7Z">
+                                            </path>
+                                            <path
+                                                d="M32,51a21.19,21.19,0,0,1-16.66-8.08A.21.21,0,0,0,15,43v1.68a.21.21,0,0,0,.05.14,22.71,22.71,0,0,0,12,7.08.22.22,0,0,1,.13.08l0,0,4.31,4.78a.65.65,0,0,0,.91,0L36.75,52a.21.21,0,0,1,.1-.06A22.71,22.71,0,0,0,49,44.83a.21.21,0,0,0,.05-.14V43a.21.21,0,0,0-.37-.13A21.19,21.19,0,0,1,32,51Z">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/industrias volskaya.png" data-lightbox="ataque" data-title="Industrias Volskaya">
+                                <img src="../img/mapas/maps/industrias volskaya.png" class="card-img-top"
+                                alt="industrias volskaya" title="industrias volskaya"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/Russia.png" alt="Russia" title="Russia">
+                                    Insdstrias Volskaya</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 64 64">
+                                        <g>
+                                            <rect x="22.15" y="19.88" width="19.69" height="19.69" rx="2.89" ry="2.89"
+                                                transform="translate(-11.65 31.33) rotate(-45)"></rect>
+                                            <path
+                                                d="M12.54,29.29A19.47,19.47,0,0,0,46.41,42.8h0l-2.66-2.28h0a16,16,0,1,1-12.5-26.75h0v-3.5h0A19.47,19.47,0,0,0,12.54,29.29Z">
+                                            </path>
+                                            <path
+                                                d="M48,29.72a15.89,15.89,0,0,1-3.25,9.65l2.66,2.28A19.47,19.47,0,0,0,32.75,10.27v3.51A16,16,0,0,1,48,29.72Z">
+                                            </path>
+                                            <path
+                                                d="M32.37,7A22.73,22.73,0,0,0,13.47,42.89h0v-2.8h0A21.4,21.4,0,0,1,11.4,24.51,20.84,20.84,0,0,1,27.13,9a21.25,21.25,0,0,1,23.4,31h0v2.8h0A22.73,22.73,0,0,0,32.37,7Z">
+                                            </path>
+                                            <path
+                                                d="M32,51a21.19,21.19,0,0,1-16.66-8.08A.21.21,0,0,0,15,43v1.68a.21.21,0,0,0,.05.14,22.71,22.71,0,0,0,12,7.08.22.22,0,0,1,.13.08l0,0,4.31,4.78a.65.65,0,0,0,.91,0L36.75,52a.21.21,0,0,1,.1-.06A22.71,22.71,0,0,0,49,44.83a.21.21,0,0,0,.05-.14V43a.21.21,0,0,0-.37-.13A21.19,21.19,0,0,1,32,51Z">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/paris.png" data-lightbox="ataque" data-title="paris">
+                                <img src="../img/mapas/maps/paris.png" class="card-img-top" alt="paris" title="paris"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/France.png" alt="France" title="France">
+                                    Paris</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 64 64">
+                                        <g>
+                                            <rect x="22.15" y="19.88" width="19.69" height="19.69" rx="2.89" ry="2.89"
+                                                transform="translate(-11.65 31.33) rotate(-45)"></rect>
+                                            <path
+                                                d="M12.54,29.29A19.47,19.47,0,0,0,46.41,42.8h0l-2.66-2.28h0a16,16,0,1,1-12.5-26.75h0v-3.5h0A19.47,19.47,0,0,0,12.54,29.29Z">
+                                            </path>
+                                            <path
+                                                d="M48,29.72a15.89,15.89,0,0,1-3.25,9.65l2.66,2.28A19.47,19.47,0,0,0,32.75,10.27v3.51A16,16,0,0,1,48,29.72Z">
+                                            </path>
+                                            <path
+                                                d="M32.37,7A22.73,22.73,0,0,0,13.47,42.89h0v-2.8h0A21.4,21.4,0,0,1,11.4,24.51,20.84,20.84,0,0,1,27.13,9a21.25,21.25,0,0,1,23.4,31h0v2.8h0A22.73,22.73,0,0,0,32.37,7Z">
+                                            </path>
+                                            <path
+                                                d="M32,51a21.19,21.19,0,0,1-16.66-8.08A.21.21,0,0,0,15,43v1.68a.21.21,0,0,0,.05.14,22.71,22.71,0,0,0,12,7.08.22.22,0,0,1,.13.08l0,0,4.31,4.78a.65.65,0,0,0,.91,0L36.75,52a.21.21,0,0,1,.1-.06A22.71,22.71,0,0,0,49,44.83a.21.21,0,0,0,.05-.14V43a.21.21,0,0,0-.37-.13A21.19,21.19,0,0,1,32,51Z">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/templo de anubis.png" data-lightbox="ataque" data-title="Templo de Anubis">
+                                <img src="../img/mapas/maps/templo de anubis.png" class="card-img-top"
+                                alt="templo de anubis" title="templo de anubis"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/Egypt.png" alt="Egypt" title="Egypt">
+                                    Templo De Anbis</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 64 64">
+                                        <g>
+                                            <rect x="22.15" y="19.88" width="19.69" height="19.69" rx="2.89" ry="2.89"
+                                                transform="translate(-11.65 31.33) rotate(-45)"></rect>
+                                            <path
+                                                d="M12.54,29.29A19.47,19.47,0,0,0,46.41,42.8h0l-2.66-2.28h0a16,16,0,1,1-12.5-26.75h0v-3.5h0A19.47,19.47,0,0,0,12.54,29.29Z">
+                                            </path>
+                                            <path
+                                                d="M48,29.72a15.89,15.89,0,0,1-3.25,9.65l2.66,2.28A19.47,19.47,0,0,0,32.75,10.27v3.51A16,16,0,0,1,48,29.72Z">
+                                            </path>
+                                            <path
+                                                d="M32.37,7A22.73,22.73,0,0,0,13.47,42.89h0v-2.8h0A21.4,21.4,0,0,1,11.4,24.51,20.84,20.84,0,0,1,27.13,9a21.25,21.25,0,0,1,23.4,31h0v2.8h0A22.73,22.73,0,0,0,32.37,7Z">
+                                            </path>
+                                            <path
+                                                d="M32,51a21.19,21.19,0,0,1-16.66-8.08A.21.21,0,0,0,15,43v1.68a.21.21,0,0,0,.05.14,22.71,22.71,0,0,0,12,7.08.22.22,0,0,1,.13.08l0,0,4.31,4.78a.65.65,0,0,0,.91,0L36.75,52a.21.21,0,0,1,.1-.06A22.71,22.71,0,0,0,49,44.83a.21.21,0,0,0,.05-.14V43a.21.21,0,0,0-.37-.13A21.19,21.19,0,0,1,32,51Z">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="escolta">
+                <div class="row">
+                    <div class="col">
+                        <div class="h5 text-uppercase fw-bolder">Escolta</div>
+                        <p class="fw-normal fst-italic">
+                            Os atacantes escoltam uma carga at um ponto de entrega, enquanto os defensores tentam
+                            impedi-los.
+                        </p>
+                    </div>
+                </div>
+                <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-3">
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/dorado.png" data-lightbox="escolta" data-title="Dorado">
+                                <img src="../img/mapas/maps/dorado.png" class="card-img-top" alt="dorado" title="dorado"></a>
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/Mexico.png" alt="Mexico" title="Mexico">
+                                    Dorado</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <g>
+                                            <path
+                                                d="M84.14 91.33c3-4.88 6.11-9.63 9.27-14.32-.95-3-1.91-6.08-2.94-9.07-.77-2.24-1.58-4.46-2.47-6.62a17.36 17.36 0 0 0-1.06-2.12c-.09-.16-.19-.29-.29-.44a15.66 15.66 0 0 0-1-1.44l-.28-.32a15.27 15.27 0 0 0-1.26-1.33l-.17-.16c-5.84-5.3-12.65-5.43-19.94-5.79-7.29.37-14.1.5-19.94 5.78l-.17.16A15.27 15.27 0 0 0 42.63 57l-.28.33a15.66 15.66 0 0 0-1 1.44c-.09.15-.2.29-.29.44A17.36 17.36 0 0 0 40 61.32c-.89 2.16-1.69 4.38-2.47 6.62-1 3-2 6-2.94 9.07 3.16 4.69 6.27 9.45 9.27 14.32-.52 2-.86 4.27-1.29 6.41 3.79.79 8.07 1 11.57 2.13-.09 1.33 0 6.55.1 7.64 1.48.52 9.75 6 9.75 6s8.28-5.46 9.75-6c.13-1.09.19-6.31.1-7.64 3.5-1.11 7.78-1.35 11.57-2.13-.41-2.14-.75-4.38-1.27-6.41zM59.22 84q-.61.91-1.14 1.86a1 1 0 0 1-.29.23c-3.22-.51-5.8.71-8.14 0-1.12-.34-4.58-4.24-5.36-5.46-1.32-2.09-1.74-4.88-2.62-6.95a1.11 1.11 0 0 0 0-.81c-.13-.29-.25-.65-.39-1a22.58 22.58 0 0 1 4.11.92c2 .81 3.74 3.29 5.57 5 2 1.9 4.11 3.36 5.57 5 1.06.14 2 .37 3 .59zM64 100.72a29 29 0 0 0-4-3.37c.89-3.35 3-5.44 4-8.75 1 3.31 3.11 5.4 4 8.76a29 29 0 0 0-4 3.36zM78.35 86.1c-2.34.71-4.92-.51-8.14 0a1 1 0 0 1-.29-.23q-.53-1-1.14-1.86l-.31-.64c1-.22 2-.44 3-.59 1.46-1.63 3.53-3.1 5.57-5 1.83-1.69 3.59-4.17 5.57-5a22.58 22.58 0 0 1 4.11-.92c-.15.35-.27.71-.39 1a1.11 1.11 0 0 0 0 .81c-.88 2.07-1.3 4.86-2.62 6.95-.77 1.24-4.24 5.15-5.36 5.48z"
+                                                transform="translate(-2.38 -12.86)"></path>
+                                            <path
+                                                d="M89.89 22.65c-2.62 1.69-6 4.13-7.17 6.11a7.83 7.83 0 0 0-2.25-2.91.94.94 0 0 0-1.51.83v.33A4.69 4.69 0 0 1 77.91 30c-2.26 2.84-4.06 3.07-5.68 2.8l-.06.09v-.1a5.77 5.77 0 0 1-3.6-9.12 1.54 1.54 0 0 0 .05-1.75c-1.12-1.73-2.93-5.1-3.91-7a.78.78 0 0 0-1.38 0c-1 1.82-2.77 5.09-3.89 6.79a1.54 1.54 0 0 0 0 1.76 5.77 5.77 0 0 1-3.61 9.11v.1l-.06-.09c-1.63.27-3.42 0-5.7-2.8A4.66 4.66 0 0 1 49 26.86v-.36a.94.94 0 0 0-1.51-.83 7.83 7.83 0 0 0-2.25 2.91c-1.19-2-4.55-4.41-7.17-6.11a.94.94 0 0 0-1.32 1.27 57.41 57.41 0 0 1 6.91 16.46 3.39 3.39 0 0 0 1.33 2v2.7h.06a2.88 2.88 0 0 0-1.53 2.2 2.67 2.67 0 0 0 1.28 2c5.81-3.46 12-3.77 18.11-4.06h2.17c6 .3 12.26.6 18 4a2.62 2.62 0 0 0 1.22-2 2.88 2.88 0 0 0-1.53-2.2h.06v-2.6a3.4 3.4 0 0 0 1.47-2.11 57.52 57.52 0 0 1 6.86-16.3.94.94 0 0 0-1.27-1.18z"
+                                                transform="translate(-2.38 -12.86)"></path>
+                                            <path
+                                                d="M114.35 89.62c2.42-4 4.93-7.89 7.48-11.74-.76-2.49-1.54-5-2.37-7.43-.62-1.84-1.27-3.66-2-5.43a14.31 14.31 0 0 0-.85-1.74c-.07-.13-.16-.24-.23-.36a12.87 12.87 0 0 0-.81-1.18l-.23-.27a12.43 12.43 0 0 0-1-1.09l-.14-.13c-4.71-4.33-12.07-4.44-18-4.74l-1.68-.09c-1.28.29-2.55.64-3.8 1 .08.12.16.24.24.38a22 22 0 0 1 1.34 2.7c.81 2 1.61 4.12 2.53 6.78v.09c1.08 3.14 2.07 6.27 3 9.2l.67 2.15-1.2 1.91c-3.16 4.7-5.79 8.73-8.16 12.54.19.92.36 1.85.53 2.76.12.64.24 1.29.36 1.92l.89 4.55s-1 1.3-1 1.54c1.1.59 8 4.86 8 4.86s6.84-4.47 8-4.9c.1-.89.16-5.17.08-6.26 2.82-.91 6.27-1.1 9.33-1.75-.33-1.77-.56-3.6-.98-5.27zm-16.17 7.7c-1.5-.61-2.34-2-3.67-2.76.77-2.63 2.23-4.47 3.18-6.9.06-.22.21-.32.49-.28.77 2.72 2.44 4.43 3.19 7.18a22.9 22.9 0 0 0-3.19 2.76zm11.5-12c-1.89.59-4-.42-6.57 0a.79.79 0 0 1-.24-.19q-.43-.78-.92-1.53l-.25-.53c.8-.18 1.59-.36 2.44-.48 1.18-1.34 2.85-2.54 4.49-4.09 1.47-1.39 2.9-3.42 4.49-4.09a18 18 0 0 1 3.32-.75c-.12.29-.21.58-.32.82a.92.92 0 0 0 0 .66c-.71 1.7-1 4-2.11 5.7-.63 1.02-3.42 4.22-4.32 4.5zm-80.24-7.56l.67-2.15c.91-2.92 1.9-6.06 3-9.2v-.09c.92-2.66 1.72-4.82 2.53-6.79A22 22 0 0 1 37 56.84c.08-.13.16-.25.24-.37-1.25-.4-2.52-.75-3.8-1l-1.68.09c-5.88.3-13.25.41-18 4.74l-.14.13a12.42 12.42 0 0 0-1 1.09l-.23.27a12.85 12.85 0 0 0-.81 1.18c-.08.12-.16.24-.23.36a14.33 14.33 0 0 0-.81 1.67c-.72 1.77-1.37 3.59-2 5.43-.83 2.45-1.61 4.94-2.37 7.43 2.55 3.85 5.06 7.74 7.48 11.74-.42 1.66-.7 3.5-1 5.26 3.05.65 6.51.84 9.33 1.75-.07 1.09 0 5.37.08 6.26 1.19.43 8 4.9 8 4.9s6.93-4.27 8-4.86c0-.25-1-1.54-1-1.54l.94-4.53c.12-.63.24-1.28.36-1.92.17-.91.34-1.84.53-2.76-2.38-3.81-5-7.84-8.16-12.54zM26 83.62q-.49.74-.92 1.53a.79.79 0 0 1-.24.19c-2.59-.42-4.67.59-6.57 0-.9-.28-3.7-3.48-4.32-4.48-1.06-1.71-1.4-4-2.11-5.7a.92.92 0 0 0 0-.66c-.1-.24-.2-.54-.32-.82a18 18 0 0 1 3.32.75c1.59.67 3 2.7 4.49 4.09 1.64 1.55 3.31 2.76 4.49 4.09.85.12 1.65.3 2.44.48zm3.78 13.7a22.9 22.9 0 0 0-3.19-2.76c.75-2.75 2.42-4.46 3.19-7.18.29 0 .43.06.49.28.95 2.43 2.41 4.27 3.18 6.9-1.29.8-2.13 2.15-3.63 2.76z"
+                                                transform="translatea(-2.38 -12.86)"></path>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 64 64">
+                                        <g>
+                                            <rect x="10.38" y="24.34" width="21.03" height="14.39" rx="0.81" ry="0.81">
+                                            </rect>
+                                            <path
+                                                d="M60.62,37.83h0c0-.23,0-.47,0-.72h0a.28.28,0,0,0,.28-.24.26.26,0,0,0-.26-.29h-.09c0-.24,0-.47,0-.72h.08a.28.28,0,0,0,.28-.24.26.26,0,0,0-.26-.29H60.5l0-.72h.13a.26.26,0,0,0,.26-.29.28.28,0,0,0-.28-.24h-.12l0-.74h0a.57.57,0,0,0,.53-.63.59.59,0,0,0-.59-.5h-.06c-.5-2.43-2.65-4.26-6-4.26H49.44c-1.26-2.15-1.91-3.59-2.45-3.87a16.68,16.68,0,0,0-6.19-.89c-3.43,0-4.64.13-5,.35s-.59.19-.59,1.48v5.42H34.7V23.8a.6.6,0,0,0-.6-.6H32.66a.6.6,0,0,0-.6.6V39.27H3.39a.39.39,0,0,0-.39.39v1.81a.39.39,0,0,0,.39.39h1a.14.14,0,0,1,.14.14v.24a.47.47,0,0,0,.47.47H8.49A.47.47,0,0,0,9,42.25V42a.14.14,0,0,1,.14-.14h3.34a.14.14,0,0,0,.09,0,6,6,0,0,1,4.06-1.48,6,6,0,0,1,4.06,1.48.14.14,0,0,0,.09,0H22a.14.14,0,0,1,.14.14v.24a.47.47,0,0,0,.47.47h1.72a.14.14,0,0,0,.1,0l.24-.24a.14.14,0,0,1,.2,0l.24.24a.14.14,0,0,0,.1,0H27a.14.14,0,0,0,.1,0l.11-.11a.14.14,0,0,1,.2,0l.11.11a.14.14,0,0,0,.1,0h1.82a.14.14,0,0,0,.1,0l.24-.24a.14.14,0,0,1,.2,0l.24.24a.14.14,0,0,0,.1,0h1.42a.47.47,0,0,0,.47-.47V42a.14.14,0,0,1,.14-.14h11.2a1.8,1.8,0,0,0-.26.81c0,1.16.83,1.35,2.14,1.2h0c0-.11,2.29-4,5.91-3.89a7.79,7.79,0,0,1,5.92,3.64s0,.09,0,.13h0c1.51.17,2.49,0,2.49-1.23a2.42,2.42,0,0,0-.6-1.24h0c1.32-.3,1.5-1.43,1.47-2.92h0a.27.27,0,0,0,.26-.2A.26.26,0,0,0,60.62,37.83ZM47.5,28l-5.07.24h0c-1.67,0-1.92.21-1.92-.29s-.08-1.74-.08-2.23,0-.86.58-.86,3.47-.08,4.06,0a1.37,1.37,0,0,1,1.32.92L47.5,28Z">
+                                            </path>
+                                            <path
+                                                d="M51.36,45.39a1.21,1.21,0,1,0,1.53,1.17A1.38,1.38,0,0,0,51.36,45.39Zm0,2a.64.64,0,1,1,.8-.62A.73.73,0,0,1,51.36,47.39Z">
+                                            </path>
+                                            <path
+                                                d="M53.12,41.63l.06-.31a.51.51,0,0,0-.51-.51H50.06a.51.51,0,0,0-.51.51l.07.31c-2.49.58-4.3,2.35-4.3,4.46a3.92,3.92,0,0,0,1,2.55h0a.26.26,0,0,0,0,.37l.93.93a.26.26,0,0,0,.37,0l.11-.16a7.51,7.51,0,0,0,7.32,0l.11.16a.26.26,0,0,0,.37,0l.93-.93a.26.26,0,0,0,0-.37h0a3.91,3.91,0,0,0,1-2.55C57.41,44,55.6,42.21,53.12,41.63Zm-2.51.08h1.49a.3.3,0,0,1,.29.29l-.25,1.36a.3.3,0,0,1-.29.29h-.94a.3.3,0,0,1-.29-.29L50.32,42A.3.3,0,0,1,50.61,41.71ZM48,48.85l-.4.57a.15.15,0,0,1-.21,0l-.54-.54a.15.15,0,0,1,0-.21l.6-.37a.15.15,0,0,1,.21,0l.34.34,0,0v.08A.15.15,0,0,1,48,48.85Zm3.41.49c-1.75,0-3.17-1.09-3.17-2.44s1.42-2.44,3.17-2.44,3.17,1.09,3.17,2.44S53.11,49.33,51.36,49.33Zm4.55-.45-.54.54a.15.15,0,0,1-.21,0l-.4-.57,0,0a.63.63,0,0,1,0-.09.14.14,0,0,1,0-.08l.34-.34a.15.15,0,0,1,.21,0l.6.37A.15.15,0,0,1,55.91,48.89Z">
+                                            </path>
+                                            <path
+                                                d="M16.8,45.33a1.23,1.23,0,1,0,0,2.38,1.23,1.23,0,1,0,0-2.38Zm0,2a.64.64,0,1,1,.8-.62A.73.73,0,0,1,16.8,47.35Z">
+                                            </path>
+                                            <path
+                                                d="M18.56,41.51l.06-.31a.52.52,0,0,0-.51-.52H15.5a.52.52,0,0,0-.51.52l.07.31c-2.49.58-4.3,2.38-4.3,4.52a4,4,0,0,0,1,2.59h0a.27.27,0,0,0,0,.37l.93.95a.26.26,0,0,0,.37,0l.11-.16a7.43,7.43,0,0,0,7.32,0l.11.16a.26.26,0,0,0,.37,0l.93-.95a.27.27,0,0,0,0-.37h0a4,4,0,0,0,1-2.59C22.85,43.9,21,42.1,18.56,41.51Zm-2.51.08h1.49a.3.3,0,0,1,.29.3l-.25,1.37a.3.3,0,0,1-.29.3h-.94a.3.3,0,0,1-.29-.3l-.31-1.37A.3.3,0,0,1,16.06,41.59ZM13.4,48.82l-.4.58a.15.15,0,0,1-.21,0l-.54-.54a.15.15,0,0,1,0-.21l.6-.38a.15.15,0,0,1,.21,0l.34.34,0,0v.08A.15.15,0,0,1,13.4,48.82Zm3.41.49c-1.75,0-3.17-1.11-3.17-2.48s1.42-2.48,3.17-2.48S20,45.47,20,46.84,18.56,49.32,16.8,49.32Zm4.55-.45-.54.54a.15.15,0,0,1-.21,0l-.4-.58,0,0a.65.65,0,0,1,0-.09.15.15,0,0,1,0-.08l.34-.34a.15.15,0,0,1,.21,0l.6.38A.15.15,0,0,1,21.35,48.86Z">
+                                            </path>
+                                            <rect x="38.04" y="14.19" width="6.12" height="6.12" rx="0.82" ry="0.82"
+                                                transform="translate(-0.16 34.12) rotate(-45)"></rect>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <path
+                                            d="M43 38.83a14.78 14.78 0 0 0-1.22 1.29l-.27.32a15.22 15.22 0 0 0-1 1.4c-.09.15-.19.28-.28.43a16.85 16.85 0 0 0-1 2.06c-.86 2.1-1.64 4.25-2.39 6.42-1 2.9-1.93 5.84-2.85 8.79C37 64.1 40 68.7 42.93 73.43c-.5 2-.84 4.14-1.24 6.22 3.66.77 7.81 1 11.19 2.07-.09 1.29 0 6.35.1 7.41 1.43.51 9.44 5.8 9.44 5.8v-12.4a28.09 28.09 0 0 0-3.91-3.26c.9-3.25 3-5.28 3.91-8.49V33.07c-7.06.35-13.64.48-19.29 5.61zm6.81 21.46c2 1.84 4 3.26 5.39 4.84 1 .14 2 .36 2.93.57l-.3.62q-.59.88-1.1 1.81a1 1 0 0 1-.29.23c-3.11-.5-5.61.69-7.88 0-1.08-.33-4.43-4.11-5.18-5.29-1.27-2-1.68-4.73-2.53-6.74a1.07 1.07 0 0 0 0-.78c-.12-.28-.24-.63-.38-1a21.81 21.81 0 0 1 4 .89c1.82.81 3.53 3.21 5.29 4.85zM29 60.27l.65-2.08c.88-2.83 1.84-5.88 2.89-8.92v-.09c.89-2.58 1.67-4.67 2.45-6.58a21.34 21.34 0 0 1 1.3-2.6c.07-.13.15-.24.23-.36-1.21-.39-2.43-.73-3.67-1l-1.63.08c-5.69.29-12.81.39-17.37 4.6l-.13.12a12 12 0 0 0-1 1.06l-.22.26a12.47 12.47 0 0 0-.79 1.15c-.07.12-.15.23-.22.35a13.9 13.9 0 0 0-.82 1.69c-.67 1.68-1.3 3.45-1.91 5.23C8 55.56 7.21 58 6.47 60.39c2.46 3.73 4.89 7.51 7.23 11.39-.41 1.61-.67 3.39-1 5.1 3 .63 6.3.82 9 1.7-.07 1.06 0 5.21.08 6.07 1.15.42 7.77 4.75 7.77 4.75s6.7-4.14 7.77-4.71c0-.24-1-1.5-1-1.5l.86-4.41c.12-.62.23-1.24.35-1.86.16-.88.32-1.78.51-2.68-2.3-3.69-4.84-7.6-7.9-12.16zm-3.3 5.68q-.47.72-.89 1.48a.76.76 0 0 1-.23.19c-2.51-.41-4.52.57-6.35 0-.87-.27-3.58-3.37-4.18-4.34-1-1.66-1.36-3.88-2-5.52a.89.89 0 0 0 0-.64c-.1-.23-.19-.52-.31-.8a17.34 17.34 0 0 1 3.21.73c1.54.65 2.92 2.62 4.34 4 1.59 1.51 3.2 2.67 4.34 4 .82.11 1.59.29 2.36.47zm3.66 13.29a22.18 22.18 0 0 0-3.08-2.68c.72-2.67 2.34-4.33 3.08-7 .28 0 .42.06.48.27.92 2.36 2.33 4.14 3.08 6.69-1.32.81-2.13 2.13-3.58 2.71zm56-5.8c2.9-4.73 5.91-9.34 9-13.89-.92-2.95-1.85-5.89-2.85-8.79-.75-2.17-1.53-4.32-2.39-6.42a16.84 16.84 0 0 0-1-2.06c-.09-.15-.19-.28-.28-.43a15.19 15.19 0 0 0-1-1.4l-.27-.32a14.79 14.79 0 0 0-1.22-1.29l-.17-.15c-5.65-5.13-12.23-5.25-19.29-5.61v37.7c.92 3.21 3 5.24 3.91 8.49a28.1 28.1 0 0 0-3.91 3.26v12.4s8-5.29 9.44-5.8c.12-1.06.19-6.12.1-7.41 3.38-1.08 7.53-1.3 11.19-2.07-.42-2.08-.75-4.25-1.25-6.22zM82 78.88a44.86 44.86 0 0 0-7 1.4l-1.13.36.08 1.19c.07 1 0 4.59 0 6.33-1.58.85-4.36 2.61-6.47 4v-9a20.86 20.86 0 0 1 2.25-1.85l1.08-.82.79-.62-.27-1a19.65 19.65 0 0 0-2.12-4.66 18.12 18.12 0 0 1-1.74-3.65v-35.9c6.38.32 11.93.75 16.77 5.15l.14.13a13.36 13.36 0 0 1 1.1 1.16l.11.13.13.16a13.63 13.63 0 0 1 .88 1.26l.14.22.11.17a15.31 15.31 0 0 1 .93 1.87c.74 1.81 1.49 3.83 2.36 6.34.93 2.71 1.8 5.45 2.61 8-3.36 5-6.1 9.26-8.6 13.34l-.34.55.16.62c.34 1.32.6 2.78.86 4.2l.08.44c-1.01.2-1.97.34-2.91.48zm32.61-7.11c2.34-3.88 4.77-7.65 7.23-11.39-.74-2.42-1.49-4.83-2.3-7.21-.6-1.78-1.23-3.55-1.92-5.26a13.91 13.91 0 0 0-.82-1.69c-.07-.12-.15-.23-.22-.35a12.41 12.41 0 0 0-.79-1.15l-.22-.26a12 12 0 0 0-1-1.06l-.13-.12c-4.56-4.2-11.68-4.31-17.37-4.6l-1.63-.08c-1.24.28-2.46.62-3.67 1 .08.12.16.24.23.36a21.33 21.33 0 0 1 1.3 2.62c.78 1.91 1.56 4 2.45 6.58v.09c1 3 2 6.09 2.89 8.92l.65 2.08-1.19 1.83c-3.06 4.56-5.6 8.46-7.9 12.16.19.9.35 1.8.51 2.68.11.62.23 1.25.35 1.86l.86 4.41s-1 1.26-1 1.5c1.06.57 7.77 4.71 7.77 4.71s6.62-4.34 7.77-4.75c.1-.87.15-5 .08-6.07 2.73-.88 6.07-1.07 9-1.7-.27-1.72-.54-3.49-.95-5.11zM111.82 76a35.85 35.85 0 0 0-5.71 1.16l-1.12.36.08 1.18c.05.78 0 3.55 0 5-1.66.91-4.65 2.83-6.34 3.93-1.32-.81-3.94-2.42-5.62-3.43l.44-.55-.13-.69-.86-4.41c-.12-.6-.23-1.21-.34-1.81v-.05c-.12-.68-.25-1.39-.39-2.09 2.17-3.6 4.59-7.31 7.52-11.67l1.22-1.81.41-.6-.22-.69-.65-2.08c-.88-2.84-1.85-5.89-2.9-9v-.09C96.28 46.07 95.49 44 94.7 42c-.21-.5-.43-1-.68-1.5q.79-.22 1.56-.4H98c5.41.26 11.54.56 15.43 4.15l.11.1a10.57 10.57 0 0 1 .86.93l.09.11.1.12a10.9 10.9 0 0 1 .69 1l.12.19.08.12a12.4 12.4 0 0 1 .73 1.5c.6 1.48 1.2 3.13 1.89 5.18.74 2.18 1.42 4.37 2.06 6.45-2.68 4.07-4.87 7.53-6.87 10.84l-.33.54.15.61c.27 1.07.47 2.21.69 3.42v.1zM87.48 56.33a1.08 1.08 0 0 1 0-.78c.12-.28.24-.63.38-1a21.81 21.81 0 0 0-4 .89c-1.91.79-3.62 3.2-5.39 4.84-2 1.84-4 3.26-5.39 4.84-1 .14-2 .36-2.93.57l.3.62q.59.88 1.1 1.81a1 1 0 0 0 .28.23c3.11-.5 5.61.69 7.88 0 1.08-.33 4.43-4.11 5.18-5.29 1.34-2.06 1.75-4.73 2.59-6.73zm11 13.54c-.92 2.36-2.33 4.14-3.08 6.69 1.29.78 2.1 2.09 3.55 2.68a22.16 22.16 0 0 1 3.05-2.68c-.72-2.67-2.34-4.33-3.08-7-.24 0-.38.1-.44.31zm17.82-12.12a.89.89 0 0 1 0-.64c.1-.23.19-.52.31-.8a17.33 17.33 0 0 0-3.21.73c-1.54.65-2.92 2.62-4.34 4-1.59 1.51-3.2 2.67-4.34 4-.82.11-1.59.29-2.36.47l.24.51q.47.72.89 1.48a.77.77 0 0 0 .23.19c2.51-.41 4.52.57 6.35 0 .87-.27 3.58-3.37 4.18-4.34 1.04-1.73 1.37-3.95 2.05-5.6z"
+                                            transform="translate(-2.38 -12.86)"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/havana.png" data-lightbox="escolta" data-title="Havana">
+                                <img src="../img/mapas/maps/havana.png" class="card-img-top" alt="havana" title="havana"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/Cuba.png" alt="Cuba" title="Cuba">
+                                    Havana</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 64 64">
+                                        <g>
+                                            <rect x="10.38" y="24.34" width="21.03" height="14.39" rx="0.81" ry="0.81">
+                                            </rect>
+                                            <path
+                                                d="M60.62,37.83h0c0-.23,0-.47,0-.72h0a.28.28,0,0,0,.28-.24.26.26,0,0,0-.26-.29h-.09c0-.24,0-.47,0-.72h.08a.28.28,0,0,0,.28-.24.26.26,0,0,0-.26-.29H60.5l0-.72h.13a.26.26,0,0,0,.26-.29.28.28,0,0,0-.28-.24h-.12l0-.74h0a.57.57,0,0,0,.53-.63.59.59,0,0,0-.59-.5h-.06c-.5-2.43-2.65-4.26-6-4.26H49.44c-1.26-2.15-1.91-3.59-2.45-3.87a16.68,16.68,0,0,0-6.19-.89c-3.43,0-4.64.13-5,.35s-.59.19-.59,1.48v5.42H34.7V23.8a.6.6,0,0,0-.6-.6H32.66a.6.6,0,0,0-.6.6V39.27H3.39a.39.39,0,0,0-.39.39v1.81a.39.39,0,0,0,.39.39h1a.14.14,0,0,1,.14.14v.24a.47.47,0,0,0,.47.47H8.49A.47.47,0,0,0,9,42.25V42a.14.14,0,0,1,.14-.14h3.34a.14.14,0,0,0,.09,0,6,6,0,0,1,4.06-1.48,6,6,0,0,1,4.06,1.48.14.14,0,0,0,.09,0H22a.14.14,0,0,1,.14.14v.24a.47.47,0,0,0,.47.47h1.72a.14.14,0,0,0,.1,0l.24-.24a.14.14,0,0,1,.2,0l.24.24a.14.14,0,0,0,.1,0H27a.14.14,0,0,0,.1,0l.11-.11a.14.14,0,0,1,.2,0l.11.11a.14.14,0,0,0,.1,0h1.82a.14.14,0,0,0,.1,0l.24-.24a.14.14,0,0,1,.2,0l.24.24a.14.14,0,0,0,.1,0h1.42a.47.47,0,0,0,.47-.47V42a.14.14,0,0,1,.14-.14h11.2a1.8,1.8,0,0,0-.26.81c0,1.16.83,1.35,2.14,1.2h0c0-.11,2.29-4,5.91-3.89a7.79,7.79,0,0,1,5.92,3.64s0,.09,0,.13h0c1.51.17,2.49,0,2.49-1.23a2.42,2.42,0,0,0-.6-1.24h0c1.32-.3,1.5-1.43,1.47-2.92h0a.27.27,0,0,0,.26-.2A.26.26,0,0,0,60.62,37.83ZM47.5,28l-5.07.24h0c-1.67,0-1.92.21-1.92-.29s-.08-1.74-.08-2.23,0-.86.58-.86,3.47-.08,4.06,0a1.37,1.37,0,0,1,1.32.92L47.5,28Z">
+                                            </path>
+                                            <path
+                                                d="M51.36,45.39a1.21,1.21,0,1,0,1.53,1.17A1.38,1.38,0,0,0,51.36,45.39Zm0,2a.64.64,0,1,1,.8-.62A.73.73,0,0,1,51.36,47.39Z">
+                                            </path>
+                                            <path
+                                                d="M53.12,41.63l.06-.31a.51.51,0,0,0-.51-.51H50.06a.51.51,0,0,0-.51.51l.07.31c-2.49.58-4.3,2.35-4.3,4.46a3.92,3.92,0,0,0,1,2.55h0a.26.26,0,0,0,0,.37l.93.93a.26.26,0,0,0,.37,0l.11-.16a7.51,7.51,0,0,0,7.32,0l.11.16a.26.26,0,0,0,.37,0l.93-.93a.26.26,0,0,0,0-.37h0a3.91,3.91,0,0,0,1-2.55C57.41,44,55.6,42.21,53.12,41.63Zm-2.51.08h1.49a.3.3,0,0,1,.29.29l-.25,1.36a.3.3,0,0,1-.29.29h-.94a.3.3,0,0,1-.29-.29L50.32,42A.3.3,0,0,1,50.61,41.71ZM48,48.85l-.4.57a.15.15,0,0,1-.21,0l-.54-.54a.15.15,0,0,1,0-.21l.6-.37a.15.15,0,0,1,.21,0l.34.34,0,0v.08A.15.15,0,0,1,48,48.85Zm3.41.49c-1.75,0-3.17-1.09-3.17-2.44s1.42-2.44,3.17-2.44,3.17,1.09,3.17,2.44S53.11,49.33,51.36,49.33Zm4.55-.45-.54.54a.15.15,0,0,1-.21,0l-.4-.57,0,0a.63.63,0,0,1,0-.09.14.14,0,0,1,0-.08l.34-.34a.15.15,0,0,1,.21,0l.6.37A.15.15,0,0,1,55.91,48.89Z">
+                                            </path>
+                                            <path
+                                                d="M16.8,45.33a1.23,1.23,0,1,0,0,2.38,1.23,1.23,0,1,0,0-2.38Zm0,2a.64.64,0,1,1,.8-.62A.73.73,0,0,1,16.8,47.35Z">
+                                            </path>
+                                            <path
+                                                d="M18.56,41.51l.06-.31a.52.52,0,0,0-.51-.52H15.5a.52.52,0,0,0-.51.52l.07.31c-2.49.58-4.3,2.38-4.3,4.52a4,4,0,0,0,1,2.59h0a.27.27,0,0,0,0,.37l.93.95a.26.26,0,0,0,.37,0l.11-.16a7.43,7.43,0,0,0,7.32,0l.11.16a.26.26,0,0,0,.37,0l.93-.95a.27.27,0,0,0,0-.37h0a4,4,0,0,0,1-2.59C22.85,43.9,21,42.1,18.56,41.51Zm-2.51.08h1.49a.3.3,0,0,1,.29.3l-.25,1.37a.3.3,0,0,1-.29.3h-.94a.3.3,0,0,1-.29-.3l-.31-1.37A.3.3,0,0,1,16.06,41.59ZM13.4,48.82l-.4.58a.15.15,0,0,1-.21,0l-.54-.54a.15.15,0,0,1,0-.21l.6-.38a.15.15,0,0,1,.21,0l.34.34,0,0v.08A.15.15,0,0,1,13.4,48.82Zm3.41.49c-1.75,0-3.17-1.11-3.17-2.48s1.42-2.48,3.17-2.48S20,45.47,20,46.84,18.56,49.32,16.8,49.32Zm4.55-.45-.54.54a.15.15,0,0,1-.21,0l-.4-.58,0,0a.65.65,0,0,1,0-.09.15.15,0,0,1,0-.08l.34-.34a.15.15,0,0,1,.21,0l.6.38A.15.15,0,0,1,21.35,48.86Z">
+                                            </path>
+                                            <rect x="38.04" y="14.19" width="6.12" height="6.12" rx="0.82" ry="0.82"
+                                                transform="translate(-0.16 34.12) rotate(-45)"></rect>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/junkertown.png" data-lightbox="escolta" data-title="Junkertown">
+                                <img src="../img/mapas/maps/junkertown.png" class="card-img-top" alt="junkertown"
+                                title="junkertown"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/Australia.png" alt="Australia" title="Australia">
+                                    Junkertown</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 64 64">
+                                        <g>
+                                            <rect x="10.38" y="24.34" width="21.03" height="14.39" rx="0.81" ry="0.81">
+                                            </rect>
+                                            <path
+                                                d="M60.62,37.83h0c0-.23,0-.47,0-.72h0a.28.28,0,0,0,.28-.24.26.26,0,0,0-.26-.29h-.09c0-.24,0-.47,0-.72h.08a.28.28,0,0,0,.28-.24.26.26,0,0,0-.26-.29H60.5l0-.72h.13a.26.26,0,0,0,.26-.29.28.28,0,0,0-.28-.24h-.12l0-.74h0a.57.57,0,0,0,.53-.63.59.59,0,0,0-.59-.5h-.06c-.5-2.43-2.65-4.26-6-4.26H49.44c-1.26-2.15-1.91-3.59-2.45-3.87a16.68,16.68,0,0,0-6.19-.89c-3.43,0-4.64.13-5,.35s-.59.19-.59,1.48v5.42H34.7V23.8a.6.6,0,0,0-.6-.6H32.66a.6.6,0,0,0-.6.6V39.27H3.39a.39.39,0,0,0-.39.39v1.81a.39.39,0,0,0,.39.39h1a.14.14,0,0,1,.14.14v.24a.47.47,0,0,0,.47.47H8.49A.47.47,0,0,0,9,42.25V42a.14.14,0,0,1,.14-.14h3.34a.14.14,0,0,0,.09,0,6,6,0,0,1,4.06-1.48,6,6,0,0,1,4.06,1.48.14.14,0,0,0,.09,0H22a.14.14,0,0,1,.14.14v.24a.47.47,0,0,0,.47.47h1.72a.14.14,0,0,0,.1,0l.24-.24a.14.14,0,0,1,.2,0l.24.24a.14.14,0,0,0,.1,0H27a.14.14,0,0,0,.1,0l.11-.11a.14.14,0,0,1,.2,0l.11.11a.14.14,0,0,0,.1,0h1.82a.14.14,0,0,0,.1,0l.24-.24a.14.14,0,0,1,.2,0l.24.24a.14.14,0,0,0,.1,0h1.42a.47.47,0,0,0,.47-.47V42a.14.14,0,0,1,.14-.14h11.2a1.8,1.8,0,0,0-.26.81c0,1.16.83,1.35,2.14,1.2h0c0-.11,2.29-4,5.91-3.89a7.79,7.79,0,0,1,5.92,3.64s0,.09,0,.13h0c1.51.17,2.49,0,2.49-1.23a2.42,2.42,0,0,0-.6-1.24h0c1.32-.3,1.5-1.43,1.47-2.92h0a.27.27,0,0,0,.26-.2A.26.26,0,0,0,60.62,37.83ZM47.5,28l-5.07.24h0c-1.67,0-1.92.21-1.92-.29s-.08-1.74-.08-2.23,0-.86.58-.86,3.47-.08,4.06,0a1.37,1.37,0,0,1,1.32.92L47.5,28Z">
+                                            </path>
+                                            <path
+                                                d="M51.36,45.39a1.21,1.21,0,1,0,1.53,1.17A1.38,1.38,0,0,0,51.36,45.39Zm0,2a.64.64,0,1,1,.8-.62A.73.73,0,0,1,51.36,47.39Z">
+                                            </path>
+                                            <path
+                                                d="M53.12,41.63l.06-.31a.51.51,0,0,0-.51-.51H50.06a.51.51,0,0,0-.51.51l.07.31c-2.49.58-4.3,2.35-4.3,4.46a3.92,3.92,0,0,0,1,2.55h0a.26.26,0,0,0,0,.37l.93.93a.26.26,0,0,0,.37,0l.11-.16a7.51,7.51,0,0,0,7.32,0l.11.16a.26.26,0,0,0,.37,0l.93-.93a.26.26,0,0,0,0-.37h0a3.91,3.91,0,0,0,1-2.55C57.41,44,55.6,42.21,53.12,41.63Zm-2.51.08h1.49a.3.3,0,0,1,.29.29l-.25,1.36a.3.3,0,0,1-.29.29h-.94a.3.3,0,0,1-.29-.29L50.32,42A.3.3,0,0,1,50.61,41.71ZM48,48.85l-.4.57a.15.15,0,0,1-.21,0l-.54-.54a.15.15,0,0,1,0-.21l.6-.37a.15.15,0,0,1,.21,0l.34.34,0,0v.08A.15.15,0,0,1,48,48.85Zm3.41.49c-1.75,0-3.17-1.09-3.17-2.44s1.42-2.44,3.17-2.44,3.17,1.09,3.17,2.44S53.11,49.33,51.36,49.33Zm4.55-.45-.54.54a.15.15,0,0,1-.21,0l-.4-.57,0,0a.63.63,0,0,1,0-.09.14.14,0,0,1,0-.08l.34-.34a.15.15,0,0,1,.21,0l.6.37A.15.15,0,0,1,55.91,48.89Z">
+                                            </path>
+                                            <path
+                                                d="M16.8,45.33a1.23,1.23,0,1,0,0,2.38,1.23,1.23,0,1,0,0-2.38Zm0,2a.64.64,0,1,1,.8-.62A.73.73,0,0,1,16.8,47.35Z">
+                                            </path>
+                                            <path
+                                                d="M18.56,41.51l.06-.31a.52.52,0,0,0-.51-.52H15.5a.52.52,0,0,0-.51.52l.07.31c-2.49.58-4.3,2.38-4.3,4.52a4,4,0,0,0,1,2.59h0a.27.27,0,0,0,0,.37l.93.95a.26.26,0,0,0,.37,0l.11-.16a7.43,7.43,0,0,0,7.32,0l.11.16a.26.26,0,0,0,.37,0l.93-.95a.27.27,0,0,0,0-.37h0a4,4,0,0,0,1-2.59C22.85,43.9,21,42.1,18.56,41.51Zm-2.51.08h1.49a.3.3,0,0,1,.29.3l-.25,1.37a.3.3,0,0,1-.29.3h-.94a.3.3,0,0,1-.29-.3l-.31-1.37A.3.3,0,0,1,16.06,41.59ZM13.4,48.82l-.4.58a.15.15,0,0,1-.21,0l-.54-.54a.15.15,0,0,1,0-.21l.6-.38a.15.15,0,0,1,.21,0l.34.34,0,0v.08A.15.15,0,0,1,13.4,48.82Zm3.41.49c-1.75,0-3.17-1.11-3.17-2.48s1.42-2.48,3.17-2.48S20,45.47,20,46.84,18.56,49.32,16.8,49.32Zm4.55-.45-.54.54a.15.15,0,0,1-.21,0l-.4-.58,0,0a.65.65,0,0,1,0-.09.15.15,0,0,1,0-.08l.34-.34a.15.15,0,0,1,.21,0l.6.38A.15.15,0,0,1,21.35,48.86Z">
+                                            </path>
+                                            <rect x="38.04" y="14.19" width="6.12" height="6.12" rx="0.82" ry="0.82"
+                                                transform="translate(-0.16 34.12) rotate(-45)"></rect>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/observatorio gibraltar.png" data-lightbox="escolta" data-title="Observatorio Gibraltar">
+                                <img src="../img/mapas/maps/observatorio gibraltar.png" class="card-img-top"
+                                alt="observatorio gibraltar" title="observatorio gibraltar"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/OW.png" alt="OW" title="OW">
+                                    Observatório: Gibraltar</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 64 64">
+                                        <g>
+                                            <rect x="10.38" y="24.34" width="21.03" height="14.39" rx="0.81" ry="0.81">
+                                            </rect>
+                                            <path
+                                                d="M60.62,37.83h0c0-.23,0-.47,0-.72h0a.28.28,0,0,0,.28-.24.26.26,0,0,0-.26-.29h-.09c0-.24,0-.47,0-.72h.08a.28.28,0,0,0,.28-.24.26.26,0,0,0-.26-.29H60.5l0-.72h.13a.26.26,0,0,0,.26-.29.28.28,0,0,0-.28-.24h-.12l0-.74h0a.57.57,0,0,0,.53-.63.59.59,0,0,0-.59-.5h-.06c-.5-2.43-2.65-4.26-6-4.26H49.44c-1.26-2.15-1.91-3.59-2.45-3.87a16.68,16.68,0,0,0-6.19-.89c-3.43,0-4.64.13-5,.35s-.59.19-.59,1.48v5.42H34.7V23.8a.6.6,0,0,0-.6-.6H32.66a.6.6,0,0,0-.6.6V39.27H3.39a.39.39,0,0,0-.39.39v1.81a.39.39,0,0,0,.39.39h1a.14.14,0,0,1,.14.14v.24a.47.47,0,0,0,.47.47H8.49A.47.47,0,0,0,9,42.25V42a.14.14,0,0,1,.14-.14h3.34a.14.14,0,0,0,.09,0,6,6,0,0,1,4.06-1.48,6,6,0,0,1,4.06,1.48.14.14,0,0,0,.09,0H22a.14.14,0,0,1,.14.14v.24a.47.47,0,0,0,.47.47h1.72a.14.14,0,0,0,.1,0l.24-.24a.14.14,0,0,1,.2,0l.24.24a.14.14,0,0,0,.1,0H27a.14.14,0,0,0,.1,0l.11-.11a.14.14,0,0,1,.2,0l.11.11a.14.14,0,0,0,.1,0h1.82a.14.14,0,0,0,.1,0l.24-.24a.14.14,0,0,1,.2,0l.24.24a.14.14,0,0,0,.1,0h1.42a.47.47,0,0,0,.47-.47V42a.14.14,0,0,1,.14-.14h11.2a1.8,1.8,0,0,0-.26.81c0,1.16.83,1.35,2.14,1.2h0c0-.11,2.29-4,5.91-3.89a7.79,7.79,0,0,1,5.92,3.64s0,.09,0,.13h0c1.51.17,2.49,0,2.49-1.23a2.42,2.42,0,0,0-.6-1.24h0c1.32-.3,1.5-1.43,1.47-2.92h0a.27.27,0,0,0,.26-.2A.26.26,0,0,0,60.62,37.83ZM47.5,28l-5.07.24h0c-1.67,0-1.92.21-1.92-.29s-.08-1.74-.08-2.23,0-.86.58-.86,3.47-.08,4.06,0a1.37,1.37,0,0,1,1.32.92L47.5,28Z">
+                                            </path>
+                                            <path
+                                                d="M51.36,45.39a1.21,1.21,0,1,0,1.53,1.17A1.38,1.38,0,0,0,51.36,45.39Zm0,2a.64.64,0,1,1,.8-.62A.73.73,0,0,1,51.36,47.39Z">
+                                            </path>
+                                            <path
+                                                d="M53.12,41.63l.06-.31a.51.51,0,0,0-.51-.51H50.06a.51.51,0,0,0-.51.51l.07.31c-2.49.58-4.3,2.35-4.3,4.46a3.92,3.92,0,0,0,1,2.55h0a.26.26,0,0,0,0,.37l.93.93a.26.26,0,0,0,.37,0l.11-.16a7.51,7.51,0,0,0,7.32,0l.11.16a.26.26,0,0,0,.37,0l.93-.93a.26.26,0,0,0,0-.37h0a3.91,3.91,0,0,0,1-2.55C57.41,44,55.6,42.21,53.12,41.63Zm-2.51.08h1.49a.3.3,0,0,1,.29.29l-.25,1.36a.3.3,0,0,1-.29.29h-.94a.3.3,0,0,1-.29-.29L50.32,42A.3.3,0,0,1,50.61,41.71ZM48,48.85l-.4.57a.15.15,0,0,1-.21,0l-.54-.54a.15.15,0,0,1,0-.21l.6-.37a.15.15,0,0,1,.21,0l.34.34,0,0v.08A.15.15,0,0,1,48,48.85Zm3.41.49c-1.75,0-3.17-1.09-3.17-2.44s1.42-2.44,3.17-2.44,3.17,1.09,3.17,2.44S53.11,49.33,51.36,49.33Zm4.55-.45-.54.54a.15.15,0,0,1-.21,0l-.4-.57,0,0a.63.63,0,0,1,0-.09.14.14,0,0,1,0-.08l.34-.34a.15.15,0,0,1,.21,0l.6.37A.15.15,0,0,1,55.91,48.89Z">
+                                            </path>
+                                            <path
+                                                d="M16.8,45.33a1.23,1.23,0,1,0,0,2.38,1.23,1.23,0,1,0,0-2.38Zm0,2a.64.64,0,1,1,.8-.62A.73.73,0,0,1,16.8,47.35Z">
+                                            </path>
+                                            <path
+                                                d="M18.56,41.51l.06-.31a.52.52,0,0,0-.51-.52H15.5a.52.52,0,0,0-.51.52l.07.31c-2.49.58-4.3,2.38-4.3,4.52a4,4,0,0,0,1,2.59h0a.27.27,0,0,0,0,.37l.93.95a.26.26,0,0,0,.37,0l.11-.16a7.43,7.43,0,0,0,7.32,0l.11.16a.26.26,0,0,0,.37,0l.93-.95a.27.27,0,0,0,0-.37h0a4,4,0,0,0,1-2.59C22.85,43.9,21,42.1,18.56,41.51Zm-2.51.08h1.49a.3.3,0,0,1,.29.3l-.25,1.37a.3.3,0,0,1-.29.3h-.94a.3.3,0,0,1-.29-.3l-.31-1.37A.3.3,0,0,1,16.06,41.59ZM13.4,48.82l-.4.58a.15.15,0,0,1-.21,0l-.54-.54a.15.15,0,0,1,0-.21l.6-.38a.15.15,0,0,1,.21,0l.34.34,0,0v.08A.15.15,0,0,1,13.4,48.82Zm3.41.49c-1.75,0-3.17-1.11-3.17-2.48s1.42-2.48,3.17-2.48S20,45.47,20,46.84,18.56,49.32,16.8,49.32Zm4.55-.45-.54.54a.15.15,0,0,1-.21,0l-.4-.58,0,0a.65.65,0,0,1,0-.09.15.15,0,0,1,0-.08l.34-.34a.15.15,0,0,1,.21,0l.6.38A.15.15,0,0,1,21.35,48.86Z">
+                                            </path>
+                                            <rect x="38.04" y="14.19" width="6.12" height="6.12" rx="0.82" ry="0.82"
+                                                transform="translate(-0.16 34.12) rotate(-45)"></rect>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/rialto.png" data-lightbox="escolta" data-title="Rialto">
+                                <img src="../img/mapas/maps/rialto.png" class="card-img-top" alt="rialto" title="rialto"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/Italy.png" alt="Italy" title="Italy">
+                                    Rialto</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 64 64">
+                                        <g>
+                                            <rect x="10.38" y="24.34" width="21.03" height="14.39" rx="0.81" ry="0.81">
+                                            </rect>
+                                            <path
+                                                d="M60.62,37.83h0c0-.23,0-.47,0-.72h0a.28.28,0,0,0,.28-.24.26.26,0,0,0-.26-.29h-.09c0-.24,0-.47,0-.72h.08a.28.28,0,0,0,.28-.24.26.26,0,0,0-.26-.29H60.5l0-.72h.13a.26.26,0,0,0,.26-.29.28.28,0,0,0-.28-.24h-.12l0-.74h0a.57.57,0,0,0,.53-.63.59.59,0,0,0-.59-.5h-.06c-.5-2.43-2.65-4.26-6-4.26H49.44c-1.26-2.15-1.91-3.59-2.45-3.87a16.68,16.68,0,0,0-6.19-.89c-3.43,0-4.64.13-5,.35s-.59.19-.59,1.48v5.42H34.7V23.8a.6.6,0,0,0-.6-.6H32.66a.6.6,0,0,0-.6.6V39.27H3.39a.39.39,0,0,0-.39.39v1.81a.39.39,0,0,0,.39.39h1a.14.14,0,0,1,.14.14v.24a.47.47,0,0,0,.47.47H8.49A.47.47,0,0,0,9,42.25V42a.14.14,0,0,1,.14-.14h3.34a.14.14,0,0,0,.09,0,6,6,0,0,1,4.06-1.48,6,6,0,0,1,4.06,1.48.14.14,0,0,0,.09,0H22a.14.14,0,0,1,.14.14v.24a.47.47,0,0,0,.47.47h1.72a.14.14,0,0,0,.1,0l.24-.24a.14.14,0,0,1,.2,0l.24.24a.14.14,0,0,0,.1,0H27a.14.14,0,0,0,.1,0l.11-.11a.14.14,0,0,1,.2,0l.11.11a.14.14,0,0,0,.1,0h1.82a.14.14,0,0,0,.1,0l.24-.24a.14.14,0,0,1,.2,0l.24.24a.14.14,0,0,0,.1,0h1.42a.47.47,0,0,0,.47-.47V42a.14.14,0,0,1,.14-.14h11.2a1.8,1.8,0,0,0-.26.81c0,1.16.83,1.35,2.14,1.2h0c0-.11,2.29-4,5.91-3.89a7.79,7.79,0,0,1,5.92,3.64s0,.09,0,.13h0c1.51.17,2.49,0,2.49-1.23a2.42,2.42,0,0,0-.6-1.24h0c1.32-.3,1.5-1.43,1.47-2.92h0a.27.27,0,0,0,.26-.2A.26.26,0,0,0,60.62,37.83ZM47.5,28l-5.07.24h0c-1.67,0-1.92.21-1.92-.29s-.08-1.74-.08-2.23,0-.86.58-.86,3.47-.08,4.06,0a1.37,1.37,0,0,1,1.32.92L47.5,28Z">
+                                            </path>
+                                            <path
+                                                d="M51.36,45.39a1.21,1.21,0,1,0,1.53,1.17A1.38,1.38,0,0,0,51.36,45.39Zm0,2a.64.64,0,1,1,.8-.62A.73.73,0,0,1,51.36,47.39Z">
+                                            </path>
+                                            <path
+                                                d="M53.12,41.63l.06-.31a.51.51,0,0,0-.51-.51H50.06a.51.51,0,0,0-.51.51l.07.31c-2.49.58-4.3,2.35-4.3,4.46a3.92,3.92,0,0,0,1,2.55h0a.26.26,0,0,0,0,.37l.93.93a.26.26,0,0,0,.37,0l.11-.16a7.51,7.51,0,0,0,7.32,0l.11.16a.26.26,0,0,0,.37,0l.93-.93a.26.26,0,0,0,0-.37h0a3.91,3.91,0,0,0,1-2.55C57.41,44,55.6,42.21,53.12,41.63Zm-2.51.08h1.49a.3.3,0,0,1,.29.29l-.25,1.36a.3.3,0,0,1-.29.29h-.94a.3.3,0,0,1-.29-.29L50.32,42A.3.3,0,0,1,50.61,41.71ZM48,48.85l-.4.57a.15.15,0,0,1-.21,0l-.54-.54a.15.15,0,0,1,0-.21l.6-.37a.15.15,0,0,1,.21,0l.34.34,0,0v.08A.15.15,0,0,1,48,48.85Zm3.41.49c-1.75,0-3.17-1.09-3.17-2.44s1.42-2.44,3.17-2.44,3.17,1.09,3.17,2.44S53.11,49.33,51.36,49.33Zm4.55-.45-.54.54a.15.15,0,0,1-.21,0l-.4-.57,0,0a.63.63,0,0,1,0-.09.14.14,0,0,1,0-.08l.34-.34a.15.15,0,0,1,.21,0l.6.37A.15.15,0,0,1,55.91,48.89Z">
+                                            </path>
+                                            <path
+                                                d="M16.8,45.33a1.23,1.23,0,1,0,0,2.38,1.23,1.23,0,1,0,0-2.38Zm0,2a.64.64,0,1,1,.8-.62A.73.73,0,0,1,16.8,47.35Z">
+                                            </path>
+                                            <path
+                                                d="M18.56,41.51l.06-.31a.52.52,0,0,0-.51-.52H15.5a.52.52,0,0,0-.51.52l.07.31c-2.49.58-4.3,2.38-4.3,4.52a4,4,0,0,0,1,2.59h0a.27.27,0,0,0,0,.37l.93.95a.26.26,0,0,0,.37,0l.11-.16a7.43,7.43,0,0,0,7.32,0l.11.16a.26.26,0,0,0,.37,0l.93-.95a.27.27,0,0,0,0-.37h0a4,4,0,0,0,1-2.59C22.85,43.9,21,42.1,18.56,41.51Zm-2.51.08h1.49a.3.3,0,0,1,.29.3l-.25,1.37a.3.3,0,0,1-.29.3h-.94a.3.3,0,0,1-.29-.3l-.31-1.37A.3.3,0,0,1,16.06,41.59ZM13.4,48.82l-.4.58a.15.15,0,0,1-.21,0l-.54-.54a.15.15,0,0,1,0-.21l.6-.38a.15.15,0,0,1,.21,0l.34.34,0,0v.08A.15.15,0,0,1,13.4,48.82Zm3.41.49c-1.75,0-3.17-1.11-3.17-2.48s1.42-2.48,3.17-2.48S20,45.47,20,46.84,18.56,49.32,16.8,49.32Zm4.55-.45-.54.54a.15.15,0,0,1-.21,0l-.4-.58,0,0a.65.65,0,0,1,0-.09.15.15,0,0,1,0-.08l.34-.34a.15.15,0,0,1,.21,0l.6.38A.15.15,0,0,1,21.35,48.86Z">
+                                            </path>
+                                            <rect x="38.04" y="14.19" width="6.12" height="6.12" rx="0.82" ry="0.82"
+                                                transform="translate(-0.16 34.12) rotate(-45)"></rect>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/rota 66.png" data-lightbox="escolta" data-title="Rota 66">
+                                <img src="../img/mapas/maps/rota 66.png" class="card-img-top" alt="rota 66" title="rota 66"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/USA.png" alt="USA" title="USA">
+                                    Rota 66</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 64 64">
+                                        <g>
+                                            <rect x="10.38" y="24.34" width="21.03" height="14.39" rx="0.81" ry="0.81">
+                                            </rect>
+                                            <path
+                                                d="M60.62,37.83h0c0-.23,0-.47,0-.72h0a.28.28,0,0,0,.28-.24.26.26,0,0,0-.26-.29h-.09c0-.24,0-.47,0-.72h.08a.28.28,0,0,0,.28-.24.26.26,0,0,0-.26-.29H60.5l0-.72h.13a.26.26,0,0,0,.26-.29.28.28,0,0,0-.28-.24h-.12l0-.74h0a.57.57,0,0,0,.53-.63.59.59,0,0,0-.59-.5h-.06c-.5-2.43-2.65-4.26-6-4.26H49.44c-1.26-2.15-1.91-3.59-2.45-3.87a16.68,16.68,0,0,0-6.19-.89c-3.43,0-4.64.13-5,.35s-.59.19-.59,1.48v5.42H34.7V23.8a.6.6,0,0,0-.6-.6H32.66a.6.6,0,0,0-.6.6V39.27H3.39a.39.39,0,0,0-.39.39v1.81a.39.39,0,0,0,.39.39h1a.14.14,0,0,1,.14.14v.24a.47.47,0,0,0,.47.47H8.49A.47.47,0,0,0,9,42.25V42a.14.14,0,0,1,.14-.14h3.34a.14.14,0,0,0,.09,0,6,6,0,0,1,4.06-1.48,6,6,0,0,1,4.06,1.48.14.14,0,0,0,.09,0H22a.14.14,0,0,1,.14.14v.24a.47.47,0,0,0,.47.47h1.72a.14.14,0,0,0,.1,0l.24-.24a.14.14,0,0,1,.2,0l.24.24a.14.14,0,0,0,.1,0H27a.14.14,0,0,0,.1,0l.11-.11a.14.14,0,0,1,.2,0l.11.11a.14.14,0,0,0,.1,0h1.82a.14.14,0,0,0,.1,0l.24-.24a.14.14,0,0,1,.2,0l.24.24a.14.14,0,0,0,.1,0h1.42a.47.47,0,0,0,.47-.47V42a.14.14,0,0,1,.14-.14h11.2a1.8,1.8,0,0,0-.26.81c0,1.16.83,1.35,2.14,1.2h0c0-.11,2.29-4,5.91-3.89a7.79,7.79,0,0,1,5.92,3.64s0,.09,0,.13h0c1.51.17,2.49,0,2.49-1.23a2.42,2.42,0,0,0-.6-1.24h0c1.32-.3,1.5-1.43,1.47-2.92h0a.27.27,0,0,0,.26-.2A.26.26,0,0,0,60.62,37.83ZM47.5,28l-5.07.24h0c-1.67,0-1.92.21-1.92-.29s-.08-1.74-.08-2.23,0-.86.58-.86,3.47-.08,4.06,0a1.37,1.37,0,0,1,1.32.92L47.5,28Z">
+                                            </path>
+                                            <path
+                                                d="M51.36,45.39a1.21,1.21,0,1,0,1.53,1.17A1.38,1.38,0,0,0,51.36,45.39Zm0,2a.64.64,0,1,1,.8-.62A.73.73,0,0,1,51.36,47.39Z">
+                                            </path>
+                                            <path
+                                                d="M53.12,41.63l.06-.31a.51.51,0,0,0-.51-.51H50.06a.51.51,0,0,0-.51.51l.07.31c-2.49.58-4.3,2.35-4.3,4.46a3.92,3.92,0,0,0,1,2.55h0a.26.26,0,0,0,0,.37l.93.93a.26.26,0,0,0,.37,0l.11-.16a7.51,7.51,0,0,0,7.32,0l.11.16a.26.26,0,0,0,.37,0l.93-.93a.26.26,0,0,0,0-.37h0a3.91,3.91,0,0,0,1-2.55C57.41,44,55.6,42.21,53.12,41.63Zm-2.51.08h1.49a.3.3,0,0,1,.29.29l-.25,1.36a.3.3,0,0,1-.29.29h-.94a.3.3,0,0,1-.29-.29L50.32,42A.3.3,0,0,1,50.61,41.71ZM48,48.85l-.4.57a.15.15,0,0,1-.21,0l-.54-.54a.15.15,0,0,1,0-.21l.6-.37a.15.15,0,0,1,.21,0l.34.34,0,0v.08A.15.15,0,0,1,48,48.85Zm3.41.49c-1.75,0-3.17-1.09-3.17-2.44s1.42-2.44,3.17-2.44,3.17,1.09,3.17,2.44S53.11,49.33,51.36,49.33Zm4.55-.45-.54.54a.15.15,0,0,1-.21,0l-.4-.57,0,0a.63.63,0,0,1,0-.09.14.14,0,0,1,0-.08l.34-.34a.15.15,0,0,1,.21,0l.6.37A.15.15,0,0,1,55.91,48.89Z">
+                                            </path>
+                                            <path
+                                                d="M16.8,45.33a1.23,1.23,0,1,0,0,2.38,1.23,1.23,0,1,0,0-2.38Zm0,2a.64.64,0,1,1,.8-.62A.73.73,0,0,1,16.8,47.35Z">
+                                            </path>
+                                            <path
+                                                d="M18.56,41.51l.06-.31a.52.52,0,0,0-.51-.52H15.5a.52.52,0,0,0-.51.52l.07.31c-2.49.58-4.3,2.38-4.3,4.52a4,4,0,0,0,1,2.59h0a.27.27,0,0,0,0,.37l.93.95a.26.26,0,0,0,.37,0l.11-.16a7.43,7.43,0,0,0,7.32,0l.11.16a.26.26,0,0,0,.37,0l.93-.95a.27.27,0,0,0,0-.37h0a4,4,0,0,0,1-2.59C22.85,43.9,21,42.1,18.56,41.51Zm-2.51.08h1.49a.3.3,0,0,1,.29.3l-.25,1.37a.3.3,0,0,1-.29.3h-.94a.3.3,0,0,1-.29-.3l-.31-1.37A.3.3,0,0,1,16.06,41.59ZM13.4,48.82l-.4.58a.15.15,0,0,1-.21,0l-.54-.54a.15.15,0,0,1,0-.21l.6-.38a.15.15,0,0,1,.21,0l.34.34,0,0v.08A.15.15,0,0,1,13.4,48.82Zm3.41.49c-1.75,0-3.17-1.11-3.17-2.48s1.42-2.48,3.17-2.48S20,45.47,20,46.84,18.56,49.32,16.8,49.32Zm4.55-.45-.54.54a.15.15,0,0,1-.21,0l-.4-.58,0,0a.65.65,0,0,1,0-.09.15.15,0,0,1,0-.08l.34-.34a.15.15,0,0,1,.21,0l.6.38A.15.15,0,0,1,21.35,48.86Z">
+                                            </path>
+                                            <rect x="38.04" y="14.19" width="6.12" height="6.12" rx="0.82" ry="0.82"
+                                                transform="translate(-0.16 34.12) rotate(-45)"></rect>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="hibrido">
+                <div class="row">
+                    <div class="col">
+                        <div class="h5 text-uppercase fw-bolder">Hbrido</div>
+                        <p class="fw-normal fst-italic">
+                            Os atacantes capturam uma carga e a escoltam at o seu destino, enquanto os defensores
+                            tentam segurá-los.
+                        </p>
+                    </div>
+                </div>
+                <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-3">
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/blizzard world.png" data-lightbox="hibrido" data-title="Blizzar World">
+                                <img src="../img/mapas/maps/blizzard world.png" class="card-img-top" alt="blizzard world"
+                                title="blizzard world"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/USA.png" alt="USA" title="USA">
+                                    Blizzard World</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 64 64">
+                                        <g>
+                                            <rect x="12.56" y="23.95" width="11.82" height="11.82" rx="1.74" ry="1.74"
+                                                transform="translate(-15.71 21.8) rotate(-45)"></rect>
+                                            <path
+                                                d="M28.81,24.41a11.69,11.69,0,0,0-9.9-6.23v2.11a9.59,9.59,0,0,1,8.91,7.5Z">
+                                            </path>
+                                            <path
+                                                d="M18,20.28h0v-2.1h0a11.69,11.69,0,1,0,6.36,21.77l1-3.46A9.58,9.58,0,1,1,18,20.28Z">
+                                            </path>
+                                            <path
+                                                d="M24,41.33A12.75,12.75,0,0,1,8.46,37.76a.13.13,0,0,0-.23.08v1a.13.13,0,0,0,0,.08,13.64,13.64,0,0,0,7.21,4.25.13.13,0,0,1,.08.05l0,0,2.59,2.87a.39.39,0,0,0,.55,0l2.61-2.89.06,0a13.54,13.54,0,0,0,2.31-.72Z">
+                                            </path>
+                                            <path
+                                                d="M6.1,26.72a12.52,12.52,0,0,1,9.45-9.29,12.77,12.77,0,0,1,13.75,5.69L29.62,22A13.65,13.65,0,1,0,7.34,37.76h0V36.08h0A12.85,12.85,0,0,1,6.1,26.72Z">
+                                            </path>
+                                            <path
+                                                d="M58.8,34.15h0c0-.23,0-.46,0-.7h0a.27.27,0,0,0,.27-.23.26.26,0,0,0-.26-.28h-.08c0-.23,0-.46,0-.7h.08a.27.27,0,0,0,.27-.23.26.26,0,0,0-.26-.28h-.11l0-.7h.12a.26.26,0,0,0,.26-.28.27.27,0,0,0-.27-.23h-.12l0-.72h0a.55.55,0,0,0,.52-.61.57.57,0,0,0-.58-.49h-.06C58,26.27,56,24.47,52.69,24.47H47.87c-1.23-2.1-1.87-3.51-2.4-3.79a16.33,16.33,0,0,0-6.06-.87c-.88,0-1.61,0-2.22,0L31.88,38.09h10.2a1.77,1.77,0,0,0-.26.8c0,1.14.81,1.32,2.1,1.18h0c0-.11,2.24-3.88,5.79-3.81a7.63,7.63,0,0,1,5.8,3.56s0,.09,0,.13h0c1.48.17,2.43,0,2.43-1.21a2.37,2.37,0,0,0-.58-1.22h0c1.29-.3,1.47-1.4,1.44-2.86h0a.26.26,0,0,0,.26-.19A.26.26,0,0,0,58.8,34.15ZM46,24.54l-5,.23h0c-1.64,0-1.88.2-1.88-.29S39,22.78,39,22.3s0-.85.57-.85,3.4-.08,4,0a1.34,1.34,0,0,1,1.3.9L46,24.54Z">
+                                            </path>
+                                            <path
+                                                d="M49.74,41.55a1.19,1.19,0,1,0,1.49,1.15A1.36,1.36,0,0,0,49.74,41.55Zm0,2a.62.62,0,1,1,.78-.6A.71.71,0,0,1,49.74,43.5Z">
+                                            </path>
+                                            <path
+                                                d="M51.47,37.86l.06-.3a.5.5,0,0,0-.5-.5H48.47a.5.5,0,0,0-.5.5l.07.3c-2.44.56-4.21,2.31-4.21,4.37a3.83,3.83,0,0,0,1,2.5h0a.26.26,0,0,0,0,.36l.91.91a.26.26,0,0,0,.36,0l.11-.16a7.36,7.36,0,0,0,7.17,0l.11.16a.26.26,0,0,0,.36,0l.91-.91a.26.26,0,0,0,0-.36h0a3.83,3.83,0,0,0,1-2.5C55.66,40.16,53.9,38.43,51.47,37.86ZM49,37.94h1.46a.29.29,0,0,1,.29.29l-.24,1.33a.29.29,0,0,1-.29.29h-.92a.29.29,0,0,1-.29-.29l-.3-1.33A.29.29,0,0,1,49,37.94Zm-2.6,7-.39.56a.15.15,0,0,1-.21,0L45.29,45a.15.15,0,0,1,0-.21l.58-.37a.15.15,0,0,1,.21,0l.33.33,0,0v.08A.14.14,0,0,1,46.41,44.93Zm3.34.48c-1.72,0-3.11-1.07-3.11-2.39s1.39-2.39,3.11-2.39,3.11,1.07,3.11,2.39S51.46,45.41,49.74,45.41ZM54.2,45l-.52.52a.15.15,0,0,1-.21,0l-.39-.56,0,0a.61.61,0,0,1,0-.09.14.14,0,0,1,0-.08l.33-.33a.15.15,0,0,1,.21,0l.58.37A.15.15,0,0,1,54.2,45Z">
+                                            </path>
+                                            <polygon points="34.57 12 23.4 51.21 26.11 52 37.27 12.79 34.57 12">
+                                            </polygon>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/eichenwalde.png" data-lightbox="hibrido" data-title="Eichenwalde">
+                                <img src="../img/mapas/maps/eichenwalde.png" class="card-img-top" alt="eichenwalde"
+                                title="eichenwalde"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/Germany.png" alt="Germany" title="Germany">
+                                    Eichenwalde</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <g>
+                                            <path
+                                                d="M84.14 91.33c3-4.88 6.11-9.63 9.27-14.32-.95-3-1.91-6.08-2.94-9.07-.77-2.24-1.58-4.46-2.47-6.62a17.36 17.36 0 0 0-1.06-2.12c-.09-.16-.19-.29-.29-.44a15.66 15.66 0 0 0-1-1.44l-.28-.32a15.27 15.27 0 0 0-1.26-1.33l-.17-.16c-5.84-5.3-12.65-5.43-19.94-5.79-7.29.37-14.1.5-19.94 5.78l-.17.16A15.27 15.27 0 0 0 42.63 57l-.28.33a15.66 15.66 0 0 0-1 1.44c-.09.15-.2.29-.29.44A17.36 17.36 0 0 0 40 61.32c-.89 2.16-1.69 4.38-2.47 6.62-1 3-2 6-2.94 9.07 3.16 4.69 6.27 9.45 9.27 14.32-.52 2-.86 4.27-1.29 6.41 3.79.79 8.07 1 11.57 2.13-.09 1.33 0 6.55.1 7.64 1.48.52 9.75 6 9.75 6s8.28-5.46 9.75-6c.13-1.09.19-6.31.1-7.64 3.5-1.11 7.78-1.35 11.57-2.13-.41-2.14-.75-4.38-1.27-6.41zM59.22 84q-.61.91-1.14 1.86a1 1 0 0 1-.29.23c-3.22-.51-5.8.71-8.14 0-1.12-.34-4.58-4.24-5.36-5.46-1.32-2.09-1.74-4.88-2.62-6.95a1.11 1.11 0 0 0 0-.81c-.13-.29-.25-.65-.39-1a22.58 22.58 0 0 1 4.11.92c2 .81 3.74 3.29 5.57 5 2 1.9 4.11 3.36 5.57 5 1.06.14 2 .37 3 .59zM64 100.72a29 29 0 0 0-4-3.37c.89-3.35 3-5.44 4-8.75 1 3.31 3.11 5.4 4 8.76a29 29 0 0 0-4 3.36zM78.35 86.1c-2.34.71-4.92-.51-8.14 0a1 1 0 0 1-.29-.23q-.53-1-1.14-1.86l-.31-.64c1-.22 2-.44 3-.59 1.46-1.63 3.53-3.1 5.57-5 1.83-1.69 3.59-4.17 5.57-5a22.58 22.58 0 0 1 4.11-.92c-.15.35-.27.71-.39 1a1.11 1.11 0 0 0 0 .81c-.88 2.07-1.3 4.86-2.62 6.95-.77 1.24-4.24 5.15-5.36 5.48z"
+                                                transform="translate(-2.38 -12.86)"></path>
+                                            <path
+                                                d="M89.89 22.65c-2.62 1.69-6 4.13-7.17 6.11a7.83 7.83 0 0 0-2.25-2.91.94.94 0 0 0-1.51.83v.33A4.69 4.69 0 0 1 77.91 30c-2.26 2.84-4.06 3.07-5.68 2.8l-.06.09v-.1a5.77 5.77 0 0 1-3.6-9.12 1.54 1.54 0 0 0 .05-1.75c-1.12-1.73-2.93-5.1-3.91-7a.78.78 0 0 0-1.38 0c-1 1.82-2.77 5.09-3.89 6.79a1.54 1.54 0 0 0 0 1.76 5.77 5.77 0 0 1-3.61 9.11v.1l-.06-.09c-1.63.27-3.42 0-5.7-2.8A4.66 4.66 0 0 1 49 26.86v-.36a.94.94 0 0 0-1.51-.83 7.83 7.83 0 0 0-2.25 2.91c-1.19-2-4.55-4.41-7.17-6.11a.94.94 0 0 0-1.32 1.27 57.41 57.41 0 0 1 6.91 16.46 3.39 3.39 0 0 0 1.33 2v2.7h.06a2.88 2.88 0 0 0-1.53 2.2 2.67 2.67 0 0 0 1.28 2c5.81-3.46 12-3.77 18.11-4.06h2.17c6 .3 12.26.6 18 4a2.62 2.62 0 0 0 1.22-2 2.88 2.88 0 0 0-1.53-2.2h.06v-2.6a3.4 3.4 0 0 0 1.47-2.11 57.52 57.52 0 0 1 6.86-16.3.94.94 0 0 0-1.27-1.18z"
+                                                transform="translate(-2.38 -12.86)"></path>
+                                            <path
+                                                d="M114.35 89.62c2.42-4 4.93-7.89 7.48-11.74-.76-2.49-1.54-5-2.37-7.43-.62-1.84-1.27-3.66-2-5.43a14.31 14.31 0 0 0-.85-1.74c-.07-.13-.16-.24-.23-.36a12.87 12.87 0 0 0-.81-1.18l-.23-.27a12.43 12.43 0 0 0-1-1.09l-.14-.13c-4.71-4.33-12.07-4.44-18-4.74l-1.68-.09c-1.28.29-2.55.64-3.8 1 .08.12.16.24.24.38a22 22 0 0 1 1.34 2.7c.81 2 1.61 4.12 2.53 6.78v.09c1.08 3.14 2.07 6.27 3 9.2l.67 2.15-1.2 1.91c-3.16 4.7-5.79 8.73-8.16 12.54.19.92.36 1.85.53 2.76.12.64.24 1.29.36 1.92l.89 4.55s-1 1.3-1 1.54c1.1.59 8 4.86 8 4.86s6.84-4.47 8-4.9c.1-.89.16-5.17.08-6.26 2.82-.91 6.27-1.1 9.33-1.75-.33-1.77-.56-3.6-.98-5.27zm-16.17 7.7c-1.5-.61-2.34-2-3.67-2.76.77-2.63 2.23-4.47 3.18-6.9.06-.22.21-.32.49-.28.77 2.72 2.44 4.43 3.19 7.18a22.9 22.9 0 0 0-3.19 2.76zm11.5-12c-1.89.59-4-.42-6.57 0a.79.79 0 0 1-.24-.19q-.43-.78-.92-1.53l-.25-.53c.8-.18 1.59-.36 2.44-.48 1.18-1.34 2.85-2.54 4.49-4.09 1.47-1.39 2.9-3.42 4.49-4.09a18 18 0 0 1 3.32-.75c-.12.29-.21.58-.32.82a.92.92 0 0 0 0 .66c-.71 1.7-1 4-2.11 5.7-.63 1.02-3.42 4.22-4.32 4.5zm-80.24-7.56l.67-2.15c.91-2.92 1.9-6.06 3-9.2v-.09c.92-2.66 1.72-4.82 2.53-6.79A22 22 0 0 1 37 56.84c.08-.13.16-.25.24-.37-1.25-.4-2.52-.75-3.8-1l-1.68.09c-5.88.3-13.25.41-18 4.74l-.14.13a12.42 12.42 0 0 0-1 1.09l-.23.27a12.85 12.85 0 0 0-.81 1.18c-.08.12-.16.24-.23.36a14.33 14.33 0 0 0-.81 1.67c-.72 1.77-1.37 3.59-2 5.43-.83 2.45-1.61 4.94-2.37 7.43 2.55 3.85 5.06 7.74 7.48 11.74-.42 1.66-.7 3.5-1 5.26 3.05.65 6.51.84 9.33 1.75-.07 1.09 0 5.37.08 6.26 1.19.43 8 4.9 8 4.9s6.93-4.27 8-4.86c0-.25-1-1.54-1-1.54l.94-4.53c.12-.63.24-1.28.36-1.92.17-.91.34-1.84.53-2.76-2.38-3.81-5-7.84-8.16-12.54zM26 83.62q-.49.74-.92 1.53a.79.79 0 0 1-.24.19c-2.59-.42-4.67.59-6.57 0-.9-.28-3.7-3.48-4.32-4.48-1.06-1.71-1.4-4-2.11-5.7a.92.92 0 0 0 0-.66c-.1-.24-.2-.54-.32-.82a18 18 0 0 1 3.32.75c1.59.67 3 2.7 4.49 4.09 1.64 1.55 3.31 2.76 4.49 4.09.85.12 1.65.3 2.44.48zm3.78 13.7a22.9 22.9 0 0 0-3.19-2.76c.75-2.75 2.42-4.46 3.19-7.18.29 0 .43.06.49.28.95 2.43 2.41 4.27 3.18 6.9-1.29.8-2.13 2.15-3.63 2.76z"
+                                                transform="translatea(-2.38 -12.86)"></path>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 64 64">
+                                        <g>
+                                            <rect x="12.56" y="23.95" width="11.82" height="11.82" rx="1.74" ry="1.74"
+                                                transform="translate(-15.71 21.8) rotate(-45)"></rect>
+                                            <path
+                                                d="M28.81,24.41a11.69,11.69,0,0,0-9.9-6.23v2.11a9.59,9.59,0,0,1,8.91,7.5Z">
+                                            </path>
+                                            <path
+                                                d="M18,20.28h0v-2.1h0a11.69,11.69,0,1,0,6.36,21.77l1-3.46A9.58,9.58,0,1,1,18,20.28Z">
+                                            </path>
+                                            <path
+                                                d="M24,41.33A12.75,12.75,0,0,1,8.46,37.76a.13.13,0,0,0-.23.08v1a.13.13,0,0,0,0,.08,13.64,13.64,0,0,0,7.21,4.25.13.13,0,0,1,.08.05l0,0,2.59,2.87a.39.39,0,0,0,.55,0l2.61-2.89.06,0a13.54,13.54,0,0,0,2.31-.72Z">
+                                            </path>
+                                            <path
+                                                d="M6.1,26.72a12.52,12.52,0,0,1,9.45-9.29,12.77,12.77,0,0,1,13.75,5.69L29.62,22A13.65,13.65,0,1,0,7.34,37.76h0V36.08h0A12.85,12.85,0,0,1,6.1,26.72Z">
+                                            </path>
+                                            <path
+                                                d="M58.8,34.15h0c0-.23,0-.46,0-.7h0a.27.27,0,0,0,.27-.23.26.26,0,0,0-.26-.28h-.08c0-.23,0-.46,0-.7h.08a.27.27,0,0,0,.27-.23.26.26,0,0,0-.26-.28h-.11l0-.7h.12a.26.26,0,0,0,.26-.28.27.27,0,0,0-.27-.23h-.12l0-.72h0a.55.55,0,0,0,.52-.61.57.57,0,0,0-.58-.49h-.06C58,26.27,56,24.47,52.69,24.47H47.87c-1.23-2.1-1.87-3.51-2.4-3.79a16.33,16.33,0,0,0-6.06-.87c-.88,0-1.61,0-2.22,0L31.88,38.09h10.2a1.77,1.77,0,0,0-.26.8c0,1.14.81,1.32,2.1,1.18h0c0-.11,2.24-3.88,5.79-3.81a7.63,7.63,0,0,1,5.8,3.56s0,.09,0,.13h0c1.48.17,2.43,0,2.43-1.21a2.37,2.37,0,0,0-.58-1.22h0c1.29-.3,1.47-1.4,1.44-2.86h0a.26.26,0,0,0,.26-.19A.26.26,0,0,0,58.8,34.15ZM46,24.54l-5,.23h0c-1.64,0-1.88.2-1.88-.29S39,22.78,39,22.3s0-.85.57-.85,3.4-.08,4,0a1.34,1.34,0,0,1,1.3.9L46,24.54Z">
+                                            </path>
+                                            <path
+                                                d="M49.74,41.55a1.19,1.19,0,1,0,1.49,1.15A1.36,1.36,0,0,0,49.74,41.55Zm0,2a.62.62,0,1,1,.78-.6A.71.71,0,0,1,49.74,43.5Z">
+                                            </path>
+                                            <path
+                                                d="M51.47,37.86l.06-.3a.5.5,0,0,0-.5-.5H48.47a.5.5,0,0,0-.5.5l.07.3c-2.44.56-4.21,2.31-4.21,4.37a3.83,3.83,0,0,0,1,2.5h0a.26.26,0,0,0,0,.36l.91.91a.26.26,0,0,0,.36,0l.11-.16a7.36,7.36,0,0,0,7.17,0l.11.16a.26.26,0,0,0,.36,0l.91-.91a.26.26,0,0,0,0-.36h0a3.83,3.83,0,0,0,1-2.5C55.66,40.16,53.9,38.43,51.47,37.86ZM49,37.94h1.46a.29.29,0,0,1,.29.29l-.24,1.33a.29.29,0,0,1-.29.29h-.92a.29.29,0,0,1-.29-.29l-.3-1.33A.29.29,0,0,1,49,37.94Zm-2.6,7-.39.56a.15.15,0,0,1-.21,0L45.29,45a.15.15,0,0,1,0-.21l.58-.37a.15.15,0,0,1,.21,0l.33.33,0,0v.08A.14.14,0,0,1,46.41,44.93Zm3.34.48c-1.72,0-3.11-1.07-3.11-2.39s1.39-2.39,3.11-2.39,3.11,1.07,3.11,2.39S51.46,45.41,49.74,45.41ZM54.2,45l-.52.52a.15.15,0,0,1-.21,0l-.39-.56,0,0a.61.61,0,0,1,0-.09.14.14,0,0,1,0-.08l.33-.33a.15.15,0,0,1,.21,0l.58.37A.15.15,0,0,1,54.2,45Z">
+                                            </path>
+                                            <polygon points="34.57 12 23.4 51.21 26.11 52 37.27 12.79 34.57 12">
+                                            </polygon>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <path
+                                            d="M43 38.83a14.78 14.78 0 0 0-1.22 1.29l-.27.32a15.22 15.22 0 0 0-1 1.4c-.09.15-.19.28-.28.43a16.85 16.85 0 0 0-1 2.06c-.86 2.1-1.64 4.25-2.39 6.42-1 2.9-1.93 5.84-2.85 8.79C37 64.1 40 68.7 42.93 73.43c-.5 2-.84 4.14-1.24 6.22 3.66.77 7.81 1 11.19 2.07-.09 1.29 0 6.35.1 7.41 1.43.51 9.44 5.8 9.44 5.8v-12.4a28.09 28.09 0 0 0-3.91-3.26c.9-3.25 3-5.28 3.91-8.49V33.07c-7.06.35-13.64.48-19.29 5.61zm6.81 21.46c2 1.84 4 3.26 5.39 4.84 1 .14 2 .36 2.93.57l-.3.62q-.59.88-1.1 1.81a1 1 0 0 1-.29.23c-3.11-.5-5.61.69-7.88 0-1.08-.33-4.43-4.11-5.18-5.29-1.27-2-1.68-4.73-2.53-6.74a1.07 1.07 0 0 0 0-.78c-.12-.28-.24-.63-.38-1a21.81 21.81 0 0 1 4 .89c1.82.81 3.53 3.21 5.29 4.85zM29 60.27l.65-2.08c.88-2.83 1.84-5.88 2.89-8.92v-.09c.89-2.58 1.67-4.67 2.45-6.58a21.34 21.34 0 0 1 1.3-2.6c.07-.13.15-.24.23-.36-1.21-.39-2.43-.73-3.67-1l-1.63.08c-5.69.29-12.81.39-17.37 4.6l-.13.12a12 12 0 0 0-1 1.06l-.22.26a12.47 12.47 0 0 0-.79 1.15c-.07.12-.15.23-.22.35a13.9 13.9 0 0 0-.82 1.69c-.67 1.68-1.3 3.45-1.91 5.23C8 55.56 7.21 58 6.47 60.39c2.46 3.73 4.89 7.51 7.23 11.39-.41 1.61-.67 3.39-1 5.1 3 .63 6.3.82 9 1.7-.07 1.06 0 5.21.08 6.07 1.15.42 7.77 4.75 7.77 4.75s6.7-4.14 7.77-4.71c0-.24-1-1.5-1-1.5l.86-4.41c.12-.62.23-1.24.35-1.86.16-.88.32-1.78.51-2.68-2.3-3.69-4.84-7.6-7.9-12.16zm-3.3 5.68q-.47.72-.89 1.48a.76.76 0 0 1-.23.19c-2.51-.41-4.52.57-6.35 0-.87-.27-3.58-3.37-4.18-4.34-1-1.66-1.36-3.88-2-5.52a.89.89 0 0 0 0-.64c-.1-.23-.19-.52-.31-.8a17.34 17.34 0 0 1 3.21.73c1.54.65 2.92 2.62 4.34 4 1.59 1.51 3.2 2.67 4.34 4 .82.11 1.59.29 2.36.47zm3.66 13.29a22.18 22.18 0 0 0-3.08-2.68c.72-2.67 2.34-4.33 3.08-7 .28 0 .42.06.48.27.92 2.36 2.33 4.14 3.08 6.69-1.32.81-2.13 2.13-3.58 2.71zm56-5.8c2.9-4.73 5.91-9.34 9-13.89-.92-2.95-1.85-5.89-2.85-8.79-.75-2.17-1.53-4.32-2.39-6.42a16.84 16.84 0 0 0-1-2.06c-.09-.15-.19-.28-.28-.43a15.19 15.19 0 0 0-1-1.4l-.27-.32a14.79 14.79 0 0 0-1.22-1.29l-.17-.15c-5.65-5.13-12.23-5.25-19.29-5.61v37.7c.92 3.21 3 5.24 3.91 8.49a28.1 28.1 0 0 0-3.91 3.26v12.4s8-5.29 9.44-5.8c.12-1.06.19-6.12.1-7.41 3.38-1.08 7.53-1.3 11.19-2.07-.42-2.08-.75-4.25-1.25-6.22zM82 78.88a44.86 44.86 0 0 0-7 1.4l-1.13.36.08 1.19c.07 1 0 4.59 0 6.33-1.58.85-4.36 2.61-6.47 4v-9a20.86 20.86 0 0 1 2.25-1.85l1.08-.82.79-.62-.27-1a19.65 19.65 0 0 0-2.12-4.66 18.12 18.12 0 0 1-1.74-3.65v-35.9c6.38.32 11.93.75 16.77 5.15l.14.13a13.36 13.36 0 0 1 1.1 1.16l.11.13.13.16a13.63 13.63 0 0 1 .88 1.26l.14.22.11.17a15.31 15.31 0 0 1 .93 1.87c.74 1.81 1.49 3.83 2.36 6.34.93 2.71 1.8 5.45 2.61 8-3.36 5-6.1 9.26-8.6 13.34l-.34.55.16.62c.34 1.32.6 2.78.86 4.2l.08.44c-1.01.2-1.97.34-2.91.48zm32.61-7.11c2.34-3.88 4.77-7.65 7.23-11.39-.74-2.42-1.49-4.83-2.3-7.21-.6-1.78-1.23-3.55-1.92-5.26a13.91 13.91 0 0 0-.82-1.69c-.07-.12-.15-.23-.22-.35a12.41 12.41 0 0 0-.79-1.15l-.22-.26a12 12 0 0 0-1-1.06l-.13-.12c-4.56-4.2-11.68-4.31-17.37-4.6l-1.63-.08c-1.24.28-2.46.62-3.67 1 .08.12.16.24.23.36a21.33 21.33 0 0 1 1.3 2.62c.78 1.91 1.56 4 2.45 6.58v.09c1 3 2 6.09 2.89 8.92l.65 2.08-1.19 1.83c-3.06 4.56-5.6 8.46-7.9 12.16.19.9.35 1.8.51 2.68.11.62.23 1.25.35 1.86l.86 4.41s-1 1.26-1 1.5c1.06.57 7.77 4.71 7.77 4.71s6.62-4.34 7.77-4.75c.1-.87.15-5 .08-6.07 2.73-.88 6.07-1.07 9-1.7-.27-1.72-.54-3.49-.95-5.11zM111.82 76a35.85 35.85 0 0 0-5.71 1.16l-1.12.36.08 1.18c.05.78 0 3.55 0 5-1.66.91-4.65 2.83-6.34 3.93-1.32-.81-3.94-2.42-5.62-3.43l.44-.55-.13-.69-.86-4.41c-.12-.6-.23-1.21-.34-1.81v-.05c-.12-.68-.25-1.39-.39-2.09 2.17-3.6 4.59-7.31 7.52-11.67l1.22-1.81.41-.6-.22-.69-.65-2.08c-.88-2.84-1.85-5.89-2.9-9v-.09C96.28 46.07 95.49 44 94.7 42c-.21-.5-.43-1-.68-1.5q.79-.22 1.56-.4H98c5.41.26 11.54.56 15.43 4.15l.11.1a10.57 10.57 0 0 1 .86.93l.09.11.1.12a10.9 10.9 0 0 1 .69 1l.12.19.08.12a12.4 12.4 0 0 1 .73 1.5c.6 1.48 1.2 3.13 1.89 5.18.74 2.18 1.42 4.37 2.06 6.45-2.68 4.07-4.87 7.53-6.87 10.84l-.33.54.15.61c.27 1.07.47 2.21.69 3.42v.1zM87.48 56.33a1.08 1.08 0 0 1 0-.78c.12-.28.24-.63.38-1a21.81 21.81 0 0 0-4 .89c-1.91.79-3.62 3.2-5.39 4.84-2 1.84-4 3.26-5.39 4.84-1 .14-2 .36-2.93.57l.3.62q.59.88 1.1 1.81a1 1 0 0 0 .28.23c3.11-.5 5.61.69 7.88 0 1.08-.33 4.43-4.11 5.18-5.29 1.34-2.06 1.75-4.73 2.59-6.73zm11 13.54c-.92 2.36-2.33 4.14-3.08 6.69 1.29.78 2.1 2.09 3.55 2.68a22.16 22.16 0 0 1 3.05-2.68c-.72-2.67-2.34-4.33-3.08-7-.24 0-.38.1-.44.31zm17.82-12.12a.89.89 0 0 1 0-.64c.1-.23.19-.52.31-.8a17.33 17.33 0 0 0-3.21.73c-1.54.65-2.92 2.62-4.34 4-1.59 1.51-3.2 2.67-4.34 4-.82.11-1.59.29-2.36.47l.24.51q.47.72.89 1.48a.77.77 0 0 0 .23.19c2.51-.41 4.52.57 6.35 0 .87-.27 3.58-3.37 4.18-4.34 1.04-1.73 1.37-3.95 2.05-5.6z"
+                                            transform="translate(-2.38 -12.86)"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/hollywold.png" data-lightbox="hibrido" data-title="Hollywold">
+                                <img src="../img/mapas/maps/hollywold.png" class="card-img-top" alt="hollywold"
+                                title="hollywold"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/USA.png" alt="USA" title="USA">
+                                    Hollywood</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <g>
+                                            <path
+                                                d="M84.14 91.33c3-4.88 6.11-9.63 9.27-14.32-.95-3-1.91-6.08-2.94-9.07-.77-2.24-1.58-4.46-2.47-6.62a17.36 17.36 0 0 0-1.06-2.12c-.09-.16-.19-.29-.29-.44a15.66 15.66 0 0 0-1-1.44l-.28-.32a15.27 15.27 0 0 0-1.26-1.33l-.17-.16c-5.84-5.3-12.65-5.43-19.94-5.79-7.29.37-14.1.5-19.94 5.78l-.17.16A15.27 15.27 0 0 0 42.63 57l-.28.33a15.66 15.66 0 0 0-1 1.44c-.09.15-.2.29-.29.44A17.36 17.36 0 0 0 40 61.32c-.89 2.16-1.69 4.38-2.47 6.62-1 3-2 6-2.94 9.07 3.16 4.69 6.27 9.45 9.27 14.32-.52 2-.86 4.27-1.29 6.41 3.79.79 8.07 1 11.57 2.13-.09 1.33 0 6.55.1 7.64 1.48.52 9.75 6 9.75 6s8.28-5.46 9.75-6c.13-1.09.19-6.31.1-7.64 3.5-1.11 7.78-1.35 11.57-2.13-.41-2.14-.75-4.38-1.27-6.41zM59.22 84q-.61.91-1.14 1.86a1 1 0 0 1-.29.23c-3.22-.51-5.8.71-8.14 0-1.12-.34-4.58-4.24-5.36-5.46-1.32-2.09-1.74-4.88-2.62-6.95a1.11 1.11 0 0 0 0-.81c-.13-.29-.25-.65-.39-1a22.58 22.58 0 0 1 4.11.92c2 .81 3.74 3.29 5.57 5 2 1.9 4.11 3.36 5.57 5 1.06.14 2 .37 3 .59zM64 100.72a29 29 0 0 0-4-3.37c.89-3.35 3-5.44 4-8.75 1 3.31 3.11 5.4 4 8.76a29 29 0 0 0-4 3.36zM78.35 86.1c-2.34.71-4.92-.51-8.14 0a1 1 0 0 1-.29-.23q-.53-1-1.14-1.86l-.31-.64c1-.22 2-.44 3-.59 1.46-1.63 3.53-3.1 5.57-5 1.83-1.69 3.59-4.17 5.57-5a22.58 22.58 0 0 1 4.11-.92c-.15.35-.27.71-.39 1a1.11 1.11 0 0 0 0 .81c-.88 2.07-1.3 4.86-2.62 6.95-.77 1.24-4.24 5.15-5.36 5.48z"
+                                                transform="translate(-2.38 -12.86)"></path>
+                                            <path
+                                                d="M89.89 22.65c-2.62 1.69-6 4.13-7.17 6.11a7.83 7.83 0 0 0-2.25-2.91.94.94 0 0 0-1.51.83v.33A4.69 4.69 0 0 1 77.91 30c-2.26 2.84-4.06 3.07-5.68 2.8l-.06.09v-.1a5.77 5.77 0 0 1-3.6-9.12 1.54 1.54 0 0 0 .05-1.75c-1.12-1.73-2.93-5.1-3.91-7a.78.78 0 0 0-1.38 0c-1 1.82-2.77 5.09-3.89 6.79a1.54 1.54 0 0 0 0 1.76 5.77 5.77 0 0 1-3.61 9.11v.1l-.06-.09c-1.63.27-3.42 0-5.7-2.8A4.66 4.66 0 0 1 49 26.86v-.36a.94.94 0 0 0-1.51-.83 7.83 7.83 0 0 0-2.25 2.91c-1.19-2-4.55-4.41-7.17-6.11a.94.94 0 0 0-1.32 1.27 57.41 57.41 0 0 1 6.91 16.46 3.39 3.39 0 0 0 1.33 2v2.7h.06a2.88 2.88 0 0 0-1.53 2.2 2.67 2.67 0 0 0 1.28 2c5.81-3.46 12-3.77 18.11-4.06h2.17c6 .3 12.26.6 18 4a2.62 2.62 0 0 0 1.22-2 2.88 2.88 0 0 0-1.53-2.2h.06v-2.6a3.4 3.4 0 0 0 1.47-2.11 57.52 57.52 0 0 1 6.86-16.3.94.94 0 0 0-1.27-1.18z"
+                                                transform="translate(-2.38 -12.86)"></path>
+                                            <path
+                                                d="M114.35 89.62c2.42-4 4.93-7.89 7.48-11.74-.76-2.49-1.54-5-2.37-7.43-.62-1.84-1.27-3.66-2-5.43a14.31 14.31 0 0 0-.85-1.74c-.07-.13-.16-.24-.23-.36a12.87 12.87 0 0 0-.81-1.18l-.23-.27a12.43 12.43 0 0 0-1-1.09l-.14-.13c-4.71-4.33-12.07-4.44-18-4.74l-1.68-.09c-1.28.29-2.55.64-3.8 1 .08.12.16.24.24.38a22 22 0 0 1 1.34 2.7c.81 2 1.61 4.12 2.53 6.78v.09c1.08 3.14 2.07 6.27 3 9.2l.67 2.15-1.2 1.91c-3.16 4.7-5.79 8.73-8.16 12.54.19.92.36 1.85.53 2.76.12.64.24 1.29.36 1.92l.89 4.55s-1 1.3-1 1.54c1.1.59 8 4.86 8 4.86s6.84-4.47 8-4.9c.1-.89.16-5.17.08-6.26 2.82-.91 6.27-1.1 9.33-1.75-.33-1.77-.56-3.6-.98-5.27zm-16.17 7.7c-1.5-.61-2.34-2-3.67-2.76.77-2.63 2.23-4.47 3.18-6.9.06-.22.21-.32.49-.28.77 2.72 2.44 4.43 3.19 7.18a22.9 22.9 0 0 0-3.19 2.76zm11.5-12c-1.89.59-4-.42-6.57 0a.79.79 0 0 1-.24-.19q-.43-.78-.92-1.53l-.25-.53c.8-.18 1.59-.36 2.44-.48 1.18-1.34 2.85-2.54 4.49-4.09 1.47-1.39 2.9-3.42 4.49-4.09a18 18 0 0 1 3.32-.75c-.12.29-.21.58-.32.82a.92.92 0 0 0 0 .66c-.71 1.7-1 4-2.11 5.7-.63 1.02-3.42 4.22-4.32 4.5zm-80.24-7.56l.67-2.15c.91-2.92 1.9-6.06 3-9.2v-.09c.92-2.66 1.72-4.82 2.53-6.79A22 22 0 0 1 37 56.84c.08-.13.16-.25.24-.37-1.25-.4-2.52-.75-3.8-1l-1.68.09c-5.88.3-13.25.41-18 4.74l-.14.13a12.42 12.42 0 0 0-1 1.09l-.23.27a12.85 12.85 0 0 0-.81 1.18c-.08.12-.16.24-.23.36a14.33 14.33 0 0 0-.81 1.67c-.72 1.77-1.37 3.59-2 5.43-.83 2.45-1.61 4.94-2.37 7.43 2.55 3.85 5.06 7.74 7.48 11.74-.42 1.66-.7 3.5-1 5.26 3.05.65 6.51.84 9.33 1.75-.07 1.09 0 5.37.08 6.26 1.19.43 8 4.9 8 4.9s6.93-4.27 8-4.86c0-.25-1-1.54-1-1.54l.94-4.53c.12-.63.24-1.28.36-1.92.17-.91.34-1.84.53-2.76-2.38-3.81-5-7.84-8.16-12.54zM26 83.62q-.49.74-.92 1.53a.79.79 0 0 1-.24.19c-2.59-.42-4.67.59-6.57 0-.9-.28-3.7-3.48-4.32-4.48-1.06-1.71-1.4-4-2.11-5.7a.92.92 0 0 0 0-.66c-.1-.24-.2-.54-.32-.82a18 18 0 0 1 3.32.75c1.59.67 3 2.7 4.49 4.09 1.64 1.55 3.31 2.76 4.49 4.09.85.12 1.65.3 2.44.48zm3.78 13.7a22.9 22.9 0 0 0-3.19-2.76c.75-2.75 2.42-4.46 3.19-7.18.29 0 .43.06.49.28.95 2.43 2.41 4.27 3.18 6.9-1.29.8-2.13 2.15-3.63 2.76z"
+                                                transform="translatea(-2.38 -12.86)"></path>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 64 64">
+                                        <g>
+                                            <rect x="12.56" y="23.95" width="11.82" height="11.82" rx="1.74" ry="1.74"
+                                                transform="translate(-15.71 21.8) rotate(-45)"></rect>
+                                            <path
+                                                d="M28.81,24.41a11.69,11.69,0,0,0-9.9-6.23v2.11a9.59,9.59,0,0,1,8.91,7.5Z">
+                                            </path>
+                                            <path
+                                                d="M18,20.28h0v-2.1h0a11.69,11.69,0,1,0,6.36,21.77l1-3.46A9.58,9.58,0,1,1,18,20.28Z">
+                                            </path>
+                                            <path
+                                                d="M24,41.33A12.75,12.75,0,0,1,8.46,37.76a.13.13,0,0,0-.23.08v1a.13.13,0,0,0,0,.08,13.64,13.64,0,0,0,7.21,4.25.13.13,0,0,1,.08.05l0,0,2.59,2.87a.39.39,0,0,0,.55,0l2.61-2.89.06,0a13.54,13.54,0,0,0,2.31-.72Z">
+                                            </path>
+                                            <path
+                                                d="M6.1,26.72a12.52,12.52,0,0,1,9.45-9.29,12.77,12.77,0,0,1,13.75,5.69L29.62,22A13.65,13.65,0,1,0,7.34,37.76h0V36.08h0A12.85,12.85,0,0,1,6.1,26.72Z">
+                                            </path>
+                                            <path
+                                                d="M58.8,34.15h0c0-.23,0-.46,0-.7h0a.27.27,0,0,0,.27-.23.26.26,0,0,0-.26-.28h-.08c0-.23,0-.46,0-.7h.08a.27.27,0,0,0,.27-.23.26.26,0,0,0-.26-.28h-.11l0-.7h.12a.26.26,0,0,0,.26-.28.27.27,0,0,0-.27-.23h-.12l0-.72h0a.55.55,0,0,0,.52-.61.57.57,0,0,0-.58-.49h-.06C58,26.27,56,24.47,52.69,24.47H47.87c-1.23-2.1-1.87-3.51-2.4-3.79a16.33,16.33,0,0,0-6.06-.87c-.88,0-1.61,0-2.22,0L31.88,38.09h10.2a1.77,1.77,0,0,0-.26.8c0,1.14.81,1.32,2.1,1.18h0c0-.11,2.24-3.88,5.79-3.81a7.63,7.63,0,0,1,5.8,3.56s0,.09,0,.13h0c1.48.17,2.43,0,2.43-1.21a2.37,2.37,0,0,0-.58-1.22h0c1.29-.3,1.47-1.4,1.44-2.86h0a.26.26,0,0,0,.26-.19A.26.26,0,0,0,58.8,34.15ZM46,24.54l-5,.23h0c-1.64,0-1.88.2-1.88-.29S39,22.78,39,22.3s0-.85.57-.85,3.4-.08,4,0a1.34,1.34,0,0,1,1.3.9L46,24.54Z">
+                                            </path>
+                                            <path
+                                                d="M49.74,41.55a1.19,1.19,0,1,0,1.49,1.15A1.36,1.36,0,0,0,49.74,41.55Zm0,2a.62.62,0,1,1,.78-.6A.71.71,0,0,1,49.74,43.5Z">
+                                            </path>
+                                            <path
+                                                d="M51.47,37.86l.06-.3a.5.5,0,0,0-.5-.5H48.47a.5.5,0,0,0-.5.5l.07.3c-2.44.56-4.21,2.31-4.21,4.37a3.83,3.83,0,0,0,1,2.5h0a.26.26,0,0,0,0,.36l.91.91a.26.26,0,0,0,.36,0l.11-.16a7.36,7.36,0,0,0,7.17,0l.11.16a.26.26,0,0,0,.36,0l.91-.91a.26.26,0,0,0,0-.36h0a3.83,3.83,0,0,0,1-2.5C55.66,40.16,53.9,38.43,51.47,37.86ZM49,37.94h1.46a.29.29,0,0,1,.29.29l-.24,1.33a.29.29,0,0,1-.29.29h-.92a.29.29,0,0,1-.29-.29l-.3-1.33A.29.29,0,0,1,49,37.94Zm-2.6,7-.39.56a.15.15,0,0,1-.21,0L45.29,45a.15.15,0,0,1,0-.21l.58-.37a.15.15,0,0,1,.21,0l.33.33,0,0v.08A.14.14,0,0,1,46.41,44.93Zm3.34.48c-1.72,0-3.11-1.07-3.11-2.39s1.39-2.39,3.11-2.39,3.11,1.07,3.11,2.39S51.46,45.41,49.74,45.41ZM54.2,45l-.52.52a.15.15,0,0,1-.21,0l-.39-.56,0,0a.61.61,0,0,1,0-.09.14.14,0,0,1,0-.08l.33-.33a.15.15,0,0,1,.21,0l.58.37A.15.15,0,0,1,54.2,45Z">
+                                            </path>
+                                            <polygon points="34.57 12 23.4 51.21 26.11 52 37.27 12.79 34.57 12">
+                                            </polygon>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <path
+                                            d="M43 38.83a14.78 14.78 0 0 0-1.22 1.29l-.27.32a15.22 15.22 0 0 0-1 1.4c-.09.15-.19.28-.28.43a16.85 16.85 0 0 0-1 2.06c-.86 2.1-1.64 4.25-2.39 6.42-1 2.9-1.93 5.84-2.85 8.79C37 64.1 40 68.7 42.93 73.43c-.5 2-.84 4.14-1.24 6.22 3.66.77 7.81 1 11.19 2.07-.09 1.29 0 6.35.1 7.41 1.43.51 9.44 5.8 9.44 5.8v-12.4a28.09 28.09 0 0 0-3.91-3.26c.9-3.25 3-5.28 3.91-8.49V33.07c-7.06.35-13.64.48-19.29 5.61zm6.81 21.46c2 1.84 4 3.26 5.39 4.84 1 .14 2 .36 2.93.57l-.3.62q-.59.88-1.1 1.81a1 1 0 0 1-.29.23c-3.11-.5-5.61.69-7.88 0-1.08-.33-4.43-4.11-5.18-5.29-1.27-2-1.68-4.73-2.53-6.74a1.07 1.07 0 0 0 0-.78c-.12-.28-.24-.63-.38-1a21.81 21.81 0 0 1 4 .89c1.82.81 3.53 3.21 5.29 4.85zM29 60.27l.65-2.08c.88-2.83 1.84-5.88 2.89-8.92v-.09c.89-2.58 1.67-4.67 2.45-6.58a21.34 21.34 0 0 1 1.3-2.6c.07-.13.15-.24.23-.36-1.21-.39-2.43-.73-3.67-1l-1.63.08c-5.69.29-12.81.39-17.37 4.6l-.13.12a12 12 0 0 0-1 1.06l-.22.26a12.47 12.47 0 0 0-.79 1.15c-.07.12-.15.23-.22.35a13.9 13.9 0 0 0-.82 1.69c-.67 1.68-1.3 3.45-1.91 5.23C8 55.56 7.21 58 6.47 60.39c2.46 3.73 4.89 7.51 7.23 11.39-.41 1.61-.67 3.39-1 5.1 3 .63 6.3.82 9 1.7-.07 1.06 0 5.21.08 6.07 1.15.42 7.77 4.75 7.77 4.75s6.7-4.14 7.77-4.71c0-.24-1-1.5-1-1.5l.86-4.41c.12-.62.23-1.24.35-1.86.16-.88.32-1.78.51-2.68-2.3-3.69-4.84-7.6-7.9-12.16zm-3.3 5.68q-.47.72-.89 1.48a.76.76 0 0 1-.23.19c-2.51-.41-4.52.57-6.35 0-.87-.27-3.58-3.37-4.18-4.34-1-1.66-1.36-3.88-2-5.52a.89.89 0 0 0 0-.64c-.1-.23-.19-.52-.31-.8a17.34 17.34 0 0 1 3.21.73c1.54.65 2.92 2.62 4.34 4 1.59 1.51 3.2 2.67 4.34 4 .82.11 1.59.29 2.36.47zm3.66 13.29a22.18 22.18 0 0 0-3.08-2.68c.72-2.67 2.34-4.33 3.08-7 .28 0 .42.06.48.27.92 2.36 2.33 4.14 3.08 6.69-1.32.81-2.13 2.13-3.58 2.71zm56-5.8c2.9-4.73 5.91-9.34 9-13.89-.92-2.95-1.85-5.89-2.85-8.79-.75-2.17-1.53-4.32-2.39-6.42a16.84 16.84 0 0 0-1-2.06c-.09-.15-.19-.28-.28-.43a15.19 15.19 0 0 0-1-1.4l-.27-.32a14.79 14.79 0 0 0-1.22-1.29l-.17-.15c-5.65-5.13-12.23-5.25-19.29-5.61v37.7c.92 3.21 3 5.24 3.91 8.49a28.1 28.1 0 0 0-3.91 3.26v12.4s8-5.29 9.44-5.8c.12-1.06.19-6.12.1-7.41 3.38-1.08 7.53-1.3 11.19-2.07-.42-2.08-.75-4.25-1.25-6.22zM82 78.88a44.86 44.86 0 0 0-7 1.4l-1.13.36.08 1.19c.07 1 0 4.59 0 6.33-1.58.85-4.36 2.61-6.47 4v-9a20.86 20.86 0 0 1 2.25-1.85l1.08-.82.79-.62-.27-1a19.65 19.65 0 0 0-2.12-4.66 18.12 18.12 0 0 1-1.74-3.65v-35.9c6.38.32 11.93.75 16.77 5.15l.14.13a13.36 13.36 0 0 1 1.1 1.16l.11.13.13.16a13.63 13.63 0 0 1 .88 1.26l.14.22.11.17a15.31 15.31 0 0 1 .93 1.87c.74 1.81 1.49 3.83 2.36 6.34.93 2.71 1.8 5.45 2.61 8-3.36 5-6.1 9.26-8.6 13.34l-.34.55.16.62c.34 1.32.6 2.78.86 4.2l.08.44c-1.01.2-1.97.34-2.91.48zm32.61-7.11c2.34-3.88 4.77-7.65 7.23-11.39-.74-2.42-1.49-4.83-2.3-7.21-.6-1.78-1.23-3.55-1.92-5.26a13.91 13.91 0 0 0-.82-1.69c-.07-.12-.15-.23-.22-.35a12.41 12.41 0 0 0-.79-1.15l-.22-.26a12 12 0 0 0-1-1.06l-.13-.12c-4.56-4.2-11.68-4.31-17.37-4.6l-1.63-.08c-1.24.28-2.46.62-3.67 1 .08.12.16.24.23.36a21.33 21.33 0 0 1 1.3 2.62c.78 1.91 1.56 4 2.45 6.58v.09c1 3 2 6.09 2.89 8.92l.65 2.08-1.19 1.83c-3.06 4.56-5.6 8.46-7.9 12.16.19.9.35 1.8.51 2.68.11.62.23 1.25.35 1.86l.86 4.41s-1 1.26-1 1.5c1.06.57 7.77 4.71 7.77 4.71s6.62-4.34 7.77-4.75c.1-.87.15-5 .08-6.07 2.73-.88 6.07-1.07 9-1.7-.27-1.72-.54-3.49-.95-5.11zM111.82 76a35.85 35.85 0 0 0-5.71 1.16l-1.12.36.08 1.18c.05.78 0 3.55 0 5-1.66.91-4.65 2.83-6.34 3.93-1.32-.81-3.94-2.42-5.62-3.43l.44-.55-.13-.69-.86-4.41c-.12-.6-.23-1.21-.34-1.81v-.05c-.12-.68-.25-1.39-.39-2.09 2.17-3.6 4.59-7.31 7.52-11.67l1.22-1.81.41-.6-.22-.69-.65-2.08c-.88-2.84-1.85-5.89-2.9-9v-.09C96.28 46.07 95.49 44 94.7 42c-.21-.5-.43-1-.68-1.5q.79-.22 1.56-.4H98c5.41.26 11.54.56 15.43 4.15l.11.1a10.57 10.57 0 0 1 .86.93l.09.11.1.12a10.9 10.9 0 0 1 .69 1l.12.19.08.12a12.4 12.4 0 0 1 .73 1.5c.6 1.48 1.2 3.13 1.89 5.18.74 2.18 1.42 4.37 2.06 6.45-2.68 4.07-4.87 7.53-6.87 10.84l-.33.54.15.61c.27 1.07.47 2.21.69 3.42v.1zM87.48 56.33a1.08 1.08 0 0 1 0-.78c.12-.28.24-.63.38-1a21.81 21.81 0 0 0-4 .89c-1.91.79-3.62 3.2-5.39 4.84-2 1.84-4 3.26-5.39 4.84-1 .14-2 .36-2.93.57l.3.62q.59.88 1.1 1.81a1 1 0 0 0 .28.23c3.11-.5 5.61.69 7.88 0 1.08-.33 4.43-4.11 5.18-5.29 1.34-2.06 1.75-4.73 2.59-6.73zm11 13.54c-.92 2.36-2.33 4.14-3.08 6.69 1.29.78 2.1 2.09 3.55 2.68a22.16 22.16 0 0 1 3.05-2.68c-.72-2.67-2.34-4.33-3.08-7-.24 0-.38.1-.44.31zm17.82-12.12a.89.89 0 0 1 0-.64c.1-.23.19-.52.31-.8a17.33 17.33 0 0 0-3.21.73c-1.54.65-2.92 2.62-4.34 4-1.59 1.51-3.2 2.67-4.34 4-.82.11-1.59.29-2.36.47l.24.51q.47.72.89 1.48a.77.77 0 0 0 .23.19c2.51-.41 4.52.57 6.35 0 .87-.27 3.58-3.37 4.18-4.34 1.04-1.73 1.37-3.95 2.05-5.6z"
+                                            transform="translate(-2.38 -12.86)"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/kings row.png" data-lightbox="hibrido" data-title="Kings Row">
+                                <img src="../img/mapas/maps/kings row.png" class="card-img-top" alt="kings row"
+                                title="kings row"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/UK.png" alt="UK" title="UK">
+                                    King's Row</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <g>
+                                            <path
+                                                d="M84.14 91.33c3-4.88 6.11-9.63 9.27-14.32-.95-3-1.91-6.08-2.94-9.07-.77-2.24-1.58-4.46-2.47-6.62a17.36 17.36 0 0 0-1.06-2.12c-.09-.16-.19-.29-.29-.44a15.66 15.66 0 0 0-1-1.44l-.28-.32a15.27 15.27 0 0 0-1.26-1.33l-.17-.16c-5.84-5.3-12.65-5.43-19.94-5.79-7.29.37-14.1.5-19.94 5.78l-.17.16A15.27 15.27 0 0 0 42.63 57l-.28.33a15.66 15.66 0 0 0-1 1.44c-.09.15-.2.29-.29.44A17.36 17.36 0 0 0 40 61.32c-.89 2.16-1.69 4.38-2.47 6.62-1 3-2 6-2.94 9.07 3.16 4.69 6.27 9.45 9.27 14.32-.52 2-.86 4.27-1.29 6.41 3.79.79 8.07 1 11.57 2.13-.09 1.33 0 6.55.1 7.64 1.48.52 9.75 6 9.75 6s8.28-5.46 9.75-6c.13-1.09.19-6.31.1-7.64 3.5-1.11 7.78-1.35 11.57-2.13-.41-2.14-.75-4.38-1.27-6.41zM59.22 84q-.61.91-1.14 1.86a1 1 0 0 1-.29.23c-3.22-.51-5.8.71-8.14 0-1.12-.34-4.58-4.24-5.36-5.46-1.32-2.09-1.74-4.88-2.62-6.95a1.11 1.11 0 0 0 0-.81c-.13-.29-.25-.65-.39-1a22.58 22.58 0 0 1 4.11.92c2 .81 3.74 3.29 5.57 5 2 1.9 4.11 3.36 5.57 5 1.06.14 2 .37 3 .59zM64 100.72a29 29 0 0 0-4-3.37c.89-3.35 3-5.44 4-8.75 1 3.31 3.11 5.4 4 8.76a29 29 0 0 0-4 3.36zM78.35 86.1c-2.34.71-4.92-.51-8.14 0a1 1 0 0 1-.29-.23q-.53-1-1.14-1.86l-.31-.64c1-.22 2-.44 3-.59 1.46-1.63 3.53-3.1 5.57-5 1.83-1.69 3.59-4.17 5.57-5a22.58 22.58 0 0 1 4.11-.92c-.15.35-.27.71-.39 1a1.11 1.11 0 0 0 0 .81c-.88 2.07-1.3 4.86-2.62 6.95-.77 1.24-4.24 5.15-5.36 5.48z"
+                                                transform="translate(-2.38 -12.86)"></path>
+                                            <path
+                                                d="M89.89 22.65c-2.62 1.69-6 4.13-7.17 6.11a7.83 7.83 0 0 0-2.25-2.91.94.94 0 0 0-1.51.83v.33A4.69 4.69 0 0 1 77.91 30c-2.26 2.84-4.06 3.07-5.68 2.8l-.06.09v-.1a5.77 5.77 0 0 1-3.6-9.12 1.54 1.54 0 0 0 .05-1.75c-1.12-1.73-2.93-5.1-3.91-7a.78.78 0 0 0-1.38 0c-1 1.82-2.77 5.09-3.89 6.79a1.54 1.54 0 0 0 0 1.76 5.77 5.77 0 0 1-3.61 9.11v.1l-.06-.09c-1.63.27-3.42 0-5.7-2.8A4.66 4.66 0 0 1 49 26.86v-.36a.94.94 0 0 0-1.51-.83 7.83 7.83 0 0 0-2.25 2.91c-1.19-2-4.55-4.41-7.17-6.11a.94.94 0 0 0-1.32 1.27 57.41 57.41 0 0 1 6.91 16.46 3.39 3.39 0 0 0 1.33 2v2.7h.06a2.88 2.88 0 0 0-1.53 2.2 2.67 2.67 0 0 0 1.28 2c5.81-3.46 12-3.77 18.11-4.06h2.17c6 .3 12.26.6 18 4a2.62 2.62 0 0 0 1.22-2 2.88 2.88 0 0 0-1.53-2.2h.06v-2.6a3.4 3.4 0 0 0 1.47-2.11 57.52 57.52 0 0 1 6.86-16.3.94.94 0 0 0-1.27-1.18z"
+                                                transform="translate(-2.38 -12.86)"></path>
+                                            <path
+                                                d="M114.35 89.62c2.42-4 4.93-7.89 7.48-11.74-.76-2.49-1.54-5-2.37-7.43-.62-1.84-1.27-3.66-2-5.43a14.31 14.31 0 0 0-.85-1.74c-.07-.13-.16-.24-.23-.36a12.87 12.87 0 0 0-.81-1.18l-.23-.27a12.43 12.43 0 0 0-1-1.09l-.14-.13c-4.71-4.33-12.07-4.44-18-4.74l-1.68-.09c-1.28.29-2.55.64-3.8 1 .08.12.16.24.24.38a22 22 0 0 1 1.34 2.7c.81 2 1.61 4.12 2.53 6.78v.09c1.08 3.14 2.07 6.27 3 9.2l.67 2.15-1.2 1.91c-3.16 4.7-5.79 8.73-8.16 12.54.19.92.36 1.85.53 2.76.12.64.24 1.29.36 1.92l.89 4.55s-1 1.3-1 1.54c1.1.59 8 4.86 8 4.86s6.84-4.47 8-4.9c.1-.89.16-5.17.08-6.26 2.82-.91 6.27-1.1 9.33-1.75-.33-1.77-.56-3.6-.98-5.27zm-16.17 7.7c-1.5-.61-2.34-2-3.67-2.76.77-2.63 2.23-4.47 3.18-6.9.06-.22.21-.32.49-.28.77 2.72 2.44 4.43 3.19 7.18a22.9 22.9 0 0 0-3.19 2.76zm11.5-12c-1.89.59-4-.42-6.57 0a.79.79 0 0 1-.24-.19q-.43-.78-.92-1.53l-.25-.53c.8-.18 1.59-.36 2.44-.48 1.18-1.34 2.85-2.54 4.49-4.09 1.47-1.39 2.9-3.42 4.49-4.09a18 18 0 0 1 3.32-.75c-.12.29-.21.58-.32.82a.92.92 0 0 0 0 .66c-.71 1.7-1 4-2.11 5.7-.63 1.02-3.42 4.22-4.32 4.5zm-80.24-7.56l.67-2.15c.91-2.92 1.9-6.06 3-9.2v-.09c.92-2.66 1.72-4.82 2.53-6.79A22 22 0 0 1 37 56.84c.08-.13.16-.25.24-.37-1.25-.4-2.52-.75-3.8-1l-1.68.09c-5.88.3-13.25.41-18 4.74l-.14.13a12.42 12.42 0 0 0-1 1.09l-.23.27a12.85 12.85 0 0 0-.81 1.18c-.08.12-.16.24-.23.36a14.33 14.33 0 0 0-.81 1.67c-.72 1.77-1.37 3.59-2 5.43-.83 2.45-1.61 4.94-2.37 7.43 2.55 3.85 5.06 7.74 7.48 11.74-.42 1.66-.7 3.5-1 5.26 3.05.65 6.51.84 9.33 1.75-.07 1.09 0 5.37.08 6.26 1.19.43 8 4.9 8 4.9s6.93-4.27 8-4.86c0-.25-1-1.54-1-1.54l.94-4.53c.12-.63.24-1.28.36-1.92.17-.91.34-1.84.53-2.76-2.38-3.81-5-7.84-8.16-12.54zM26 83.62q-.49.74-.92 1.53a.79.79 0 0 1-.24.19c-2.59-.42-4.67.59-6.57 0-.9-.28-3.7-3.48-4.32-4.48-1.06-1.71-1.4-4-2.11-5.7a.92.92 0 0 0 0-.66c-.1-.24-.2-.54-.32-.82a18 18 0 0 1 3.32.75c1.59.67 3 2.7 4.49 4.09 1.64 1.55 3.31 2.76 4.49 4.09.85.12 1.65.3 2.44.48zm3.78 13.7a22.9 22.9 0 0 0-3.19-2.76c.75-2.75 2.42-4.46 3.19-7.18.29 0 .43.06.49.28.95 2.43 2.41 4.27 3.18 6.9-1.29.8-2.13 2.15-3.63 2.76z"
+                                                transform="translatea(-2.38 -12.86)"></path>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 64 64">
+                                        <g>
+                                            <rect x="12.56" y="23.95" width="11.82" height="11.82" rx="1.74" ry="1.74"
+                                                transform="translate(-15.71 21.8) rotate(-45)"></rect>
+                                            <path
+                                                d="M28.81,24.41a11.69,11.69,0,0,0-9.9-6.23v2.11a9.59,9.59,0,0,1,8.91,7.5Z">
+                                            </path>
+                                            <path
+                                                d="M18,20.28h0v-2.1h0a11.69,11.69,0,1,0,6.36,21.77l1-3.46A9.58,9.58,0,1,1,18,20.28Z">
+                                            </path>
+                                            <path
+                                                d="M24,41.33A12.75,12.75,0,0,1,8.46,37.76a.13.13,0,0,0-.23.08v1a.13.13,0,0,0,0,.08,13.64,13.64,0,0,0,7.21,4.25.13.13,0,0,1,.08.05l0,0,2.59,2.87a.39.39,0,0,0,.55,0l2.61-2.89.06,0a13.54,13.54,0,0,0,2.31-.72Z">
+                                            </path>
+                                            <path
+                                                d="M6.1,26.72a12.52,12.52,0,0,1,9.45-9.29,12.77,12.77,0,0,1,13.75,5.69L29.62,22A13.65,13.65,0,1,0,7.34,37.76h0V36.08h0A12.85,12.85,0,0,1,6.1,26.72Z">
+                                            </path>
+                                            <path
+                                                d="M58.8,34.15h0c0-.23,0-.46,0-.7h0a.27.27,0,0,0,.27-.23.26.26,0,0,0-.26-.28h-.08c0-.23,0-.46,0-.7h.08a.27.27,0,0,0,.27-.23.26.26,0,0,0-.26-.28h-.11l0-.7h.12a.26.26,0,0,0,.26-.28.27.27,0,0,0-.27-.23h-.12l0-.72h0a.55.55,0,0,0,.52-.61.57.57,0,0,0-.58-.49h-.06C58,26.27,56,24.47,52.69,24.47H47.87c-1.23-2.1-1.87-3.51-2.4-3.79a16.33,16.33,0,0,0-6.06-.87c-.88,0-1.61,0-2.22,0L31.88,38.09h10.2a1.77,1.77,0,0,0-.26.8c0,1.14.81,1.32,2.1,1.18h0c0-.11,2.24-3.88,5.79-3.81a7.63,7.63,0,0,1,5.8,3.56s0,.09,0,.13h0c1.48.17,2.43,0,2.43-1.21a2.37,2.37,0,0,0-.58-1.22h0c1.29-.3,1.47-1.4,1.44-2.86h0a.26.26,0,0,0,.26-.19A.26.26,0,0,0,58.8,34.15ZM46,24.54l-5,.23h0c-1.64,0-1.88.2-1.88-.29S39,22.78,39,22.3s0-.85.57-.85,3.4-.08,4,0a1.34,1.34,0,0,1,1.3.9L46,24.54Z">
+                                            </path>
+                                            <path
+                                                d="M49.74,41.55a1.19,1.19,0,1,0,1.49,1.15A1.36,1.36,0,0,0,49.74,41.55Zm0,2a.62.62,0,1,1,.78-.6A.71.71,0,0,1,49.74,43.5Z">
+                                            </path>
+                                            <path
+                                                d="M51.47,37.86l.06-.3a.5.5,0,0,0-.5-.5H48.47a.5.5,0,0,0-.5.5l.07.3c-2.44.56-4.21,2.31-4.21,4.37a3.83,3.83,0,0,0,1,2.5h0a.26.26,0,0,0,0,.36l.91.91a.26.26,0,0,0,.36,0l.11-.16a7.36,7.36,0,0,0,7.17,0l.11.16a.26.26,0,0,0,.36,0l.91-.91a.26.26,0,0,0,0-.36h0a3.83,3.83,0,0,0,1-2.5C55.66,40.16,53.9,38.43,51.47,37.86ZM49,37.94h1.46a.29.29,0,0,1,.29.29l-.24,1.33a.29.29,0,0,1-.29.29h-.92a.29.29,0,0,1-.29-.29l-.3-1.33A.29.29,0,0,1,49,37.94Zm-2.6,7-.39.56a.15.15,0,0,1-.21,0L45.29,45a.15.15,0,0,1,0-.21l.58-.37a.15.15,0,0,1,.21,0l.33.33,0,0v.08A.14.14,0,0,1,46.41,44.93Zm3.34.48c-1.72,0-3.11-1.07-3.11-2.39s1.39-2.39,3.11-2.39,3.11,1.07,3.11,2.39S51.46,45.41,49.74,45.41ZM54.2,45l-.52.52a.15.15,0,0,1-.21,0l-.39-.56,0,0a.61.61,0,0,1,0-.09.14.14,0,0,1,0-.08l.33-.33a.15.15,0,0,1,.21,0l.58.37A.15.15,0,0,1,54.2,45Z">
+                                            </path>
+                                            <polygon points="34.57 12 23.4 51.21 26.11 52 37.27 12.79 34.57 12">
+                                            </polygon>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <path
+                                            d="M43 38.83a14.78 14.78 0 0 0-1.22 1.29l-.27.32a15.22 15.22 0 0 0-1 1.4c-.09.15-.19.28-.28.43a16.85 16.85 0 0 0-1 2.06c-.86 2.1-1.64 4.25-2.39 6.42-1 2.9-1.93 5.84-2.85 8.79C37 64.1 40 68.7 42.93 73.43c-.5 2-.84 4.14-1.24 6.22 3.66.77 7.81 1 11.19 2.07-.09 1.29 0 6.35.1 7.41 1.43.51 9.44 5.8 9.44 5.8v-12.4a28.09 28.09 0 0 0-3.91-3.26c.9-3.25 3-5.28 3.91-8.49V33.07c-7.06.35-13.64.48-19.29 5.61zm6.81 21.46c2 1.84 4 3.26 5.39 4.84 1 .14 2 .36 2.93.57l-.3.62q-.59.88-1.1 1.81a1 1 0 0 1-.29.23c-3.11-.5-5.61.69-7.88 0-1.08-.33-4.43-4.11-5.18-5.29-1.27-2-1.68-4.73-2.53-6.74a1.07 1.07 0 0 0 0-.78c-.12-.28-.24-.63-.38-1a21.81 21.81 0 0 1 4 .89c1.82.81 3.53 3.21 5.29 4.85zM29 60.27l.65-2.08c.88-2.83 1.84-5.88 2.89-8.92v-.09c.89-2.58 1.67-4.67 2.45-6.58a21.34 21.34 0 0 1 1.3-2.6c.07-.13.15-.24.23-.36-1.21-.39-2.43-.73-3.67-1l-1.63.08c-5.69.29-12.81.39-17.37 4.6l-.13.12a12 12 0 0 0-1 1.06l-.22.26a12.47 12.47 0 0 0-.79 1.15c-.07.12-.15.23-.22.35a13.9 13.9 0 0 0-.82 1.69c-.67 1.68-1.3 3.45-1.91 5.23C8 55.56 7.21 58 6.47 60.39c2.46 3.73 4.89 7.51 7.23 11.39-.41 1.61-.67 3.39-1 5.1 3 .63 6.3.82 9 1.7-.07 1.06 0 5.21.08 6.07 1.15.42 7.77 4.75 7.77 4.75s6.7-4.14 7.77-4.71c0-.24-1-1.5-1-1.5l.86-4.41c.12-.62.23-1.24.35-1.86.16-.88.32-1.78.51-2.68-2.3-3.69-4.84-7.6-7.9-12.16zm-3.3 5.68q-.47.72-.89 1.48a.76.76 0 0 1-.23.19c-2.51-.41-4.52.57-6.35 0-.87-.27-3.58-3.37-4.18-4.34-1-1.66-1.36-3.88-2-5.52a.89.89 0 0 0 0-.64c-.1-.23-.19-.52-.31-.8a17.34 17.34 0 0 1 3.21.73c1.54.65 2.92 2.62 4.34 4 1.59 1.51 3.2 2.67 4.34 4 .82.11 1.59.29 2.36.47zm3.66 13.29a22.18 22.18 0 0 0-3.08-2.68c.72-2.67 2.34-4.33 3.08-7 .28 0 .42.06.48.27.92 2.36 2.33 4.14 3.08 6.69-1.32.81-2.13 2.13-3.58 2.71zm56-5.8c2.9-4.73 5.91-9.34 9-13.89-.92-2.95-1.85-5.89-2.85-8.79-.75-2.17-1.53-4.32-2.39-6.42a16.84 16.84 0 0 0-1-2.06c-.09-.15-.19-.28-.28-.43a15.19 15.19 0 0 0-1-1.4l-.27-.32a14.79 14.79 0 0 0-1.22-1.29l-.17-.15c-5.65-5.13-12.23-5.25-19.29-5.61v37.7c.92 3.21 3 5.24 3.91 8.49a28.1 28.1 0 0 0-3.91 3.26v12.4s8-5.29 9.44-5.8c.12-1.06.19-6.12.1-7.41 3.38-1.08 7.53-1.3 11.19-2.07-.42-2.08-.75-4.25-1.25-6.22zM82 78.88a44.86 44.86 0 0 0-7 1.4l-1.13.36.08 1.19c.07 1 0 4.59 0 6.33-1.58.85-4.36 2.61-6.47 4v-9a20.86 20.86 0 0 1 2.25-1.85l1.08-.82.79-.62-.27-1a19.65 19.65 0 0 0-2.12-4.66 18.12 18.12 0 0 1-1.74-3.65v-35.9c6.38.32 11.93.75 16.77 5.15l.14.13a13.36 13.36 0 0 1 1.1 1.16l.11.13.13.16a13.63 13.63 0 0 1 .88 1.26l.14.22.11.17a15.31 15.31 0 0 1 .93 1.87c.74 1.81 1.49 3.83 2.36 6.34.93 2.71 1.8 5.45 2.61 8-3.36 5-6.1 9.26-8.6 13.34l-.34.55.16.62c.34 1.32.6 2.78.86 4.2l.08.44c-1.01.2-1.97.34-2.91.48zm32.61-7.11c2.34-3.88 4.77-7.65 7.23-11.39-.74-2.42-1.49-4.83-2.3-7.21-.6-1.78-1.23-3.55-1.92-5.26a13.91 13.91 0 0 0-.82-1.69c-.07-.12-.15-.23-.22-.35a12.41 12.41 0 0 0-.79-1.15l-.22-.26a12 12 0 0 0-1-1.06l-.13-.12c-4.56-4.2-11.68-4.31-17.37-4.6l-1.63-.08c-1.24.28-2.46.62-3.67 1 .08.12.16.24.23.36a21.33 21.33 0 0 1 1.3 2.62c.78 1.91 1.56 4 2.45 6.58v.09c1 3 2 6.09 2.89 8.92l.65 2.08-1.19 1.83c-3.06 4.56-5.6 8.46-7.9 12.16.19.9.35 1.8.51 2.68.11.62.23 1.25.35 1.86l.86 4.41s-1 1.26-1 1.5c1.06.57 7.77 4.71 7.77 4.71s6.62-4.34 7.77-4.75c.1-.87.15-5 .08-6.07 2.73-.88 6.07-1.07 9-1.7-.27-1.72-.54-3.49-.95-5.11zM111.82 76a35.85 35.85 0 0 0-5.71 1.16l-1.12.36.08 1.18c.05.78 0 3.55 0 5-1.66.91-4.65 2.83-6.34 3.93-1.32-.81-3.94-2.42-5.62-3.43l.44-.55-.13-.69-.86-4.41c-.12-.6-.23-1.21-.34-1.81v-.05c-.12-.68-.25-1.39-.39-2.09 2.17-3.6 4.59-7.31 7.52-11.67l1.22-1.81.41-.6-.22-.69-.65-2.08c-.88-2.84-1.85-5.89-2.9-9v-.09C96.28 46.07 95.49 44 94.7 42c-.21-.5-.43-1-.68-1.5q.79-.22 1.56-.4H98c5.41.26 11.54.56 15.43 4.15l.11.1a10.57 10.57 0 0 1 .86.93l.09.11.1.12a10.9 10.9 0 0 1 .69 1l.12.19.08.12a12.4 12.4 0 0 1 .73 1.5c.6 1.48 1.2 3.13 1.89 5.18.74 2.18 1.42 4.37 2.06 6.45-2.68 4.07-4.87 7.53-6.87 10.84l-.33.54.15.61c.27 1.07.47 2.21.69 3.42v.1zM87.48 56.33a1.08 1.08 0 0 1 0-.78c.12-.28.24-.63.38-1a21.81 21.81 0 0 0-4 .89c-1.91.79-3.62 3.2-5.39 4.84-2 1.84-4 3.26-5.39 4.84-1 .14-2 .36-2.93.57l.3.62q.59.88 1.1 1.81a1 1 0 0 0 .28.23c3.11-.5 5.61.69 7.88 0 1.08-.33 4.43-4.11 5.18-5.29 1.34-2.06 1.75-4.73 2.59-6.73zm11 13.54c-.92 2.36-2.33 4.14-3.08 6.69 1.29.78 2.1 2.09 3.55 2.68a22.16 22.16 0 0 1 3.05-2.68c-.72-2.67-2.34-4.33-3.08-7-.24 0-.38.1-.44.31zm17.82-12.12a.89.89 0 0 1 0-.64c.1-.23.19-.52.31-.8a17.33 17.33 0 0 0-3.21.73c-1.54.65-2.92 2.62-4.34 4-1.59 1.51-3.2 2.67-4.34 4-.82.11-1.59.29-2.36.47l.24.51q.47.72.89 1.48a.77.77 0 0 0 .23.19c2.51-.41 4.52.57 6.35 0 .87-.27 3.58-3.37 4.18-4.34 1.04-1.73 1.37-3.95 2.05-5.6z"
+                                            transform="translate(-2.38 -12.86)"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/numbani.png" data-lightbox="hibrido" data-title="Numbani">
+                                <img src="../img/mapas/maps/numbani.png" class="card-img-top" alt="numbani" title="numbani"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/Nigeria.png" alt="Nigeria" title="Nigeria">
+                                    Numbani</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 64 64">
+                                        <g>
+                                            <rect x="12.56" y="23.95" width="11.82" height="11.82" rx="1.74" ry="1.74"
+                                                transform="translate(-15.71 21.8) rotate(-45)"></rect>
+                                            <path
+                                                d="M28.81,24.41a11.69,11.69,0,0,0-9.9-6.23v2.11a9.59,9.59,0,0,1,8.91,7.5Z">
+                                            </path>
+                                            <path
+                                                d="M18,20.28h0v-2.1h0a11.69,11.69,0,1,0,6.36,21.77l1-3.46A9.58,9.58,0,1,1,18,20.28Z">
+                                            </path>
+                                            <path
+                                                d="M24,41.33A12.75,12.75,0,0,1,8.46,37.76a.13.13,0,0,0-.23.08v1a.13.13,0,0,0,0,.08,13.64,13.64,0,0,0,7.21,4.25.13.13,0,0,1,.08.05l0,0,2.59,2.87a.39.39,0,0,0,.55,0l2.61-2.89.06,0a13.54,13.54,0,0,0,2.31-.72Z">
+                                            </path>
+                                            <path
+                                                d="M6.1,26.72a12.52,12.52,0,0,1,9.45-9.29,12.77,12.77,0,0,1,13.75,5.69L29.62,22A13.65,13.65,0,1,0,7.34,37.76h0V36.08h0A12.85,12.85,0,0,1,6.1,26.72Z">
+                                            </path>
+                                            <path
+                                                d="M58.8,34.15h0c0-.23,0-.46,0-.7h0a.27.27,0,0,0,.27-.23.26.26,0,0,0-.26-.28h-.08c0-.23,0-.46,0-.7h.08a.27.27,0,0,0,.27-.23.26.26,0,0,0-.26-.28h-.11l0-.7h.12a.26.26,0,0,0,.26-.28.27.27,0,0,0-.27-.23h-.12l0-.72h0a.55.55,0,0,0,.52-.61.57.57,0,0,0-.58-.49h-.06C58,26.27,56,24.47,52.69,24.47H47.87c-1.23-2.1-1.87-3.51-2.4-3.79a16.33,16.33,0,0,0-6.06-.87c-.88,0-1.61,0-2.22,0L31.88,38.09h10.2a1.77,1.77,0,0,0-.26.8c0,1.14.81,1.32,2.1,1.18h0c0-.11,2.24-3.88,5.79-3.81a7.63,7.63,0,0,1,5.8,3.56s0,.09,0,.13h0c1.48.17,2.43,0,2.43-1.21a2.37,2.37,0,0,0-.58-1.22h0c1.29-.3,1.47-1.4,1.44-2.86h0a.26.26,0,0,0,.26-.19A.26.26,0,0,0,58.8,34.15ZM46,24.54l-5,.23h0c-1.64,0-1.88.2-1.88-.29S39,22.78,39,22.3s0-.85.57-.85,3.4-.08,4,0a1.34,1.34,0,0,1,1.3.9L46,24.54Z">
+                                            </path>
+                                            <path
+                                                d="M49.74,41.55a1.19,1.19,0,1,0,1.49,1.15A1.36,1.36,0,0,0,49.74,41.55Zm0,2a.62.62,0,1,1,.78-.6A.71.71,0,0,1,49.74,43.5Z">
+                                            </path>
+                                            <path
+                                                d="M51.47,37.86l.06-.3a.5.5,0,0,0-.5-.5H48.47a.5.5,0,0,0-.5.5l.07.3c-2.44.56-4.21,2.31-4.21,4.37a3.83,3.83,0,0,0,1,2.5h0a.26.26,0,0,0,0,.36l.91.91a.26.26,0,0,0,.36,0l.11-.16a7.36,7.36,0,0,0,7.17,0l.11.16a.26.26,0,0,0,.36,0l.91-.91a.26.26,0,0,0,0-.36h0a3.83,3.83,0,0,0,1-2.5C55.66,40.16,53.9,38.43,51.47,37.86ZM49,37.94h1.46a.29.29,0,0,1,.29.29l-.24,1.33a.29.29,0,0,1-.29.29h-.92a.29.29,0,0,1-.29-.29l-.3-1.33A.29.29,0,0,1,49,37.94Zm-2.6,7-.39.56a.15.15,0,0,1-.21,0L45.29,45a.15.15,0,0,1,0-.21l.58-.37a.15.15,0,0,1,.21,0l.33.33,0,0v.08A.14.14,0,0,1,46.41,44.93Zm3.34.48c-1.72,0-3.11-1.07-3.11-2.39s1.39-2.39,3.11-2.39,3.11,1.07,3.11,2.39S51.46,45.41,49.74,45.41ZM54.2,45l-.52.52a.15.15,0,0,1-.21,0l-.39-.56,0,0a.61.61,0,0,1,0-.09.14.14,0,0,1,0-.08l.33-.33a.15.15,0,0,1,.21,0l.58.37A.15.15,0,0,1,54.2,45Z">
+                                            </path>
+                                            <polygon points="34.57 12 23.4 51.21 26.11 52 37.27 12.79 34.57 12">
+                                            </polygon>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="eliminacao">
+                <div class="row">
+                    <div class="col">
+                        <div class="h5 text-uppercase fw-bolder">Eliminaão</div>
+                        <p class="fw-normal fst-italic">
+                            Elimine todos os inimigos para ganhar a rodada. Ganhe três rodadas para vencer o mapa.
+                            Disponvel em equipes de um, trs ou seis jogadores.
+                        </p>
+                    </div>
+                </div>
+                <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-3">
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/castillo.png" data-lightbox="eliminacao" data-title="Castillo">
+                                <img src="../img/mapas/maps/castillo.png" class="card-img-top" alt="castillo"
+                                title="castillo"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"> <img class="img-fluid"
+                                        src="../img/mapas/pais/Mexico.png" alt="Mexico" title="Mexico">
+                                    Castillo</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <g>
+                                            <path
+                                                d="M73.5 86.2c.1-.5 10.1-.6 10.9-2.3s-1.5-4.9-1.5-5.8S93 63.3 93 62.4 88.1 51.5 85.3 47 74 38.8 64.9 38.3h-1.7c-9.1.4-17.8 4.4-20.4 8.7S35 61.4 35 62.4s10.1 14.8 10.1 15.7-2.3 4-1.5 5.8 10.8 1.8 10.9 2.3-.3 6.6.3 7.5 8.8 5.9 9.2 5.9 8.5-5 9.2-5.9.2-7 .3-7.5zm-15-14.3c-.6.1-1.1 1.1-1.5 1.3a5.9 5.9 0 0 1-3.4-.1 5.4 5.4 0 0 0-3.1 0c-.8.2-4.7-4.9-5.3-6.3s-2.2-6.5-2-6.8 3.1.3 3.7.6a112.3 112.3 0 0 1 8.1 7.8 7.7 7.7 0 0 0 3.9 2.3c.3.2.2 1.1-.4 1.2zM64 86.7a16.3 16.3 0 0 1-3.7-3.3 70.2 70.2 0 0 1 3.7-7.5 70.2 70.2 0 0 1 3.7 7.4 16.3 16.3 0 0 1-3.7 3.4zm7-13.5c-.4-.2-1-1.2-1.5-1.3s-.6-1-.2-1.1a7.7 7.7 0 0 0 3.9-2.3 112.3 112.3 0 0 1 8.1-7.8c.5-.2 3.5-.8 3.7-.6s-1.6 5.3-2.1 6.8-4.5 6.6-5.3 6.3a5.4 5.4 0 0 0-3.1 0 5.9 5.9 0 0 1-3.5 0z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M89 85a.3.3 0 0 0-.5.2c.2.7.5 1.5-.1 1.8s-10.7 1.8-10.9 2.3 0 3 0 5.3L94 111.1c1.4 1.4 12.5 2.8 13 2.4s-1.2-11.5-1.9-12.2z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M39.5 87.1c-.5-.3-.2-1.2-.1-1.8a.3.3 0 0 0-.4-.3l-16 16.2c-.7.7-2.5 11.7-1.9 12.2s11.6-1 13-2.4l16.2-16.3c0-2.3.2-4.8 0-5.3s-9.4-1.5-10.8-2.3z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M120.2 21.7l-1.8-5.1a1.6 1.6 0 0 0-1.2-1.1l-5.3-1a1.6 1.6 0 0 0-1.6.5l-3.5 4.1a1.6 1.6 0 0 0-.3 1.6l.3.8a.3.3 0 0 1-.1.3h-.1L92.3 36.4 79.1 23.1c-1.3-1.3-.9 1.2-.6 2.3s2.8 9.1 3.8 10.2l3.2 3.4-.5.3-.9.7a.8.8 0 0 0 .1 1.3 13.6 13.6 0 0 1 4.7 4.2 59.7 59.7 0 0 1 2.6 5.7 1.3 1.3 0 0 0 1.9.5l2.6-2 3.2 3.1c1.2 1.1 6.3 2.3 9.4 3.3s3.2-.2 2.2-1.2L98.3 42.4 113 27.8h.3l1.6.3a1.6 1.6 0 0 0 1.6-.5l3.5-4.1a1.6 1.6 0 0 0 .2-1.8z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M32 49.6l2.6 2a1.3 1.3 0 0 0 1.9-.5 59.7 59.7 0 0 1 2.6-5.7 13.6 13.6 0 0 1 4.7-4.2.8.8 0 0 0 .1-1.3l-.9-.7-.5-.3 3.2-3.4c.9-1.1 3.5-9.1 3.8-10.2s.7-3.6-.6-2.3L35.7 36.4 21.4 22h-.1a.3.3 0 0 1-.1-.3l.3-.8a1.6 1.6 0 0 0-.3-1.6l-3.5-4.1a1.6 1.6 0 0 0-1.6-.5l-5.3 1a1.6 1.6 0 0 0-1.2 1.1l-1.8 4.9a1.6 1.6 0 0 0 .3 1.6l3.5 4.1a1.6 1.6 0 0 0 1.6.5l1.6-.3h.2l14.7 14.8-12.4 12.5c-1 .9-.8 2.1 2.2 1.2s8.1-2.2 9.4-3.3z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <path
+                                            d="M43 38.83a14.78 14.78 0 0 0-1.22 1.29l-.27.32a15.22 15.22 0 0 0-1 1.4c-.09.15-.19.28-.28.43a16.85 16.85 0 0 0-1 2.06c-.86 2.1-1.64 4.25-2.39 6.42-1 2.9-1.93 5.84-2.85 8.79C37 64.1 40 68.7 42.93 73.43c-.5 2-.84 4.14-1.24 6.22 3.66.77 7.81 1 11.19 2.07-.09 1.29 0 6.35.1 7.41 1.43.51 9.44 5.8 9.44 5.8v-12.4a28.09 28.09 0 0 0-3.91-3.26c.9-3.25 3-5.28 3.91-8.49V33.07c-7.06.35-13.64.48-19.29 5.61zm6.81 21.46c2 1.84 4 3.26 5.39 4.84 1 .14 2 .36 2.93.57l-.3.62q-.59.88-1.1 1.81a1 1 0 0 1-.29.23c-3.11-.5-5.61.69-7.88 0-1.08-.33-4.43-4.11-5.18-5.29-1.27-2-1.68-4.73-2.53-6.74a1.07 1.07 0 0 0 0-.78c-.12-.28-.24-.63-.38-1a21.81 21.81 0 0 1 4 .89c1.82.81 3.53 3.21 5.29 4.85zM29 60.27l.65-2.08c.88-2.83 1.84-5.88 2.89-8.92v-.09c.89-2.58 1.67-4.67 2.45-6.58a21.34 21.34 0 0 1 1.3-2.6c.07-.13.15-.24.23-.36-1.21-.39-2.43-.73-3.67-1l-1.63.08c-5.69.29-12.81.39-17.37 4.6l-.13.12a12 12 0 0 0-1 1.06l-.22.26a12.47 12.47 0 0 0-.79 1.15c-.07.12-.15.23-.22.35a13.9 13.9 0 0 0-.82 1.69c-.67 1.68-1.3 3.45-1.91 5.23C8 55.56 7.21 58 6.47 60.39c2.46 3.73 4.89 7.51 7.23 11.39-.41 1.61-.67 3.39-1 5.1 3 .63 6.3.82 9 1.7-.07 1.06 0 5.21.08 6.07 1.15.42 7.77 4.75 7.77 4.75s6.7-4.14 7.77-4.71c0-.24-1-1.5-1-1.5l.86-4.41c.12-.62.23-1.24.35-1.86.16-.88.32-1.78.51-2.68-2.3-3.69-4.84-7.6-7.9-12.16zm-3.3 5.68q-.47.72-.89 1.48a.76.76 0 0 1-.23.19c-2.51-.41-4.52.57-6.35 0-.87-.27-3.58-3.37-4.18-4.34-1-1.66-1.36-3.88-2-5.52a.89.89 0 0 0 0-.64c-.1-.23-.19-.52-.31-.8a17.34 17.34 0 0 1 3.21.73c1.54.65 2.92 2.62 4.34 4 1.59 1.51 3.2 2.67 4.34 4 .82.11 1.59.29 2.36.47zm3.66 13.29a22.18 22.18 0 0 0-3.08-2.68c.72-2.67 2.34-4.33 3.08-7 .28 0 .42.06.48.27.92 2.36 2.33 4.14 3.08 6.69-1.32.81-2.13 2.13-3.58 2.71zm56-5.8c2.9-4.73 5.91-9.34 9-13.89-.92-2.95-1.85-5.89-2.85-8.79-.75-2.17-1.53-4.32-2.39-6.42a16.84 16.84 0 0 0-1-2.06c-.09-.15-.19-.28-.28-.43a15.19 15.19 0 0 0-1-1.4l-.27-.32a14.79 14.79 0 0 0-1.22-1.29l-.17-.15c-5.65-5.13-12.23-5.25-19.29-5.61v37.7c.92 3.21 3 5.24 3.91 8.49a28.1 28.1 0 0 0-3.91 3.26v12.4s8-5.29 9.44-5.8c.12-1.06.19-6.12.1-7.41 3.38-1.08 7.53-1.3 11.19-2.07-.42-2.08-.75-4.25-1.25-6.22zM82 78.88a44.86 44.86 0 0 0-7 1.4l-1.13.36.08 1.19c.07 1 0 4.59 0 6.33-1.58.85-4.36 2.61-6.47 4v-9a20.86 20.86 0 0 1 2.25-1.85l1.08-.82.79-.62-.27-1a19.65 19.65 0 0 0-2.12-4.66 18.12 18.12 0 0 1-1.74-3.65v-35.9c6.38.32 11.93.75 16.77 5.15l.14.13a13.36 13.36 0 0 1 1.1 1.16l.11.13.13.16a13.63 13.63 0 0 1 .88 1.26l.14.22.11.17a15.31 15.31 0 0 1 .93 1.87c.74 1.81 1.49 3.83 2.36 6.34.93 2.71 1.8 5.45 2.61 8-3.36 5-6.1 9.26-8.6 13.34l-.34.55.16.62c.34 1.32.6 2.78.86 4.2l.08.44c-1.01.2-1.97.34-2.91.48zm32.61-7.11c2.34-3.88 4.77-7.65 7.23-11.39-.74-2.42-1.49-4.83-2.3-7.21-.6-1.78-1.23-3.55-1.92-5.26a13.91 13.91 0 0 0-.82-1.69c-.07-.12-.15-.23-.22-.35a12.41 12.41 0 0 0-.79-1.15l-.22-.26a12 12 0 0 0-1-1.06l-.13-.12c-4.56-4.2-11.68-4.31-17.37-4.6l-1.63-.08c-1.24.28-2.46.62-3.67 1 .08.12.16.24.23.36a21.33 21.33 0 0 1 1.3 2.62c.78 1.91 1.56 4 2.45 6.58v.09c1 3 2 6.09 2.89 8.92l.65 2.08-1.19 1.83c-3.06 4.56-5.6 8.46-7.9 12.16.19.9.35 1.8.51 2.68.11.62.23 1.25.35 1.86l.86 4.41s-1 1.26-1 1.5c1.06.57 7.77 4.71 7.77 4.71s6.62-4.34 7.77-4.75c.1-.87.15-5 .08-6.07 2.73-.88 6.07-1.07 9-1.7-.27-1.72-.54-3.49-.95-5.11zM111.82 76a35.85 35.85 0 0 0-5.71 1.16l-1.12.36.08 1.18c.05.78 0 3.55 0 5-1.66.91-4.65 2.83-6.34 3.93-1.32-.81-3.94-2.42-5.62-3.43l.44-.55-.13-.69-.86-4.41c-.12-.6-.23-1.21-.34-1.81v-.05c-.12-.68-.25-1.39-.39-2.09 2.17-3.6 4.59-7.31 7.52-11.67l1.22-1.81.41-.6-.22-.69-.65-2.08c-.88-2.84-1.85-5.89-2.9-9v-.09C96.28 46.07 95.49 44 94.7 42c-.21-.5-.43-1-.68-1.5q.79-.22 1.56-.4H98c5.41.26 11.54.56 15.43 4.15l.11.1a10.57 10.57 0 0 1 .86.93l.09.11.1.12a10.9 10.9 0 0 1 .69 1l.12.19.08.12a12.4 12.4 0 0 1 .73 1.5c.6 1.48 1.2 3.13 1.89 5.18.74 2.18 1.42 4.37 2.06 6.45-2.68 4.07-4.87 7.53-6.87 10.84l-.33.54.15.61c.27 1.07.47 2.21.69 3.42v.1zM87.48 56.33a1.08 1.08 0 0 1 0-.78c.12-.28.24-.63.38-1a21.81 21.81 0 0 0-4 .89c-1.91.79-3.62 3.2-5.39 4.84-2 1.84-4 3.26-5.39 4.84-1 .14-2 .36-2.93.57l.3.62q.59.88 1.1 1.81a1 1 0 0 0 .28.23c3.11-.5 5.61.69 7.88 0 1.08-.33 4.43-4.11 5.18-5.29 1.34-2.06 1.75-4.73 2.59-6.73zm11 13.54c-.92 2.36-2.33 4.14-3.08 6.69 1.29.78 2.1 2.09 3.55 2.68a22.16 22.16 0 0 1 3.05-2.68c-.72-2.67-2.34-4.33-3.08-7-.24 0-.38.1-.44.31zm17.82-12.12a.89.89 0 0 1 0-.64c.1-.23.19-.52.31-.8a17.33 17.33 0 0 0-3.21.73c-1.54.65-2.92 2.62-4.34 4-1.59 1.51-3.2 2.67-4.34 4-.82.11-1.59.29-2.36.47l.24.51q.47.72.89 1.48a.77.77 0 0 0 .23.19c2.51-.41 4.52.57 6.35 0 .87-.27 3.58-3.37 4.18-4.34 1.04-1.73 1.37-3.95 2.05-5.6z"
+                                            transform="translate(-2.38 -12.86)"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/ecoponto antartica.png" data-lightbox="eliminacao" data-title="Ecoponto Antartica">
+                                <img src="../img/mapas/maps/ecoponto antartica.png" class="card-img-top"
+                                alt="ecoponto antartica" title="ecoponto antartica"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/OW.png" alt="OW" title="OW">
+                                    Ecoponto: Antrtica</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <g>
+                                            <path
+                                                d="M73.5 86.2c.1-.5 10.1-.6 10.9-2.3s-1.5-4.9-1.5-5.8S93 63.3 93 62.4 88.1 51.5 85.3 47 74 38.8 64.9 38.3h-1.7c-9.1.4-17.8 4.4-20.4 8.7S35 61.4 35 62.4s10.1 14.8 10.1 15.7-2.3 4-1.5 5.8 10.8 1.8 10.9 2.3-.3 6.6.3 7.5 8.8 5.9 9.2 5.9 8.5-5 9.2-5.9.2-7 .3-7.5zm-15-14.3c-.6.1-1.1 1.1-1.5 1.3a5.9 5.9 0 0 1-3.4-.1 5.4 5.4 0 0 0-3.1 0c-.8.2-4.7-4.9-5.3-6.3s-2.2-6.5-2-6.8 3.1.3 3.7.6a112.3 112.3 0 0 1 8.1 7.8 7.7 7.7 0 0 0 3.9 2.3c.3.2.2 1.1-.4 1.2zM64 86.7a16.3 16.3 0 0 1-3.7-3.3 70.2 70.2 0 0 1 3.7-7.5 70.2 70.2 0 0 1 3.7 7.4 16.3 16.3 0 0 1-3.7 3.4zm7-13.5c-.4-.2-1-1.2-1.5-1.3s-.6-1-.2-1.1a7.7 7.7 0 0 0 3.9-2.3 112.3 112.3 0 0 1 8.1-7.8c.5-.2 3.5-.8 3.7-.6s-1.6 5.3-2.1 6.8-4.5 6.6-5.3 6.3a5.4 5.4 0 0 0-3.1 0 5.9 5.9 0 0 1-3.5 0z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M89 85a.3.3 0 0 0-.5.2c.2.7.5 1.5-.1 1.8s-10.7 1.8-10.9 2.3 0 3 0 5.3L94 111.1c1.4 1.4 12.5 2.8 13 2.4s-1.2-11.5-1.9-12.2z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M39.5 87.1c-.5-.3-.2-1.2-.1-1.8a.3.3 0 0 0-.4-.3l-16 16.2c-.7.7-2.5 11.7-1.9 12.2s11.6-1 13-2.4l16.2-16.3c0-2.3.2-4.8 0-5.3s-9.4-1.5-10.8-2.3z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M120.2 21.7l-1.8-5.1a1.6 1.6 0 0 0-1.2-1.1l-5.3-1a1.6 1.6 0 0 0-1.6.5l-3.5 4.1a1.6 1.6 0 0 0-.3 1.6l.3.8a.3.3 0 0 1-.1.3h-.1L92.3 36.4 79.1 23.1c-1.3-1.3-.9 1.2-.6 2.3s2.8 9.1 3.8 10.2l3.2 3.4-.5.3-.9.7a.8.8 0 0 0 .1 1.3 13.6 13.6 0 0 1 4.7 4.2 59.7 59.7 0 0 1 2.6 5.7 1.3 1.3 0 0 0 1.9.5l2.6-2 3.2 3.1c1.2 1.1 6.3 2.3 9.4 3.3s3.2-.2 2.2-1.2L98.3 42.4 113 27.8h.3l1.6.3a1.6 1.6 0 0 0 1.6-.5l3.5-4.1a1.6 1.6 0 0 0 .2-1.8z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M32 49.6l2.6 2a1.3 1.3 0 0 0 1.9-.5 59.7 59.7 0 0 1 2.6-5.7 13.6 13.6 0 0 1 4.7-4.2.8.8 0 0 0 .1-1.3l-.9-.7-.5-.3 3.2-3.4c.9-1.1 3.5-9.1 3.8-10.2s.7-3.6-.6-2.3L35.7 36.4 21.4 22h-.1a.3.3 0 0 1-.1-.3l.3-.8a1.6 1.6 0 0 0-.3-1.6l-3.5-4.1a1.6 1.6 0 0 0-1.6-.5l-5.3 1a1.6 1.6 0 0 0-1.2 1.1l-1.8 4.9a1.6 1.6 0 0 0 .3 1.6l3.5 4.1a1.6 1.6 0 0 0 1.6.5l1.6-.3h.2l14.7 14.8-12.4 12.5c-1 .9-.8 2.1 2.2 1.2s8.1-2.2 9.4-3.3z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <path
+                                            d="M43 38.83a14.78 14.78 0 0 0-1.22 1.29l-.27.32a15.22 15.22 0 0 0-1 1.4c-.09.15-.19.28-.28.43a16.85 16.85 0 0 0-1 2.06c-.86 2.1-1.64 4.25-2.39 6.42-1 2.9-1.93 5.84-2.85 8.79C37 64.1 40 68.7 42.93 73.43c-.5 2-.84 4.14-1.24 6.22 3.66.77 7.81 1 11.19 2.07-.09 1.29 0 6.35.1 7.41 1.43.51 9.44 5.8 9.44 5.8v-12.4a28.09 28.09 0 0 0-3.91-3.26c.9-3.25 3-5.28 3.91-8.49V33.07c-7.06.35-13.64.48-19.29 5.61zm6.81 21.46c2 1.84 4 3.26 5.39 4.84 1 .14 2 .36 2.93.57l-.3.62q-.59.88-1.1 1.81a1 1 0 0 1-.29.23c-3.11-.5-5.61.69-7.88 0-1.08-.33-4.43-4.11-5.18-5.29-1.27-2-1.68-4.73-2.53-6.74a1.07 1.07 0 0 0 0-.78c-.12-.28-.24-.63-.38-1a21.81 21.81 0 0 1 4 .89c1.82.81 3.53 3.21 5.29 4.85zM29 60.27l.65-2.08c.88-2.83 1.84-5.88 2.89-8.92v-.09c.89-2.58 1.67-4.67 2.45-6.58a21.34 21.34 0 0 1 1.3-2.6c.07-.13.15-.24.23-.36-1.21-.39-2.43-.73-3.67-1l-1.63.08c-5.69.29-12.81.39-17.37 4.6l-.13.12a12 12 0 0 0-1 1.06l-.22.26a12.47 12.47 0 0 0-.79 1.15c-.07.12-.15.23-.22.35a13.9 13.9 0 0 0-.82 1.69c-.67 1.68-1.3 3.45-1.91 5.23C8 55.56 7.21 58 6.47 60.39c2.46 3.73 4.89 7.51 7.23 11.39-.41 1.61-.67 3.39-1 5.1 3 .63 6.3.82 9 1.7-.07 1.06 0 5.21.08 6.07 1.15.42 7.77 4.75 7.77 4.75s6.7-4.14 7.77-4.71c0-.24-1-1.5-1-1.5l.86-4.41c.12-.62.23-1.24.35-1.86.16-.88.32-1.78.51-2.68-2.3-3.69-4.84-7.6-7.9-12.16zm-3.3 5.68q-.47.72-.89 1.48a.76.76 0 0 1-.23.19c-2.51-.41-4.52.57-6.35 0-.87-.27-3.58-3.37-4.18-4.34-1-1.66-1.36-3.88-2-5.52a.89.89 0 0 0 0-.64c-.1-.23-.19-.52-.31-.8a17.34 17.34 0 0 1 3.21.73c1.54.65 2.92 2.62 4.34 4 1.59 1.51 3.2 2.67 4.34 4 .82.11 1.59.29 2.36.47zm3.66 13.29a22.18 22.18 0 0 0-3.08-2.68c.72-2.67 2.34-4.33 3.08-7 .28 0 .42.06.48.27.92 2.36 2.33 4.14 3.08 6.69-1.32.81-2.13 2.13-3.58 2.71zm56-5.8c2.9-4.73 5.91-9.34 9-13.89-.92-2.95-1.85-5.89-2.85-8.79-.75-2.17-1.53-4.32-2.39-6.42a16.84 16.84 0 0 0-1-2.06c-.09-.15-.19-.28-.28-.43a15.19 15.19 0 0 0-1-1.4l-.27-.32a14.79 14.79 0 0 0-1.22-1.29l-.17-.15c-5.65-5.13-12.23-5.25-19.29-5.61v37.7c.92 3.21 3 5.24 3.91 8.49a28.1 28.1 0 0 0-3.91 3.26v12.4s8-5.29 9.44-5.8c.12-1.06.19-6.12.1-7.41 3.38-1.08 7.53-1.3 11.19-2.07-.42-2.08-.75-4.25-1.25-6.22zM82 78.88a44.86 44.86 0 0 0-7 1.4l-1.13.36.08 1.19c.07 1 0 4.59 0 6.33-1.58.85-4.36 2.61-6.47 4v-9a20.86 20.86 0 0 1 2.25-1.85l1.08-.82.79-.62-.27-1a19.65 19.65 0 0 0-2.12-4.66 18.12 18.12 0 0 1-1.74-3.65v-35.9c6.38.32 11.93.75 16.77 5.15l.14.13a13.36 13.36 0 0 1 1.1 1.16l.11.13.13.16a13.63 13.63 0 0 1 .88 1.26l.14.22.11.17a15.31 15.31 0 0 1 .93 1.87c.74 1.81 1.49 3.83 2.36 6.34.93 2.71 1.8 5.45 2.61 8-3.36 5-6.1 9.26-8.6 13.34l-.34.55.16.62c.34 1.32.6 2.78.86 4.2l.08.44c-1.01.2-1.97.34-2.91.48zm32.61-7.11c2.34-3.88 4.77-7.65 7.23-11.39-.74-2.42-1.49-4.83-2.3-7.21-.6-1.78-1.23-3.55-1.92-5.26a13.91 13.91 0 0 0-.82-1.69c-.07-.12-.15-.23-.22-.35a12.41 12.41 0 0 0-.79-1.15l-.22-.26a12 12 0 0 0-1-1.06l-.13-.12c-4.56-4.2-11.68-4.31-17.37-4.6l-1.63-.08c-1.24.28-2.46.62-3.67 1 .08.12.16.24.23.36a21.33 21.33 0 0 1 1.3 2.62c.78 1.91 1.56 4 2.45 6.58v.09c1 3 2 6.09 2.89 8.92l.65 2.08-1.19 1.83c-3.06 4.56-5.6 8.46-7.9 12.16.19.9.35 1.8.51 2.68.11.62.23 1.25.35 1.86l.86 4.41s-1 1.26-1 1.5c1.06.57 7.77 4.71 7.77 4.71s6.62-4.34 7.77-4.75c.1-.87.15-5 .08-6.07 2.73-.88 6.07-1.07 9-1.7-.27-1.72-.54-3.49-.95-5.11zM111.82 76a35.85 35.85 0 0 0-5.71 1.16l-1.12.36.08 1.18c.05.78 0 3.55 0 5-1.66.91-4.65 2.83-6.34 3.93-1.32-.81-3.94-2.42-5.62-3.43l.44-.55-.13-.69-.86-4.41c-.12-.6-.23-1.21-.34-1.81v-.05c-.12-.68-.25-1.39-.39-2.09 2.17-3.6 4.59-7.31 7.52-11.67l1.22-1.81.41-.6-.22-.69-.65-2.08c-.88-2.84-1.85-5.89-2.9-9v-.09C96.28 46.07 95.49 44 94.7 42c-.21-.5-.43-1-.68-1.5q.79-.22 1.56-.4H98c5.41.26 11.54.56 15.43 4.15l.11.1a10.57 10.57 0 0 1 .86.93l.09.11.1.12a10.9 10.9 0 0 1 .69 1l.12.19.08.12a12.4 12.4 0 0 1 .73 1.5c.6 1.48 1.2 3.13 1.89 5.18.74 2.18 1.42 4.37 2.06 6.45-2.68 4.07-4.87 7.53-6.87 10.84l-.33.54.15.61c.27 1.07.47 2.21.69 3.42v.1zM87.48 56.33a1.08 1.08 0 0 1 0-.78c.12-.28.24-.63.38-1a21.81 21.81 0 0 0-4 .89c-1.91.79-3.62 3.2-5.39 4.84-2 1.84-4 3.26-5.39 4.84-1 .14-2 .36-2.93.57l.3.62q.59.88 1.1 1.81a1 1 0 0 0 .28.23c3.11-.5 5.61.69 7.88 0 1.08-.33 4.43-4.11 5.18-5.29 1.34-2.06 1.75-4.73 2.59-6.73zm11 13.54c-.92 2.36-2.33 4.14-3.08 6.69 1.29.78 2.1 2.09 3.55 2.68a22.16 22.16 0 0 1 3.05-2.68c-.72-2.67-2.34-4.33-3.08-7-.24 0-.38.1-.44.31zm17.82-12.12a.89.89 0 0 1 0-.64c.1-.23.19-.52.31-.8a17.33 17.33 0 0 0-3.21.73c-1.54.65-2.92 2.62-4.34 4-1.59 1.51-3.2 2.67-4.34 4-.82.11-1.59.29-2.36.47l.24.51q.47.72.89 1.48a.77.77 0 0 0 .23.19c2.51-.41 4.52.57 6.35 0 .87-.27 3.58-3.37 4.18-4.34 1.04-1.73 1.37-3.95 2.05-5.6z"
+                                            transform="translate(-2.38 -12.86)"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/floresta negra.png" data-lightbox="eliminacao" data-title="Floresta Negra">
+                                <img src="../img/mapas/maps/floresta negra.png" class="card-img-top" alt="floresta negra"
+                                title="floresta negra"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/Germany.png" alt="Germany" title="Germany">
+                                    Floresta Negra</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <g>
+                                            <path
+                                                d="M73.5 86.2c.1-.5 10.1-.6 10.9-2.3s-1.5-4.9-1.5-5.8S93 63.3 93 62.4 88.1 51.5 85.3 47 74 38.8 64.9 38.3h-1.7c-9.1.4-17.8 4.4-20.4 8.7S35 61.4 35 62.4s10.1 14.8 10.1 15.7-2.3 4-1.5 5.8 10.8 1.8 10.9 2.3-.3 6.6.3 7.5 8.8 5.9 9.2 5.9 8.5-5 9.2-5.9.2-7 .3-7.5zm-15-14.3c-.6.1-1.1 1.1-1.5 1.3a5.9 5.9 0 0 1-3.4-.1 5.4 5.4 0 0 0-3.1 0c-.8.2-4.7-4.9-5.3-6.3s-2.2-6.5-2-6.8 3.1.3 3.7.6a112.3 112.3 0 0 1 8.1 7.8 7.7 7.7 0 0 0 3.9 2.3c.3.2.2 1.1-.4 1.2zM64 86.7a16.3 16.3 0 0 1-3.7-3.3 70.2 70.2 0 0 1 3.7-7.5 70.2 70.2 0 0 1 3.7 7.4 16.3 16.3 0 0 1-3.7 3.4zm7-13.5c-.4-.2-1-1.2-1.5-1.3s-.6-1-.2-1.1a7.7 7.7 0 0 0 3.9-2.3 112.3 112.3 0 0 1 8.1-7.8c.5-.2 3.5-.8 3.7-.6s-1.6 5.3-2.1 6.8-4.5 6.6-5.3 6.3a5.4 5.4 0 0 0-3.1 0 5.9 5.9 0 0 1-3.5 0z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M89 85a.3.3 0 0 0-.5.2c.2.7.5 1.5-.1 1.8s-10.7 1.8-10.9 2.3 0 3 0 5.3L94 111.1c1.4 1.4 12.5 2.8 13 2.4s-1.2-11.5-1.9-12.2z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M39.5 87.1c-.5-.3-.2-1.2-.1-1.8a.3.3 0 0 0-.4-.3l-16 16.2c-.7.7-2.5 11.7-1.9 12.2s11.6-1 13-2.4l16.2-16.3c0-2.3.2-4.8 0-5.3s-9.4-1.5-10.8-2.3z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M120.2 21.7l-1.8-5.1a1.6 1.6 0 0 0-1.2-1.1l-5.3-1a1.6 1.6 0 0 0-1.6.5l-3.5 4.1a1.6 1.6 0 0 0-.3 1.6l.3.8a.3.3 0 0 1-.1.3h-.1L92.3 36.4 79.1 23.1c-1.3-1.3-.9 1.2-.6 2.3s2.8 9.1 3.8 10.2l3.2 3.4-.5.3-.9.7a.8.8 0 0 0 .1 1.3 13.6 13.6 0 0 1 4.7 4.2 59.7 59.7 0 0 1 2.6 5.7 1.3 1.3 0 0 0 1.9.5l2.6-2 3.2 3.1c1.2 1.1 6.3 2.3 9.4 3.3s3.2-.2 2.2-1.2L98.3 42.4 113 27.8h.3l1.6.3a1.6 1.6 0 0 0 1.6-.5l3.5-4.1a1.6 1.6 0 0 0 .2-1.8z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M32 49.6l2.6 2a1.3 1.3 0 0 0 1.9-.5 59.7 59.7 0 0 1 2.6-5.7 13.6 13.6 0 0 1 4.7-4.2.8.8 0 0 0 .1-1.3l-.9-.7-.5-.3 3.2-3.4c.9-1.1 3.5-9.1 3.8-10.2s.7-3.6-.6-2.3L35.7 36.4 21.4 22h-.1a.3.3 0 0 1-.1-.3l.3-.8a1.6 1.6 0 0 0-.3-1.6l-3.5-4.1a1.6 1.6 0 0 0-1.6-.5l-5.3 1a1.6 1.6 0 0 0-1.2 1.1l-1.8 4.9a1.6 1.6 0 0 0 .3 1.6l3.5 4.1a1.6 1.6 0 0 0 1.6.5l1.6-.3h.2l14.7 14.8-12.4 12.5c-1 .9-.8 2.1 2.2 1.2s8.1-2.2 9.4-3.3z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <path
+                                            d="M43 38.83a14.78 14.78 0 0 0-1.22 1.29l-.27.32a15.22 15.22 0 0 0-1 1.4c-.09.15-.19.28-.28.43a16.85 16.85 0 0 0-1 2.06c-.86 2.1-1.64 4.25-2.39 6.42-1 2.9-1.93 5.84-2.85 8.79C37 64.1 40 68.7 42.93 73.43c-.5 2-.84 4.14-1.24 6.22 3.66.77 7.81 1 11.19 2.07-.09 1.29 0 6.35.1 7.41 1.43.51 9.44 5.8 9.44 5.8v-12.4a28.09 28.09 0 0 0-3.91-3.26c.9-3.25 3-5.28 3.91-8.49V33.07c-7.06.35-13.64.48-19.29 5.61zm6.81 21.46c2 1.84 4 3.26 5.39 4.84 1 .14 2 .36 2.93.57l-.3.62q-.59.88-1.1 1.81a1 1 0 0 1-.29.23c-3.11-.5-5.61.69-7.88 0-1.08-.33-4.43-4.11-5.18-5.29-1.27-2-1.68-4.73-2.53-6.74a1.07 1.07 0 0 0 0-.78c-.12-.28-.24-.63-.38-1a21.81 21.81 0 0 1 4 .89c1.82.81 3.53 3.21 5.29 4.85zM29 60.27l.65-2.08c.88-2.83 1.84-5.88 2.89-8.92v-.09c.89-2.58 1.67-4.67 2.45-6.58a21.34 21.34 0 0 1 1.3-2.6c.07-.13.15-.24.23-.36-1.21-.39-2.43-.73-3.67-1l-1.63.08c-5.69.29-12.81.39-17.37 4.6l-.13.12a12 12 0 0 0-1 1.06l-.22.26a12.47 12.47 0 0 0-.79 1.15c-.07.12-.15.23-.22.35a13.9 13.9 0 0 0-.82 1.69c-.67 1.68-1.3 3.45-1.91 5.23C8 55.56 7.21 58 6.47 60.39c2.46 3.73 4.89 7.51 7.23 11.39-.41 1.61-.67 3.39-1 5.1 3 .63 6.3.82 9 1.7-.07 1.06 0 5.21.08 6.07 1.15.42 7.77 4.75 7.77 4.75s6.7-4.14 7.77-4.71c0-.24-1-1.5-1-1.5l.86-4.41c.12-.62.23-1.24.35-1.86.16-.88.32-1.78.51-2.68-2.3-3.69-4.84-7.6-7.9-12.16zm-3.3 5.68q-.47.72-.89 1.48a.76.76 0 0 1-.23.19c-2.51-.41-4.52.57-6.35 0-.87-.27-3.58-3.37-4.18-4.34-1-1.66-1.36-3.88-2-5.52a.89.89 0 0 0 0-.64c-.1-.23-.19-.52-.31-.8a17.34 17.34 0 0 1 3.21.73c1.54.65 2.92 2.62 4.34 4 1.59 1.51 3.2 2.67 4.34 4 .82.11 1.59.29 2.36.47zm3.66 13.29a22.18 22.18 0 0 0-3.08-2.68c.72-2.67 2.34-4.33 3.08-7 .28 0 .42.06.48.27.92 2.36 2.33 4.14 3.08 6.69-1.32.81-2.13 2.13-3.58 2.71zm56-5.8c2.9-4.73 5.91-9.34 9-13.89-.92-2.95-1.85-5.89-2.85-8.79-.75-2.17-1.53-4.32-2.39-6.42a16.84 16.84 0 0 0-1-2.06c-.09-.15-.19-.28-.28-.43a15.19 15.19 0 0 0-1-1.4l-.27-.32a14.79 14.79 0 0 0-1.22-1.29l-.17-.15c-5.65-5.13-12.23-5.25-19.29-5.61v37.7c.92 3.21 3 5.24 3.91 8.49a28.1 28.1 0 0 0-3.91 3.26v12.4s8-5.29 9.44-5.8c.12-1.06.19-6.12.1-7.41 3.38-1.08 7.53-1.3 11.19-2.07-.42-2.08-.75-4.25-1.25-6.22zM82 78.88a44.86 44.86 0 0 0-7 1.4l-1.13.36.08 1.19c.07 1 0 4.59 0 6.33-1.58.85-4.36 2.61-6.47 4v-9a20.86 20.86 0 0 1 2.25-1.85l1.08-.82.79-.62-.27-1a19.65 19.65 0 0 0-2.12-4.66 18.12 18.12 0 0 1-1.74-3.65v-35.9c6.38.32 11.93.75 16.77 5.15l.14.13a13.36 13.36 0 0 1 1.1 1.16l.11.13.13.16a13.63 13.63 0 0 1 .88 1.26l.14.22.11.17a15.31 15.31 0 0 1 .93 1.87c.74 1.81 1.49 3.83 2.36 6.34.93 2.71 1.8 5.45 2.61 8-3.36 5-6.1 9.26-8.6 13.34l-.34.55.16.62c.34 1.32.6 2.78.86 4.2l.08.44c-1.01.2-1.97.34-2.91.48zm32.61-7.11c2.34-3.88 4.77-7.65 7.23-11.39-.74-2.42-1.49-4.83-2.3-7.21-.6-1.78-1.23-3.55-1.92-5.26a13.91 13.91 0 0 0-.82-1.69c-.07-.12-.15-.23-.22-.35a12.41 12.41 0 0 0-.79-1.15l-.22-.26a12 12 0 0 0-1-1.06l-.13-.12c-4.56-4.2-11.68-4.31-17.37-4.6l-1.63-.08c-1.24.28-2.46.62-3.67 1 .08.12.16.24.23.36a21.33 21.33 0 0 1 1.3 2.62c.78 1.91 1.56 4 2.45 6.58v.09c1 3 2 6.09 2.89 8.92l.65 2.08-1.19 1.83c-3.06 4.56-5.6 8.46-7.9 12.16.19.9.35 1.8.51 2.68.11.62.23 1.25.35 1.86l.86 4.41s-1 1.26-1 1.5c1.06.57 7.77 4.71 7.77 4.71s6.62-4.34 7.77-4.75c.1-.87.15-5 .08-6.07 2.73-.88 6.07-1.07 9-1.7-.27-1.72-.54-3.49-.95-5.11zM111.82 76a35.85 35.85 0 0 0-5.71 1.16l-1.12.36.08 1.18c.05.78 0 3.55 0 5-1.66.91-4.65 2.83-6.34 3.93-1.32-.81-3.94-2.42-5.62-3.43l.44-.55-.13-.69-.86-4.41c-.12-.6-.23-1.21-.34-1.81v-.05c-.12-.68-.25-1.39-.39-2.09 2.17-3.6 4.59-7.31 7.52-11.67l1.22-1.81.41-.6-.22-.69-.65-2.08c-.88-2.84-1.85-5.89-2.9-9v-.09C96.28 46.07 95.49 44 94.7 42c-.21-.5-.43-1-.68-1.5q.79-.22 1.56-.4H98c5.41.26 11.54.56 15.43 4.15l.11.1a10.57 10.57 0 0 1 .86.93l.09.11.1.12a10.9 10.9 0 0 1 .69 1l.12.19.08.12a12.4 12.4 0 0 1 .73 1.5c.6 1.48 1.2 3.13 1.89 5.18.74 2.18 1.42 4.37 2.06 6.45-2.68 4.07-4.87 7.53-6.87 10.84l-.33.54.15.61c.27 1.07.47 2.21.69 3.42v.1zM87.48 56.33a1.08 1.08 0 0 1 0-.78c.12-.28.24-.63.38-1a21.81 21.81 0 0 0-4 .89c-1.91.79-3.62 3.2-5.39 4.84-2 1.84-4 3.26-5.39 4.84-1 .14-2 .36-2.93.57l.3.62q.59.88 1.1 1.81a1 1 0 0 0 .28.23c3.11-.5 5.61.69 7.88 0 1.08-.33 4.43-4.11 5.18-5.29 1.34-2.06 1.75-4.73 2.59-6.73zm11 13.54c-.92 2.36-2.33 4.14-3.08 6.69 1.29.78 2.1 2.09 3.55 2.68a22.16 22.16 0 0 1 3.05-2.68c-.72-2.67-2.34-4.33-3.08-7-.24 0-.38.1-.44.31zm17.82-12.12a.89.89 0 0 1 0-.64c.1-.23.19-.52.31-.8a17.33 17.33 0 0 0-3.21.73c-1.54.65-2.92 2.62-4.34 4-1.59 1.51-3.2 2.67-4.34 4-.82.11-1.59.29-2.36.47l.24.51q.47.72.89 1.48a.77.77 0 0 0 .23.19c2.51-.41 4.52.57 6.35 0 .87-.27 3.58-3.37 4.18-4.34 1.04-1.73 1.37-3.95 2.05-5.6z"
+                                            transform="translate(-2.38 -12.86)"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/necropole.png" data-lightbox="eliminacao" data-title="Necropole">
+                                <img src="../img/mapas/maps/necropole.png" class="card-img-top" alt="necropole"
+                                title="necropole"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/Egypt.png" alt="Egypt" title="Egypt">
+                                    Necrople</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <g>
+                                            <path
+                                                d="M73.5 86.2c.1-.5 10.1-.6 10.9-2.3s-1.5-4.9-1.5-5.8S93 63.3 93 62.4 88.1 51.5 85.3 47 74 38.8 64.9 38.3h-1.7c-9.1.4-17.8 4.4-20.4 8.7S35 61.4 35 62.4s10.1 14.8 10.1 15.7-2.3 4-1.5 5.8 10.8 1.8 10.9 2.3-.3 6.6.3 7.5 8.8 5.9 9.2 5.9 8.5-5 9.2-5.9.2-7 .3-7.5zm-15-14.3c-.6.1-1.1 1.1-1.5 1.3a5.9 5.9 0 0 1-3.4-.1 5.4 5.4 0 0 0-3.1 0c-.8.2-4.7-4.9-5.3-6.3s-2.2-6.5-2-6.8 3.1.3 3.7.6a112.3 112.3 0 0 1 8.1 7.8 7.7 7.7 0 0 0 3.9 2.3c.3.2.2 1.1-.4 1.2zM64 86.7a16.3 16.3 0 0 1-3.7-3.3 70.2 70.2 0 0 1 3.7-7.5 70.2 70.2 0 0 1 3.7 7.4 16.3 16.3 0 0 1-3.7 3.4zm7-13.5c-.4-.2-1-1.2-1.5-1.3s-.6-1-.2-1.1a7.7 7.7 0 0 0 3.9-2.3 112.3 112.3 0 0 1 8.1-7.8c.5-.2 3.5-.8 3.7-.6s-1.6 5.3-2.1 6.8-4.5 6.6-5.3 6.3a5.4 5.4 0 0 0-3.1 0 5.9 5.9 0 0 1-3.5 0z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M89 85a.3.3 0 0 0-.5.2c.2.7.5 1.5-.1 1.8s-10.7 1.8-10.9 2.3 0 3 0 5.3L94 111.1c1.4 1.4 12.5 2.8 13 2.4s-1.2-11.5-1.9-12.2z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M39.5 87.1c-.5-.3-.2-1.2-.1-1.8a.3.3 0 0 0-.4-.3l-16 16.2c-.7.7-2.5 11.7-1.9 12.2s11.6-1 13-2.4l16.2-16.3c0-2.3.2-4.8 0-5.3s-9.4-1.5-10.8-2.3z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M120.2 21.7l-1.8-5.1a1.6 1.6 0 0 0-1.2-1.1l-5.3-1a1.6 1.6 0 0 0-1.6.5l-3.5 4.1a1.6 1.6 0 0 0-.3 1.6l.3.8a.3.3 0 0 1-.1.3h-.1L92.3 36.4 79.1 23.1c-1.3-1.3-.9 1.2-.6 2.3s2.8 9.1 3.8 10.2l3.2 3.4-.5.3-.9.7a.8.8 0 0 0 .1 1.3 13.6 13.6 0 0 1 4.7 4.2 59.7 59.7 0 0 1 2.6 5.7 1.3 1.3 0 0 0 1.9.5l2.6-2 3.2 3.1c1.2 1.1 6.3 2.3 9.4 3.3s3.2-.2 2.2-1.2L98.3 42.4 113 27.8h.3l1.6.3a1.6 1.6 0 0 0 1.6-.5l3.5-4.1a1.6 1.6 0 0 0 .2-1.8z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M32 49.6l2.6 2a1.3 1.3 0 0 0 1.9-.5 59.7 59.7 0 0 1 2.6-5.7 13.6 13.6 0 0 1 4.7-4.2.8.8 0 0 0 .1-1.3l-.9-.7-.5-.3 3.2-3.4c.9-1.1 3.5-9.1 3.8-10.2s.7-3.6-.6-2.3L35.7 36.4 21.4 22h-.1a.3.3 0 0 1-.1-.3l.3-.8a1.6 1.6 0 0 0-.3-1.6l-3.5-4.1a1.6 1.6 0 0 0-1.6-.5l-5.3 1a1.6 1.6 0 0 0-1.2 1.1l-1.8 4.9a1.6 1.6 0 0 0 .3 1.6l3.5 4.1a1.6 1.6 0 0 0 1.6.5l1.6-.3h.2l14.7 14.8-12.4 12.5c-1 .9-.8 2.1 2.2 1.2s8.1-2.2 9.4-3.3z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <path
+                                            d="M43 38.83a14.78 14.78 0 0 0-1.22 1.29l-.27.32a15.22 15.22 0 0 0-1 1.4c-.09.15-.19.28-.28.43a16.85 16.85 0 0 0-1 2.06c-.86 2.1-1.64 4.25-2.39 6.42-1 2.9-1.93 5.84-2.85 8.79C37 64.1 40 68.7 42.93 73.43c-.5 2-.84 4.14-1.24 6.22 3.66.77 7.81 1 11.19 2.07-.09 1.29 0 6.35.1 7.41 1.43.51 9.44 5.8 9.44 5.8v-12.4a28.09 28.09 0 0 0-3.91-3.26c.9-3.25 3-5.28 3.91-8.49V33.07c-7.06.35-13.64.48-19.29 5.61zm6.81 21.46c2 1.84 4 3.26 5.39 4.84 1 .14 2 .36 2.93.57l-.3.62q-.59.88-1.1 1.81a1 1 0 0 1-.29.23c-3.11-.5-5.61.69-7.88 0-1.08-.33-4.43-4.11-5.18-5.29-1.27-2-1.68-4.73-2.53-6.74a1.07 1.07 0 0 0 0-.78c-.12-.28-.24-.63-.38-1a21.81 21.81 0 0 1 4 .89c1.82.81 3.53 3.21 5.29 4.85zM29 60.27l.65-2.08c.88-2.83 1.84-5.88 2.89-8.92v-.09c.89-2.58 1.67-4.67 2.45-6.58a21.34 21.34 0 0 1 1.3-2.6c.07-.13.15-.24.23-.36-1.21-.39-2.43-.73-3.67-1l-1.63.08c-5.69.29-12.81.39-17.37 4.6l-.13.12a12 12 0 0 0-1 1.06l-.22.26a12.47 12.47 0 0 0-.79 1.15c-.07.12-.15.23-.22.35a13.9 13.9 0 0 0-.82 1.69c-.67 1.68-1.3 3.45-1.91 5.23C8 55.56 7.21 58 6.47 60.39c2.46 3.73 4.89 7.51 7.23 11.39-.41 1.61-.67 3.39-1 5.1 3 .63 6.3.82 9 1.7-.07 1.06 0 5.21.08 6.07 1.15.42 7.77 4.75 7.77 4.75s6.7-4.14 7.77-4.71c0-.24-1-1.5-1-1.5l.86-4.41c.12-.62.23-1.24.35-1.86.16-.88.32-1.78.51-2.68-2.3-3.69-4.84-7.6-7.9-12.16zm-3.3 5.68q-.47.72-.89 1.48a.76.76 0 0 1-.23.19c-2.51-.41-4.52.57-6.35 0-.87-.27-3.58-3.37-4.18-4.34-1-1.66-1.36-3.88-2-5.52a.89.89 0 0 0 0-.64c-.1-.23-.19-.52-.31-.8a17.34 17.34 0 0 1 3.21.73c1.54.65 2.92 2.62 4.34 4 1.59 1.51 3.2 2.67 4.34 4 .82.11 1.59.29 2.36.47zm3.66 13.29a22.18 22.18 0 0 0-3.08-2.68c.72-2.67 2.34-4.33 3.08-7 .28 0 .42.06.48.27.92 2.36 2.33 4.14 3.08 6.69-1.32.81-2.13 2.13-3.58 2.71zm56-5.8c2.9-4.73 5.91-9.34 9-13.89-.92-2.95-1.85-5.89-2.85-8.79-.75-2.17-1.53-4.32-2.39-6.42a16.84 16.84 0 0 0-1-2.06c-.09-.15-.19-.28-.28-.43a15.19 15.19 0 0 0-1-1.4l-.27-.32a14.79 14.79 0 0 0-1.22-1.29l-.17-.15c-5.65-5.13-12.23-5.25-19.29-5.61v37.7c.92 3.21 3 5.24 3.91 8.49a28.1 28.1 0 0 0-3.91 3.26v12.4s8-5.29 9.44-5.8c.12-1.06.19-6.12.1-7.41 3.38-1.08 7.53-1.3 11.19-2.07-.42-2.08-.75-4.25-1.25-6.22zM82 78.88a44.86 44.86 0 0 0-7 1.4l-1.13.36.08 1.19c.07 1 0 4.59 0 6.33-1.58.85-4.36 2.61-6.47 4v-9a20.86 20.86 0 0 1 2.25-1.85l1.08-.82.79-.62-.27-1a19.65 19.65 0 0 0-2.12-4.66 18.12 18.12 0 0 1-1.74-3.65v-35.9c6.38.32 11.93.75 16.77 5.15l.14.13a13.36 13.36 0 0 1 1.1 1.16l.11.13.13.16a13.63 13.63 0 0 1 .88 1.26l.14.22.11.17a15.31 15.31 0 0 1 .93 1.87c.74 1.81 1.49 3.83 2.36 6.34.93 2.71 1.8 5.45 2.61 8-3.36 5-6.1 9.26-8.6 13.34l-.34.55.16.62c.34 1.32.6 2.78.86 4.2l.08.44c-1.01.2-1.97.34-2.91.48zm32.61-7.11c2.34-3.88 4.77-7.65 7.23-11.39-.74-2.42-1.49-4.83-2.3-7.21-.6-1.78-1.23-3.55-1.92-5.26a13.91 13.91 0 0 0-.82-1.69c-.07-.12-.15-.23-.22-.35a12.41 12.41 0 0 0-.79-1.15l-.22-.26a12 12 0 0 0-1-1.06l-.13-.12c-4.56-4.2-11.68-4.31-17.37-4.6l-1.63-.08c-1.24.28-2.46.62-3.67 1 .08.12.16.24.23.36a21.33 21.33 0 0 1 1.3 2.62c.78 1.91 1.56 4 2.45 6.58v.09c1 3 2 6.09 2.89 8.92l.65 2.08-1.19 1.83c-3.06 4.56-5.6 8.46-7.9 12.16.19.9.35 1.8.51 2.68.11.62.23 1.25.35 1.86l.86 4.41s-1 1.26-1 1.5c1.06.57 7.77 4.71 7.77 4.71s6.62-4.34 7.77-4.75c.1-.87.15-5 .08-6.07 2.73-.88 6.07-1.07 9-1.7-.27-1.72-.54-3.49-.95-5.11zM111.82 76a35.85 35.85 0 0 0-5.71 1.16l-1.12.36.08 1.18c.05.78 0 3.55 0 5-1.66.91-4.65 2.83-6.34 3.93-1.32-.81-3.94-2.42-5.62-3.43l.44-.55-.13-.69-.86-4.41c-.12-.6-.23-1.21-.34-1.81v-.05c-.12-.68-.25-1.39-.39-2.09 2.17-3.6 4.59-7.31 7.52-11.67l1.22-1.81.41-.6-.22-.69-.65-2.08c-.88-2.84-1.85-5.89-2.9-9v-.09C96.28 46.07 95.49 44 94.7 42c-.21-.5-.43-1-.68-1.5q.79-.22 1.56-.4H98c5.41.26 11.54.56 15.43 4.15l.11.1a10.57 10.57 0 0 1 .86.93l.09.11.1.12a10.9 10.9 0 0 1 .69 1l.12.19.08.12a12.4 12.4 0 0 1 .73 1.5c.6 1.48 1.2 3.13 1.89 5.18.74 2.18 1.42 4.37 2.06 6.45-2.68 4.07-4.87 7.53-6.87 10.84l-.33.54.15.61c.27 1.07.47 2.21.69 3.42v.1zM87.48 56.33a1.08 1.08 0 0 1 0-.78c.12-.28.24-.63.38-1a21.81 21.81 0 0 0-4 .89c-1.91.79-3.62 3.2-5.39 4.84-2 1.84-4 3.26-5.39 4.84-1 .14-2 .36-2.93.57l.3.62q.59.88 1.1 1.81a1 1 0 0 0 .28.23c3.11-.5 5.61.69 7.88 0 1.08-.33 4.43-4.11 5.18-5.29 1.34-2.06 1.75-4.73 2.59-6.73zm11 13.54c-.92 2.36-2.33 4.14-3.08 6.69 1.29.78 2.1 2.09 3.55 2.68a22.16 22.16 0 0 1 3.05-2.68c-.72-2.67-2.34-4.33-3.08-7-.24 0-.38.1-.44.31zm17.82-12.12a.89.89 0 0 1 0-.64c.1-.23.19-.52.31-.8a17.33 17.33 0 0 0-3.21.73c-1.54.65-2.92 2.62-4.34 4-1.59 1.51-3.2 2.67-4.34 4-.82.11-1.59.29-2.36.47l.24.51q.47.72.89 1.48a.77.77 0 0 0 .23.19c2.51-.41 4.52.57 6.35 0 .87-.27 3.58-3.37 4.18-4.34 1.04-1.73 1.37-3.95 2.05-5.6z"
+                                            transform="translate(-2.38 -12.86)"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="combate">
+                <div class="row">
+                    <div class="col">
+                        <div class="h5 text-uppercase fw-bolder">Combate até a morte</div>
+                        <p class="fw-normal fst-italic">
+                            Os jogadores competem para ver quem consegue o maior nmero de abates em um formato todos
+                            contra todos.
+                        </p>
+                    </div>
+                </div>
+                <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-3">
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/chateau guillard.png" data-lightbox="combate" data-title="Chateau Guillard">
+                                <img src="../img/mapas/maps/chateau guillard.png" class="card-img-top"
+                                alt="chateau guillard" title="chateau guillard"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/France.png" alt="France" title="France">
+                                    Chteau Guillard</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <g>
+                                            <path
+                                                d="M84.14 91.33c3-4.88 6.11-9.63 9.27-14.32-.95-3-1.91-6.08-2.94-9.07-.77-2.24-1.58-4.46-2.47-6.62a17.36 17.36 0 0 0-1.06-2.12c-.09-.16-.19-.29-.29-.44a15.66 15.66 0 0 0-1-1.44l-.28-.32a15.27 15.27 0 0 0-1.26-1.33l-.17-.16c-5.84-5.3-12.65-5.43-19.94-5.79-7.29.37-14.1.5-19.94 5.78l-.17.16A15.27 15.27 0 0 0 42.63 57l-.28.33a15.66 15.66 0 0 0-1 1.44c-.09.15-.2.29-.29.44A17.36 17.36 0 0 0 40 61.32c-.89 2.16-1.69 4.38-2.47 6.62-1 3-2 6-2.94 9.07 3.16 4.69 6.27 9.45 9.27 14.32-.52 2-.86 4.27-1.29 6.41 3.79.79 8.07 1 11.57 2.13-.09 1.33 0 6.55.1 7.64 1.48.52 9.75 6 9.75 6s8.28-5.46 9.75-6c.13-1.09.19-6.31.1-7.64 3.5-1.11 7.78-1.35 11.57-2.13-.41-2.14-.75-4.38-1.27-6.41zM59.22 84q-.61.91-1.14 1.86a1 1 0 0 1-.29.23c-3.22-.51-5.8.71-8.14 0-1.12-.34-4.58-4.24-5.36-5.46-1.32-2.09-1.74-4.88-2.62-6.95a1.11 1.11 0 0 0 0-.81c-.13-.29-.25-.65-.39-1a22.58 22.58 0 0 1 4.11.92c2 .81 3.74 3.29 5.57 5 2 1.9 4.11 3.36 5.57 5 1.06.14 2 .37 3 .59zM64 100.72a29 29 0 0 0-4-3.37c.89-3.35 3-5.44 4-8.75 1 3.31 3.11 5.4 4 8.76a29 29 0 0 0-4 3.36zM78.35 86.1c-2.34.71-4.92-.51-8.14 0a1 1 0 0 1-.29-.23q-.53-1-1.14-1.86l-.31-.64c1-.22 2-.44 3-.59 1.46-1.63 3.53-3.1 5.57-5 1.83-1.69 3.59-4.17 5.57-5a22.58 22.58 0 0 1 4.11-.92c-.15.35-.27.71-.39 1a1.11 1.11 0 0 0 0 .81c-.88 2.07-1.3 4.86-2.62 6.95-.77 1.24-4.24 5.15-5.36 5.48z"
+                                                transform="translate(-2.38 -12.86)"></path>
+                                            <path
+                                                d="M89.89 22.65c-2.62 1.69-6 4.13-7.17 6.11a7.83 7.83 0 0 0-2.25-2.91.94.94 0 0 0-1.51.83v.33A4.69 4.69 0 0 1 77.91 30c-2.26 2.84-4.06 3.07-5.68 2.8l-.06.09v-.1a5.77 5.77 0 0 1-3.6-9.12 1.54 1.54 0 0 0 .05-1.75c-1.12-1.73-2.93-5.1-3.91-7a.78.78 0 0 0-1.38 0c-1 1.82-2.77 5.09-3.89 6.79a1.54 1.54 0 0 0 0 1.76 5.77 5.77 0 0 1-3.61 9.11v.1l-.06-.09c-1.63.27-3.42 0-5.7-2.8A4.66 4.66 0 0 1 49 26.86v-.36a.94.94 0 0 0-1.51-.83 7.83 7.83 0 0 0-2.25 2.91c-1.19-2-4.55-4.41-7.17-6.11a.94.94 0 0 0-1.32 1.27 57.41 57.41 0 0 1 6.91 16.46 3.39 3.39 0 0 0 1.33 2v2.7h.06a2.88 2.88 0 0 0-1.53 2.2 2.67 2.67 0 0 0 1.28 2c5.81-3.46 12-3.77 18.11-4.06h2.17c6 .3 12.26.6 18 4a2.62 2.62 0 0 0 1.22-2 2.88 2.88 0 0 0-1.53-2.2h.06v-2.6a3.4 3.4 0 0 0 1.47-2.11 57.52 57.52 0 0 1 6.86-16.3.94.94 0 0 0-1.27-1.18z"
+                                                transform="translate(-2.38 -12.86)"></path>
+                                            <path
+                                                d="M114.35 89.62c2.42-4 4.93-7.89 7.48-11.74-.76-2.49-1.54-5-2.37-7.43-.62-1.84-1.27-3.66-2-5.43a14.31 14.31 0 0 0-.85-1.74c-.07-.13-.16-.24-.23-.36a12.87 12.87 0 0 0-.81-1.18l-.23-.27a12.43 12.43 0 0 0-1-1.09l-.14-.13c-4.71-4.33-12.07-4.44-18-4.74l-1.68-.09c-1.28.29-2.55.64-3.8 1 .08.12.16.24.24.38a22 22 0 0 1 1.34 2.7c.81 2 1.61 4.12 2.53 6.78v.09c1.08 3.14 2.07 6.27 3 9.2l.67 2.15-1.2 1.91c-3.16 4.7-5.79 8.73-8.16 12.54.19.92.36 1.85.53 2.76.12.64.24 1.29.36 1.92l.89 4.55s-1 1.3-1 1.54c1.1.59 8 4.86 8 4.86s6.84-4.47 8-4.9c.1-.89.16-5.17.08-6.26 2.82-.91 6.27-1.1 9.33-1.75-.33-1.77-.56-3.6-.98-5.27zm-16.17 7.7c-1.5-.61-2.34-2-3.67-2.76.77-2.63 2.23-4.47 3.18-6.9.06-.22.21-.32.49-.28.77 2.72 2.44 4.43 3.19 7.18a22.9 22.9 0 0 0-3.19 2.76zm11.5-12c-1.89.59-4-.42-6.57 0a.79.79 0 0 1-.24-.19q-.43-.78-.92-1.53l-.25-.53c.8-.18 1.59-.36 2.44-.48 1.18-1.34 2.85-2.54 4.49-4.09 1.47-1.39 2.9-3.42 4.49-4.09a18 18 0 0 1 3.32-.75c-.12.29-.21.58-.32.82a.92.92 0 0 0 0 .66c-.71 1.7-1 4-2.11 5.7-.63 1.02-3.42 4.22-4.32 4.5zm-80.24-7.56l.67-2.15c.91-2.92 1.9-6.06 3-9.2v-.09c.92-2.66 1.72-4.82 2.53-6.79A22 22 0 0 1 37 56.84c.08-.13.16-.25.24-.37-1.25-.4-2.52-.75-3.8-1l-1.68.09c-5.88.3-13.25.41-18 4.74l-.14.13a12.42 12.42 0 0 0-1 1.09l-.23.27a12.85 12.85 0 0 0-.81 1.18c-.08.12-.16.24-.23.36a14.33 14.33 0 0 0-.81 1.67c-.72 1.77-1.37 3.59-2 5.43-.83 2.45-1.61 4.94-2.37 7.43 2.55 3.85 5.06 7.74 7.48 11.74-.42 1.66-.7 3.5-1 5.26 3.05.65 6.51.84 9.33 1.75-.07 1.09 0 5.37.08 6.26 1.19.43 8 4.9 8 4.9s6.93-4.27 8-4.86c0-.25-1-1.54-1-1.54l.94-4.53c.12-.63.24-1.28.36-1.92.17-.91.34-1.84.53-2.76-2.38-3.81-5-7.84-8.16-12.54zM26 83.62q-.49.74-.92 1.53a.79.79 0 0 1-.24.19c-2.59-.42-4.67.59-6.57 0-.9-.28-3.7-3.48-4.32-4.48-1.06-1.71-1.4-4-2.11-5.7a.92.92 0 0 0 0-.66c-.1-.24-.2-.54-.32-.82a18 18 0 0 1 3.32.75c1.59.67 3 2.7 4.49 4.09 1.64 1.55 3.31 2.76 4.49 4.09.85.12 1.65.3 2.44.48zm3.78 13.7a22.9 22.9 0 0 0-3.19-2.76c.75-2.75 2.42-4.46 3.19-7.18.29 0 .43.06.49.28.95 2.43 2.41 4.27 3.18 6.9-1.29.8-2.13 2.15-3.63 2.76z"
+                                                transform="translate(-2.38 -12.86)"></path>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <path
+                                            d="M43 38.83a14.78 14.78 0 0 0-1.22 1.29l-.27.32a15.22 15.22 0 0 0-1 1.4c-.09.15-.19.28-.28.43a16.85 16.85 0 0 0-1 2.06c-.86 2.1-1.64 4.25-2.39 6.42-1 2.9-1.93 5.84-2.85 8.79C37 64.1 40 68.7 42.93 73.43c-.5 2-.84 4.14-1.24 6.22 3.66.77 7.81 1 11.19 2.07-.09 1.29 0 6.35.1 7.41 1.43.51 9.44 5.8 9.44 5.8v-12.4a28.09 28.09 0 0 0-3.91-3.26c.9-3.25 3-5.28 3.91-8.49V33.07c-7.06.35-13.64.48-19.29 5.61zm6.81 21.46c2 1.84 4 3.26 5.39 4.84 1 .14 2 .36 2.93.57l-.3.62q-.59.88-1.1 1.81a1 1 0 0 1-.29.23c-3.11-.5-5.61.69-7.88 0-1.08-.33-4.43-4.11-5.18-5.29-1.27-2-1.68-4.73-2.53-6.74a1.07 1.07 0 0 0 0-.78c-.12-.28-.24-.63-.38-1a21.81 21.81 0 0 1 4 .89c1.82.81 3.53 3.21 5.29 4.85zM29 60.27l.65-2.08c.88-2.83 1.84-5.88 2.89-8.92v-.09c.89-2.58 1.67-4.67 2.45-6.58a21.34 21.34 0 0 1 1.3-2.6c.07-.13.15-.24.23-.36-1.21-.39-2.43-.73-3.67-1l-1.63.08c-5.69.29-12.81.39-17.37 4.6l-.13.12a12 12 0 0 0-1 1.06l-.22.26a12.47 12.47 0 0 0-.79 1.15c-.07.12-.15.23-.22.35a13.9 13.9 0 0 0-.82 1.69c-.67 1.68-1.3 3.45-1.91 5.23C8 55.56 7.21 58 6.47 60.39c2.46 3.73 4.89 7.51 7.23 11.39-.41 1.61-.67 3.39-1 5.1 3 .63 6.3.82 9 1.7-.07 1.06 0 5.21.08 6.07 1.15.42 7.77 4.75 7.77 4.75s6.7-4.14 7.77-4.71c0-.24-1-1.5-1-1.5l.86-4.41c.12-.62.23-1.24.35-1.86.16-.88.32-1.78.51-2.68-2.3-3.69-4.84-7.6-7.9-12.16zm-3.3 5.68q-.47.72-.89 1.48a.76.76 0 0 1-.23.19c-2.51-.41-4.52.57-6.35 0-.87-.27-3.58-3.37-4.18-4.34-1-1.66-1.36-3.88-2-5.52a.89.89 0 0 0 0-.64c-.1-.23-.19-.52-.31-.8a17.34 17.34 0 0 1 3.21.73c1.54.65 2.92 2.62 4.34 4 1.59 1.51 3.2 2.67 4.34 4 .82.11 1.59.29 2.36.47zm3.66 13.29a22.18 22.18 0 0 0-3.08-2.68c.72-2.67 2.34-4.33 3.08-7 .28 0 .42.06.48.27.92 2.36 2.33 4.14 3.08 6.69-1.32.81-2.13 2.13-3.58 2.71zm56-5.8c2.9-4.73 5.91-9.34 9-13.89-.92-2.95-1.85-5.89-2.85-8.79-.75-2.17-1.53-4.32-2.39-6.42a16.84 16.84 0 0 0-1-2.06c-.09-.15-.19-.28-.28-.43a15.19 15.19 0 0 0-1-1.4l-.27-.32a14.79 14.79 0 0 0-1.22-1.29l-.17-.15c-5.65-5.13-12.23-5.25-19.29-5.61v37.7c.92 3.21 3 5.24 3.91 8.49a28.1 28.1 0 0 0-3.91 3.26v12.4s8-5.29 9.44-5.8c.12-1.06.19-6.12.1-7.41 3.38-1.08 7.53-1.3 11.19-2.07-.42-2.08-.75-4.25-1.25-6.22zM82 78.88a44.86 44.86 0 0 0-7 1.4l-1.13.36.08 1.19c.07 1 0 4.59 0 6.33-1.58.85-4.36 2.61-6.47 4v-9a20.86 20.86 0 0 1 2.25-1.85l1.08-.82.79-.62-.27-1a19.65 19.65 0 0 0-2.12-4.66 18.12 18.12 0 0 1-1.74-3.65v-35.9c6.38.32 11.93.75 16.77 5.15l.14.13a13.36 13.36 0 0 1 1.1 1.16l.11.13.13.16a13.63 13.63 0 0 1 .88 1.26l.14.22.11.17a15.31 15.31 0 0 1 .93 1.87c.74 1.81 1.49 3.83 2.36 6.34.93 2.71 1.8 5.45 2.61 8-3.36 5-6.1 9.26-8.6 13.34l-.34.55.16.62c.34 1.32.6 2.78.86 4.2l.08.44c-1.01.2-1.97.34-2.91.48zm32.61-7.11c2.34-3.88 4.77-7.65 7.23-11.39-.74-2.42-1.49-4.83-2.3-7.21-.6-1.78-1.23-3.55-1.92-5.26a13.91 13.91 0 0 0-.82-1.69c-.07-.12-.15-.23-.22-.35a12.41 12.41 0 0 0-.79-1.15l-.22-.26a12 12 0 0 0-1-1.06l-.13-.12c-4.56-4.2-11.68-4.31-17.37-4.6l-1.63-.08c-1.24.28-2.46.62-3.67 1 .08.12.16.24.23.36a21.33 21.33 0 0 1 1.3 2.62c.78 1.91 1.56 4 2.45 6.58v.09c1 3 2 6.09 2.89 8.92l.65 2.08-1.19 1.83c-3.06 4.56-5.6 8.46-7.9 12.16.19.9.35 1.8.51 2.68.11.62.23 1.25.35 1.86l.86 4.41s-1 1.26-1 1.5c1.06.57 7.77 4.71 7.77 4.71s6.62-4.34 7.77-4.75c.1-.87.15-5 .08-6.07 2.73-.88 6.07-1.07 9-1.7-.27-1.72-.54-3.49-.95-5.11zM111.82 76a35.85 35.85 0 0 0-5.71 1.16l-1.12.36.08 1.18c.05.78 0 3.55 0 5-1.66.91-4.65 2.83-6.34 3.93-1.32-.81-3.94-2.42-5.62-3.43l.44-.55-.13-.69-.86-4.41c-.12-.6-.23-1.21-.34-1.81v-.05c-.12-.68-.25-1.39-.39-2.09 2.17-3.6 4.59-7.31 7.52-11.67l1.22-1.81.41-.6-.22-.69-.65-2.08c-.88-2.84-1.85-5.89-2.9-9v-.09C96.28 46.07 95.49 44 94.7 42c-.21-.5-.43-1-.68-1.5q.79-.22 1.56-.4H98c5.41.26 11.54.56 15.43 4.15l.11.1a10.57 10.57 0 0 1 .86.93l.09.11.1.12a10.9 10.9 0 0 1 .69 1l.12.19.08.12a12.4 12.4 0 0 1 .73 1.5c.6 1.48 1.2 3.13 1.89 5.18.74 2.18 1.42 4.37 2.06 6.45-2.68 4.07-4.87 7.53-6.87 10.84l-.33.54.15.61c.27 1.07.47 2.21.69 3.42v.1zM87.48 56.33a1.08 1.08 0 0 1 0-.78c.12-.28.24-.63.38-1a21.81 21.81 0 0 0-4 .89c-1.91.79-3.62 3.2-5.39 4.84-2 1.84-4 3.26-5.39 4.84-1 .14-2 .36-2.93.57l.3.62q.59.88 1.1 1.81a1 1 0 0 0 .28.23c3.11-.5 5.61.69 7.88 0 1.08-.33 4.43-4.11 5.18-5.29 1.34-2.06 1.75-4.73 2.59-6.73zm11 13.54c-.92 2.36-2.33 4.14-3.08 6.69 1.29.78 2.1 2.09 3.55 2.68a22.16 22.16 0 0 1 3.05-2.68c-.72-2.67-2.34-4.33-3.08-7-.24 0-.38.1-.44.31zm17.82-12.12a.89.89 0 0 1 0-.64c.1-.23.19-.52.31-.8a17.33 17.33 0 0 0-3.21.73c-1.54.65-2.92 2.62-4.34 4-1.59 1.51-3.2 2.67-4.34 4-.82.11-1.59.29-2.36.47l.24.51q.47.72.89 1.48a.77.77 0 0 0 .23.19c2.51-.41 4.52.57 6.35 0 .87-.27 3.58-3.37 4.18-4.34 1.04-1.73 1.37-3.95 2.05-5.6z"
+                                            transform="translate(-2.38 -12.86)"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/dorado.png" data-lightbox="combate" data-title="Dorado">
+                                <img src="../img/mapas/maps/dorado.png" class="card-img-top" alt="dorado" title="dorado"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/Mexico.png" alt="Mexico" title="Mexico">
+                                    Dorado</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <g>
+                                            <path
+                                                d="M84.14 91.33c3-4.88 6.11-9.63 9.27-14.32-.95-3-1.91-6.08-2.94-9.07-.77-2.24-1.58-4.46-2.47-6.62a17.36 17.36 0 0 0-1.06-2.12c-.09-.16-.19-.29-.29-.44a15.66 15.66 0 0 0-1-1.44l-.28-.32a15.27 15.27 0 0 0-1.26-1.33l-.17-.16c-5.84-5.3-12.65-5.43-19.94-5.79-7.29.37-14.1.5-19.94 5.78l-.17.16A15.27 15.27 0 0 0 42.63 57l-.28.33a15.66 15.66 0 0 0-1 1.44c-.09.15-.2.29-.29.44A17.36 17.36 0 0 0 40 61.32c-.89 2.16-1.69 4.38-2.47 6.62-1 3-2 6-2.94 9.07 3.16 4.69 6.27 9.45 9.27 14.32-.52 2-.86 4.27-1.29 6.41 3.79.79 8.07 1 11.57 2.13-.09 1.33 0 6.55.1 7.64 1.48.52 9.75 6 9.75 6s8.28-5.46 9.75-6c.13-1.09.19-6.31.1-7.64 3.5-1.11 7.78-1.35 11.57-2.13-.41-2.14-.75-4.38-1.27-6.41zM59.22 84q-.61.91-1.14 1.86a1 1 0 0 1-.29.23c-3.22-.51-5.8.71-8.14 0-1.12-.34-4.58-4.24-5.36-5.46-1.32-2.09-1.74-4.88-2.62-6.95a1.11 1.11 0 0 0 0-.81c-.13-.29-.25-.65-.39-1a22.58 22.58 0 0 1 4.11.92c2 .81 3.74 3.29 5.57 5 2 1.9 4.11 3.36 5.57 5 1.06.14 2 .37 3 .59zM64 100.72a29 29 0 0 0-4-3.37c.89-3.35 3-5.44 4-8.75 1 3.31 3.11 5.4 4 8.76a29 29 0 0 0-4 3.36zM78.35 86.1c-2.34.71-4.92-.51-8.14 0a1 1 0 0 1-.29-.23q-.53-1-1.14-1.86l-.31-.64c1-.22 2-.44 3-.59 1.46-1.63 3.53-3.1 5.57-5 1.83-1.69 3.59-4.17 5.57-5a22.58 22.58 0 0 1 4.11-.92c-.15.35-.27.71-.39 1a1.11 1.11 0 0 0 0 .81c-.88 2.07-1.3 4.86-2.62 6.95-.77 1.24-4.24 5.15-5.36 5.48z"
+                                                transform="translate(-2.38 -12.86)"></path>
+                                            <path
+                                                d="M89.89 22.65c-2.62 1.69-6 4.13-7.17 6.11a7.83 7.83 0 0 0-2.25-2.91.94.94 0 0 0-1.51.83v.33A4.69 4.69 0 0 1 77.91 30c-2.26 2.84-4.06 3.07-5.68 2.8l-.06.09v-.1a5.77 5.77 0 0 1-3.6-9.12 1.54 1.54 0 0 0 .05-1.75c-1.12-1.73-2.93-5.1-3.91-7a.78.78 0 0 0-1.38 0c-1 1.82-2.77 5.09-3.89 6.79a1.54 1.54 0 0 0 0 1.76 5.77 5.77 0 0 1-3.61 9.11v.1l-.06-.09c-1.63.27-3.42 0-5.7-2.8A4.66 4.66 0 0 1 49 26.86v-.36a.94.94 0 0 0-1.51-.83 7.83 7.83 0 0 0-2.25 2.91c-1.19-2-4.55-4.41-7.17-6.11a.94.94 0 0 0-1.32 1.27 57.41 57.41 0 0 1 6.91 16.46 3.39 3.39 0 0 0 1.33 2v2.7h.06a2.88 2.88 0 0 0-1.53 2.2 2.67 2.67 0 0 0 1.28 2c5.81-3.46 12-3.77 18.11-4.06h2.17c6 .3 12.26.6 18 4a2.62 2.62 0 0 0 1.22-2 2.88 2.88 0 0 0-1.53-2.2h.06v-2.6a3.4 3.4 0 0 0 1.47-2.11 57.52 57.52 0 0 1 6.86-16.3.94.94 0 0 0-1.27-1.18z"
+                                                transform="translate(-2.38 -12.86)"></path>
+                                            <path
+                                                d="M114.35 89.62c2.42-4 4.93-7.89 7.48-11.74-.76-2.49-1.54-5-2.37-7.43-.62-1.84-1.27-3.66-2-5.43a14.31 14.31 0 0 0-.85-1.74c-.07-.13-.16-.24-.23-.36a12.87 12.87 0 0 0-.81-1.18l-.23-.27a12.43 12.43 0 0 0-1-1.09l-.14-.13c-4.71-4.33-12.07-4.44-18-4.74l-1.68-.09c-1.28.29-2.55.64-3.8 1 .08.12.16.24.24.38a22 22 0 0 1 1.34 2.7c.81 2 1.61 4.12 2.53 6.78v.09c1.08 3.14 2.07 6.27 3 9.2l.67 2.15-1.2 1.91c-3.16 4.7-5.79 8.73-8.16 12.54.19.92.36 1.85.53 2.76.12.64.24 1.29.36 1.92l.89 4.55s-1 1.3-1 1.54c1.1.59 8 4.86 8 4.86s6.84-4.47 8-4.9c.1-.89.16-5.17.08-6.26 2.82-.91 6.27-1.1 9.33-1.75-.33-1.77-.56-3.6-.98-5.27zm-16.17 7.7c-1.5-.61-2.34-2-3.67-2.76.77-2.63 2.23-4.47 3.18-6.9.06-.22.21-.32.49-.28.77 2.72 2.44 4.43 3.19 7.18a22.9 22.9 0 0 0-3.19 2.76zm11.5-12c-1.89.59-4-.42-6.57 0a.79.79 0 0 1-.24-.19q-.43-.78-.92-1.53l-.25-.53c.8-.18 1.59-.36 2.44-.48 1.18-1.34 2.85-2.54 4.49-4.09 1.47-1.39 2.9-3.42 4.49-4.09a18 18 0 0 1 3.32-.75c-.12.29-.21.58-.32.82a.92.92 0 0 0 0 .66c-.71 1.7-1 4-2.11 5.7-.63 1.02-3.42 4.22-4.32 4.5zm-80.24-7.56l.67-2.15c.91-2.92 1.9-6.06 3-9.2v-.09c.92-2.66 1.72-4.82 2.53-6.79A22 22 0 0 1 37 56.84c.08-.13.16-.25.24-.37-1.25-.4-2.52-.75-3.8-1l-1.68.09c-5.88.3-13.25.41-18 4.74l-.14.13a12.42 12.42 0 0 0-1 1.09l-.23.27a12.85 12.85 0 0 0-.81 1.18c-.08.12-.16.24-.23.36a14.33 14.33 0 0 0-.81 1.67c-.72 1.77-1.37 3.59-2 5.43-.83 2.45-1.61 4.94-2.37 7.43 2.55 3.85 5.06 7.74 7.48 11.74-.42 1.66-.7 3.5-1 5.26 3.05.65 6.51.84 9.33 1.75-.07 1.09 0 5.37.08 6.26 1.19.43 8 4.9 8 4.9s6.93-4.27 8-4.86c0-.25-1-1.54-1-1.54l.94-4.53c.12-.63.24-1.28.36-1.92.17-.91.34-1.84.53-2.76-2.38-3.81-5-7.84-8.16-12.54zM26 83.62q-.49.74-.92 1.53a.79.79 0 0 1-.24.19c-2.59-.42-4.67.59-6.57 0-.9-.28-3.7-3.48-4.32-4.48-1.06-1.71-1.4-4-2.11-5.7a.92.92 0 0 0 0-.66c-.1-.24-.2-.54-.32-.82a18 18 0 0 1 3.32.75c1.59.67 3 2.7 4.49 4.09 1.64 1.55 3.31 2.76 4.49 4.09.85.12 1.65.3 2.44.48zm3.78 13.7a22.9 22.9 0 0 0-3.19-2.76c.75-2.75 2.42-4.46 3.19-7.18.29 0 .43.06.49.28.95 2.43 2.41 4.27 3.18 6.9-1.29.8-2.13 2.15-3.63 2.76z"
+                                                transform="translatea(-2.38 -12.86)"></path>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 64 64">
+                                        <g>
+                                            <rect x="10.38" y="24.34" width="21.03" height="14.39" rx="0.81" ry="0.81">
+                                            </rect>
+                                            <path
+                                                d="M60.62,37.83h0c0-.23,0-.47,0-.72h0a.28.28,0,0,0,.28-.24.26.26,0,0,0-.26-.29h-.09c0-.24,0-.47,0-.72h.08a.28.28,0,0,0,.28-.24.26.26,0,0,0-.26-.29H60.5l0-.72h.13a.26.26,0,0,0,.26-.29.28.28,0,0,0-.28-.24h-.12l0-.74h0a.57.57,0,0,0,.53-.63.59.59,0,0,0-.59-.5h-.06c-.5-2.43-2.65-4.26-6-4.26H49.44c-1.26-2.15-1.91-3.59-2.45-3.87a16.68,16.68,0,0,0-6.19-.89c-3.43,0-4.64.13-5,.35s-.59.19-.59,1.48v5.42H34.7V23.8a.6.6,0,0,0-.6-.6H32.66a.6.6,0,0,0-.6.6V39.27H3.39a.39.39,0,0,0-.39.39v1.81a.39.39,0,0,0,.39.39h1a.14.14,0,0,1,.14.14v.24a.47.47,0,0,0,.47.47H8.49A.47.47,0,0,0,9,42.25V42a.14.14,0,0,1,.14-.14h3.34a.14.14,0,0,0,.09,0,6,6,0,0,1,4.06-1.48,6,6,0,0,1,4.06,1.48.14.14,0,0,0,.09,0H22a.14.14,0,0,1,.14.14v.24a.47.47,0,0,0,.47.47h1.72a.14.14,0,0,0,.1,0l.24-.24a.14.14,0,0,1,.2,0l.24.24a.14.14,0,0,0,.1,0H27a.14.14,0,0,0,.1,0l.11-.11a.14.14,0,0,1,.2,0l.11.11a.14.14,0,0,0,.1,0h1.82a.14.14,0,0,0,.1,0l.24-.24a.14.14,0,0,1,.2,0l.24.24a.14.14,0,0,0,.1,0h1.42a.47.47,0,0,0,.47-.47V42a.14.14,0,0,1,.14-.14h11.2a1.8,1.8,0,0,0-.26.81c0,1.16.83,1.35,2.14,1.2h0c0-.11,2.29-4,5.91-3.89a7.79,7.79,0,0,1,5.92,3.64s0,.09,0,.13h0c1.51.17,2.49,0,2.49-1.23a2.42,2.42,0,0,0-.6-1.24h0c1.32-.3,1.5-1.43,1.47-2.92h0a.27.27,0,0,0,.26-.2A.26.26,0,0,0,60.62,37.83ZM47.5,28l-5.07.24h0c-1.67,0-1.92.21-1.92-.29s-.08-1.74-.08-2.23,0-.86.58-.86,3.47-.08,4.06,0a1.37,1.37,0,0,1,1.32.92L47.5,28Z">
+                                            </path>
+                                            <path
+                                                d="M51.36,45.39a1.21,1.21,0,1,0,1.53,1.17A1.38,1.38,0,0,0,51.36,45.39Zm0,2a.64.64,0,1,1,.8-.62A.73.73,0,0,1,51.36,47.39Z">
+                                            </path>
+                                            <path
+                                                d="M53.12,41.63l.06-.31a.51.51,0,0,0-.51-.51H50.06a.51.51,0,0,0-.51.51l.07.31c-2.49.58-4.3,2.35-4.3,4.46a3.92,3.92,0,0,0,1,2.55h0a.26.26,0,0,0,0,.37l.93.93a.26.26,0,0,0,.37,0l.11-.16a7.51,7.51,0,0,0,7.32,0l.11.16a.26.26,0,0,0,.37,0l.93-.93a.26.26,0,0,0,0-.37h0a3.91,3.91,0,0,0,1-2.55C57.41,44,55.6,42.21,53.12,41.63Zm-2.51.08h1.49a.3.3,0,0,1,.29.29l-.25,1.36a.3.3,0,0,1-.29.29h-.94a.3.3,0,0,1-.29-.29L50.32,42A.3.3,0,0,1,50.61,41.71ZM48,48.85l-.4.57a.15.15,0,0,1-.21,0l-.54-.54a.15.15,0,0,1,0-.21l.6-.37a.15.15,0,0,1,.21,0l.34.34,0,0v.08A.15.15,0,0,1,48,48.85Zm3.41.49c-1.75,0-3.17-1.09-3.17-2.44s1.42-2.44,3.17-2.44,3.17,1.09,3.17,2.44S53.11,49.33,51.36,49.33Zm4.55-.45-.54.54a.15.15,0,0,1-.21,0l-.4-.57,0,0a.63.63,0,0,1,0-.09.14.14,0,0,1,0-.08l.34-.34a.15.15,0,0,1,.21,0l.6.37A.15.15,0,0,1,55.91,48.89Z">
+                                            </path>
+                                            <path
+                                                d="M16.8,45.33a1.23,1.23,0,1,0,0,2.38,1.23,1.23,0,1,0,0-2.38Zm0,2a.64.64,0,1,1,.8-.62A.73.73,0,0,1,16.8,47.35Z">
+                                            </path>
+                                            <path
+                                                d="M18.56,41.51l.06-.31a.52.52,0,0,0-.51-.52H15.5a.52.52,0,0,0-.51.52l.07.31c-2.49.58-4.3,2.38-4.3,4.52a4,4,0,0,0,1,2.59h0a.27.27,0,0,0,0,.37l.93.95a.26.26,0,0,0,.37,0l.11-.16a7.43,7.43,0,0,0,7.32,0l.11.16a.26.26,0,0,0,.37,0l.93-.95a.27.27,0,0,0,0-.37h0a4,4,0,0,0,1-2.59C22.85,43.9,21,42.1,18.56,41.51Zm-2.51.08h1.49a.3.3,0,0,1,.29.3l-.25,1.37a.3.3,0,0,1-.29.3h-.94a.3.3,0,0,1-.29-.3l-.31-1.37A.3.3,0,0,1,16.06,41.59ZM13.4,48.82l-.4.58a.15.15,0,0,1-.21,0l-.54-.54a.15.15,0,0,1,0-.21l.6-.38a.15.15,0,0,1,.21,0l.34.34,0,0v.08A.15.15,0,0,1,13.4,48.82Zm3.41.49c-1.75,0-3.17-1.11-3.17-2.48s1.42-2.48,3.17-2.48S20,45.47,20,46.84,18.56,49.32,16.8,49.32Zm4.55-.45-.54.54a.15.15,0,0,1-.21,0l-.4-.58,0,0a.65.65,0,0,1,0-.09.15.15,0,0,1,0-.08l.34-.34a.15.15,0,0,1,.21,0l.6.38A.15.15,0,0,1,21.35,48.86Z">
+                                            </path>
+                                            <rect x="38.04" y="14.19" width="6.12" height="6.12" rx="0.82" ry="0.82"
+                                                transform="translate(-0.16 34.12) rotate(-45)"></rect>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <path
+                                            d="M43 38.83a14.78 14.78 0 0 0-1.22 1.29l-.27.32a15.22 15.22 0 0 0-1 1.4c-.09.15-.19.28-.28.43a16.85 16.85 0 0 0-1 2.06c-.86 2.1-1.64 4.25-2.39 6.42-1 2.9-1.93 5.84-2.85 8.79C37 64.1 40 68.7 42.93 73.43c-.5 2-.84 4.14-1.24 6.22 3.66.77 7.81 1 11.19 2.07-.09 1.29 0 6.35.1 7.41 1.43.51 9.44 5.8 9.44 5.8v-12.4a28.09 28.09 0 0 0-3.91-3.26c.9-3.25 3-5.28 3.91-8.49V33.07c-7.06.35-13.64.48-19.29 5.61zm6.81 21.46c2 1.84 4 3.26 5.39 4.84 1 .14 2 .36 2.93.57l-.3.62q-.59.88-1.1 1.81a1 1 0 0 1-.29.23c-3.11-.5-5.61.69-7.88 0-1.08-.33-4.43-4.11-5.18-5.29-1.27-2-1.68-4.73-2.53-6.74a1.07 1.07 0 0 0 0-.78c-.12-.28-.24-.63-.38-1a21.81 21.81 0 0 1 4 .89c1.82.81 3.53 3.21 5.29 4.85zM29 60.27l.65-2.08c.88-2.83 1.84-5.88 2.89-8.92v-.09c.89-2.58 1.67-4.67 2.45-6.58a21.34 21.34 0 0 1 1.3-2.6c.07-.13.15-.24.23-.36-1.21-.39-2.43-.73-3.67-1l-1.63.08c-5.69.29-12.81.39-17.37 4.6l-.13.12a12 12 0 0 0-1 1.06l-.22.26a12.47 12.47 0 0 0-.79 1.15c-.07.12-.15.23-.22.35a13.9 13.9 0 0 0-.82 1.69c-.67 1.68-1.3 3.45-1.91 5.23C8 55.56 7.21 58 6.47 60.39c2.46 3.73 4.89 7.51 7.23 11.39-.41 1.61-.67 3.39-1 5.1 3 .63 6.3.82 9 1.7-.07 1.06 0 5.21.08 6.07 1.15.42 7.77 4.75 7.77 4.75s6.7-4.14 7.77-4.71c0-.24-1-1.5-1-1.5l.86-4.41c.12-.62.23-1.24.35-1.86.16-.88.32-1.78.51-2.68-2.3-3.69-4.84-7.6-7.9-12.16zm-3.3 5.68q-.47.72-.89 1.48a.76.76 0 0 1-.23.19c-2.51-.41-4.52.57-6.35 0-.87-.27-3.58-3.37-4.18-4.34-1-1.66-1.36-3.88-2-5.52a.89.89 0 0 0 0-.64c-.1-.23-.19-.52-.31-.8a17.34 17.34 0 0 1 3.21.73c1.54.65 2.92 2.62 4.34 4 1.59 1.51 3.2 2.67 4.34 4 .82.11 1.59.29 2.36.47zm3.66 13.29a22.18 22.18 0 0 0-3.08-2.68c.72-2.67 2.34-4.33 3.08-7 .28 0 .42.06.48.27.92 2.36 2.33 4.14 3.08 6.69-1.32.81-2.13 2.13-3.58 2.71zm56-5.8c2.9-4.73 5.91-9.34 9-13.89-.92-2.95-1.85-5.89-2.85-8.79-.75-2.17-1.53-4.32-2.39-6.42a16.84 16.84 0 0 0-1-2.06c-.09-.15-.19-.28-.28-.43a15.19 15.19 0 0 0-1-1.4l-.27-.32a14.79 14.79 0 0 0-1.22-1.29l-.17-.15c-5.65-5.13-12.23-5.25-19.29-5.61v37.7c.92 3.21 3 5.24 3.91 8.49a28.1 28.1 0 0 0-3.91 3.26v12.4s8-5.29 9.44-5.8c.12-1.06.19-6.12.1-7.41 3.38-1.08 7.53-1.3 11.19-2.07-.42-2.08-.75-4.25-1.25-6.22zM82 78.88a44.86 44.86 0 0 0-7 1.4l-1.13.36.08 1.19c.07 1 0 4.59 0 6.33-1.58.85-4.36 2.61-6.47 4v-9a20.86 20.86 0 0 1 2.25-1.85l1.08-.82.79-.62-.27-1a19.65 19.65 0 0 0-2.12-4.66 18.12 18.12 0 0 1-1.74-3.65v-35.9c6.38.32 11.93.75 16.77 5.15l.14.13a13.36 13.36 0 0 1 1.1 1.16l.11.13.13.16a13.63 13.63 0 0 1 .88 1.26l.14.22.11.17a15.31 15.31 0 0 1 .93 1.87c.74 1.81 1.49 3.83 2.36 6.34.93 2.71 1.8 5.45 2.61 8-3.36 5-6.1 9.26-8.6 13.34l-.34.55.16.62c.34 1.32.6 2.78.86 4.2l.08.44c-1.01.2-1.97.34-2.91.48zm32.61-7.11c2.34-3.88 4.77-7.65 7.23-11.39-.74-2.42-1.49-4.83-2.3-7.21-.6-1.78-1.23-3.55-1.92-5.26a13.91 13.91 0 0 0-.82-1.69c-.07-.12-.15-.23-.22-.35a12.41 12.41 0 0 0-.79-1.15l-.22-.26a12 12 0 0 0-1-1.06l-.13-.12c-4.56-4.2-11.68-4.31-17.37-4.6l-1.63-.08c-1.24.28-2.46.62-3.67 1 .08.12.16.24.23.36a21.33 21.33 0 0 1 1.3 2.62c.78 1.91 1.56 4 2.45 6.58v.09c1 3 2 6.09 2.89 8.92l.65 2.08-1.19 1.83c-3.06 4.56-5.6 8.46-7.9 12.16.19.9.35 1.8.51 2.68.11.62.23 1.25.35 1.86l.86 4.41s-1 1.26-1 1.5c1.06.57 7.77 4.71 7.77 4.71s6.62-4.34 7.77-4.75c.1-.87.15-5 .08-6.07 2.73-.88 6.07-1.07 9-1.7-.27-1.72-.54-3.49-.95-5.11zM111.82 76a35.85 35.85 0 0 0-5.71 1.16l-1.12.36.08 1.18c.05.78 0 3.55 0 5-1.66.91-4.65 2.83-6.34 3.93-1.32-.81-3.94-2.42-5.62-3.43l.44-.55-.13-.69-.86-4.41c-.12-.6-.23-1.21-.34-1.81v-.05c-.12-.68-.25-1.39-.39-2.09 2.17-3.6 4.59-7.31 7.52-11.67l1.22-1.81.41-.6-.22-.69-.65-2.08c-.88-2.84-1.85-5.89-2.9-9v-.09C96.28 46.07 95.49 44 94.7 42c-.21-.5-.43-1-.68-1.5q.79-.22 1.56-.4H98c5.41.26 11.54.56 15.43 4.15l.11.1a10.57 10.57 0 0 1 .86.93l.09.11.1.12a10.9 10.9 0 0 1 .69 1l.12.19.08.12a12.4 12.4 0 0 1 .73 1.5c.6 1.48 1.2 3.13 1.89 5.18.74 2.18 1.42 4.37 2.06 6.45-2.68 4.07-4.87 7.53-6.87 10.84l-.33.54.15.61c.27 1.07.47 2.21.69 3.42v.1zM87.48 56.33a1.08 1.08 0 0 1 0-.78c.12-.28.24-.63.38-1a21.81 21.81 0 0 0-4 .89c-1.91.79-3.62 3.2-5.39 4.84-2 1.84-4 3.26-5.39 4.84-1 .14-2 .36-2.93.57l.3.62q.59.88 1.1 1.81a1 1 0 0 0 .28.23c3.11-.5 5.61.69 7.88 0 1.08-.33 4.43-4.11 5.18-5.29 1.34-2.06 1.75-4.73 2.59-6.73zm11 13.54c-.92 2.36-2.33 4.14-3.08 6.69 1.29.78 2.1 2.09 3.55 2.68a22.16 22.16 0 0 1 3.05-2.68c-.72-2.67-2.34-4.33-3.08-7-.24 0-.38.1-.44.31zm17.82-12.12a.89.89 0 0 1 0-.64c.1-.23.19-.52.31-.8a17.33 17.33 0 0 0-3.21.73c-1.54.65-2.92 2.62-4.34 4-1.59 1.51-3.2 2.67-4.34 4-.82.11-1.59.29-2.36.47l.24.51q.47.72.89 1.48a.77.77 0 0 0 .23.19c2.51-.41 4.52.57 6.35 0 .87-.27 3.58-3.37 4.18-4.34 1.04-1.73 1.37-3.95 2.05-5.6z"
+                                            transform="translate(-2.38 -12.86)"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/eichenwalde.png" data-lightbox="combate" data-title="Eichenwalde">
+                                <img src="../img/mapas/maps/eichenwalde.png" class="card-img-top" alt="eichenwalde"
+                                title="eichenwalde"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/Germany.png" alt="Germany" title="Germany">
+                                    Eichenwalde</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <g>
+                                            <path
+                                                d="M84.14 91.33c3-4.88 6.11-9.63 9.27-14.32-.95-3-1.91-6.08-2.94-9.07-.77-2.24-1.58-4.46-2.47-6.62a17.36 17.36 0 0 0-1.06-2.12c-.09-.16-.19-.29-.29-.44a15.66 15.66 0 0 0-1-1.44l-.28-.32a15.27 15.27 0 0 0-1.26-1.33l-.17-.16c-5.84-5.3-12.65-5.43-19.94-5.79-7.29.37-14.1.5-19.94 5.78l-.17.16A15.27 15.27 0 0 0 42.63 57l-.28.33a15.66 15.66 0 0 0-1 1.44c-.09.15-.2.29-.29.44A17.36 17.36 0 0 0 40 61.32c-.89 2.16-1.69 4.38-2.47 6.62-1 3-2 6-2.94 9.07 3.16 4.69 6.27 9.45 9.27 14.32-.52 2-.86 4.27-1.29 6.41 3.79.79 8.07 1 11.57 2.13-.09 1.33 0 6.55.1 7.64 1.48.52 9.75 6 9.75 6s8.28-5.46 9.75-6c.13-1.09.19-6.31.1-7.64 3.5-1.11 7.78-1.35 11.57-2.13-.41-2.14-.75-4.38-1.27-6.41zM59.22 84q-.61.91-1.14 1.86a1 1 0 0 1-.29.23c-3.22-.51-5.8.71-8.14 0-1.12-.34-4.58-4.24-5.36-5.46-1.32-2.09-1.74-4.88-2.62-6.95a1.11 1.11 0 0 0 0-.81c-.13-.29-.25-.65-.39-1a22.58 22.58 0 0 1 4.11.92c2 .81 3.74 3.29 5.57 5 2 1.9 4.11 3.36 5.57 5 1.06.14 2 .37 3 .59zM64 100.72a29 29 0 0 0-4-3.37c.89-3.35 3-5.44 4-8.75 1 3.31 3.11 5.4 4 8.76a29 29 0 0 0-4 3.36zM78.35 86.1c-2.34.71-4.92-.51-8.14 0a1 1 0 0 1-.29-.23q-.53-1-1.14-1.86l-.31-.64c1-.22 2-.44 3-.59 1.46-1.63 3.53-3.1 5.57-5 1.83-1.69 3.59-4.17 5.57-5a22.58 22.58 0 0 1 4.11-.92c-.15.35-.27.71-.39 1a1.11 1.11 0 0 0 0 .81c-.88 2.07-1.3 4.86-2.62 6.95-.77 1.24-4.24 5.15-5.36 5.48z"
+                                                transform="translate(-2.38 -12.86)"></path>
+                                            <path
+                                                d="M89.89 22.65c-2.62 1.69-6 4.13-7.17 6.11a7.83 7.83 0 0 0-2.25-2.91.94.94 0 0 0-1.51.83v.33A4.69 4.69 0 0 1 77.91 30c-2.26 2.84-4.06 3.07-5.68 2.8l-.06.09v-.1a5.77 5.77 0 0 1-3.6-9.12 1.54 1.54 0 0 0 .05-1.75c-1.12-1.73-2.93-5.1-3.91-7a.78.78 0 0 0-1.38 0c-1 1.82-2.77 5.09-3.89 6.79a1.54 1.54 0 0 0 0 1.76 5.77 5.77 0 0 1-3.61 9.11v.1l-.06-.09c-1.63.27-3.42 0-5.7-2.8A4.66 4.66 0 0 1 49 26.86v-.36a.94.94 0 0 0-1.51-.83 7.83 7.83 0 0 0-2.25 2.91c-1.19-2-4.55-4.41-7.17-6.11a.94.94 0 0 0-1.32 1.27 57.41 57.41 0 0 1 6.91 16.46 3.39 3.39 0 0 0 1.33 2v2.7h.06a2.88 2.88 0 0 0-1.53 2.2 2.67 2.67 0 0 0 1.28 2c5.81-3.46 12-3.77 18.11-4.06h2.17c6 .3 12.26.6 18 4a2.62 2.62 0 0 0 1.22-2 2.88 2.88 0 0 0-1.53-2.2h.06v-2.6a3.4 3.4 0 0 0 1.47-2.11 57.52 57.52 0 0 1 6.86-16.3.94.94 0 0 0-1.27-1.18z"
+                                                transform="translate(-2.38 -12.86)"></path>
+                                            <path
+                                                d="M114.35 89.62c2.42-4 4.93-7.89 7.48-11.74-.76-2.49-1.54-5-2.37-7.43-.62-1.84-1.27-3.66-2-5.43a14.31 14.31 0 0 0-.85-1.74c-.07-.13-.16-.24-.23-.36a12.87 12.87 0 0 0-.81-1.18l-.23-.27a12.43 12.43 0 0 0-1-1.09l-.14-.13c-4.71-4.33-12.07-4.44-18-4.74l-1.68-.09c-1.28.29-2.55.64-3.8 1 .08.12.16.24.24.38a22 22 0 0 1 1.34 2.7c.81 2 1.61 4.12 2.53 6.78v.09c1.08 3.14 2.07 6.27 3 9.2l.67 2.15-1.2 1.91c-3.16 4.7-5.79 8.73-8.16 12.54.19.92.36 1.85.53 2.76.12.64.24 1.29.36 1.92l.89 4.55s-1 1.3-1 1.54c1.1.59 8 4.86 8 4.86s6.84-4.47 8-4.9c.1-.89.16-5.17.08-6.26 2.82-.91 6.27-1.1 9.33-1.75-.33-1.77-.56-3.6-.98-5.27zm-16.17 7.7c-1.5-.61-2.34-2-3.67-2.76.77-2.63 2.23-4.47 3.18-6.9.06-.22.21-.32.49-.28.77 2.72 2.44 4.43 3.19 7.18a22.9 22.9 0 0 0-3.19 2.76zm11.5-12c-1.89.59-4-.42-6.57 0a.79.79 0 0 1-.24-.19q-.43-.78-.92-1.53l-.25-.53c.8-.18 1.59-.36 2.44-.48 1.18-1.34 2.85-2.54 4.49-4.09 1.47-1.39 2.9-3.42 4.49-4.09a18 18 0 0 1 3.32-.75c-.12.29-.21.58-.32.82a.92.92 0 0 0 0 .66c-.71 1.7-1 4-2.11 5.7-.63 1.02-3.42 4.22-4.32 4.5zm-80.24-7.56l.67-2.15c.91-2.92 1.9-6.06 3-9.2v-.09c.92-2.66 1.72-4.82 2.53-6.79A22 22 0 0 1 37 56.84c.08-.13.16-.25.24-.37-1.25-.4-2.52-.75-3.8-1l-1.68.09c-5.88.3-13.25.41-18 4.74l-.14.13a12.42 12.42 0 0 0-1 1.09l-.23.27a12.85 12.85 0 0 0-.81 1.18c-.08.12-.16.24-.23.36a14.33 14.33 0 0 0-.81 1.67c-.72 1.77-1.37 3.59-2 5.43-.83 2.45-1.61 4.94-2.37 7.43 2.55 3.85 5.06 7.74 7.48 11.74-.42 1.66-.7 3.5-1 5.26 3.05.65 6.51.84 9.33 1.75-.07 1.09 0 5.37.08 6.26 1.19.43 8 4.9 8 4.9s6.93-4.27 8-4.86c0-.25-1-1.54-1-1.54l.94-4.53c.12-.63.24-1.28.36-1.92.17-.91.34-1.84.53-2.76-2.38-3.81-5-7.84-8.16-12.54zM26 83.62q-.49.74-.92 1.53a.79.79 0 0 1-.24.19c-2.59-.42-4.67.59-6.57 0-.9-.28-3.7-3.48-4.32-4.48-1.06-1.71-1.4-4-2.11-5.7a.92.92 0 0 0 0-.66c-.1-.24-.2-.54-.32-.82a18 18 0 0 1 3.32.75c1.59.67 3 2.7 4.49 4.09 1.64 1.55 3.31 2.76 4.49 4.09.85.12 1.65.3 2.44.48zm3.78 13.7a22.9 22.9 0 0 0-3.19-2.76c.75-2.75 2.42-4.46 3.19-7.18.29 0 .43.06.49.28.95 2.43 2.41 4.27 3.18 6.9-1.29.8-2.13 2.15-3.63 2.76z"
+                                                transform="translatea(-2.38 -12.86)"></path>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 64 64">
+                                        <g>
+                                            <rect x="12.56" y="23.95" width="11.82" height="11.82" rx="1.74" ry="1.74"
+                                                transform="translate(-15.71 21.8) rotate(-45)"></rect>
+                                            <path
+                                                d="M28.81,24.41a11.69,11.69,0,0,0-9.9-6.23v2.11a9.59,9.59,0,0,1,8.91,7.5Z">
+                                            </path>
+                                            <path
+                                                d="M18,20.28h0v-2.1h0a11.69,11.69,0,1,0,6.36,21.77l1-3.46A9.58,9.58,0,1,1,18,20.28Z">
+                                            </path>
+                                            <path
+                                                d="M24,41.33A12.75,12.75,0,0,1,8.46,37.76a.13.13,0,0,0-.23.08v1a.13.13,0,0,0,0,.08,13.64,13.64,0,0,0,7.21,4.25.13.13,0,0,1,.08.05l0,0,2.59,2.87a.39.39,0,0,0,.55,0l2.61-2.89.06,0a13.54,13.54,0,0,0,2.31-.72Z">
+                                            </path>
+                                            <path
+                                                d="M6.1,26.72a12.52,12.52,0,0,1,9.45-9.29,12.77,12.77,0,0,1,13.75,5.69L29.62,22A13.65,13.65,0,1,0,7.34,37.76h0V36.08h0A12.85,12.85,0,0,1,6.1,26.72Z">
+                                            </path>
+                                            <path
+                                                d="M58.8,34.15h0c0-.23,0-.46,0-.7h0a.27.27,0,0,0,.27-.23.26.26,0,0,0-.26-.28h-.08c0-.23,0-.46,0-.7h.08a.27.27,0,0,0,.27-.23.26.26,0,0,0-.26-.28h-.11l0-.7h.12a.26.26,0,0,0,.26-.28.27.27,0,0,0-.27-.23h-.12l0-.72h0a.55.55,0,0,0,.52-.61.57.57,0,0,0-.58-.49h-.06C58,26.27,56,24.47,52.69,24.47H47.87c-1.23-2.1-1.87-3.51-2.4-3.79a16.33,16.33,0,0,0-6.06-.87c-.88,0-1.61,0-2.22,0L31.88,38.09h10.2a1.77,1.77,0,0,0-.26.8c0,1.14.81,1.32,2.1,1.18h0c0-.11,2.24-3.88,5.79-3.81a7.63,7.63,0,0,1,5.8,3.56s0,.09,0,.13h0c1.48.17,2.43,0,2.43-1.21a2.37,2.37,0,0,0-.58-1.22h0c1.29-.3,1.47-1.4,1.44-2.86h0a.26.26,0,0,0,.26-.19A.26.26,0,0,0,58.8,34.15ZM46,24.54l-5,.23h0c-1.64,0-1.88.2-1.88-.29S39,22.78,39,22.3s0-.85.57-.85,3.4-.08,4,0a1.34,1.34,0,0,1,1.3.9L46,24.54Z">
+                                            </path>
+                                            <path
+                                                d="M49.74,41.55a1.19,1.19,0,1,0,1.49,1.15A1.36,1.36,0,0,0,49.74,41.55Zm0,2a.62.62,0,1,1,.78-.6A.71.71,0,0,1,49.74,43.5Z">
+                                            </path>
+                                            <path
+                                                d="M51.47,37.86l.06-.3a.5.5,0,0,0-.5-.5H48.47a.5.5,0,0,0-.5.5l.07.3c-2.44.56-4.21,2.31-4.21,4.37a3.83,3.83,0,0,0,1,2.5h0a.26.26,0,0,0,0,.36l.91.91a.26.26,0,0,0,.36,0l.11-.16a7.36,7.36,0,0,0,7.17,0l.11.16a.26.26,0,0,0,.36,0l.91-.91a.26.26,0,0,0,0-.36h0a3.83,3.83,0,0,0,1-2.5C55.66,40.16,53.9,38.43,51.47,37.86ZM49,37.94h1.46a.29.29,0,0,1,.29.29l-.24,1.33a.29.29,0,0,1-.29.29h-.92a.29.29,0,0,1-.29-.29l-.3-1.33A.29.29,0,0,1,49,37.94Zm-2.6,7-.39.56a.15.15,0,0,1-.21,0L45.29,45a.15.15,0,0,1,0-.21l.58-.37a.15.15,0,0,1,.21,0l.33.33,0,0v.08A.14.14,0,0,1,46.41,44.93Zm3.34.48c-1.72,0-3.11-1.07-3.11-2.39s1.39-2.39,3.11-2.39,3.11,1.07,3.11,2.39S51.46,45.41,49.74,45.41ZM54.2,45l-.52.52a.15.15,0,0,1-.21,0l-.39-.56,0,0a.61.61,0,0,1,0-.09.14.14,0,0,1,0-.08l.33-.33a.15.15,0,0,1,.21,0l.58.37A.15.15,0,0,1,54.2,45Z">
+                                            </path>
+                                            <polygon points="34.57 12 23.4 51.21 26.11 52 37.27 12.79 34.57 12">
+                                            </polygon>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <path
+                                            d="M43 38.83a14.78 14.78 0 0 0-1.22 1.29l-.27.32a15.22 15.22 0 0 0-1 1.4c-.09.15-.19.28-.28.43a16.85 16.85 0 0 0-1 2.06c-.86 2.1-1.64 4.25-2.39 6.42-1 2.9-1.93 5.84-2.85 8.79C37 64.1 40 68.7 42.93 73.43c-.5 2-.84 4.14-1.24 6.22 3.66.77 7.81 1 11.19 2.07-.09 1.29 0 6.35.1 7.41 1.43.51 9.44 5.8 9.44 5.8v-12.4a28.09 28.09 0 0 0-3.91-3.26c.9-3.25 3-5.28 3.91-8.49V33.07c-7.06.35-13.64.48-19.29 5.61zm6.81 21.46c2 1.84 4 3.26 5.39 4.84 1 .14 2 .36 2.93.57l-.3.62q-.59.88-1.1 1.81a1 1 0 0 1-.29.23c-3.11-.5-5.61.69-7.88 0-1.08-.33-4.43-4.11-5.18-5.29-1.27-2-1.68-4.73-2.53-6.74a1.07 1.07 0 0 0 0-.78c-.12-.28-.24-.63-.38-1a21.81 21.81 0 0 1 4 .89c1.82.81 3.53 3.21 5.29 4.85zM29 60.27l.65-2.08c.88-2.83 1.84-5.88 2.89-8.92v-.09c.89-2.58 1.67-4.67 2.45-6.58a21.34 21.34 0 0 1 1.3-2.6c.07-.13.15-.24.23-.36-1.21-.39-2.43-.73-3.67-1l-1.63.08c-5.69.29-12.81.39-17.37 4.6l-.13.12a12 12 0 0 0-1 1.06l-.22.26a12.47 12.47 0 0 0-.79 1.15c-.07.12-.15.23-.22.35a13.9 13.9 0 0 0-.82 1.69c-.67 1.68-1.3 3.45-1.91 5.23C8 55.56 7.21 58 6.47 60.39c2.46 3.73 4.89 7.51 7.23 11.39-.41 1.61-.67 3.39-1 5.1 3 .63 6.3.82 9 1.7-.07 1.06 0 5.21.08 6.07 1.15.42 7.77 4.75 7.77 4.75s6.7-4.14 7.77-4.71c0-.24-1-1.5-1-1.5l.86-4.41c.12-.62.23-1.24.35-1.86.16-.88.32-1.78.51-2.68-2.3-3.69-4.84-7.6-7.9-12.16zm-3.3 5.68q-.47.72-.89 1.48a.76.76 0 0 1-.23.19c-2.51-.41-4.52.57-6.35 0-.87-.27-3.58-3.37-4.18-4.34-1-1.66-1.36-3.88-2-5.52a.89.89 0 0 0 0-.64c-.1-.23-.19-.52-.31-.8a17.34 17.34 0 0 1 3.21.73c1.54.65 2.92 2.62 4.34 4 1.59 1.51 3.2 2.67 4.34 4 .82.11 1.59.29 2.36.47zm3.66 13.29a22.18 22.18 0 0 0-3.08-2.68c.72-2.67 2.34-4.33 3.08-7 .28 0 .42.06.48.27.92 2.36 2.33 4.14 3.08 6.69-1.32.81-2.13 2.13-3.58 2.71zm56-5.8c2.9-4.73 5.91-9.34 9-13.89-.92-2.95-1.85-5.89-2.85-8.79-.75-2.17-1.53-4.32-2.39-6.42a16.84 16.84 0 0 0-1-2.06c-.09-.15-.19-.28-.28-.43a15.19 15.19 0 0 0-1-1.4l-.27-.32a14.79 14.79 0 0 0-1.22-1.29l-.17-.15c-5.65-5.13-12.23-5.25-19.29-5.61v37.7c.92 3.21 3 5.24 3.91 8.49a28.1 28.1 0 0 0-3.91 3.26v12.4s8-5.29 9.44-5.8c.12-1.06.19-6.12.1-7.41 3.38-1.08 7.53-1.3 11.19-2.07-.42-2.08-.75-4.25-1.25-6.22zM82 78.88a44.86 44.86 0 0 0-7 1.4l-1.13.36.08 1.19c.07 1 0 4.59 0 6.33-1.58.85-4.36 2.61-6.47 4v-9a20.86 20.86 0 0 1 2.25-1.85l1.08-.82.79-.62-.27-1a19.65 19.65 0 0 0-2.12-4.66 18.12 18.12 0 0 1-1.74-3.65v-35.9c6.38.32 11.93.75 16.77 5.15l.14.13a13.36 13.36 0 0 1 1.1 1.16l.11.13.13.16a13.63 13.63 0 0 1 .88 1.26l.14.22.11.17a15.31 15.31 0 0 1 .93 1.87c.74 1.81 1.49 3.83 2.36 6.34.93 2.71 1.8 5.45 2.61 8-3.36 5-6.1 9.26-8.6 13.34l-.34.55.16.62c.34 1.32.6 2.78.86 4.2l.08.44c-1.01.2-1.97.34-2.91.48zm32.61-7.11c2.34-3.88 4.77-7.65 7.23-11.39-.74-2.42-1.49-4.83-2.3-7.21-.6-1.78-1.23-3.55-1.92-5.26a13.91 13.91 0 0 0-.82-1.69c-.07-.12-.15-.23-.22-.35a12.41 12.41 0 0 0-.79-1.15l-.22-.26a12 12 0 0 0-1-1.06l-.13-.12c-4.56-4.2-11.68-4.31-17.37-4.6l-1.63-.08c-1.24.28-2.46.62-3.67 1 .08.12.16.24.23.36a21.33 21.33 0 0 1 1.3 2.62c.78 1.91 1.56 4 2.45 6.58v.09c1 3 2 6.09 2.89 8.92l.65 2.08-1.19 1.83c-3.06 4.56-5.6 8.46-7.9 12.16.19.9.35 1.8.51 2.68.11.62.23 1.25.35 1.86l.86 4.41s-1 1.26-1 1.5c1.06.57 7.77 4.71 7.77 4.71s6.62-4.34 7.77-4.75c.1-.87.15-5 .08-6.07 2.73-.88 6.07-1.07 9-1.7-.27-1.72-.54-3.49-.95-5.11zM111.82 76a35.85 35.85 0 0 0-5.71 1.16l-1.12.36.08 1.18c.05.78 0 3.55 0 5-1.66.91-4.65 2.83-6.34 3.93-1.32-.81-3.94-2.42-5.62-3.43l.44-.55-.13-.69-.86-4.41c-.12-.6-.23-1.21-.34-1.81v-.05c-.12-.68-.25-1.39-.39-2.09 2.17-3.6 4.59-7.31 7.52-11.67l1.22-1.81.41-.6-.22-.69-.65-2.08c-.88-2.84-1.85-5.89-2.9-9v-.09C96.28 46.07 95.49 44 94.7 42c-.21-.5-.43-1-.68-1.5q.79-.22 1.56-.4H98c5.41.26 11.54.56 15.43 4.15l.11.1a10.57 10.57 0 0 1 .86.93l.09.11.1.12a10.9 10.9 0 0 1 .69 1l.12.19.08.12a12.4 12.4 0 0 1 .73 1.5c.6 1.48 1.2 3.13 1.89 5.18.74 2.18 1.42 4.37 2.06 6.45-2.68 4.07-4.87 7.53-6.87 10.84l-.33.54.15.61c.27 1.07.47 2.21.69 3.42v.1zM87.48 56.33a1.08 1.08 0 0 1 0-.78c.12-.28.24-.63.38-1a21.81 21.81 0 0 0-4 .89c-1.91.79-3.62 3.2-5.39 4.84-2 1.84-4 3.26-5.39 4.84-1 .14-2 .36-2.93.57l.3.62q.59.88 1.1 1.81a1 1 0 0 0 .28.23c3.11-.5 5.61.69 7.88 0 1.08-.33 4.43-4.11 5.18-5.29 1.34-2.06 1.75-4.73 2.59-6.73zm11 13.54c-.92 2.36-2.33 4.14-3.08 6.69 1.29.78 2.1 2.09 3.55 2.68a22.16 22.16 0 0 1 3.05-2.68c-.72-2.67-2.34-4.33-3.08-7-.24 0-.38.1-.44.31zm17.82-12.12a.89.89 0 0 1 0-.64c.1-.23.19-.52.31-.8a17.33 17.33 0 0 0-3.21.73c-1.54.65-2.92 2.62-4.34 4-1.59 1.51-3.2 2.67-4.34 4-.82.11-1.59.29-2.36.47l.24.51q.47.72.89 1.48a.77.77 0 0 0 .23.19c2.51-.41 4.52.57 6.35 0 .87-.27 3.58-3.37 4.18-4.34 1.04-1.73 1.37-3.95 2.05-5.6z"
+                                            transform="translate(-2.38 -12.86)"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/hollywold.png" data-lightbox="combate" data-title="Hollywold">
+                                <img src="../img/mapas/maps/hollywold.png" class="card-img-top" alt="hollywold"
+                                title="hollywold"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/USA.png" alt="USA" title="USA">
+                                    Hollywood</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <g>
+                                            <path
+                                                d="M84.14 91.33c3-4.88 6.11-9.63 9.27-14.32-.95-3-1.91-6.08-2.94-9.07-.77-2.24-1.58-4.46-2.47-6.62a17.36 17.36 0 0 0-1.06-2.12c-.09-.16-.19-.29-.29-.44a15.66 15.66 0 0 0-1-1.44l-.28-.32a15.27 15.27 0 0 0-1.26-1.33l-.17-.16c-5.84-5.3-12.65-5.43-19.94-5.79-7.29.37-14.1.5-19.94 5.78l-.17.16A15.27 15.27 0 0 0 42.63 57l-.28.33a15.66 15.66 0 0 0-1 1.44c-.09.15-.2.29-.29.44A17.36 17.36 0 0 0 40 61.32c-.89 2.16-1.69 4.38-2.47 6.62-1 3-2 6-2.94 9.07 3.16 4.69 6.27 9.45 9.27 14.32-.52 2-.86 4.27-1.29 6.41 3.79.79 8.07 1 11.57 2.13-.09 1.33 0 6.55.1 7.64 1.48.52 9.75 6 9.75 6s8.28-5.46 9.75-6c.13-1.09.19-6.31.1-7.64 3.5-1.11 7.78-1.35 11.57-2.13-.41-2.14-.75-4.38-1.27-6.41zM59.22 84q-.61.91-1.14 1.86a1 1 0 0 1-.29.23c-3.22-.51-5.8.71-8.14 0-1.12-.34-4.58-4.24-5.36-5.46-1.32-2.09-1.74-4.88-2.62-6.95a1.11 1.11 0 0 0 0-.81c-.13-.29-.25-.65-.39-1a22.58 22.58 0 0 1 4.11.92c2 .81 3.74 3.29 5.57 5 2 1.9 4.11 3.36 5.57 5 1.06.14 2 .37 3 .59zM64 100.72a29 29 0 0 0-4-3.37c.89-3.35 3-5.44 4-8.75 1 3.31 3.11 5.4 4 8.76a29 29 0 0 0-4 3.36zM78.35 86.1c-2.34.71-4.92-.51-8.14 0a1 1 0 0 1-.29-.23q-.53-1-1.14-1.86l-.31-.64c1-.22 2-.44 3-.59 1.46-1.63 3.53-3.1 5.57-5 1.83-1.69 3.59-4.17 5.57-5a22.58 22.58 0 0 1 4.11-.92c-.15.35-.27.71-.39 1a1.11 1.11 0 0 0 0 .81c-.88 2.07-1.3 4.86-2.62 6.95-.77 1.24-4.24 5.15-5.36 5.48z"
+                                                transform="translate(-2.38 -12.86)"></path>
+                                            <path
+                                                d="M89.89 22.65c-2.62 1.69-6 4.13-7.17 6.11a7.83 7.83 0 0 0-2.25-2.91.94.94 0 0 0-1.51.83v.33A4.69 4.69 0 0 1 77.91 30c-2.26 2.84-4.06 3.07-5.68 2.8l-.06.09v-.1a5.77 5.77 0 0 1-3.6-9.12 1.54 1.54 0 0 0 .05-1.75c-1.12-1.73-2.93-5.1-3.91-7a.78.78 0 0 0-1.38 0c-1 1.82-2.77 5.09-3.89 6.79a1.54 1.54 0 0 0 0 1.76 5.77 5.77 0 0 1-3.61 9.11v.1l-.06-.09c-1.63.27-3.42 0-5.7-2.8A4.66 4.66 0 0 1 49 26.86v-.36a.94.94 0 0 0-1.51-.83 7.83 7.83 0 0 0-2.25 2.91c-1.19-2-4.55-4.41-7.17-6.11a.94.94 0 0 0-1.32 1.27 57.41 57.41 0 0 1 6.91 16.46 3.39 3.39 0 0 0 1.33 2v2.7h.06a2.88 2.88 0 0 0-1.53 2.2 2.67 2.67 0 0 0 1.28 2c5.81-3.46 12-3.77 18.11-4.06h2.17c6 .3 12.26.6 18 4a2.62 2.62 0 0 0 1.22-2 2.88 2.88 0 0 0-1.53-2.2h.06v-2.6a3.4 3.4 0 0 0 1.47-2.11 57.52 57.52 0 0 1 6.86-16.3.94.94 0 0 0-1.27-1.18z"
+                                                transform="translate(-2.38 -12.86)"></path>
+                                            <path
+                                                d="M114.35 89.62c2.42-4 4.93-7.89 7.48-11.74-.76-2.49-1.54-5-2.37-7.43-.62-1.84-1.27-3.66-2-5.43a14.31 14.31 0 0 0-.85-1.74c-.07-.13-.16-.24-.23-.36a12.87 12.87 0 0 0-.81-1.18l-.23-.27a12.43 12.43 0 0 0-1-1.09l-.14-.13c-4.71-4.33-12.07-4.44-18-4.74l-1.68-.09c-1.28.29-2.55.64-3.8 1 .08.12.16.24.24.38a22 22 0 0 1 1.34 2.7c.81 2 1.61 4.12 2.53 6.78v.09c1.08 3.14 2.07 6.27 3 9.2l.67 2.15-1.2 1.91c-3.16 4.7-5.79 8.73-8.16 12.54.19.92.36 1.85.53 2.76.12.64.24 1.29.36 1.92l.89 4.55s-1 1.3-1 1.54c1.1.59 8 4.86 8 4.86s6.84-4.47 8-4.9c.1-.89.16-5.17.08-6.26 2.82-.91 6.27-1.1 9.33-1.75-.33-1.77-.56-3.6-.98-5.27zm-16.17 7.7c-1.5-.61-2.34-2-3.67-2.76.77-2.63 2.23-4.47 3.18-6.9.06-.22.21-.32.49-.28.77 2.72 2.44 4.43 3.19 7.18a22.9 22.9 0 0 0-3.19 2.76zm11.5-12c-1.89.59-4-.42-6.57 0a.79.79 0 0 1-.24-.19q-.43-.78-.92-1.53l-.25-.53c.8-.18 1.59-.36 2.44-.48 1.18-1.34 2.85-2.54 4.49-4.09 1.47-1.39 2.9-3.42 4.49-4.09a18 18 0 0 1 3.32-.75c-.12.29-.21.58-.32.82a.92.92 0 0 0 0 .66c-.71 1.7-1 4-2.11 5.7-.63 1.02-3.42 4.22-4.32 4.5zm-80.24-7.56l.67-2.15c.91-2.92 1.9-6.06 3-9.2v-.09c.92-2.66 1.72-4.82 2.53-6.79A22 22 0 0 1 37 56.84c.08-.13.16-.25.24-.37-1.25-.4-2.52-.75-3.8-1l-1.68.09c-5.88.3-13.25.41-18 4.74l-.14.13a12.42 12.42 0 0 0-1 1.09l-.23.27a12.85 12.85 0 0 0-.81 1.18c-.08.12-.16.24-.23.36a14.33 14.33 0 0 0-.81 1.67c-.72 1.77-1.37 3.59-2 5.43-.83 2.45-1.61 4.94-2.37 7.43 2.55 3.85 5.06 7.74 7.48 11.74-.42 1.66-.7 3.5-1 5.26 3.05.65 6.51.84 9.33 1.75-.07 1.09 0 5.37.08 6.26 1.19.43 8 4.9 8 4.9s6.93-4.27 8-4.86c0-.25-1-1.54-1-1.54l.94-4.53c.12-.63.24-1.28.36-1.92.17-.91.34-1.84.53-2.76-2.38-3.81-5-7.84-8.16-12.54zM26 83.62q-.49.74-.92 1.53a.79.79 0 0 1-.24.19c-2.59-.42-4.67.59-6.57 0-.9-.28-3.7-3.48-4.32-4.48-1.06-1.71-1.4-4-2.11-5.7a.92.92 0 0 0 0-.66c-.1-.24-.2-.54-.32-.82a18 18 0 0 1 3.32.75c1.59.67 3 2.7 4.49 4.09 1.64 1.55 3.31 2.76 4.49 4.09.85.12 1.65.3 2.44.48zm3.78 13.7a22.9 22.9 0 0 0-3.19-2.76c.75-2.75 2.42-4.46 3.19-7.18.29 0 .43.06.49.28.95 2.43 2.41 4.27 3.18 6.9-1.29.8-2.13 2.15-3.63 2.76z"
+                                                transform="translatea(-2.38 -12.86)"></path>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 64 64">
+                                        <g>
+                                            <rect x="12.56" y="23.95" width="11.82" height="11.82" rx="1.74" ry="1.74"
+                                                transform="translate(-15.71 21.8) rotate(-45)"></rect>
+                                            <path
+                                                d="M28.81,24.41a11.69,11.69,0,0,0-9.9-6.23v2.11a9.59,9.59,0,0,1,8.91,7.5Z">
+                                            </path>
+                                            <path
+                                                d="M18,20.28h0v-2.1h0a11.69,11.69,0,1,0,6.36,21.77l1-3.46A9.58,9.58,0,1,1,18,20.28Z">
+                                            </path>
+                                            <path
+                                                d="M24,41.33A12.75,12.75,0,0,1,8.46,37.76a.13.13,0,0,0-.23.08v1a.13.13,0,0,0,0,.08,13.64,13.64,0,0,0,7.21,4.25.13.13,0,0,1,.08.05l0,0,2.59,2.87a.39.39,0,0,0,.55,0l2.61-2.89.06,0a13.54,13.54,0,0,0,2.31-.72Z">
+                                            </path>
+                                            <path
+                                                d="M6.1,26.72a12.52,12.52,0,0,1,9.45-9.29,12.77,12.77,0,0,1,13.75,5.69L29.62,22A13.65,13.65,0,1,0,7.34,37.76h0V36.08h0A12.85,12.85,0,0,1,6.1,26.72Z">
+                                            </path>
+                                            <path
+                                                d="M58.8,34.15h0c0-.23,0-.46,0-.7h0a.27.27,0,0,0,.27-.23.26.26,0,0,0-.26-.28h-.08c0-.23,0-.46,0-.7h.08a.27.27,0,0,0,.27-.23.26.26,0,0,0-.26-.28h-.11l0-.7h.12a.26.26,0,0,0,.26-.28.27.27,0,0,0-.27-.23h-.12l0-.72h0a.55.55,0,0,0,.52-.61.57.57,0,0,0-.58-.49h-.06C58,26.27,56,24.47,52.69,24.47H47.87c-1.23-2.1-1.87-3.51-2.4-3.79a16.33,16.33,0,0,0-6.06-.87c-.88,0-1.61,0-2.22,0L31.88,38.09h10.2a1.77,1.77,0,0,0-.26.8c0,1.14.81,1.32,2.1,1.18h0c0-.11,2.24-3.88,5.79-3.81a7.63,7.63,0,0,1,5.8,3.56s0,.09,0,.13h0c1.48.17,2.43,0,2.43-1.21a2.37,2.37,0,0,0-.58-1.22h0c1.29-.3,1.47-1.4,1.44-2.86h0a.26.26,0,0,0,.26-.19A.26.26,0,0,0,58.8,34.15ZM46,24.54l-5,.23h0c-1.64,0-1.88.2-1.88-.29S39,22.78,39,22.3s0-.85.57-.85,3.4-.08,4,0a1.34,1.34,0,0,1,1.3.9L46,24.54Z">
+                                            </path>
+                                            <path
+                                                d="M49.74,41.55a1.19,1.19,0,1,0,1.49,1.15A1.36,1.36,0,0,0,49.74,41.55Zm0,2a.62.62,0,1,1,.78-.6A.71.71,0,0,1,49.74,43.5Z">
+                                            </path>
+                                            <path
+                                                d="M51.47,37.86l.06-.3a.5.5,0,0,0-.5-.5H48.47a.5.5,0,0,0-.5.5l.07.3c-2.44.56-4.21,2.31-4.21,4.37a3.83,3.83,0,0,0,1,2.5h0a.26.26,0,0,0,0,.36l.91.91a.26.26,0,0,0,.36,0l.11-.16a7.36,7.36,0,0,0,7.17,0l.11.16a.26.26,0,0,0,.36,0l.91-.91a.26.26,0,0,0,0-.36h0a3.83,3.83,0,0,0,1-2.5C55.66,40.16,53.9,38.43,51.47,37.86ZM49,37.94h1.46a.29.29,0,0,1,.29.29l-.24,1.33a.29.29,0,0,1-.29.29h-.92a.29.29,0,0,1-.29-.29l-.3-1.33A.29.29,0,0,1,49,37.94Zm-2.6,7-.39.56a.15.15,0,0,1-.21,0L45.29,45a.15.15,0,0,1,0-.21l.58-.37a.15.15,0,0,1,.21,0l.33.33,0,0v.08A.14.14,0,0,1,46.41,44.93Zm3.34.48c-1.72,0-3.11-1.07-3.11-2.39s1.39-2.39,3.11-2.39,3.11,1.07,3.11,2.39S51.46,45.41,49.74,45.41ZM54.2,45l-.52.52a.15.15,0,0,1-.21,0l-.39-.56,0,0a.61.61,0,0,1,0-.09.14.14,0,0,1,0-.08l.33-.33a.15.15,0,0,1,.21,0l.58.37A.15.15,0,0,1,54.2,45Z">
+                                            </path>
+                                            <polygon points="34.57 12 23.4 51.21 26.11 52 37.27 12.79 34.57 12">
+                                            </polygon>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <path
+                                            d="M43 38.83a14.78 14.78 0 0 0-1.22 1.29l-.27.32a15.22 15.22 0 0 0-1 1.4c-.09.15-.19.28-.28.43a16.85 16.85 0 0 0-1 2.06c-.86 2.1-1.64 4.25-2.39 6.42-1 2.9-1.93 5.84-2.85 8.79C37 64.1 40 68.7 42.93 73.43c-.5 2-.84 4.14-1.24 6.22 3.66.77 7.81 1 11.19 2.07-.09 1.29 0 6.35.1 7.41 1.43.51 9.44 5.8 9.44 5.8v-12.4a28.09 28.09 0 0 0-3.91-3.26c.9-3.25 3-5.28 3.91-8.49V33.07c-7.06.35-13.64.48-19.29 5.61zm6.81 21.46c2 1.84 4 3.26 5.39 4.84 1 .14 2 .36 2.93.57l-.3.62q-.59.88-1.1 1.81a1 1 0 0 1-.29.23c-3.11-.5-5.61.69-7.88 0-1.08-.33-4.43-4.11-5.18-5.29-1.27-2-1.68-4.73-2.53-6.74a1.07 1.07 0 0 0 0-.78c-.12-.28-.24-.63-.38-1a21.81 21.81 0 0 1 4 .89c1.82.81 3.53 3.21 5.29 4.85zM29 60.27l.65-2.08c.88-2.83 1.84-5.88 2.89-8.92v-.09c.89-2.58 1.67-4.67 2.45-6.58a21.34 21.34 0 0 1 1.3-2.6c.07-.13.15-.24.23-.36-1.21-.39-2.43-.73-3.67-1l-1.63.08c-5.69.29-12.81.39-17.37 4.6l-.13.12a12 12 0 0 0-1 1.06l-.22.26a12.47 12.47 0 0 0-.79 1.15c-.07.12-.15.23-.22.35a13.9 13.9 0 0 0-.82 1.69c-.67 1.68-1.3 3.45-1.91 5.23C8 55.56 7.21 58 6.47 60.39c2.46 3.73 4.89 7.51 7.23 11.39-.41 1.61-.67 3.39-1 5.1 3 .63 6.3.82 9 1.7-.07 1.06 0 5.21.08 6.07 1.15.42 7.77 4.75 7.77 4.75s6.7-4.14 7.77-4.71c0-.24-1-1.5-1-1.5l.86-4.41c.12-.62.23-1.24.35-1.86.16-.88.32-1.78.51-2.68-2.3-3.69-4.84-7.6-7.9-12.16zm-3.3 5.68q-.47.72-.89 1.48a.76.76 0 0 1-.23.19c-2.51-.41-4.52.57-6.35 0-.87-.27-3.58-3.37-4.18-4.34-1-1.66-1.36-3.88-2-5.52a.89.89 0 0 0 0-.64c-.1-.23-.19-.52-.31-.8a17.34 17.34 0 0 1 3.21.73c1.54.65 2.92 2.62 4.34 4 1.59 1.51 3.2 2.67 4.34 4 .82.11 1.59.29 2.36.47zm3.66 13.29a22.18 22.18 0 0 0-3.08-2.68c.72-2.67 2.34-4.33 3.08-7 .28 0 .42.06.48.27.92 2.36 2.33 4.14 3.08 6.69-1.32.81-2.13 2.13-3.58 2.71zm56-5.8c2.9-4.73 5.91-9.34 9-13.89-.92-2.95-1.85-5.89-2.85-8.79-.75-2.17-1.53-4.32-2.39-6.42a16.84 16.84 0 0 0-1-2.06c-.09-.15-.19-.28-.28-.43a15.19 15.19 0 0 0-1-1.4l-.27-.32a14.79 14.79 0 0 0-1.22-1.29l-.17-.15c-5.65-5.13-12.23-5.25-19.29-5.61v37.7c.92 3.21 3 5.24 3.91 8.49a28.1 28.1 0 0 0-3.91 3.26v12.4s8-5.29 9.44-5.8c.12-1.06.19-6.12.1-7.41 3.38-1.08 7.53-1.3 11.19-2.07-.42-2.08-.75-4.25-1.25-6.22zM82 78.88a44.86 44.86 0 0 0-7 1.4l-1.13.36.08 1.19c.07 1 0 4.59 0 6.33-1.58.85-4.36 2.61-6.47 4v-9a20.86 20.86 0 0 1 2.25-1.85l1.08-.82.79-.62-.27-1a19.65 19.65 0 0 0-2.12-4.66 18.12 18.12 0 0 1-1.74-3.65v-35.9c6.38.32 11.93.75 16.77 5.15l.14.13a13.36 13.36 0 0 1 1.1 1.16l.11.13.13.16a13.63 13.63 0 0 1 .88 1.26l.14.22.11.17a15.31 15.31 0 0 1 .93 1.87c.74 1.81 1.49 3.83 2.36 6.34.93 2.71 1.8 5.45 2.61 8-3.36 5-6.1 9.26-8.6 13.34l-.34.55.16.62c.34 1.32.6 2.78.86 4.2l.08.44c-1.01.2-1.97.34-2.91.48zm32.61-7.11c2.34-3.88 4.77-7.65 7.23-11.39-.74-2.42-1.49-4.83-2.3-7.21-.6-1.78-1.23-3.55-1.92-5.26a13.91 13.91 0 0 0-.82-1.69c-.07-.12-.15-.23-.22-.35a12.41 12.41 0 0 0-.79-1.15l-.22-.26a12 12 0 0 0-1-1.06l-.13-.12c-4.56-4.2-11.68-4.31-17.37-4.6l-1.63-.08c-1.24.28-2.46.62-3.67 1 .08.12.16.24.23.36a21.33 21.33 0 0 1 1.3 2.62c.78 1.91 1.56 4 2.45 6.58v.09c1 3 2 6.09 2.89 8.92l.65 2.08-1.19 1.83c-3.06 4.56-5.6 8.46-7.9 12.16.19.9.35 1.8.51 2.68.11.62.23 1.25.35 1.86l.86 4.41s-1 1.26-1 1.5c1.06.57 7.77 4.71 7.77 4.71s6.62-4.34 7.77-4.75c.1-.87.15-5 .08-6.07 2.73-.88 6.07-1.07 9-1.7-.27-1.72-.54-3.49-.95-5.11zM111.82 76a35.85 35.85 0 0 0-5.71 1.16l-1.12.36.08 1.18c.05.78 0 3.55 0 5-1.66.91-4.65 2.83-6.34 3.93-1.32-.81-3.94-2.42-5.62-3.43l.44-.55-.13-.69-.86-4.41c-.12-.6-.23-1.21-.34-1.81v-.05c-.12-.68-.25-1.39-.39-2.09 2.17-3.6 4.59-7.31 7.52-11.67l1.22-1.81.41-.6-.22-.69-.65-2.08c-.88-2.84-1.85-5.89-2.9-9v-.09C96.28 46.07 95.49 44 94.7 42c-.21-.5-.43-1-.68-1.5q.79-.22 1.56-.4H98c5.41.26 11.54.56 15.43 4.15l.11.1a10.57 10.57 0 0 1 .86.93l.09.11.1.12a10.9 10.9 0 0 1 .69 1l.12.19.08.12a12.4 12.4 0 0 1 .73 1.5c.6 1.48 1.2 3.13 1.89 5.18.74 2.18 1.42 4.37 2.06 6.45-2.68 4.07-4.87 7.53-6.87 10.84l-.33.54.15.61c.27 1.07.47 2.21.69 3.42v.1zM87.48 56.33a1.08 1.08 0 0 1 0-.78c.12-.28.24-.63.38-1a21.81 21.81 0 0 0-4 .89c-1.91.79-3.62 3.2-5.39 4.84-2 1.84-4 3.26-5.39 4.84-1 .14-2 .36-2.93.57l.3.62q.59.88 1.1 1.81a1 1 0 0 0 .28.23c3.11-.5 5.61.69 7.88 0 1.08-.33 4.43-4.11 5.18-5.29 1.34-2.06 1.75-4.73 2.59-6.73zm11 13.54c-.92 2.36-2.33 4.14-3.08 6.69 1.29.78 2.1 2.09 3.55 2.68a22.16 22.16 0 0 1 3.05-2.68c-.72-2.67-2.34-4.33-3.08-7-.24 0-.38.1-.44.31zm17.82-12.12a.89.89 0 0 1 0-.64c.1-.23.19-.52.31-.8a17.33 17.33 0 0 0-3.21.73c-1.54.65-2.92 2.62-4.34 4-1.59 1.51-3.2 2.67-4.34 4-.82.11-1.59.29-2.36.47l.24.51q.47.72.89 1.48a.77.77 0 0 0 .23.19c2.51-.41 4.52.57 6.35 0 .87-.27 3.58-3.37 4.18-4.34 1.04-1.73 1.37-3.95 2.05-5.6z"
+                                            transform="translate(-2.38 -12.86)"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/kanezaka.png" data-lightbox="combate" data-title="kanezaka">
+                                <img src="../img/mapas/maps/kanezaka.png" class="card-img-top" alt="kanezaka"
+                                title="kanezaka"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/Japan.png" alt="Japan" title="Japan">
+                                    Kanezaka</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <g>
+                                            <path
+                                                d="M84.14 91.33c3-4.88 6.11-9.63 9.27-14.32-.95-3-1.91-6.08-2.94-9.07-.77-2.24-1.58-4.46-2.47-6.62a17.36 17.36 0 0 0-1.06-2.12c-.09-.16-.19-.29-.29-.44a15.66 15.66 0 0 0-1-1.44l-.28-.32a15.27 15.27 0 0 0-1.26-1.33l-.17-.16c-5.84-5.3-12.65-5.43-19.94-5.79-7.29.37-14.1.5-19.94 5.78l-.17.16A15.27 15.27 0 0 0 42.63 57l-.28.33a15.66 15.66 0 0 0-1 1.44c-.09.15-.2.29-.29.44A17.36 17.36 0 0 0 40 61.32c-.89 2.16-1.69 4.38-2.47 6.62-1 3-2 6-2.94 9.07 3.16 4.69 6.27 9.45 9.27 14.32-.52 2-.86 4.27-1.29 6.41 3.79.79 8.07 1 11.57 2.13-.09 1.33 0 6.55.1 7.64 1.48.52 9.75 6 9.75 6s8.28-5.46 9.75-6c.13-1.09.19-6.31.1-7.64 3.5-1.11 7.78-1.35 11.57-2.13-.41-2.14-.75-4.38-1.27-6.41zM59.22 84q-.61.91-1.14 1.86a1 1 0 0 1-.29.23c-3.22-.51-5.8.71-8.14 0-1.12-.34-4.58-4.24-5.36-5.46-1.32-2.09-1.74-4.88-2.62-6.95a1.11 1.11 0 0 0 0-.81c-.13-.29-.25-.65-.39-1a22.58 22.58 0 0 1 4.11.92c2 .81 3.74 3.29 5.57 5 2 1.9 4.11 3.36 5.57 5 1.06.14 2 .37 3 .59zM64 100.72a29 29 0 0 0-4-3.37c.89-3.35 3-5.44 4-8.75 1 3.31 3.11 5.4 4 8.76a29 29 0 0 0-4 3.36zM78.35 86.1c-2.34.71-4.92-.51-8.14 0a1 1 0 0 1-.29-.23q-.53-1-1.14-1.86l-.31-.64c1-.22 2-.44 3-.59 1.46-1.63 3.53-3.1 5.57-5 1.83-1.69 3.59-4.17 5.57-5a22.58 22.58 0 0 1 4.11-.92c-.15.35-.27.71-.39 1a1.11 1.11 0 0 0 0 .81c-.88 2.07-1.3 4.86-2.62 6.95-.77 1.24-4.24 5.15-5.36 5.48z"
+                                                transform="translate(-2.38 -12.86)"></path>
+                                            <path
+                                                d="M89.89 22.65c-2.62 1.69-6 4.13-7.17 6.11a7.83 7.83 0 0 0-2.25-2.91.94.94 0 0 0-1.51.83v.33A4.69 4.69 0 0 1 77.91 30c-2.26 2.84-4.06 3.07-5.68 2.8l-.06.09v-.1a5.77 5.77 0 0 1-3.6-9.12 1.54 1.54 0 0 0 .05-1.75c-1.12-1.73-2.93-5.1-3.91-7a.78.78 0 0 0-1.38 0c-1 1.82-2.77 5.09-3.89 6.79a1.54 1.54 0 0 0 0 1.76 5.77 5.77 0 0 1-3.61 9.11v.1l-.06-.09c-1.63.27-3.42 0-5.7-2.8A4.66 4.66 0 0 1 49 26.86v-.36a.94.94 0 0 0-1.51-.83 7.83 7.83 0 0 0-2.25 2.91c-1.19-2-4.55-4.41-7.17-6.11a.94.94 0 0 0-1.32 1.27 57.41 57.41 0 0 1 6.91 16.46 3.39 3.39 0 0 0 1.33 2v2.7h.06a2.88 2.88 0 0 0-1.53 2.2 2.67 2.67 0 0 0 1.28 2c5.81-3.46 12-3.77 18.11-4.06h2.17c6 .3 12.26.6 18 4a2.62 2.62 0 0 0 1.22-2 2.88 2.88 0 0 0-1.53-2.2h.06v-2.6a3.4 3.4 0 0 0 1.47-2.11 57.52 57.52 0 0 1 6.86-16.3.94.94 0 0 0-1.27-1.18z"
+                                                transform="translate(-2.38 -12.86)"></path>
+                                            <path
+                                                d="M114.35 89.62c2.42-4 4.93-7.89 7.48-11.74-.76-2.49-1.54-5-2.37-7.43-.62-1.84-1.27-3.66-2-5.43a14.31 14.31 0 0 0-.85-1.74c-.07-.13-.16-.24-.23-.36a12.87 12.87 0 0 0-.81-1.18l-.23-.27a12.43 12.43 0 0 0-1-1.09l-.14-.13c-4.71-4.33-12.07-4.44-18-4.74l-1.68-.09c-1.28.29-2.55.64-3.8 1 .08.12.16.24.24.38a22 22 0 0 1 1.34 2.7c.81 2 1.61 4.12 2.53 6.78v.09c1.08 3.14 2.07 6.27 3 9.2l.67 2.15-1.2 1.91c-3.16 4.7-5.79 8.73-8.16 12.54.19.92.36 1.85.53 2.76.12.64.24 1.29.36 1.92l.89 4.55s-1 1.3-1 1.54c1.1.59 8 4.86 8 4.86s6.84-4.47 8-4.9c.1-.89.16-5.17.08-6.26 2.82-.91 6.27-1.1 9.33-1.75-.33-1.77-.56-3.6-.98-5.27zm-16.17 7.7c-1.5-.61-2.34-2-3.67-2.76.77-2.63 2.23-4.47 3.18-6.9.06-.22.21-.32.49-.28.77 2.72 2.44 4.43 3.19 7.18a22.9 22.9 0 0 0-3.19 2.76zm11.5-12c-1.89.59-4-.42-6.57 0a.79.79 0 0 1-.24-.19q-.43-.78-.92-1.53l-.25-.53c.8-.18 1.59-.36 2.44-.48 1.18-1.34 2.85-2.54 4.49-4.09 1.47-1.39 2.9-3.42 4.49-4.09a18 18 0 0 1 3.32-.75c-.12.29-.21.58-.32.82a.92.92 0 0 0 0 .66c-.71 1.7-1 4-2.11 5.7-.63 1.02-3.42 4.22-4.32 4.5zm-80.24-7.56l.67-2.15c.91-2.92 1.9-6.06 3-9.2v-.09c.92-2.66 1.72-4.82 2.53-6.79A22 22 0 0 1 37 56.84c.08-.13.16-.25.24-.37-1.25-.4-2.52-.75-3.8-1l-1.68.09c-5.88.3-13.25.41-18 4.74l-.14.13a12.42 12.42 0 0 0-1 1.09l-.23.27a12.85 12.85 0 0 0-.81 1.18c-.08.12-.16.24-.23.36a14.33 14.33 0 0 0-.81 1.67c-.72 1.77-1.37 3.59-2 5.43-.83 2.45-1.61 4.94-2.37 7.43 2.55 3.85 5.06 7.74 7.48 11.74-.42 1.66-.7 3.5-1 5.26 3.05.65 6.51.84 9.33 1.75-.07 1.09 0 5.37.08 6.26 1.19.43 8 4.9 8 4.9s6.93-4.27 8-4.86c0-.25-1-1.54-1-1.54l.94-4.53c.12-.63.24-1.28.36-1.92.17-.91.34-1.84.53-2.76-2.38-3.81-5-7.84-8.16-12.54zM26 83.62q-.49.74-.92 1.53a.79.79 0 0 1-.24.19c-2.59-.42-4.67.59-6.57 0-.9-.28-3.7-3.48-4.32-4.48-1.06-1.71-1.4-4-2.11-5.7a.92.92 0 0 0 0-.66c-.1-.24-.2-.54-.32-.82a18 18 0 0 1 3.32.75c1.59.67 3 2.7 4.49 4.09 1.64 1.55 3.31 2.76 4.49 4.09.85.12 1.65.3 2.44.48zm3.78 13.7a22.9 22.9 0 0 0-3.19-2.76c.75-2.75 2.42-4.46 3.19-7.18.29 0 .43.06.49.28.95 2.43 2.41 4.27 3.18 6.9-1.29.8-2.13 2.15-3.63 2.76z"
+                                                transform="translatea(-2.38 -12.86)"></path>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <path
+                                            d="M43 38.83a14.78 14.78 0 0 0-1.22 1.29l-.27.32a15.22 15.22 0 0 0-1 1.4c-.09.15-.19.28-.28.43a16.85 16.85 0 0 0-1 2.06c-.86 2.1-1.64 4.25-2.39 6.42-1 2.9-1.93 5.84-2.85 8.79C37 64.1 40 68.7 42.93 73.43c-.5 2-.84 4.14-1.24 6.22 3.66.77 7.81 1 11.19 2.07-.09 1.29 0 6.35.1 7.41 1.43.51 9.44 5.8 9.44 5.8v-12.4a28.09 28.09 0 0 0-3.91-3.26c.9-3.25 3-5.28 3.91-8.49V33.07c-7.06.35-13.64.48-19.29 5.61zm6.81 21.46c2 1.84 4 3.26 5.39 4.84 1 .14 2 .36 2.93.57l-.3.62q-.59.88-1.1 1.81a1 1 0 0 1-.29.23c-3.11-.5-5.61.69-7.88 0-1.08-.33-4.43-4.11-5.18-5.29-1.27-2-1.68-4.73-2.53-6.74a1.07 1.07 0 0 0 0-.78c-.12-.28-.24-.63-.38-1a21.81 21.81 0 0 1 4 .89c1.82.81 3.53 3.21 5.29 4.85zM29 60.27l.65-2.08c.88-2.83 1.84-5.88 2.89-8.92v-.09c.89-2.58 1.67-4.67 2.45-6.58a21.34 21.34 0 0 1 1.3-2.6c.07-.13.15-.24.23-.36-1.21-.39-2.43-.73-3.67-1l-1.63.08c-5.69.29-12.81.39-17.37 4.6l-.13.12a12 12 0 0 0-1 1.06l-.22.26a12.47 12.47 0 0 0-.79 1.15c-.07.12-.15.23-.22.35a13.9 13.9 0 0 0-.82 1.69c-.67 1.68-1.3 3.45-1.91 5.23C8 55.56 7.21 58 6.47 60.39c2.46 3.73 4.89 7.51 7.23 11.39-.41 1.61-.67 3.39-1 5.1 3 .63 6.3.82 9 1.7-.07 1.06 0 5.21.08 6.07 1.15.42 7.77 4.75 7.77 4.75s6.7-4.14 7.77-4.71c0-.24-1-1.5-1-1.5l.86-4.41c.12-.62.23-1.24.35-1.86.16-.88.32-1.78.51-2.68-2.3-3.69-4.84-7.6-7.9-12.16zm-3.3 5.68q-.47.72-.89 1.48a.76.76 0 0 1-.23.19c-2.51-.41-4.52.57-6.35 0-.87-.27-3.58-3.37-4.18-4.34-1-1.66-1.36-3.88-2-5.52a.89.89 0 0 0 0-.64c-.1-.23-.19-.52-.31-.8a17.34 17.34 0 0 1 3.21.73c1.54.65 2.92 2.62 4.34 4 1.59 1.51 3.2 2.67 4.34 4 .82.11 1.59.29 2.36.47zm3.66 13.29a22.18 22.18 0 0 0-3.08-2.68c.72-2.67 2.34-4.33 3.08-7 .28 0 .42.06.48.27.92 2.36 2.33 4.14 3.08 6.69-1.32.81-2.13 2.13-3.58 2.71zm56-5.8c2.9-4.73 5.91-9.34 9-13.89-.92-2.95-1.85-5.89-2.85-8.79-.75-2.17-1.53-4.32-2.39-6.42a16.84 16.84 0 0 0-1-2.06c-.09-.15-.19-.28-.28-.43a15.19 15.19 0 0 0-1-1.4l-.27-.32a14.79 14.79 0 0 0-1.22-1.29l-.17-.15c-5.65-5.13-12.23-5.25-19.29-5.61v37.7c.92 3.21 3 5.24 3.91 8.49a28.1 28.1 0 0 0-3.91 3.26v12.4s8-5.29 9.44-5.8c.12-1.06.19-6.12.1-7.41 3.38-1.08 7.53-1.3 11.19-2.07-.42-2.08-.75-4.25-1.25-6.22zM82 78.88a44.86 44.86 0 0 0-7 1.4l-1.13.36.08 1.19c.07 1 0 4.59 0 6.33-1.58.85-4.36 2.61-6.47 4v-9a20.86 20.86 0 0 1 2.25-1.85l1.08-.82.79-.62-.27-1a19.65 19.65 0 0 0-2.12-4.66 18.12 18.12 0 0 1-1.74-3.65v-35.9c6.38.32 11.93.75 16.77 5.15l.14.13a13.36 13.36 0 0 1 1.1 1.16l.11.13.13.16a13.63 13.63 0 0 1 .88 1.26l.14.22.11.17a15.31 15.31 0 0 1 .93 1.87c.74 1.81 1.49 3.83 2.36 6.34.93 2.71 1.8 5.45 2.61 8-3.36 5-6.1 9.26-8.6 13.34l-.34.55.16.62c.34 1.32.6 2.78.86 4.2l.08.44c-1.01.2-1.97.34-2.91.48zm32.61-7.11c2.34-3.88 4.77-7.65 7.23-11.39-.74-2.42-1.49-4.83-2.3-7.21-.6-1.78-1.23-3.55-1.92-5.26a13.91 13.91 0 0 0-.82-1.69c-.07-.12-.15-.23-.22-.35a12.41 12.41 0 0 0-.79-1.15l-.22-.26a12 12 0 0 0-1-1.06l-.13-.12c-4.56-4.2-11.68-4.31-17.37-4.6l-1.63-.08c-1.24.28-2.46.62-3.67 1 .08.12.16.24.23.36a21.33 21.33 0 0 1 1.3 2.62c.78 1.91 1.56 4 2.45 6.58v.09c1 3 2 6.09 2.89 8.92l.65 2.08-1.19 1.83c-3.06 4.56-5.6 8.46-7.9 12.16.19.9.35 1.8.51 2.68.11.62.23 1.25.35 1.86l.86 4.41s-1 1.26-1 1.5c1.06.57 7.77 4.71 7.77 4.71s6.62-4.34 7.77-4.75c.1-.87.15-5 .08-6.07 2.73-.88 6.07-1.07 9-1.7-.27-1.72-.54-3.49-.95-5.11zM111.82 76a35.85 35.85 0 0 0-5.71 1.16l-1.12.36.08 1.18c.05.78 0 3.55 0 5-1.66.91-4.65 2.83-6.34 3.93-1.32-.81-3.94-2.42-5.62-3.43l.44-.55-.13-.69-.86-4.41c-.12-.6-.23-1.21-.34-1.81v-.05c-.12-.68-.25-1.39-.39-2.09 2.17-3.6 4.59-7.31 7.52-11.67l1.22-1.81.41-.6-.22-.69-.65-2.08c-.88-2.84-1.85-5.89-2.9-9v-.09C96.28 46.07 95.49 44 94.7 42c-.21-.5-.43-1-.68-1.5q.79-.22 1.56-.4H98c5.41.26 11.54.56 15.43 4.15l.11.1a10.57 10.57 0 0 1 .86.93l.09.11.1.12a10.9 10.9 0 0 1 .69 1l.12.19.08.12a12.4 12.4 0 0 1 .73 1.5c.6 1.48 1.2 3.13 1.89 5.18.74 2.18 1.42 4.37 2.06 6.45-2.68 4.07-4.87 7.53-6.87 10.84l-.33.54.15.61c.27 1.07.47 2.21.69 3.42v.1zM87.48 56.33a1.08 1.08 0 0 1 0-.78c.12-.28.24-.63.38-1a21.81 21.81 0 0 0-4 .89c-1.91.79-3.62 3.2-5.39 4.84-2 1.84-4 3.26-5.39 4.84-1 .14-2 .36-2.93.57l.3.62q.59.88 1.1 1.81a1 1 0 0 0 .28.23c3.11-.5 5.61.69 7.88 0 1.08-.33 4.43-4.11 5.18-5.29 1.34-2.06 1.75-4.73 2.59-6.73zm11 13.54c-.92 2.36-2.33 4.14-3.08 6.69 1.29.78 2.1 2.09 3.55 2.68a22.16 22.16 0 0 1 3.05-2.68c-.72-2.67-2.34-4.33-3.08-7-.24 0-.38.1-.44.31zm17.82-12.12a.89.89 0 0 1 0-.64c.1-.23.19-.52.31-.8a17.33 17.33 0 0 0-3.21.73c-1.54.65-2.92 2.62-4.34 4-1.59 1.51-3.2 2.67-4.34 4-.82.11-1.59.29-2.36.47l.24.51q.47.72.89 1.48a.77.77 0 0 0 .23.19c2.51-.41 4.52.57 6.35 0 .87-.27 3.58-3.37 4.18-4.34 1.04-1.73 1.37-3.95 2.05-5.6z"
+                                            transform="translate(-2.38 -12.86)"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/kings row.png" data-lightbox="combate" data-title="Kings Row">
+                                <img src="../img/mapas/maps/kings row.png" class="card-img-top" alt="kings row"
+                                title="kings row"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/UK.png" alt="UK" title="UK">
+                                    King's Row</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <g>
+                                            <path
+                                                d="M84.14 91.33c3-4.88 6.11-9.63 9.27-14.32-.95-3-1.91-6.08-2.94-9.07-.77-2.24-1.58-4.46-2.47-6.62a17.36 17.36 0 0 0-1.06-2.12c-.09-.16-.19-.29-.29-.44a15.66 15.66 0 0 0-1-1.44l-.28-.32a15.27 15.27 0 0 0-1.26-1.33l-.17-.16c-5.84-5.3-12.65-5.43-19.94-5.79-7.29.37-14.1.5-19.94 5.78l-.17.16A15.27 15.27 0 0 0 42.63 57l-.28.33a15.66 15.66 0 0 0-1 1.44c-.09.15-.2.29-.29.44A17.36 17.36 0 0 0 40 61.32c-.89 2.16-1.69 4.38-2.47 6.62-1 3-2 6-2.94 9.07 3.16 4.69 6.27 9.45 9.27 14.32-.52 2-.86 4.27-1.29 6.41 3.79.79 8.07 1 11.57 2.13-.09 1.33 0 6.55.1 7.64 1.48.52 9.75 6 9.75 6s8.28-5.46 9.75-6c.13-1.09.19-6.31.1-7.64 3.5-1.11 7.78-1.35 11.57-2.13-.41-2.14-.75-4.38-1.27-6.41zM59.22 84q-.61.91-1.14 1.86a1 1 0 0 1-.29.23c-3.22-.51-5.8.71-8.14 0-1.12-.34-4.58-4.24-5.36-5.46-1.32-2.09-1.74-4.88-2.62-6.95a1.11 1.11 0 0 0 0-.81c-.13-.29-.25-.65-.39-1a22.58 22.58 0 0 1 4.11.92c2 .81 3.74 3.29 5.57 5 2 1.9 4.11 3.36 5.57 5 1.06.14 2 .37 3 .59zM64 100.72a29 29 0 0 0-4-3.37c.89-3.35 3-5.44 4-8.75 1 3.31 3.11 5.4 4 8.76a29 29 0 0 0-4 3.36zM78.35 86.1c-2.34.71-4.92-.51-8.14 0a1 1 0 0 1-.29-.23q-.53-1-1.14-1.86l-.31-.64c1-.22 2-.44 3-.59 1.46-1.63 3.53-3.1 5.57-5 1.83-1.69 3.59-4.17 5.57-5a22.58 22.58 0 0 1 4.11-.92c-.15.35-.27.71-.39 1a1.11 1.11 0 0 0 0 .81c-.88 2.07-1.3 4.86-2.62 6.95-.77 1.24-4.24 5.15-5.36 5.48z"
+                                                transform="translate(-2.38 -12.86)"></path>
+                                            <path
+                                                d="M89.89 22.65c-2.62 1.69-6 4.13-7.17 6.11a7.83 7.83 0 0 0-2.25-2.91.94.94 0 0 0-1.51.83v.33A4.69 4.69 0 0 1 77.91 30c-2.26 2.84-4.06 3.07-5.68 2.8l-.06.09v-.1a5.77 5.77 0 0 1-3.6-9.12 1.54 1.54 0 0 0 .05-1.75c-1.12-1.73-2.93-5.1-3.91-7a.78.78 0 0 0-1.38 0c-1 1.82-2.77 5.09-3.89 6.79a1.54 1.54 0 0 0 0 1.76 5.77 5.77 0 0 1-3.61 9.11v.1l-.06-.09c-1.63.27-3.42 0-5.7-2.8A4.66 4.66 0 0 1 49 26.86v-.36a.94.94 0 0 0-1.51-.83 7.83 7.83 0 0 0-2.25 2.91c-1.19-2-4.55-4.41-7.17-6.11a.94.94 0 0 0-1.32 1.27 57.41 57.41 0 0 1 6.91 16.46 3.39 3.39 0 0 0 1.33 2v2.7h.06a2.88 2.88 0 0 0-1.53 2.2 2.67 2.67 0 0 0 1.28 2c5.81-3.46 12-3.77 18.11-4.06h2.17c6 .3 12.26.6 18 4a2.62 2.62 0 0 0 1.22-2 2.88 2.88 0 0 0-1.53-2.2h.06v-2.6a3.4 3.4 0 0 0 1.47-2.11 57.52 57.52 0 0 1 6.86-16.3.94.94 0 0 0-1.27-1.18z"
+                                                transform="translate(-2.38 -12.86)"></path>
+                                            <path
+                                                d="M114.35 89.62c2.42-4 4.93-7.89 7.48-11.74-.76-2.49-1.54-5-2.37-7.43-.62-1.84-1.27-3.66-2-5.43a14.31 14.31 0 0 0-.85-1.74c-.07-.13-.16-.24-.23-.36a12.87 12.87 0 0 0-.81-1.18l-.23-.27a12.43 12.43 0 0 0-1-1.09l-.14-.13c-4.71-4.33-12.07-4.44-18-4.74l-1.68-.09c-1.28.29-2.55.64-3.8 1 .08.12.16.24.24.38a22 22 0 0 1 1.34 2.7c.81 2 1.61 4.12 2.53 6.78v.09c1.08 3.14 2.07 6.27 3 9.2l.67 2.15-1.2 1.91c-3.16 4.7-5.79 8.73-8.16 12.54.19.92.36 1.85.53 2.76.12.64.24 1.29.36 1.92l.89 4.55s-1 1.3-1 1.54c1.1.59 8 4.86 8 4.86s6.84-4.47 8-4.9c.1-.89.16-5.17.08-6.26 2.82-.91 6.27-1.1 9.33-1.75-.33-1.77-.56-3.6-.98-5.27zm-16.17 7.7c-1.5-.61-2.34-2-3.67-2.76.77-2.63 2.23-4.47 3.18-6.9.06-.22.21-.32.49-.28.77 2.72 2.44 4.43 3.19 7.18a22.9 22.9 0 0 0-3.19 2.76zm11.5-12c-1.89.59-4-.42-6.57 0a.79.79 0 0 1-.24-.19q-.43-.78-.92-1.53l-.25-.53c.8-.18 1.59-.36 2.44-.48 1.18-1.34 2.85-2.54 4.49-4.09 1.47-1.39 2.9-3.42 4.49-4.09a18 18 0 0 1 3.32-.75c-.12.29-.21.58-.32.82a.92.92 0 0 0 0 .66c-.71 1.7-1 4-2.11 5.7-.63 1.02-3.42 4.22-4.32 4.5zm-80.24-7.56l.67-2.15c.91-2.92 1.9-6.06 3-9.2v-.09c.92-2.66 1.72-4.82 2.53-6.79A22 22 0 0 1 37 56.84c.08-.13.16-.25.24-.37-1.25-.4-2.52-.75-3.8-1l-1.68.09c-5.88.3-13.25.41-18 4.74l-.14.13a12.42 12.42 0 0 0-1 1.09l-.23.27a12.85 12.85 0 0 0-.81 1.18c-.08.12-.16.24-.23.36a14.33 14.33 0 0 0-.81 1.67c-.72 1.77-1.37 3.59-2 5.43-.83 2.45-1.61 4.94-2.37 7.43 2.55 3.85 5.06 7.74 7.48 11.74-.42 1.66-.7 3.5-1 5.26 3.05.65 6.51.84 9.33 1.75-.07 1.09 0 5.37.08 6.26 1.19.43 8 4.9 8 4.9s6.93-4.27 8-4.86c0-.25-1-1.54-1-1.54l.94-4.53c.12-.63.24-1.28.36-1.92.17-.91.34-1.84.53-2.76-2.38-3.81-5-7.84-8.16-12.54zM26 83.62q-.49.74-.92 1.53a.79.79 0 0 1-.24.19c-2.59-.42-4.67.59-6.57 0-.9-.28-3.7-3.48-4.32-4.48-1.06-1.71-1.4-4-2.11-5.7a.92.92 0 0 0 0-.66c-.1-.24-.2-.54-.32-.82a18 18 0 0 1 3.32.75c1.59.67 3 2.7 4.49 4.09 1.64 1.55 3.31 2.76 4.49 4.09.85.12 1.65.3 2.44.48zm3.78 13.7a22.9 22.9 0 0 0-3.19-2.76c.75-2.75 2.42-4.46 3.19-7.18.29 0 .43.06.49.28.95 2.43 2.41 4.27 3.18 6.9-1.29.8-2.13 2.15-3.63 2.76z"
+                                                transform="translatea(-2.38 -12.86)"></path>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 64 64">
+                                        <g>
+                                            <rect x="12.56" y="23.95" width="11.82" height="11.82" rx="1.74" ry="1.74"
+                                                transform="translate(-15.71 21.8) rotate(-45)"></rect>
+                                            <path
+                                                d="M28.81,24.41a11.69,11.69,0,0,0-9.9-6.23v2.11a9.59,9.59,0,0,1,8.91,7.5Z">
+                                            </path>
+                                            <path
+                                                d="M18,20.28h0v-2.1h0a11.69,11.69,0,1,0,6.36,21.77l1-3.46A9.58,9.58,0,1,1,18,20.28Z">
+                                            </path>
+                                            <path
+                                                d="M24,41.33A12.75,12.75,0,0,1,8.46,37.76a.13.13,0,0,0-.23.08v1a.13.13,0,0,0,0,.08,13.64,13.64,0,0,0,7.21,4.25.13.13,0,0,1,.08.05l0,0,2.59,2.87a.39.39,0,0,0,.55,0l2.61-2.89.06,0a13.54,13.54,0,0,0,2.31-.72Z">
+                                            </path>
+                                            <path
+                                                d="M6.1,26.72a12.52,12.52,0,0,1,9.45-9.29,12.77,12.77,0,0,1,13.75,5.69L29.62,22A13.65,13.65,0,1,0,7.34,37.76h0V36.08h0A12.85,12.85,0,0,1,6.1,26.72Z">
+                                            </path>
+                                            <path
+                                                d="M58.8,34.15h0c0-.23,0-.46,0-.7h0a.27.27,0,0,0,.27-.23.26.26,0,0,0-.26-.28h-.08c0-.23,0-.46,0-.7h.08a.27.27,0,0,0,.27-.23.26.26,0,0,0-.26-.28h-.11l0-.7h.12a.26.26,0,0,0,.26-.28.27.27,0,0,0-.27-.23h-.12l0-.72h0a.55.55,0,0,0,.52-.61.57.57,0,0,0-.58-.49h-.06C58,26.27,56,24.47,52.69,24.47H47.87c-1.23-2.1-1.87-3.51-2.4-3.79a16.33,16.33,0,0,0-6.06-.87c-.88,0-1.61,0-2.22,0L31.88,38.09h10.2a1.77,1.77,0,0,0-.26.8c0,1.14.81,1.32,2.1,1.18h0c0-.11,2.24-3.88,5.79-3.81a7.63,7.63,0,0,1,5.8,3.56s0,.09,0,.13h0c1.48.17,2.43,0,2.43-1.21a2.37,2.37,0,0,0-.58-1.22h0c1.29-.3,1.47-1.4,1.44-2.86h0a.26.26,0,0,0,.26-.19A.26.26,0,0,0,58.8,34.15ZM46,24.54l-5,.23h0c-1.64,0-1.88.2-1.88-.29S39,22.78,39,22.3s0-.85.57-.85,3.4-.08,4,0a1.34,1.34,0,0,1,1.3.9L46,24.54Z">
+                                            </path>
+                                            <path
+                                                d="M49.74,41.55a1.19,1.19,0,1,0,1.49,1.15A1.36,1.36,0,0,0,49.74,41.55Zm0,2a.62.62,0,1,1,.78-.6A.71.71,0,0,1,49.74,43.5Z">
+                                            </path>
+                                            <path
+                                                d="M51.47,37.86l.06-.3a.5.5,0,0,0-.5-.5H48.47a.5.5,0,0,0-.5.5l.07.3c-2.44.56-4.21,2.31-4.21,4.37a3.83,3.83,0,0,0,1,2.5h0a.26.26,0,0,0,0,.36l.91.91a.26.26,0,0,0,.36,0l.11-.16a7.36,7.36,0,0,0,7.17,0l.11.16a.26.26,0,0,0,.36,0l.91-.91a.26.26,0,0,0,0-.36h0a3.83,3.83,0,0,0,1-2.5C55.66,40.16,53.9,38.43,51.47,37.86ZM49,37.94h1.46a.29.29,0,0,1,.29.29l-.24,1.33a.29.29,0,0,1-.29.29h-.92a.29.29,0,0,1-.29-.29l-.3-1.33A.29.29,0,0,1,49,37.94Zm-2.6,7-.39.56a.15.15,0,0,1-.21,0L45.29,45a.15.15,0,0,1,0-.21l.58-.37a.15.15,0,0,1,.21,0l.33.33,0,0v.08A.14.14,0,0,1,46.41,44.93Zm3.34.48c-1.72,0-3.11-1.07-3.11-2.39s1.39-2.39,3.11-2.39,3.11,1.07,3.11,2.39S51.46,45.41,49.74,45.41ZM54.2,45l-.52.52a.15.15,0,0,1-.21,0l-.39-.56,0,0a.61.61,0,0,1,0-.09.14.14,0,0,1,0-.08l.33-.33a.15.15,0,0,1,.21,0l.58.37A.15.15,0,0,1,54.2,45Z">
+                                            </path>
+                                            <polygon points="34.57 12 23.4 51.21 26.11 52 37.27 12.79 34.57 12">
+                                            </polygon>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <path
+                                            d="M43 38.83a14.78 14.78 0 0 0-1.22 1.29l-.27.32a15.22 15.22 0 0 0-1 1.4c-.09.15-.19.28-.28.43a16.85 16.85 0 0 0-1 2.06c-.86 2.1-1.64 4.25-2.39 6.42-1 2.9-1.93 5.84-2.85 8.79C37 64.1 40 68.7 42.93 73.43c-.5 2-.84 4.14-1.24 6.22 3.66.77 7.81 1 11.19 2.07-.09 1.29 0 6.35.1 7.41 1.43.51 9.44 5.8 9.44 5.8v-12.4a28.09 28.09 0 0 0-3.91-3.26c.9-3.25 3-5.28 3.91-8.49V33.07c-7.06.35-13.64.48-19.29 5.61zm6.81 21.46c2 1.84 4 3.26 5.39 4.84 1 .14 2 .36 2.93.57l-.3.62q-.59.88-1.1 1.81a1 1 0 0 1-.29.23c-3.11-.5-5.61.69-7.88 0-1.08-.33-4.43-4.11-5.18-5.29-1.27-2-1.68-4.73-2.53-6.74a1.07 1.07 0 0 0 0-.78c-.12-.28-.24-.63-.38-1a21.81 21.81 0 0 1 4 .89c1.82.81 3.53 3.21 5.29 4.85zM29 60.27l.65-2.08c.88-2.83 1.84-5.88 2.89-8.92v-.09c.89-2.58 1.67-4.67 2.45-6.58a21.34 21.34 0 0 1 1.3-2.6c.07-.13.15-.24.23-.36-1.21-.39-2.43-.73-3.67-1l-1.63.08c-5.69.29-12.81.39-17.37 4.6l-.13.12a12 12 0 0 0-1 1.06l-.22.26a12.47 12.47 0 0 0-.79 1.15c-.07.12-.15.23-.22.35a13.9 13.9 0 0 0-.82 1.69c-.67 1.68-1.3 3.45-1.91 5.23C8 55.56 7.21 58 6.47 60.39c2.46 3.73 4.89 7.51 7.23 11.39-.41 1.61-.67 3.39-1 5.1 3 .63 6.3.82 9 1.7-.07 1.06 0 5.21.08 6.07 1.15.42 7.77 4.75 7.77 4.75s6.7-4.14 7.77-4.71c0-.24-1-1.5-1-1.5l.86-4.41c.12-.62.23-1.24.35-1.86.16-.88.32-1.78.51-2.68-2.3-3.69-4.84-7.6-7.9-12.16zm-3.3 5.68q-.47.72-.89 1.48a.76.76 0 0 1-.23.19c-2.51-.41-4.52.57-6.35 0-.87-.27-3.58-3.37-4.18-4.34-1-1.66-1.36-3.88-2-5.52a.89.89 0 0 0 0-.64c-.1-.23-.19-.52-.31-.8a17.34 17.34 0 0 1 3.21.73c1.54.65 2.92 2.62 4.34 4 1.59 1.51 3.2 2.67 4.34 4 .82.11 1.59.29 2.36.47zm3.66 13.29a22.18 22.18 0 0 0-3.08-2.68c.72-2.67 2.34-4.33 3.08-7 .28 0 .42.06.48.27.92 2.36 2.33 4.14 3.08 6.69-1.32.81-2.13 2.13-3.58 2.71zm56-5.8c2.9-4.73 5.91-9.34 9-13.89-.92-2.95-1.85-5.89-2.85-8.79-.75-2.17-1.53-4.32-2.39-6.42a16.84 16.84 0 0 0-1-2.06c-.09-.15-.19-.28-.28-.43a15.19 15.19 0 0 0-1-1.4l-.27-.32a14.79 14.79 0 0 0-1.22-1.29l-.17-.15c-5.65-5.13-12.23-5.25-19.29-5.61v37.7c.92 3.21 3 5.24 3.91 8.49a28.1 28.1 0 0 0-3.91 3.26v12.4s8-5.29 9.44-5.8c.12-1.06.19-6.12.1-7.41 3.38-1.08 7.53-1.3 11.19-2.07-.42-2.08-.75-4.25-1.25-6.22zM82 78.88a44.86 44.86 0 0 0-7 1.4l-1.13.36.08 1.19c.07 1 0 4.59 0 6.33-1.58.85-4.36 2.61-6.47 4v-9a20.86 20.86 0 0 1 2.25-1.85l1.08-.82.79-.62-.27-1a19.65 19.65 0 0 0-2.12-4.66 18.12 18.12 0 0 1-1.74-3.65v-35.9c6.38.32 11.93.75 16.77 5.15l.14.13a13.36 13.36 0 0 1 1.1 1.16l.11.13.13.16a13.63 13.63 0 0 1 .88 1.26l.14.22.11.17a15.31 15.31 0 0 1 .93 1.87c.74 1.81 1.49 3.83 2.36 6.34.93 2.71 1.8 5.45 2.61 8-3.36 5-6.1 9.26-8.6 13.34l-.34.55.16.62c.34 1.32.6 2.78.86 4.2l.08.44c-1.01.2-1.97.34-2.91.48zm32.61-7.11c2.34-3.88 4.77-7.65 7.23-11.39-.74-2.42-1.49-4.83-2.3-7.21-.6-1.78-1.23-3.55-1.92-5.26a13.91 13.91 0 0 0-.82-1.69c-.07-.12-.15-.23-.22-.35a12.41 12.41 0 0 0-.79-1.15l-.22-.26a12 12 0 0 0-1-1.06l-.13-.12c-4.56-4.2-11.68-4.31-17.37-4.6l-1.63-.08c-1.24.28-2.46.62-3.67 1 .08.12.16.24.23.36a21.33 21.33 0 0 1 1.3 2.62c.78 1.91 1.56 4 2.45 6.58v.09c1 3 2 6.09 2.89 8.92l.65 2.08-1.19 1.83c-3.06 4.56-5.6 8.46-7.9 12.16.19.9.35 1.8.51 2.68.11.62.23 1.25.35 1.86l.86 4.41s-1 1.26-1 1.5c1.06.57 7.77 4.71 7.77 4.71s6.62-4.34 7.77-4.75c.1-.87.15-5 .08-6.07 2.73-.88 6.07-1.07 9-1.7-.27-1.72-.54-3.49-.95-5.11zM111.82 76a35.85 35.85 0 0 0-5.71 1.16l-1.12.36.08 1.18c.05.78 0 3.55 0 5-1.66.91-4.65 2.83-6.34 3.93-1.32-.81-3.94-2.42-5.62-3.43l.44-.55-.13-.69-.86-4.41c-.12-.6-.23-1.21-.34-1.81v-.05c-.12-.68-.25-1.39-.39-2.09 2.17-3.6 4.59-7.31 7.52-11.67l1.22-1.81.41-.6-.22-.69-.65-2.08c-.88-2.84-1.85-5.89-2.9-9v-.09C96.28 46.07 95.49 44 94.7 42c-.21-.5-.43-1-.68-1.5q.79-.22 1.56-.4H98c5.41.26 11.54.56 15.43 4.15l.11.1a10.57 10.57 0 0 1 .86.93l.09.11.1.12a10.9 10.9 0 0 1 .69 1l.12.19.08.12a12.4 12.4 0 0 1 .73 1.5c.6 1.48 1.2 3.13 1.89 5.18.74 2.18 1.42 4.37 2.06 6.45-2.68 4.07-4.87 7.53-6.87 10.84l-.33.54.15.61c.27 1.07.47 2.21.69 3.42v.1zM87.48 56.33a1.08 1.08 0 0 1 0-.78c.12-.28.24-.63.38-1a21.81 21.81 0 0 0-4 .89c-1.91.79-3.62 3.2-5.39 4.84-2 1.84-4 3.26-5.39 4.84-1 .14-2 .36-2.93.57l.3.62q.59.88 1.1 1.81a1 1 0 0 0 .28.23c3.11-.5 5.61.69 7.88 0 1.08-.33 4.43-4.11 5.18-5.29 1.34-2.06 1.75-4.73 2.59-6.73zm11 13.54c-.92 2.36-2.33 4.14-3.08 6.69 1.29.78 2.1 2.09 3.55 2.68a22.16 22.16 0 0 1 3.05-2.68c-.72-2.67-2.34-4.33-3.08-7-.24 0-.38.1-.44.31zm17.82-12.12a.89.89 0 0 1 0-.64c.1-.23.19-.52.31-.8a17.33 17.33 0 0 0-3.21.73c-1.54.65-2.92 2.62-4.34 4-1.59 1.51-3.2 2.67-4.34 4-.82.11-1.59.29-2.36.47l.24.51q.47.72.89 1.48a.77.77 0 0 0 .23.19c2.51-.41 4.52.57 6.35 0 .87-.27 3.58-3.37 4.18-4.34 1.04-1.73 1.37-3.95 2.05-5.6z"
+                                            transform="translate(-2.38 -12.86)"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/petra.png" data-lightbox="combate" data-title="Petra">
+                                <img src="../img/mapas/maps/petra.png" class="card-img-top" alt="petra" title="petra"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/Jordan.png" alt="Jordan" title="Jordan">
+                                    Petra</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <g>
+                                            <path
+                                                d="M84.14 91.33c3-4.88 6.11-9.63 9.27-14.32-.95-3-1.91-6.08-2.94-9.07-.77-2.24-1.58-4.46-2.47-6.62a17.36 17.36 0 0 0-1.06-2.12c-.09-.16-.19-.29-.29-.44a15.66 15.66 0 0 0-1-1.44l-.28-.32a15.27 15.27 0 0 0-1.26-1.33l-.17-.16c-5.84-5.3-12.65-5.43-19.94-5.79-7.29.37-14.1.5-19.94 5.78l-.17.16A15.27 15.27 0 0 0 42.63 57l-.28.33a15.66 15.66 0 0 0-1 1.44c-.09.15-.2.29-.29.44A17.36 17.36 0 0 0 40 61.32c-.89 2.16-1.69 4.38-2.47 6.62-1 3-2 6-2.94 9.07 3.16 4.69 6.27 9.45 9.27 14.32-.52 2-.86 4.27-1.29 6.41 3.79.79 8.07 1 11.57 2.13-.09 1.33 0 6.55.1 7.64 1.48.52 9.75 6 9.75 6s8.28-5.46 9.75-6c.13-1.09.19-6.31.1-7.64 3.5-1.11 7.78-1.35 11.57-2.13-.41-2.14-.75-4.38-1.27-6.41zM59.22 84q-.61.91-1.14 1.86a1 1 0 0 1-.29.23c-3.22-.51-5.8.71-8.14 0-1.12-.34-4.58-4.24-5.36-5.46-1.32-2.09-1.74-4.88-2.62-6.95a1.11 1.11 0 0 0 0-.81c-.13-.29-.25-.65-.39-1a22.58 22.58 0 0 1 4.11.92c2 .81 3.74 3.29 5.57 5 2 1.9 4.11 3.36 5.57 5 1.06.14 2 .37 3 .59zM64 100.72a29 29 0 0 0-4-3.37c.89-3.35 3-5.44 4-8.75 1 3.31 3.11 5.4 4 8.76a29 29 0 0 0-4 3.36zM78.35 86.1c-2.34.71-4.92-.51-8.14 0a1 1 0 0 1-.29-.23q-.53-1-1.14-1.86l-.31-.64c1-.22 2-.44 3-.59 1.46-1.63 3.53-3.1 5.57-5 1.83-1.69 3.59-4.17 5.57-5a22.58 22.58 0 0 1 4.11-.92c-.15.35-.27.71-.39 1a1.11 1.11 0 0 0 0 .81c-.88 2.07-1.3 4.86-2.62 6.95-.77 1.24-4.24 5.15-5.36 5.48z"
+                                                transform="translate(-2.38 -12.86)"></path>
+                                            <path
+                                                d="M89.89 22.65c-2.62 1.69-6 4.13-7.17 6.11a7.83 7.83 0 0 0-2.25-2.91.94.94 0 0 0-1.51.83v.33A4.69 4.69 0 0 1 77.91 30c-2.26 2.84-4.06 3.07-5.68 2.8l-.06.09v-.1a5.77 5.77 0 0 1-3.6-9.12 1.54 1.54 0 0 0 .05-1.75c-1.12-1.73-2.93-5.1-3.91-7a.78.78 0 0 0-1.38 0c-1 1.82-2.77 5.09-3.89 6.79a1.54 1.54 0 0 0 0 1.76 5.77 5.77 0 0 1-3.61 9.11v.1l-.06-.09c-1.63.27-3.42 0-5.7-2.8A4.66 4.66 0 0 1 49 26.86v-.36a.94.94 0 0 0-1.51-.83 7.83 7.83 0 0 0-2.25 2.91c-1.19-2-4.55-4.41-7.17-6.11a.94.94 0 0 0-1.32 1.27 57.41 57.41 0 0 1 6.91 16.46 3.39 3.39 0 0 0 1.33 2v2.7h.06a2.88 2.88 0 0 0-1.53 2.2 2.67 2.67 0 0 0 1.28 2c5.81-3.46 12-3.77 18.11-4.06h2.17c6 .3 12.26.6 18 4a2.62 2.62 0 0 0 1.22-2 2.88 2.88 0 0 0-1.53-2.2h.06v-2.6a3.4 3.4 0 0 0 1.47-2.11 57.52 57.52 0 0 1 6.86-16.3.94.94 0 0 0-1.27-1.18z"
+                                                transform="translate(-2.38 -12.86)"></path>
+                                            <path
+                                                d="M114.35 89.62c2.42-4 4.93-7.89 7.48-11.74-.76-2.49-1.54-5-2.37-7.43-.62-1.84-1.27-3.66-2-5.43a14.31 14.31 0 0 0-.85-1.74c-.07-.13-.16-.24-.23-.36a12.87 12.87 0 0 0-.81-1.18l-.23-.27a12.43 12.43 0 0 0-1-1.09l-.14-.13c-4.71-4.33-12.07-4.44-18-4.74l-1.68-.09c-1.28.29-2.55.64-3.8 1 .08.12.16.24.24.38a22 22 0 0 1 1.34 2.7c.81 2 1.61 4.12 2.53 6.78v.09c1.08 3.14 2.07 6.27 3 9.2l.67 2.15-1.2 1.91c-3.16 4.7-5.79 8.73-8.16 12.54.19.92.36 1.85.53 2.76.12.64.24 1.29.36 1.92l.89 4.55s-1 1.3-1 1.54c1.1.59 8 4.86 8 4.86s6.84-4.47 8-4.9c.1-.89.16-5.17.08-6.26 2.82-.91 6.27-1.1 9.33-1.75-.33-1.77-.56-3.6-.98-5.27zm-16.17 7.7c-1.5-.61-2.34-2-3.67-2.76.77-2.63 2.23-4.47 3.18-6.9.06-.22.21-.32.49-.28.77 2.72 2.44 4.43 3.19 7.18a22.9 22.9 0 0 0-3.19 2.76zm11.5-12c-1.89.59-4-.42-6.57 0a.79.79 0 0 1-.24-.19q-.43-.78-.92-1.53l-.25-.53c.8-.18 1.59-.36 2.44-.48 1.18-1.34 2.85-2.54 4.49-4.09 1.47-1.39 2.9-3.42 4.49-4.09a18 18 0 0 1 3.32-.75c-.12.29-.21.58-.32.82a.92.92 0 0 0 0 .66c-.71 1.7-1 4-2.11 5.7-.63 1.02-3.42 4.22-4.32 4.5zm-80.24-7.56l.67-2.15c.91-2.92 1.9-6.06 3-9.2v-.09c.92-2.66 1.72-4.82 2.53-6.79A22 22 0 0 1 37 56.84c.08-.13.16-.25.24-.37-1.25-.4-2.52-.75-3.8-1l-1.68.09c-5.88.3-13.25.41-18 4.74l-.14.13a12.42 12.42 0 0 0-1 1.09l-.23.27a12.85 12.85 0 0 0-.81 1.18c-.08.12-.16.24-.23.36a14.33 14.33 0 0 0-.81 1.67c-.72 1.77-1.37 3.59-2 5.43-.83 2.45-1.61 4.94-2.37 7.43 2.55 3.85 5.06 7.74 7.48 11.74-.42 1.66-.7 3.5-1 5.26 3.05.65 6.51.84 9.33 1.75-.07 1.09 0 5.37.08 6.26 1.19.43 8 4.9 8 4.9s6.93-4.27 8-4.86c0-.25-1-1.54-1-1.54l.94-4.53c.12-.63.24-1.28.36-1.92.17-.91.34-1.84.53-2.76-2.38-3.81-5-7.84-8.16-12.54zM26 83.62q-.49.74-.92 1.53a.79.79 0 0 1-.24.19c-2.59-.42-4.67.59-6.57 0-.9-.28-3.7-3.48-4.32-4.48-1.06-1.71-1.4-4-2.11-5.7a.92.92 0 0 0 0-.66c-.1-.24-.2-.54-.32-.82a18 18 0 0 1 3.32.75c1.59.67 3 2.7 4.49 4.09 1.64 1.55 3.31 2.76 4.49 4.09.85.12 1.65.3 2.44.48zm3.78 13.7a22.9 22.9 0 0 0-3.19-2.76c.75-2.75 2.42-4.46 3.19-7.18.29 0 .43.06.49.28.95 2.43 2.41 4.27 3.18 6.9-1.29.8-2.13 2.15-3.63 2.76z"
+                                                transform="translatea(-2.38 -12.86)"></path>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <path
+                                            d="M43 38.83a14.78 14.78 0 0 0-1.22 1.29l-.27.32a15.22 15.22 0 0 0-1 1.4c-.09.15-.19.28-.28.43a16.85 16.85 0 0 0-1 2.06c-.86 2.1-1.64 4.25-2.39 6.42-1 2.9-1.93 5.84-2.85 8.79C37 64.1 40 68.7 42.93 73.43c-.5 2-.84 4.14-1.24 6.22 3.66.77 7.81 1 11.19 2.07-.09 1.29 0 6.35.1 7.41 1.43.51 9.44 5.8 9.44 5.8v-12.4a28.09 28.09 0 0 0-3.91-3.26c.9-3.25 3-5.28 3.91-8.49V33.07c-7.06.35-13.64.48-19.29 5.61zm6.81 21.46c2 1.84 4 3.26 5.39 4.84 1 .14 2 .36 2.93.57l-.3.62q-.59.88-1.1 1.81a1 1 0 0 1-.29.23c-3.11-.5-5.61.69-7.88 0-1.08-.33-4.43-4.11-5.18-5.29-1.27-2-1.68-4.73-2.53-6.74a1.07 1.07 0 0 0 0-.78c-.12-.28-.24-.63-.38-1a21.81 21.81 0 0 1 4 .89c1.82.81 3.53 3.21 5.29 4.85zM29 60.27l.65-2.08c.88-2.83 1.84-5.88 2.89-8.92v-.09c.89-2.58 1.67-4.67 2.45-6.58a21.34 21.34 0 0 1 1.3-2.6c.07-.13.15-.24.23-.36-1.21-.39-2.43-.73-3.67-1l-1.63.08c-5.69.29-12.81.39-17.37 4.6l-.13.12a12 12 0 0 0-1 1.06l-.22.26a12.47 12.47 0 0 0-.79 1.15c-.07.12-.15.23-.22.35a13.9 13.9 0 0 0-.82 1.69c-.67 1.68-1.3 3.45-1.91 5.23C8 55.56 7.21 58 6.47 60.39c2.46 3.73 4.89 7.51 7.23 11.39-.41 1.61-.67 3.39-1 5.1 3 .63 6.3.82 9 1.7-.07 1.06 0 5.21.08 6.07 1.15.42 7.77 4.75 7.77 4.75s6.7-4.14 7.77-4.71c0-.24-1-1.5-1-1.5l.86-4.41c.12-.62.23-1.24.35-1.86.16-.88.32-1.78.51-2.68-2.3-3.69-4.84-7.6-7.9-12.16zm-3.3 5.68q-.47.72-.89 1.48a.76.76 0 0 1-.23.19c-2.51-.41-4.52.57-6.35 0-.87-.27-3.58-3.37-4.18-4.34-1-1.66-1.36-3.88-2-5.52a.89.89 0 0 0 0-.64c-.1-.23-.19-.52-.31-.8a17.34 17.34 0 0 1 3.21.73c1.54.65 2.92 2.62 4.34 4 1.59 1.51 3.2 2.67 4.34 4 .82.11 1.59.29 2.36.47zm3.66 13.29a22.18 22.18 0 0 0-3.08-2.68c.72-2.67 2.34-4.33 3.08-7 .28 0 .42.06.48.27.92 2.36 2.33 4.14 3.08 6.69-1.32.81-2.13 2.13-3.58 2.71zm56-5.8c2.9-4.73 5.91-9.34 9-13.89-.92-2.95-1.85-5.89-2.85-8.79-.75-2.17-1.53-4.32-2.39-6.42a16.84 16.84 0 0 0-1-2.06c-.09-.15-.19-.28-.28-.43a15.19 15.19 0 0 0-1-1.4l-.27-.32a14.79 14.79 0 0 0-1.22-1.29l-.17-.15c-5.65-5.13-12.23-5.25-19.29-5.61v37.7c.92 3.21 3 5.24 3.91 8.49a28.1 28.1 0 0 0-3.91 3.26v12.4s8-5.29 9.44-5.8c.12-1.06.19-6.12.1-7.41 3.38-1.08 7.53-1.3 11.19-2.07-.42-2.08-.75-4.25-1.25-6.22zM82 78.88a44.86 44.86 0 0 0-7 1.4l-1.13.36.08 1.19c.07 1 0 4.59 0 6.33-1.58.85-4.36 2.61-6.47 4v-9a20.86 20.86 0 0 1 2.25-1.85l1.08-.82.79-.62-.27-1a19.65 19.65 0 0 0-2.12-4.66 18.12 18.12 0 0 1-1.74-3.65v-35.9c6.38.32 11.93.75 16.77 5.15l.14.13a13.36 13.36 0 0 1 1.1 1.16l.11.13.13.16a13.63 13.63 0 0 1 .88 1.26l.14.22.11.17a15.31 15.31 0 0 1 .93 1.87c.74 1.81 1.49 3.83 2.36 6.34.93 2.71 1.8 5.45 2.61 8-3.36 5-6.1 9.26-8.6 13.34l-.34.55.16.62c.34 1.32.6 2.78.86 4.2l.08.44c-1.01.2-1.97.34-2.91.48zm32.61-7.11c2.34-3.88 4.77-7.65 7.23-11.39-.74-2.42-1.49-4.83-2.3-7.21-.6-1.78-1.23-3.55-1.92-5.26a13.91 13.91 0 0 0-.82-1.69c-.07-.12-.15-.23-.22-.35a12.41 12.41 0 0 0-.79-1.15l-.22-.26a12 12 0 0 0-1-1.06l-.13-.12c-4.56-4.2-11.68-4.31-17.37-4.6l-1.63-.08c-1.24.28-2.46.62-3.67 1 .08.12.16.24.23.36a21.33 21.33 0 0 1 1.3 2.62c.78 1.91 1.56 4 2.45 6.58v.09c1 3 2 6.09 2.89 8.92l.65 2.08-1.19 1.83c-3.06 4.56-5.6 8.46-7.9 12.16.19.9.35 1.8.51 2.68.11.62.23 1.25.35 1.86l.86 4.41s-1 1.26-1 1.5c1.06.57 7.77 4.71 7.77 4.71s6.62-4.34 7.77-4.75c.1-.87.15-5 .08-6.07 2.73-.88 6.07-1.07 9-1.7-.27-1.72-.54-3.49-.95-5.11zM111.82 76a35.85 35.85 0 0 0-5.71 1.16l-1.12.36.08 1.18c.05.78 0 3.55 0 5-1.66.91-4.65 2.83-6.34 3.93-1.32-.81-3.94-2.42-5.62-3.43l.44-.55-.13-.69-.86-4.41c-.12-.6-.23-1.21-.34-1.81v-.05c-.12-.68-.25-1.39-.39-2.09 2.17-3.6 4.59-7.31 7.52-11.67l1.22-1.81.41-.6-.22-.69-.65-2.08c-.88-2.84-1.85-5.89-2.9-9v-.09C96.28 46.07 95.49 44 94.7 42c-.21-.5-.43-1-.68-1.5q.79-.22 1.56-.4H98c5.41.26 11.54.56 15.43 4.15l.11.1a10.57 10.57 0 0 1 .86.93l.09.11.1.12a10.9 10.9 0 0 1 .69 1l.12.19.08.12a12.4 12.4 0 0 1 .73 1.5c.6 1.48 1.2 3.13 1.89 5.18.74 2.18 1.42 4.37 2.06 6.45-2.68 4.07-4.87 7.53-6.87 10.84l-.33.54.15.61c.27 1.07.47 2.21.69 3.42v.1zM87.48 56.33a1.08 1.08 0 0 1 0-.78c.12-.28.24-.63.38-1a21.81 21.81 0 0 0-4 .89c-1.91.79-3.62 3.2-5.39 4.84-2 1.84-4 3.26-5.39 4.84-1 .14-2 .36-2.93.57l.3.62q.59.88 1.1 1.81a1 1 0 0 0 .28.23c3.11-.5 5.61.69 7.88 0 1.08-.33 4.43-4.11 5.18-5.29 1.34-2.06 1.75-4.73 2.59-6.73zm11 13.54c-.92 2.36-2.33 4.14-3.08 6.69 1.29.78 2.1 2.09 3.55 2.68a22.16 22.16 0 0 1 3.05-2.68c-.72-2.67-2.34-4.33-3.08-7-.24 0-.38.1-.44.31zm17.82-12.12a.89.89 0 0 1 0-.64c.1-.23.19-.52.31-.8a17.33 17.33 0 0 0-3.21.73c-1.54.65-2.92 2.62-4.34 4-1.59 1.51-3.2 2.67-4.34 4-.82.11-1.59.29-2.36.47l.24.51q.47.72.89 1.48a.77.77 0 0 0 .23.19c2.51-.41 4.52.57 6.35 0 .87-.27 3.58-3.37 4.18-4.34 1.04-1.73 1.37-3.95 2.05-5.6z"
+                                            transform="translate(-2.38 -12.86)"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="combateEquipe">
+                <div class="row">
+                    <div class="col">
+                        <div class="h5 text-uppercase fw-bolder">Combate at a morte em equipe</div>
+                        <p class="fw-normal fst-italic">
+                            Os jogadores competem para ver quem consegue o maior nmero de abates em um formato em
+                            equipe.
+                        </p>
+                    </div>
+                </div>
+                <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-3">
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/castillo.png" data-lightbox="combateEquipe" data-title="Castillo">
+                                <img src="../img/mapas/maps/castillo.png" class="card-img-top" alt="castillo"
+                                title="castillo"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"> <img class="img-fluid"
+                                        src="../img/mapas/pais/Mexico.png" alt="Mexico" title="Mexico">
+                                    Castillo</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <g>
+                                            <path
+                                                d="M73.5 86.2c.1-.5 10.1-.6 10.9-2.3s-1.5-4.9-1.5-5.8S93 63.3 93 62.4 88.1 51.5 85.3 47 74 38.8 64.9 38.3h-1.7c-9.1.4-17.8 4.4-20.4 8.7S35 61.4 35 62.4s10.1 14.8 10.1 15.7-2.3 4-1.5 5.8 10.8 1.8 10.9 2.3-.3 6.6.3 7.5 8.8 5.9 9.2 5.9 8.5-5 9.2-5.9.2-7 .3-7.5zm-15-14.3c-.6.1-1.1 1.1-1.5 1.3a5.9 5.9 0 0 1-3.4-.1 5.4 5.4 0 0 0-3.1 0c-.8.2-4.7-4.9-5.3-6.3s-2.2-6.5-2-6.8 3.1.3 3.7.6a112.3 112.3 0 0 1 8.1 7.8 7.7 7.7 0 0 0 3.9 2.3c.3.2.2 1.1-.4 1.2zM64 86.7a16.3 16.3 0 0 1-3.7-3.3 70.2 70.2 0 0 1 3.7-7.5 70.2 70.2 0 0 1 3.7 7.4 16.3 16.3 0 0 1-3.7 3.4zm7-13.5c-.4-.2-1-1.2-1.5-1.3s-.6-1-.2-1.1a7.7 7.7 0 0 0 3.9-2.3 112.3 112.3 0 0 1 8.1-7.8c.5-.2 3.5-.8 3.7-.6s-1.6 5.3-2.1 6.8-4.5 6.6-5.3 6.3a5.4 5.4 0 0 0-3.1 0 5.9 5.9 0 0 1-3.5 0z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M89 85a.3.3 0 0 0-.5.2c.2.7.5 1.5-.1 1.8s-10.7 1.8-10.9 2.3 0 3 0 5.3L94 111.1c1.4 1.4 12.5 2.8 13 2.4s-1.2-11.5-1.9-12.2z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M39.5 87.1c-.5-.3-.2-1.2-.1-1.8a.3.3 0 0 0-.4-.3l-16 16.2c-.7.7-2.5 11.7-1.9 12.2s11.6-1 13-2.4l16.2-16.3c0-2.3.2-4.8 0-5.3s-9.4-1.5-10.8-2.3z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M120.2 21.7l-1.8-5.1a1.6 1.6 0 0 0-1.2-1.1l-5.3-1a1.6 1.6 0 0 0-1.6.5l-3.5 4.1a1.6 1.6 0 0 0-.3 1.6l.3.8a.3.3 0 0 1-.1.3h-.1L92.3 36.4 79.1 23.1c-1.3-1.3-.9 1.2-.6 2.3s2.8 9.1 3.8 10.2l3.2 3.4-.5.3-.9.7a.8.8 0 0 0 .1 1.3 13.6 13.6 0 0 1 4.7 4.2 59.7 59.7 0 0 1 2.6 5.7 1.3 1.3 0 0 0 1.9.5l2.6-2 3.2 3.1c1.2 1.1 6.3 2.3 9.4 3.3s3.2-.2 2.2-1.2L98.3 42.4 113 27.8h.3l1.6.3a1.6 1.6 0 0 0 1.6-.5l3.5-4.1a1.6 1.6 0 0 0 .2-1.8z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M32 49.6l2.6 2a1.3 1.3 0 0 0 1.9-.5 59.7 59.7 0 0 1 2.6-5.7 13.6 13.6 0 0 1 4.7-4.2.8.8 0 0 0 .1-1.3l-.9-.7-.5-.3 3.2-3.4c.9-1.1 3.5-9.1 3.8-10.2s.7-3.6-.6-2.3L35.7 36.4 21.4 22h-.1a.3.3 0 0 1-.1-.3l.3-.8a1.6 1.6 0 0 0-.3-1.6l-3.5-4.1a1.6 1.6 0 0 0-1.6-.5l-5.3 1a1.6 1.6 0 0 0-1.2 1.1l-1.8 4.9a1.6 1.6 0 0 0 .3 1.6l3.5 4.1a1.6 1.6 0 0 0 1.6.5l1.6-.3h.2l14.7 14.8-12.4 12.5c-1 .9-.8 2.1 2.2 1.2s8.1-2.2 9.4-3.3z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <path
+                                            d="M43 38.83a14.78 14.78 0 0 0-1.22 1.29l-.27.32a15.22 15.22 0 0 0-1 1.4c-.09.15-.19.28-.28.43a16.85 16.85 0 0 0-1 2.06c-.86 2.1-1.64 4.25-2.39 6.42-1 2.9-1.93 5.84-2.85 8.79C37 64.1 40 68.7 42.93 73.43c-.5 2-.84 4.14-1.24 6.22 3.66.77 7.81 1 11.19 2.07-.09 1.29 0 6.35.1 7.41 1.43.51 9.44 5.8 9.44 5.8v-12.4a28.09 28.09 0 0 0-3.91-3.26c.9-3.25 3-5.28 3.91-8.49V33.07c-7.06.35-13.64.48-19.29 5.61zm6.81 21.46c2 1.84 4 3.26 5.39 4.84 1 .14 2 .36 2.93.57l-.3.62q-.59.88-1.1 1.81a1 1 0 0 1-.29.23c-3.11-.5-5.61.69-7.88 0-1.08-.33-4.43-4.11-5.18-5.29-1.27-2-1.68-4.73-2.53-6.74a1.07 1.07 0 0 0 0-.78c-.12-.28-.24-.63-.38-1a21.81 21.81 0 0 1 4 .89c1.82.81 3.53 3.21 5.29 4.85zM29 60.27l.65-2.08c.88-2.83 1.84-5.88 2.89-8.92v-.09c.89-2.58 1.67-4.67 2.45-6.58a21.34 21.34 0 0 1 1.3-2.6c.07-.13.15-.24.23-.36-1.21-.39-2.43-.73-3.67-1l-1.63.08c-5.69.29-12.81.39-17.37 4.6l-.13.12a12 12 0 0 0-1 1.06l-.22.26a12.47 12.47 0 0 0-.79 1.15c-.07.12-.15.23-.22.35a13.9 13.9 0 0 0-.82 1.69c-.67 1.68-1.3 3.45-1.91 5.23C8 55.56 7.21 58 6.47 60.39c2.46 3.73 4.89 7.51 7.23 11.39-.41 1.61-.67 3.39-1 5.1 3 .63 6.3.82 9 1.7-.07 1.06 0 5.21.08 6.07 1.15.42 7.77 4.75 7.77 4.75s6.7-4.14 7.77-4.71c0-.24-1-1.5-1-1.5l.86-4.41c.12-.62.23-1.24.35-1.86.16-.88.32-1.78.51-2.68-2.3-3.69-4.84-7.6-7.9-12.16zm-3.3 5.68q-.47.72-.89 1.48a.76.76 0 0 1-.23.19c-2.51-.41-4.52.57-6.35 0-.87-.27-3.58-3.37-4.18-4.34-1-1.66-1.36-3.88-2-5.52a.89.89 0 0 0 0-.64c-.1-.23-.19-.52-.31-.8a17.34 17.34 0 0 1 3.21.73c1.54.65 2.92 2.62 4.34 4 1.59 1.51 3.2 2.67 4.34 4 .82.11 1.59.29 2.36.47zm3.66 13.29a22.18 22.18 0 0 0-3.08-2.68c.72-2.67 2.34-4.33 3.08-7 .28 0 .42.06.48.27.92 2.36 2.33 4.14 3.08 6.69-1.32.81-2.13 2.13-3.58 2.71zm56-5.8c2.9-4.73 5.91-9.34 9-13.89-.92-2.95-1.85-5.89-2.85-8.79-.75-2.17-1.53-4.32-2.39-6.42a16.84 16.84 0 0 0-1-2.06c-.09-.15-.19-.28-.28-.43a15.19 15.19 0 0 0-1-1.4l-.27-.32a14.79 14.79 0 0 0-1.22-1.29l-.17-.15c-5.65-5.13-12.23-5.25-19.29-5.61v37.7c.92 3.21 3 5.24 3.91 8.49a28.1 28.1 0 0 0-3.91 3.26v12.4s8-5.29 9.44-5.8c.12-1.06.19-6.12.1-7.41 3.38-1.08 7.53-1.3 11.19-2.07-.42-2.08-.75-4.25-1.25-6.22zM82 78.88a44.86 44.86 0 0 0-7 1.4l-1.13.36.08 1.19c.07 1 0 4.59 0 6.33-1.58.85-4.36 2.61-6.47 4v-9a20.86 20.86 0 0 1 2.25-1.85l1.08-.82.79-.62-.27-1a19.65 19.65 0 0 0-2.12-4.66 18.12 18.12 0 0 1-1.74-3.65v-35.9c6.38.32 11.93.75 16.77 5.15l.14.13a13.36 13.36 0 0 1 1.1 1.16l.11.13.13.16a13.63 13.63 0 0 1 .88 1.26l.14.22.11.17a15.31 15.31 0 0 1 .93 1.87c.74 1.81 1.49 3.83 2.36 6.34.93 2.71 1.8 5.45 2.61 8-3.36 5-6.1 9.26-8.6 13.34l-.34.55.16.62c.34 1.32.6 2.78.86 4.2l.08.44c-1.01.2-1.97.34-2.91.48zm32.61-7.11c2.34-3.88 4.77-7.65 7.23-11.39-.74-2.42-1.49-4.83-2.3-7.21-.6-1.78-1.23-3.55-1.92-5.26a13.91 13.91 0 0 0-.82-1.69c-.07-.12-.15-.23-.22-.35a12.41 12.41 0 0 0-.79-1.15l-.22-.26a12 12 0 0 0-1-1.06l-.13-.12c-4.56-4.2-11.68-4.31-17.37-4.6l-1.63-.08c-1.24.28-2.46.62-3.67 1 .08.12.16.24.23.36a21.33 21.33 0 0 1 1.3 2.62c.78 1.91 1.56 4 2.45 6.58v.09c1 3 2 6.09 2.89 8.92l.65 2.08-1.19 1.83c-3.06 4.56-5.6 8.46-7.9 12.16.19.9.35 1.8.51 2.68.11.62.23 1.25.35 1.86l.86 4.41s-1 1.26-1 1.5c1.06.57 7.77 4.71 7.77 4.71s6.62-4.34 7.77-4.75c.1-.87.15-5 .08-6.07 2.73-.88 6.07-1.07 9-1.7-.27-1.72-.54-3.49-.95-5.11zM111.82 76a35.85 35.85 0 0 0-5.71 1.16l-1.12.36.08 1.18c.05.78 0 3.55 0 5-1.66.91-4.65 2.83-6.34 3.93-1.32-.81-3.94-2.42-5.62-3.43l.44-.55-.13-.69-.86-4.41c-.12-.6-.23-1.21-.34-1.81v-.05c-.12-.68-.25-1.39-.39-2.09 2.17-3.6 4.59-7.31 7.52-11.67l1.22-1.81.41-.6-.22-.69-.65-2.08c-.88-2.84-1.85-5.89-2.9-9v-.09C96.28 46.07 95.49 44 94.7 42c-.21-.5-.43-1-.68-1.5q.79-.22 1.56-.4H98c5.41.26 11.54.56 15.43 4.15l.11.1a10.57 10.57 0 0 1 .86.93l.09.11.1.12a10.9 10.9 0 0 1 .69 1l.12.19.08.12a12.4 12.4 0 0 1 .73 1.5c.6 1.48 1.2 3.13 1.89 5.18.74 2.18 1.42 4.37 2.06 6.45-2.68 4.07-4.87 7.53-6.87 10.84l-.33.54.15.61c.27 1.07.47 2.21.69 3.42v.1zM87.48 56.33a1.08 1.08 0 0 1 0-.78c.12-.28.24-.63.38-1a21.81 21.81 0 0 0-4 .89c-1.91.79-3.62 3.2-5.39 4.84-2 1.84-4 3.26-5.39 4.84-1 .14-2 .36-2.93.57l.3.62q.59.88 1.1 1.81a1 1 0 0 0 .28.23c3.11-.5 5.61.69 7.88 0 1.08-.33 4.43-4.11 5.18-5.29 1.34-2.06 1.75-4.73 2.59-6.73zm11 13.54c-.92 2.36-2.33 4.14-3.08 6.69 1.29.78 2.1 2.09 3.55 2.68a22.16 22.16 0 0 1 3.05-2.68c-.72-2.67-2.34-4.33-3.08-7-.24 0-.38.1-.44.31zm17.82-12.12a.89.89 0 0 1 0-.64c.1-.23.19-.52.31-.8a17.33 17.33 0 0 0-3.21.73c-1.54.65-2.92 2.62-4.34 4-1.59 1.51-3.2 2.67-4.34 4-.82.11-1.59.29-2.36.47l.24.51q.47.72.89 1.48a.77.77 0 0 0 .23.19c2.51-.41 4.52.57 6.35 0 .87-.27 3.58-3.37 4.18-4.34 1.04-1.73 1.37-3.95 2.05-5.6z"
+                                            transform="translate(-2.38 -12.86)"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/chateau guillard.png" data-lightbox="combateEquipe" data-title="Chateau Guillard">
+                                <img src="../img/mapas/maps/chateau guillard.png" class="card-img-top"
+                                alt="chateau guillard" title="chateau guillard"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/France.png" alt="France" title="France">
+                                    Château Guillard</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <g>
+                                            <path
+                                                d="M84.14 91.33c3-4.88 6.11-9.63 9.27-14.32-.95-3-1.91-6.08-2.94-9.07-.77-2.24-1.58-4.46-2.47-6.62a17.36 17.36 0 0 0-1.06-2.12c-.09-.16-.19-.29-.29-.44a15.66 15.66 0 0 0-1-1.44l-.28-.32a15.27 15.27 0 0 0-1.26-1.33l-.17-.16c-5.84-5.3-12.65-5.43-19.94-5.79-7.29.37-14.1.5-19.94 5.78l-.17.16A15.27 15.27 0 0 0 42.63 57l-.28.33a15.66 15.66 0 0 0-1 1.44c-.09.15-.2.29-.29.44A17.36 17.36 0 0 0 40 61.32c-.89 2.16-1.69 4.38-2.47 6.62-1 3-2 6-2.94 9.07 3.16 4.69 6.27 9.45 9.27 14.32-.52 2-.86 4.27-1.29 6.41 3.79.79 8.07 1 11.57 2.13-.09 1.33 0 6.55.1 7.64 1.48.52 9.75 6 9.75 6s8.28-5.46 9.75-6c.13-1.09.19-6.31.1-7.64 3.5-1.11 7.78-1.35 11.57-2.13-.41-2.14-.75-4.38-1.27-6.41zM59.22 84q-.61.91-1.14 1.86a1 1 0 0 1-.29.23c-3.22-.51-5.8.71-8.14 0-1.12-.34-4.58-4.24-5.36-5.46-1.32-2.09-1.74-4.88-2.62-6.95a1.11 1.11 0 0 0 0-.81c-.13-.29-.25-.65-.39-1a22.58 22.58 0 0 1 4.11.92c2 .81 3.74 3.29 5.57 5 2 1.9 4.11 3.36 5.57 5 1.06.14 2 .37 3 .59zM64 100.72a29 29 0 0 0-4-3.37c.89-3.35 3-5.44 4-8.75 1 3.31 3.11 5.4 4 8.76a29 29 0 0 0-4 3.36zM78.35 86.1c-2.34.71-4.92-.51-8.14 0a1 1 0 0 1-.29-.23q-.53-1-1.14-1.86l-.31-.64c1-.22 2-.44 3-.59 1.46-1.63 3.53-3.1 5.57-5 1.83-1.69 3.59-4.17 5.57-5a22.58 22.58 0 0 1 4.11-.92c-.15.35-.27.71-.39 1a1.11 1.11 0 0 0 0 .81c-.88 2.07-1.3 4.86-2.62 6.95-.77 1.24-4.24 5.15-5.36 5.48z"
+                                                transform="translate(-2.38 -12.86)"></path>
+                                            <path
+                                                d="M89.89 22.65c-2.62 1.69-6 4.13-7.17 6.11a7.83 7.83 0 0 0-2.25-2.91.94.94 0 0 0-1.51.83v.33A4.69 4.69 0 0 1 77.91 30c-2.26 2.84-4.06 3.07-5.68 2.8l-.06.09v-.1a5.77 5.77 0 0 1-3.6-9.12 1.54 1.54 0 0 0 .05-1.75c-1.12-1.73-2.93-5.1-3.91-7a.78.78 0 0 0-1.38 0c-1 1.82-2.77 5.09-3.89 6.79a1.54 1.54 0 0 0 0 1.76 5.77 5.77 0 0 1-3.61 9.11v.1l-.06-.09c-1.63.27-3.42 0-5.7-2.8A4.66 4.66 0 0 1 49 26.86v-.36a.94.94 0 0 0-1.51-.83 7.83 7.83 0 0 0-2.25 2.91c-1.19-2-4.55-4.41-7.17-6.11a.94.94 0 0 0-1.32 1.27 57.41 57.41 0 0 1 6.91 16.46 3.39 3.39 0 0 0 1.33 2v2.7h.06a2.88 2.88 0 0 0-1.53 2.2 2.67 2.67 0 0 0 1.28 2c5.81-3.46 12-3.77 18.11-4.06h2.17c6 .3 12.26.6 18 4a2.62 2.62 0 0 0 1.22-2 2.88 2.88 0 0 0-1.53-2.2h.06v-2.6a3.4 3.4 0 0 0 1.47-2.11 57.52 57.52 0 0 1 6.86-16.3.94.94 0 0 0-1.27-1.18z"
+                                                transform="translate(-2.38 -12.86)"></path>
+                                            <path
+                                                d="M114.35 89.62c2.42-4 4.93-7.89 7.48-11.74-.76-2.49-1.54-5-2.37-7.43-.62-1.84-1.27-3.66-2-5.43a14.31 14.31 0 0 0-.85-1.74c-.07-.13-.16-.24-.23-.36a12.87 12.87 0 0 0-.81-1.18l-.23-.27a12.43 12.43 0 0 0-1-1.09l-.14-.13c-4.71-4.33-12.07-4.44-18-4.74l-1.68-.09c-1.28.29-2.55.64-3.8 1 .08.12.16.24.24.38a22 22 0 0 1 1.34 2.7c.81 2 1.61 4.12 2.53 6.78v.09c1.08 3.14 2.07 6.27 3 9.2l.67 2.15-1.2 1.91c-3.16 4.7-5.79 8.73-8.16 12.54.19.92.36 1.85.53 2.76.12.64.24 1.29.36 1.92l.89 4.55s-1 1.3-1 1.54c1.1.59 8 4.86 8 4.86s6.84-4.47 8-4.9c.1-.89.16-5.17.08-6.26 2.82-.91 6.27-1.1 9.33-1.75-.33-1.77-.56-3.6-.98-5.27zm-16.17 7.7c-1.5-.61-2.34-2-3.67-2.76.77-2.63 2.23-4.47 3.18-6.9.06-.22.21-.32.49-.28.77 2.72 2.44 4.43 3.19 7.18a22.9 22.9 0 0 0-3.19 2.76zm11.5-12c-1.89.59-4-.42-6.57 0a.79.79 0 0 1-.24-.19q-.43-.78-.92-1.53l-.25-.53c.8-.18 1.59-.36 2.44-.48 1.18-1.34 2.85-2.54 4.49-4.09 1.47-1.39 2.9-3.42 4.49-4.09a18 18 0 0 1 3.32-.75c-.12.29-.21.58-.32.82a.92.92 0 0 0 0 .66c-.71 1.7-1 4-2.11 5.7-.63 1.02-3.42 4.22-4.32 4.5zm-80.24-7.56l.67-2.15c.91-2.92 1.9-6.06 3-9.2v-.09c.92-2.66 1.72-4.82 2.53-6.79A22 22 0 0 1 37 56.84c.08-.13.16-.25.24-.37-1.25-.4-2.52-.75-3.8-1l-1.68.09c-5.88.3-13.25.41-18 4.74l-.14.13a12.42 12.42 0 0 0-1 1.09l-.23.27a12.85 12.85 0 0 0-.81 1.18c-.08.12-.16.24-.23.36a14.33 14.33 0 0 0-.81 1.67c-.72 1.77-1.37 3.59-2 5.43-.83 2.45-1.61 4.94-2.37 7.43 2.55 3.85 5.06 7.74 7.48 11.74-.42 1.66-.7 3.5-1 5.26 3.05.65 6.51.84 9.33 1.75-.07 1.09 0 5.37.08 6.26 1.19.43 8 4.9 8 4.9s6.93-4.27 8-4.86c0-.25-1-1.54-1-1.54l.94-4.53c.12-.63.24-1.28.36-1.92.17-.91.34-1.84.53-2.76-2.38-3.81-5-7.84-8.16-12.54zM26 83.62q-.49.74-.92 1.53a.79.79 0 0 1-.24.19c-2.59-.42-4.67.59-6.57 0-.9-.28-3.7-3.48-4.32-4.48-1.06-1.71-1.4-4-2.11-5.7a.92.92 0 0 0 0-.66c-.1-.24-.2-.54-.32-.82a18 18 0 0 1 3.32.75c1.59.67 3 2.7 4.49 4.09 1.64 1.55 3.31 2.76 4.49 4.09.85.12 1.65.3 2.44.48zm3.78 13.7a22.9 22.9 0 0 0-3.19-2.76c.75-2.75 2.42-4.46 3.19-7.18.29 0 .43.06.49.28.95 2.43 2.41 4.27 3.18 6.9-1.29.8-2.13 2.15-3.63 2.76z"
+                                                transform="translate(-2.38 -12.86)"></path>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <path
+                                            d="M43 38.83a14.78 14.78 0 0 0-1.22 1.29l-.27.32a15.22 15.22 0 0 0-1 1.4c-.09.15-.19.28-.28.43a16.85 16.85 0 0 0-1 2.06c-.86 2.1-1.64 4.25-2.39 6.42-1 2.9-1.93 5.84-2.85 8.79C37 64.1 40 68.7 42.93 73.43c-.5 2-.84 4.14-1.24 6.22 3.66.77 7.81 1 11.19 2.07-.09 1.29 0 6.35.1 7.41 1.43.51 9.44 5.8 9.44 5.8v-12.4a28.09 28.09 0 0 0-3.91-3.26c.9-3.25 3-5.28 3.91-8.49V33.07c-7.06.35-13.64.48-19.29 5.61zm6.81 21.46c2 1.84 4 3.26 5.39 4.84 1 .14 2 .36 2.93.57l-.3.62q-.59.88-1.1 1.81a1 1 0 0 1-.29.23c-3.11-.5-5.61.69-7.88 0-1.08-.33-4.43-4.11-5.18-5.29-1.27-2-1.68-4.73-2.53-6.74a1.07 1.07 0 0 0 0-.78c-.12-.28-.24-.63-.38-1a21.81 21.81 0 0 1 4 .89c1.82.81 3.53 3.21 5.29 4.85zM29 60.27l.65-2.08c.88-2.83 1.84-5.88 2.89-8.92v-.09c.89-2.58 1.67-4.67 2.45-6.58a21.34 21.34 0 0 1 1.3-2.6c.07-.13.15-.24.23-.36-1.21-.39-2.43-.73-3.67-1l-1.63.08c-5.69.29-12.81.39-17.37 4.6l-.13.12a12 12 0 0 0-1 1.06l-.22.26a12.47 12.47 0 0 0-.79 1.15c-.07.12-.15.23-.22.35a13.9 13.9 0 0 0-.82 1.69c-.67 1.68-1.3 3.45-1.91 5.23C8 55.56 7.21 58 6.47 60.39c2.46 3.73 4.89 7.51 7.23 11.39-.41 1.61-.67 3.39-1 5.1 3 .63 6.3.82 9 1.7-.07 1.06 0 5.21.08 6.07 1.15.42 7.77 4.75 7.77 4.75s6.7-4.14 7.77-4.71c0-.24-1-1.5-1-1.5l.86-4.41c.12-.62.23-1.24.35-1.86.16-.88.32-1.78.51-2.68-2.3-3.69-4.84-7.6-7.9-12.16zm-3.3 5.68q-.47.72-.89 1.48a.76.76 0 0 1-.23.19c-2.51-.41-4.52.57-6.35 0-.87-.27-3.58-3.37-4.18-4.34-1-1.66-1.36-3.88-2-5.52a.89.89 0 0 0 0-.64c-.1-.23-.19-.52-.31-.8a17.34 17.34 0 0 1 3.21.73c1.54.65 2.92 2.62 4.34 4 1.59 1.51 3.2 2.67 4.34 4 .82.11 1.59.29 2.36.47zm3.66 13.29a22.18 22.18 0 0 0-3.08-2.68c.72-2.67 2.34-4.33 3.08-7 .28 0 .42.06.48.27.92 2.36 2.33 4.14 3.08 6.69-1.32.81-2.13 2.13-3.58 2.71zm56-5.8c2.9-4.73 5.91-9.34 9-13.89-.92-2.95-1.85-5.89-2.85-8.79-.75-2.17-1.53-4.32-2.39-6.42a16.84 16.84 0 0 0-1-2.06c-.09-.15-.19-.28-.28-.43a15.19 15.19 0 0 0-1-1.4l-.27-.32a14.79 14.79 0 0 0-1.22-1.29l-.17-.15c-5.65-5.13-12.23-5.25-19.29-5.61v37.7c.92 3.21 3 5.24 3.91 8.49a28.1 28.1 0 0 0-3.91 3.26v12.4s8-5.29 9.44-5.8c.12-1.06.19-6.12.1-7.41 3.38-1.08 7.53-1.3 11.19-2.07-.42-2.08-.75-4.25-1.25-6.22zM82 78.88a44.86 44.86 0 0 0-7 1.4l-1.13.36.08 1.19c.07 1 0 4.59 0 6.33-1.58.85-4.36 2.61-6.47 4v-9a20.86 20.86 0 0 1 2.25-1.85l1.08-.82.79-.62-.27-1a19.65 19.65 0 0 0-2.12-4.66 18.12 18.12 0 0 1-1.74-3.65v-35.9c6.38.32 11.93.75 16.77 5.15l.14.13a13.36 13.36 0 0 1 1.1 1.16l.11.13.13.16a13.63 13.63 0 0 1 .88 1.26l.14.22.11.17a15.31 15.31 0 0 1 .93 1.87c.74 1.81 1.49 3.83 2.36 6.34.93 2.71 1.8 5.45 2.61 8-3.36 5-6.1 9.26-8.6 13.34l-.34.55.16.62c.34 1.32.6 2.78.86 4.2l.08.44c-1.01.2-1.97.34-2.91.48zm32.61-7.11c2.34-3.88 4.77-7.65 7.23-11.39-.74-2.42-1.49-4.83-2.3-7.21-.6-1.78-1.23-3.55-1.92-5.26a13.91 13.91 0 0 0-.82-1.69c-.07-.12-.15-.23-.22-.35a12.41 12.41 0 0 0-.79-1.15l-.22-.26a12 12 0 0 0-1-1.06l-.13-.12c-4.56-4.2-11.68-4.31-17.37-4.6l-1.63-.08c-1.24.28-2.46.62-3.67 1 .08.12.16.24.23.36a21.33 21.33 0 0 1 1.3 2.62c.78 1.91 1.56 4 2.45 6.58v.09c1 3 2 6.09 2.89 8.92l.65 2.08-1.19 1.83c-3.06 4.56-5.6 8.46-7.9 12.16.19.9.35 1.8.51 2.68.11.62.23 1.25.35 1.86l.86 4.41s-1 1.26-1 1.5c1.06.57 7.77 4.71 7.77 4.71s6.62-4.34 7.77-4.75c.1-.87.15-5 .08-6.07 2.73-.88 6.07-1.07 9-1.7-.27-1.72-.54-3.49-.95-5.11zM111.82 76a35.85 35.85 0 0 0-5.71 1.16l-1.12.36.08 1.18c.05.78 0 3.55 0 5-1.66.91-4.65 2.83-6.34 3.93-1.32-.81-3.94-2.42-5.62-3.43l.44-.55-.13-.69-.86-4.41c-.12-.6-.23-1.21-.34-1.81v-.05c-.12-.68-.25-1.39-.39-2.09 2.17-3.6 4.59-7.31 7.52-11.67l1.22-1.81.41-.6-.22-.69-.65-2.08c-.88-2.84-1.85-5.89-2.9-9v-.09C96.28 46.07 95.49 44 94.7 42c-.21-.5-.43-1-.68-1.5q.79-.22 1.56-.4H98c5.41.26 11.54.56 15.43 4.15l.11.1a10.57 10.57 0 0 1 .86.93l.09.11.1.12a10.9 10.9 0 0 1 .69 1l.12.19.08.12a12.4 12.4 0 0 1 .73 1.5c.6 1.48 1.2 3.13 1.89 5.18.74 2.18 1.42 4.37 2.06 6.45-2.68 4.07-4.87 7.53-6.87 10.84l-.33.54.15.61c.27 1.07.47 2.21.69 3.42v.1zM87.48 56.33a1.08 1.08 0 0 1 0-.78c.12-.28.24-.63.38-1a21.81 21.81 0 0 0-4 .89c-1.91.79-3.62 3.2-5.39 4.84-2 1.84-4 3.26-5.39 4.84-1 .14-2 .36-2.93.57l.3.62q.59.88 1.1 1.81a1 1 0 0 0 .28.23c3.11-.5 5.61.69 7.88 0 1.08-.33 4.43-4.11 5.18-5.29 1.34-2.06 1.75-4.73 2.59-6.73zm11 13.54c-.92 2.36-2.33 4.14-3.08 6.69 1.29.78 2.1 2.09 3.55 2.68a22.16 22.16 0 0 1 3.05-2.68c-.72-2.67-2.34-4.33-3.08-7-.24 0-.38.1-.44.31zm17.82-12.12a.89.89 0 0 1 0-.64c.1-.23.19-.52.31-.8a17.33 17.33 0 0 0-3.21.73c-1.54.65-2.92 2.62-4.34 4-1.59 1.51-3.2 2.67-4.34 4-.82.11-1.59.29-2.36.47l.24.51q.47.72.89 1.48a.77.77 0 0 0 .23.19c2.51-.41 4.52.57 6.35 0 .87-.27 3.58-3.37 4.18-4.34 1.04-1.73 1.37-3.95 2.05-5.6z"
+                                            transform="translate(-2.38 -12.86)"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/dorado.png" data-lightbox="combateEquipe" data-title="Dorado">
+                                <img src="../img/mapas/maps/dorado.png" class="card-img-top" alt="dorado" title="dorado"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/Mexico.png" alt="Mexico" title="Mexico">
+                                    Dorado</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <g>
+                                            <path
+                                                d="M84.14 91.33c3-4.88 6.11-9.63 9.27-14.32-.95-3-1.91-6.08-2.94-9.07-.77-2.24-1.58-4.46-2.47-6.62a17.36 17.36 0 0 0-1.06-2.12c-.09-.16-.19-.29-.29-.44a15.66 15.66 0 0 0-1-1.44l-.28-.32a15.27 15.27 0 0 0-1.26-1.33l-.17-.16c-5.84-5.3-12.65-5.43-19.94-5.79-7.29.37-14.1.5-19.94 5.78l-.17.16A15.27 15.27 0 0 0 42.63 57l-.28.33a15.66 15.66 0 0 0-1 1.44c-.09.15-.2.29-.29.44A17.36 17.36 0 0 0 40 61.32c-.89 2.16-1.69 4.38-2.47 6.62-1 3-2 6-2.94 9.07 3.16 4.69 6.27 9.45 9.27 14.32-.52 2-.86 4.27-1.29 6.41 3.79.79 8.07 1 11.57 2.13-.09 1.33 0 6.55.1 7.64 1.48.52 9.75 6 9.75 6s8.28-5.46 9.75-6c.13-1.09.19-6.31.1-7.64 3.5-1.11 7.78-1.35 11.57-2.13-.41-2.14-.75-4.38-1.27-6.41zM59.22 84q-.61.91-1.14 1.86a1 1 0 0 1-.29.23c-3.22-.51-5.8.71-8.14 0-1.12-.34-4.58-4.24-5.36-5.46-1.32-2.09-1.74-4.88-2.62-6.95a1.11 1.11 0 0 0 0-.81c-.13-.29-.25-.65-.39-1a22.58 22.58 0 0 1 4.11.92c2 .81 3.74 3.29 5.57 5 2 1.9 4.11 3.36 5.57 5 1.06.14 2 .37 3 .59zM64 100.72a29 29 0 0 0-4-3.37c.89-3.35 3-5.44 4-8.75 1 3.31 3.11 5.4 4 8.76a29 29 0 0 0-4 3.36zM78.35 86.1c-2.34.71-4.92-.51-8.14 0a1 1 0 0 1-.29-.23q-.53-1-1.14-1.86l-.31-.64c1-.22 2-.44 3-.59 1.46-1.63 3.53-3.1 5.57-5 1.83-1.69 3.59-4.17 5.57-5a22.58 22.58 0 0 1 4.11-.92c-.15.35-.27.71-.39 1a1.11 1.11 0 0 0 0 .81c-.88 2.07-1.3 4.86-2.62 6.95-.77 1.24-4.24 5.15-5.36 5.48z"
+                                                transform="translate(-2.38 -12.86)"></path>
+                                            <path
+                                                d="M89.89 22.65c-2.62 1.69-6 4.13-7.17 6.11a7.83 7.83 0 0 0-2.25-2.91.94.94 0 0 0-1.51.83v.33A4.69 4.69 0 0 1 77.91 30c-2.26 2.84-4.06 3.07-5.68 2.8l-.06.09v-.1a5.77 5.77 0 0 1-3.6-9.12 1.54 1.54 0 0 0 .05-1.75c-1.12-1.73-2.93-5.1-3.91-7a.78.78 0 0 0-1.38 0c-1 1.82-2.77 5.09-3.89 6.79a1.54 1.54 0 0 0 0 1.76 5.77 5.77 0 0 1-3.61 9.11v.1l-.06-.09c-1.63.27-3.42 0-5.7-2.8A4.66 4.66 0 0 1 49 26.86v-.36a.94.94 0 0 0-1.51-.83 7.83 7.83 0 0 0-2.25 2.91c-1.19-2-4.55-4.41-7.17-6.11a.94.94 0 0 0-1.32 1.27 57.41 57.41 0 0 1 6.91 16.46 3.39 3.39 0 0 0 1.33 2v2.7h.06a2.88 2.88 0 0 0-1.53 2.2 2.67 2.67 0 0 0 1.28 2c5.81-3.46 12-3.77 18.11-4.06h2.17c6 .3 12.26.6 18 4a2.62 2.62 0 0 0 1.22-2 2.88 2.88 0 0 0-1.53-2.2h.06v-2.6a3.4 3.4 0 0 0 1.47-2.11 57.52 57.52 0 0 1 6.86-16.3.94.94 0 0 0-1.27-1.18z"
+                                                transform="translate(-2.38 -12.86)"></path>
+                                            <path
+                                                d="M114.35 89.62c2.42-4 4.93-7.89 7.48-11.74-.76-2.49-1.54-5-2.37-7.43-.62-1.84-1.27-3.66-2-5.43a14.31 14.31 0 0 0-.85-1.74c-.07-.13-.16-.24-.23-.36a12.87 12.87 0 0 0-.81-1.18l-.23-.27a12.43 12.43 0 0 0-1-1.09l-.14-.13c-4.71-4.33-12.07-4.44-18-4.74l-1.68-.09c-1.28.29-2.55.64-3.8 1 .08.12.16.24.24.38a22 22 0 0 1 1.34 2.7c.81 2 1.61 4.12 2.53 6.78v.09c1.08 3.14 2.07 6.27 3 9.2l.67 2.15-1.2 1.91c-3.16 4.7-5.79 8.73-8.16 12.54.19.92.36 1.85.53 2.76.12.64.24 1.29.36 1.92l.89 4.55s-1 1.3-1 1.54c1.1.59 8 4.86 8 4.86s6.84-4.47 8-4.9c.1-.89.16-5.17.08-6.26 2.82-.91 6.27-1.1 9.33-1.75-.33-1.77-.56-3.6-.98-5.27zm-16.17 7.7c-1.5-.61-2.34-2-3.67-2.76.77-2.63 2.23-4.47 3.18-6.9.06-.22.21-.32.49-.28.77 2.72 2.44 4.43 3.19 7.18a22.9 22.9 0 0 0-3.19 2.76zm11.5-12c-1.89.59-4-.42-6.57 0a.79.79 0 0 1-.24-.19q-.43-.78-.92-1.53l-.25-.53c.8-.18 1.59-.36 2.44-.48 1.18-1.34 2.85-2.54 4.49-4.09 1.47-1.39 2.9-3.42 4.49-4.09a18 18 0 0 1 3.32-.75c-.12.29-.21.58-.32.82a.92.92 0 0 0 0 .66c-.71 1.7-1 4-2.11 5.7-.63 1.02-3.42 4.22-4.32 4.5zm-80.24-7.56l.67-2.15c.91-2.92 1.9-6.06 3-9.2v-.09c.92-2.66 1.72-4.82 2.53-6.79A22 22 0 0 1 37 56.84c.08-.13.16-.25.24-.37-1.25-.4-2.52-.75-3.8-1l-1.68.09c-5.88.3-13.25.41-18 4.74l-.14.13a12.42 12.42 0 0 0-1 1.09l-.23.27a12.85 12.85 0 0 0-.81 1.18c-.08.12-.16.24-.23.36a14.33 14.33 0 0 0-.81 1.67c-.72 1.77-1.37 3.59-2 5.43-.83 2.45-1.61 4.94-2.37 7.43 2.55 3.85 5.06 7.74 7.48 11.74-.42 1.66-.7 3.5-1 5.26 3.05.65 6.51.84 9.33 1.75-.07 1.09 0 5.37.08 6.26 1.19.43 8 4.9 8 4.9s6.93-4.27 8-4.86c0-.25-1-1.54-1-1.54l.94-4.53c.12-.63.24-1.28.36-1.92.17-.91.34-1.84.53-2.76-2.38-3.81-5-7.84-8.16-12.54zM26 83.62q-.49.74-.92 1.53a.79.79 0 0 1-.24.19c-2.59-.42-4.67.59-6.57 0-.9-.28-3.7-3.48-4.32-4.48-1.06-1.71-1.4-4-2.11-5.7a.92.92 0 0 0 0-.66c-.1-.24-.2-.54-.32-.82a18 18 0 0 1 3.32.75c1.59.67 3 2.7 4.49 4.09 1.64 1.55 3.31 2.76 4.49 4.09.85.12 1.65.3 2.44.48zm3.78 13.7a22.9 22.9 0 0 0-3.19-2.76c.75-2.75 2.42-4.46 3.19-7.18.29 0 .43.06.49.28.95 2.43 2.41 4.27 3.18 6.9-1.29.8-2.13 2.15-3.63 2.76z"
+                                                transform="translatea(-2.38 -12.86)"></path>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 64 64">
+                                        <g>
+                                            <rect x="10.38" y="24.34" width="21.03" height="14.39" rx="0.81" ry="0.81">
+                                            </rect>
+                                            <path
+                                                d="M60.62,37.83h0c0-.23,0-.47,0-.72h0a.28.28,0,0,0,.28-.24.26.26,0,0,0-.26-.29h-.09c0-.24,0-.47,0-.72h.08a.28.28,0,0,0,.28-.24.26.26,0,0,0-.26-.29H60.5l0-.72h.13a.26.26,0,0,0,.26-.29.28.28,0,0,0-.28-.24h-.12l0-.74h0a.57.57,0,0,0,.53-.63.59.59,0,0,0-.59-.5h-.06c-.5-2.43-2.65-4.26-6-4.26H49.44c-1.26-2.15-1.91-3.59-2.45-3.87a16.68,16.68,0,0,0-6.19-.89c-3.43,0-4.64.13-5,.35s-.59.19-.59,1.48v5.42H34.7V23.8a.6.6,0,0,0-.6-.6H32.66a.6.6,0,0,0-.6.6V39.27H3.39a.39.39,0,0,0-.39.39v1.81a.39.39,0,0,0,.39.39h1a.14.14,0,0,1,.14.14v.24a.47.47,0,0,0,.47.47H8.49A.47.47,0,0,0,9,42.25V42a.14.14,0,0,1,.14-.14h3.34a.14.14,0,0,0,.09,0,6,6,0,0,1,4.06-1.48,6,6,0,0,1,4.06,1.48.14.14,0,0,0,.09,0H22a.14.14,0,0,1,.14.14v.24a.47.47,0,0,0,.47.47h1.72a.14.14,0,0,0,.1,0l.24-.24a.14.14,0,0,1,.2,0l.24.24a.14.14,0,0,0,.1,0H27a.14.14,0,0,0,.1,0l.11-.11a.14.14,0,0,1,.2,0l.11.11a.14.14,0,0,0,.1,0h1.82a.14.14,0,0,0,.1,0l.24-.24a.14.14,0,0,1,.2,0l.24.24a.14.14,0,0,0,.1,0h1.42a.47.47,0,0,0,.47-.47V42a.14.14,0,0,1,.14-.14h11.2a1.8,1.8,0,0,0-.26.81c0,1.16.83,1.35,2.14,1.2h0c0-.11,2.29-4,5.91-3.89a7.79,7.79,0,0,1,5.92,3.64s0,.09,0,.13h0c1.51.17,2.49,0,2.49-1.23a2.42,2.42,0,0,0-.6-1.24h0c1.32-.3,1.5-1.43,1.47-2.92h0a.27.27,0,0,0,.26-.2A.26.26,0,0,0,60.62,37.83ZM47.5,28l-5.07.24h0c-1.67,0-1.92.21-1.92-.29s-.08-1.74-.08-2.23,0-.86.58-.86,3.47-.08,4.06,0a1.37,1.37,0,0,1,1.32.92L47.5,28Z">
+                                            </path>
+                                            <path
+                                                d="M51.36,45.39a1.21,1.21,0,1,0,1.53,1.17A1.38,1.38,0,0,0,51.36,45.39Zm0,2a.64.64,0,1,1,.8-.62A.73.73,0,0,1,51.36,47.39Z">
+                                            </path>
+                                            <path
+                                                d="M53.12,41.63l.06-.31a.51.51,0,0,0-.51-.51H50.06a.51.51,0,0,0-.51.51l.07.31c-2.49.58-4.3,2.35-4.3,4.46a3.92,3.92,0,0,0,1,2.55h0a.26.26,0,0,0,0,.37l.93.93a.26.26,0,0,0,.37,0l.11-.16a7.51,7.51,0,0,0,7.32,0l.11.16a.26.26,0,0,0,.37,0l.93-.93a.26.26,0,0,0,0-.37h0a3.91,3.91,0,0,0,1-2.55C57.41,44,55.6,42.21,53.12,41.63Zm-2.51.08h1.49a.3.3,0,0,1,.29.29l-.25,1.36a.3.3,0,0,1-.29.29h-.94a.3.3,0,0,1-.29-.29L50.32,42A.3.3,0,0,1,50.61,41.71ZM48,48.85l-.4.57a.15.15,0,0,1-.21,0l-.54-.54a.15.15,0,0,1,0-.21l.6-.37a.15.15,0,0,1,.21,0l.34.34,0,0v.08A.15.15,0,0,1,48,48.85Zm3.41.49c-1.75,0-3.17-1.09-3.17-2.44s1.42-2.44,3.17-2.44,3.17,1.09,3.17,2.44S53.11,49.33,51.36,49.33Zm4.55-.45-.54.54a.15.15,0,0,1-.21,0l-.4-.57,0,0a.63.63,0,0,1,0-.09.14.14,0,0,1,0-.08l.34-.34a.15.15,0,0,1,.21,0l.6.37A.15.15,0,0,1,55.91,48.89Z">
+                                            </path>
+                                            <path
+                                                d="M16.8,45.33a1.23,1.23,0,1,0,0,2.38,1.23,1.23,0,1,0,0-2.38Zm0,2a.64.64,0,1,1,.8-.62A.73.73,0,0,1,16.8,47.35Z">
+                                            </path>
+                                            <path
+                                                d="M18.56,41.51l.06-.31a.52.52,0,0,0-.51-.52H15.5a.52.52,0,0,0-.51.52l.07.31c-2.49.58-4.3,2.38-4.3,4.52a4,4,0,0,0,1,2.59h0a.27.27,0,0,0,0,.37l.93.95a.26.26,0,0,0,.37,0l.11-.16a7.43,7.43,0,0,0,7.32,0l.11.16a.26.26,0,0,0,.37,0l.93-.95a.27.27,0,0,0,0-.37h0a4,4,0,0,0,1-2.59C22.85,43.9,21,42.1,18.56,41.51Zm-2.51.08h1.49a.3.3,0,0,1,.29.3l-.25,1.37a.3.3,0,0,1-.29.3h-.94a.3.3,0,0,1-.29-.3l-.31-1.37A.3.3,0,0,1,16.06,41.59ZM13.4,48.82l-.4.58a.15.15,0,0,1-.21,0l-.54-.54a.15.15,0,0,1,0-.21l.6-.38a.15.15,0,0,1,.21,0l.34.34,0,0v.08A.15.15,0,0,1,13.4,48.82Zm3.41.49c-1.75,0-3.17-1.11-3.17-2.48s1.42-2.48,3.17-2.48S20,45.47,20,46.84,18.56,49.32,16.8,49.32Zm4.55-.45-.54.54a.15.15,0,0,1-.21,0l-.4-.58,0,0a.65.65,0,0,1,0-.09.15.15,0,0,1,0-.08l.34-.34a.15.15,0,0,1,.21,0l.6.38A.15.15,0,0,1,21.35,48.86Z">
+                                            </path>
+                                            <rect x="38.04" y="14.19" width="6.12" height="6.12" rx="0.82" ry="0.82"
+                                                transform="translate(-0.16 34.12) rotate(-45)"></rect>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <path
+                                            d="M43 38.83a14.78 14.78 0 0 0-1.22 1.29l-.27.32a15.22 15.22 0 0 0-1 1.4c-.09.15-.19.28-.28.43a16.85 16.85 0 0 0-1 2.06c-.86 2.1-1.64 4.25-2.39 6.42-1 2.9-1.93 5.84-2.85 8.79C37 64.1 40 68.7 42.93 73.43c-.5 2-.84 4.14-1.24 6.22 3.66.77 7.81 1 11.19 2.07-.09 1.29 0 6.35.1 7.41 1.43.51 9.44 5.8 9.44 5.8v-12.4a28.09 28.09 0 0 0-3.91-3.26c.9-3.25 3-5.28 3.91-8.49V33.07c-7.06.35-13.64.48-19.29 5.61zm6.81 21.46c2 1.84 4 3.26 5.39 4.84 1 .14 2 .36 2.93.57l-.3.62q-.59.88-1.1 1.81a1 1 0 0 1-.29.23c-3.11-.5-5.61.69-7.88 0-1.08-.33-4.43-4.11-5.18-5.29-1.27-2-1.68-4.73-2.53-6.74a1.07 1.07 0 0 0 0-.78c-.12-.28-.24-.63-.38-1a21.81 21.81 0 0 1 4 .89c1.82.81 3.53 3.21 5.29 4.85zM29 60.27l.65-2.08c.88-2.83 1.84-5.88 2.89-8.92v-.09c.89-2.58 1.67-4.67 2.45-6.58a21.34 21.34 0 0 1 1.3-2.6c.07-.13.15-.24.23-.36-1.21-.39-2.43-.73-3.67-1l-1.63.08c-5.69.29-12.81.39-17.37 4.6l-.13.12a12 12 0 0 0-1 1.06l-.22.26a12.47 12.47 0 0 0-.79 1.15c-.07.12-.15.23-.22.35a13.9 13.9 0 0 0-.82 1.69c-.67 1.68-1.3 3.45-1.91 5.23C8 55.56 7.21 58 6.47 60.39c2.46 3.73 4.89 7.51 7.23 11.39-.41 1.61-.67 3.39-1 5.1 3 .63 6.3.82 9 1.7-.07 1.06 0 5.21.08 6.07 1.15.42 7.77 4.75 7.77 4.75s6.7-4.14 7.77-4.71c0-.24-1-1.5-1-1.5l.86-4.41c.12-.62.23-1.24.35-1.86.16-.88.32-1.78.51-2.68-2.3-3.69-4.84-7.6-7.9-12.16zm-3.3 5.68q-.47.72-.89 1.48a.76.76 0 0 1-.23.19c-2.51-.41-4.52.57-6.35 0-.87-.27-3.58-3.37-4.18-4.34-1-1.66-1.36-3.88-2-5.52a.89.89 0 0 0 0-.64c-.1-.23-.19-.52-.31-.8a17.34 17.34 0 0 1 3.21.73c1.54.65 2.92 2.62 4.34 4 1.59 1.51 3.2 2.67 4.34 4 .82.11 1.59.29 2.36.47zm3.66 13.29a22.18 22.18 0 0 0-3.08-2.68c.72-2.67 2.34-4.33 3.08-7 .28 0 .42.06.48.27.92 2.36 2.33 4.14 3.08 6.69-1.32.81-2.13 2.13-3.58 2.71zm56-5.8c2.9-4.73 5.91-9.34 9-13.89-.92-2.95-1.85-5.89-2.85-8.79-.75-2.17-1.53-4.32-2.39-6.42a16.84 16.84 0 0 0-1-2.06c-.09-.15-.19-.28-.28-.43a15.19 15.19 0 0 0-1-1.4l-.27-.32a14.79 14.79 0 0 0-1.22-1.29l-.17-.15c-5.65-5.13-12.23-5.25-19.29-5.61v37.7c.92 3.21 3 5.24 3.91 8.49a28.1 28.1 0 0 0-3.91 3.26v12.4s8-5.29 9.44-5.8c.12-1.06.19-6.12.1-7.41 3.38-1.08 7.53-1.3 11.19-2.07-.42-2.08-.75-4.25-1.25-6.22zM82 78.88a44.86 44.86 0 0 0-7 1.4l-1.13.36.08 1.19c.07 1 0 4.59 0 6.33-1.58.85-4.36 2.61-6.47 4v-9a20.86 20.86 0 0 1 2.25-1.85l1.08-.82.79-.62-.27-1a19.65 19.65 0 0 0-2.12-4.66 18.12 18.12 0 0 1-1.74-3.65v-35.9c6.38.32 11.93.75 16.77 5.15l.14.13a13.36 13.36 0 0 1 1.1 1.16l.11.13.13.16a13.63 13.63 0 0 1 .88 1.26l.14.22.11.17a15.31 15.31 0 0 1 .93 1.87c.74 1.81 1.49 3.83 2.36 6.34.93 2.71 1.8 5.45 2.61 8-3.36 5-6.1 9.26-8.6 13.34l-.34.55.16.62c.34 1.32.6 2.78.86 4.2l.08.44c-1.01.2-1.97.34-2.91.48zm32.61-7.11c2.34-3.88 4.77-7.65 7.23-11.39-.74-2.42-1.49-4.83-2.3-7.21-.6-1.78-1.23-3.55-1.92-5.26a13.91 13.91 0 0 0-.82-1.69c-.07-.12-.15-.23-.22-.35a12.41 12.41 0 0 0-.79-1.15l-.22-.26a12 12 0 0 0-1-1.06l-.13-.12c-4.56-4.2-11.68-4.31-17.37-4.6l-1.63-.08c-1.24.28-2.46.62-3.67 1 .08.12.16.24.23.36a21.33 21.33 0 0 1 1.3 2.62c.78 1.91 1.56 4 2.45 6.58v.09c1 3 2 6.09 2.89 8.92l.65 2.08-1.19 1.83c-3.06 4.56-5.6 8.46-7.9 12.16.19.9.35 1.8.51 2.68.11.62.23 1.25.35 1.86l.86 4.41s-1 1.26-1 1.5c1.06.57 7.77 4.71 7.77 4.71s6.62-4.34 7.77-4.75c.1-.87.15-5 .08-6.07 2.73-.88 6.07-1.07 9-1.7-.27-1.72-.54-3.49-.95-5.11zM111.82 76a35.85 35.85 0 0 0-5.71 1.16l-1.12.36.08 1.18c.05.78 0 3.55 0 5-1.66.91-4.65 2.83-6.34 3.93-1.32-.81-3.94-2.42-5.62-3.43l.44-.55-.13-.69-.86-4.41c-.12-.6-.23-1.21-.34-1.81v-.05c-.12-.68-.25-1.39-.39-2.09 2.17-3.6 4.59-7.31 7.52-11.67l1.22-1.81.41-.6-.22-.69-.65-2.08c-.88-2.84-1.85-5.89-2.9-9v-.09C96.28 46.07 95.49 44 94.7 42c-.21-.5-.43-1-.68-1.5q.79-.22 1.56-.4H98c5.41.26 11.54.56 15.43 4.15l.11.1a10.57 10.57 0 0 1 .86.93l.09.11.1.12a10.9 10.9 0 0 1 .69 1l.12.19.08.12a12.4 12.4 0 0 1 .73 1.5c.6 1.48 1.2 3.13 1.89 5.18.74 2.18 1.42 4.37 2.06 6.45-2.68 4.07-4.87 7.53-6.87 10.84l-.33.54.15.61c.27 1.07.47 2.21.69 3.42v.1zM87.48 56.33a1.08 1.08 0 0 1 0-.78c.12-.28.24-.63.38-1a21.81 21.81 0 0 0-4 .89c-1.91.79-3.62 3.2-5.39 4.84-2 1.84-4 3.26-5.39 4.84-1 .14-2 .36-2.93.57l.3.62q.59.88 1.1 1.81a1 1 0 0 0 .28.23c3.11-.5 5.61.69 7.88 0 1.08-.33 4.43-4.11 5.18-5.29 1.34-2.06 1.75-4.73 2.59-6.73zm11 13.54c-.92 2.36-2.33 4.14-3.08 6.69 1.29.78 2.1 2.09 3.55 2.68a22.16 22.16 0 0 1 3.05-2.68c-.72-2.67-2.34-4.33-3.08-7-.24 0-.38.1-.44.31zm17.82-12.12a.89.89 0 0 1 0-.64c.1-.23.19-.52.31-.8a17.33 17.33 0 0 0-3.21.73c-1.54.65-2.92 2.62-4.34 4-1.59 1.51-3.2 2.67-4.34 4-.82.11-1.59.29-2.36.47l.24.51q.47.72.89 1.48a.77.77 0 0 0 .23.19c2.51-.41 4.52.57 6.35 0 .87-.27 3.58-3.37 4.18-4.34 1.04-1.73 1.37-3.95 2.05-5.6z"
+                                            transform="translate(-2.38 -12.86)"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/ecoponto antartica.png" data-lightbox="combateEquipe" data-title="Ecoponto Antartica">
+                                <img src="../img/mapas/maps/ecoponto antartica.png" class="card-img-top"
+                                alt="ecoponto antartica" title="ecoponto antartica"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/OW.png" alt="OW" title="OW">
+                                    Ecoponto: Antártica</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <g>
+                                            <path
+                                                d="M73.5 86.2c.1-.5 10.1-.6 10.9-2.3s-1.5-4.9-1.5-5.8S93 63.3 93 62.4 88.1 51.5 85.3 47 74 38.8 64.9 38.3h-1.7c-9.1.4-17.8 4.4-20.4 8.7S35 61.4 35 62.4s10.1 14.8 10.1 15.7-2.3 4-1.5 5.8 10.8 1.8 10.9 2.3-.3 6.6.3 7.5 8.8 5.9 9.2 5.9 8.5-5 9.2-5.9.2-7 .3-7.5zm-15-14.3c-.6.1-1.1 1.1-1.5 1.3a5.9 5.9 0 0 1-3.4-.1 5.4 5.4 0 0 0-3.1 0c-.8.2-4.7-4.9-5.3-6.3s-2.2-6.5-2-6.8 3.1.3 3.7.6a112.3 112.3 0 0 1 8.1 7.8 7.7 7.7 0 0 0 3.9 2.3c.3.2.2 1.1-.4 1.2zM64 86.7a16.3 16.3 0 0 1-3.7-3.3 70.2 70.2 0 0 1 3.7-7.5 70.2 70.2 0 0 1 3.7 7.4 16.3 16.3 0 0 1-3.7 3.4zm7-13.5c-.4-.2-1-1.2-1.5-1.3s-.6-1-.2-1.1a7.7 7.7 0 0 0 3.9-2.3 112.3 112.3 0 0 1 8.1-7.8c.5-.2 3.5-.8 3.7-.6s-1.6 5.3-2.1 6.8-4.5 6.6-5.3 6.3a5.4 5.4 0 0 0-3.1 0 5.9 5.9 0 0 1-3.5 0z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M89 85a.3.3 0 0 0-.5.2c.2.7.5 1.5-.1 1.8s-10.7 1.8-10.9 2.3 0 3 0 5.3L94 111.1c1.4 1.4 12.5 2.8 13 2.4s-1.2-11.5-1.9-12.2z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M39.5 87.1c-.5-.3-.2-1.2-.1-1.8a.3.3 0 0 0-.4-.3l-16 16.2c-.7.7-2.5 11.7-1.9 12.2s11.6-1 13-2.4l16.2-16.3c0-2.3.2-4.8 0-5.3s-9.4-1.5-10.8-2.3z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M120.2 21.7l-1.8-5.1a1.6 1.6 0 0 0-1.2-1.1l-5.3-1a1.6 1.6 0 0 0-1.6.5l-3.5 4.1a1.6 1.6 0 0 0-.3 1.6l.3.8a.3.3 0 0 1-.1.3h-.1L92.3 36.4 79.1 23.1c-1.3-1.3-.9 1.2-.6 2.3s2.8 9.1 3.8 10.2l3.2 3.4-.5.3-.9.7a.8.8 0 0 0 .1 1.3 13.6 13.6 0 0 1 4.7 4.2 59.7 59.7 0 0 1 2.6 5.7 1.3 1.3 0 0 0 1.9.5l2.6-2 3.2 3.1c1.2 1.1 6.3 2.3 9.4 3.3s3.2-.2 2.2-1.2L98.3 42.4 113 27.8h.3l1.6.3a1.6 1.6 0 0 0 1.6-.5l3.5-4.1a1.6 1.6 0 0 0 .2-1.8z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M32 49.6l2.6 2a1.3 1.3 0 0 0 1.9-.5 59.7 59.7 0 0 1 2.6-5.7 13.6 13.6 0 0 1 4.7-4.2.8.8 0 0 0 .1-1.3l-.9-.7-.5-.3 3.2-3.4c.9-1.1 3.5-9.1 3.8-10.2s.7-3.6-.6-2.3L35.7 36.4 21.4 22h-.1a.3.3 0 0 1-.1-.3l.3-.8a1.6 1.6 0 0 0-.3-1.6l-3.5-4.1a1.6 1.6 0 0 0-1.6-.5l-5.3 1a1.6 1.6 0 0 0-1.2 1.1l-1.8 4.9a1.6 1.6 0 0 0 .3 1.6l3.5 4.1a1.6 1.6 0 0 0 1.6.5l1.6-.3h.2l14.7 14.8-12.4 12.5c-1 .9-.8 2.1 2.2 1.2s8.1-2.2 9.4-3.3z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <path
+                                            d="M43 38.83a14.78 14.78 0 0 0-1.22 1.29l-.27.32a15.22 15.22 0 0 0-1 1.4c-.09.15-.19.28-.28.43a16.85 16.85 0 0 0-1 2.06c-.86 2.1-1.64 4.25-2.39 6.42-1 2.9-1.93 5.84-2.85 8.79C37 64.1 40 68.7 42.93 73.43c-.5 2-.84 4.14-1.24 6.22 3.66.77 7.81 1 11.19 2.07-.09 1.29 0 6.35.1 7.41 1.43.51 9.44 5.8 9.44 5.8v-12.4a28.09 28.09 0 0 0-3.91-3.26c.9-3.25 3-5.28 3.91-8.49V33.07c-7.06.35-13.64.48-19.29 5.61zm6.81 21.46c2 1.84 4 3.26 5.39 4.84 1 .14 2 .36 2.93.57l-.3.62q-.59.88-1.1 1.81a1 1 0 0 1-.29.23c-3.11-.5-5.61.69-7.88 0-1.08-.33-4.43-4.11-5.18-5.29-1.27-2-1.68-4.73-2.53-6.74a1.07 1.07 0 0 0 0-.78c-.12-.28-.24-.63-.38-1a21.81 21.81 0 0 1 4 .89c1.82.81 3.53 3.21 5.29 4.85zM29 60.27l.65-2.08c.88-2.83 1.84-5.88 2.89-8.92v-.09c.89-2.58 1.67-4.67 2.45-6.58a21.34 21.34 0 0 1 1.3-2.6c.07-.13.15-.24.23-.36-1.21-.39-2.43-.73-3.67-1l-1.63.08c-5.69.29-12.81.39-17.37 4.6l-.13.12a12 12 0 0 0-1 1.06l-.22.26a12.47 12.47 0 0 0-.79 1.15c-.07.12-.15.23-.22.35a13.9 13.9 0 0 0-.82 1.69c-.67 1.68-1.3 3.45-1.91 5.23C8 55.56 7.21 58 6.47 60.39c2.46 3.73 4.89 7.51 7.23 11.39-.41 1.61-.67 3.39-1 5.1 3 .63 6.3.82 9 1.7-.07 1.06 0 5.21.08 6.07 1.15.42 7.77 4.75 7.77 4.75s6.7-4.14 7.77-4.71c0-.24-1-1.5-1-1.5l.86-4.41c.12-.62.23-1.24.35-1.86.16-.88.32-1.78.51-2.68-2.3-3.69-4.84-7.6-7.9-12.16zm-3.3 5.68q-.47.72-.89 1.48a.76.76 0 0 1-.23.19c-2.51-.41-4.52.57-6.35 0-.87-.27-3.58-3.37-4.18-4.34-1-1.66-1.36-3.88-2-5.52a.89.89 0 0 0 0-.64c-.1-.23-.19-.52-.31-.8a17.34 17.34 0 0 1 3.21.73c1.54.65 2.92 2.62 4.34 4 1.59 1.51 3.2 2.67 4.34 4 .82.11 1.59.29 2.36.47zm3.66 13.29a22.18 22.18 0 0 0-3.08-2.68c.72-2.67 2.34-4.33 3.08-7 .28 0 .42.06.48.27.92 2.36 2.33 4.14 3.08 6.69-1.32.81-2.13 2.13-3.58 2.71zm56-5.8c2.9-4.73 5.91-9.34 9-13.89-.92-2.95-1.85-5.89-2.85-8.79-.75-2.17-1.53-4.32-2.39-6.42a16.84 16.84 0 0 0-1-2.06c-.09-.15-.19-.28-.28-.43a15.19 15.19 0 0 0-1-1.4l-.27-.32a14.79 14.79 0 0 0-1.22-1.29l-.17-.15c-5.65-5.13-12.23-5.25-19.29-5.61v37.7c.92 3.21 3 5.24 3.91 8.49a28.1 28.1 0 0 0-3.91 3.26v12.4s8-5.29 9.44-5.8c.12-1.06.19-6.12.1-7.41 3.38-1.08 7.53-1.3 11.19-2.07-.42-2.08-.75-4.25-1.25-6.22zM82 78.88a44.86 44.86 0 0 0-7 1.4l-1.13.36.08 1.19c.07 1 0 4.59 0 6.33-1.58.85-4.36 2.61-6.47 4v-9a20.86 20.86 0 0 1 2.25-1.85l1.08-.82.79-.62-.27-1a19.65 19.65 0 0 0-2.12-4.66 18.12 18.12 0 0 1-1.74-3.65v-35.9c6.38.32 11.93.75 16.77 5.15l.14.13a13.36 13.36 0 0 1 1.1 1.16l.11.13.13.16a13.63 13.63 0 0 1 .88 1.26l.14.22.11.17a15.31 15.31 0 0 1 .93 1.87c.74 1.81 1.49 3.83 2.36 6.34.93 2.71 1.8 5.45 2.61 8-3.36 5-6.1 9.26-8.6 13.34l-.34.55.16.62c.34 1.32.6 2.78.86 4.2l.08.44c-1.01.2-1.97.34-2.91.48zm32.61-7.11c2.34-3.88 4.77-7.65 7.23-11.39-.74-2.42-1.49-4.83-2.3-7.21-.6-1.78-1.23-3.55-1.92-5.26a13.91 13.91 0 0 0-.82-1.69c-.07-.12-.15-.23-.22-.35a12.41 12.41 0 0 0-.79-1.15l-.22-.26a12 12 0 0 0-1-1.06l-.13-.12c-4.56-4.2-11.68-4.31-17.37-4.6l-1.63-.08c-1.24.28-2.46.62-3.67 1 .08.12.16.24.23.36a21.33 21.33 0 0 1 1.3 2.62c.78 1.91 1.56 4 2.45 6.58v.09c1 3 2 6.09 2.89 8.92l.65 2.08-1.19 1.83c-3.06 4.56-5.6 8.46-7.9 12.16.19.9.35 1.8.51 2.68.11.62.23 1.25.35 1.86l.86 4.41s-1 1.26-1 1.5c1.06.57 7.77 4.71 7.77 4.71s6.62-4.34 7.77-4.75c.1-.87.15-5 .08-6.07 2.73-.88 6.07-1.07 9-1.7-.27-1.72-.54-3.49-.95-5.11zM111.82 76a35.85 35.85 0 0 0-5.71 1.16l-1.12.36.08 1.18c.05.78 0 3.55 0 5-1.66.91-4.65 2.83-6.34 3.93-1.32-.81-3.94-2.42-5.62-3.43l.44-.55-.13-.69-.86-4.41c-.12-.6-.23-1.21-.34-1.81v-.05c-.12-.68-.25-1.39-.39-2.09 2.17-3.6 4.59-7.31 7.52-11.67l1.22-1.81.41-.6-.22-.69-.65-2.08c-.88-2.84-1.85-5.89-2.9-9v-.09C96.28 46.07 95.49 44 94.7 42c-.21-.5-.43-1-.68-1.5q.79-.22 1.56-.4H98c5.41.26 11.54.56 15.43 4.15l.11.1a10.57 10.57 0 0 1 .86.93l.09.11.1.12a10.9 10.9 0 0 1 .69 1l.12.19.08.12a12.4 12.4 0 0 1 .73 1.5c.6 1.48 1.2 3.13 1.89 5.18.74 2.18 1.42 4.37 2.06 6.45-2.68 4.07-4.87 7.53-6.87 10.84l-.33.54.15.61c.27 1.07.47 2.21.69 3.42v.1zM87.48 56.33a1.08 1.08 0 0 1 0-.78c.12-.28.24-.63.38-1a21.81 21.81 0 0 0-4 .89c-1.91.79-3.62 3.2-5.39 4.84-2 1.84-4 3.26-5.39 4.84-1 .14-2 .36-2.93.57l.3.62q.59.88 1.1 1.81a1 1 0 0 0 .28.23c3.11-.5 5.61.69 7.88 0 1.08-.33 4.43-4.11 5.18-5.29 1.34-2.06 1.75-4.73 2.59-6.73zm11 13.54c-.92 2.36-2.33 4.14-3.08 6.69 1.29.78 2.1 2.09 3.55 2.68a22.16 22.16 0 0 1 3.05-2.68c-.72-2.67-2.34-4.33-3.08-7-.24 0-.38.1-.44.31zm17.82-12.12a.89.89 0 0 1 0-.64c.1-.23.19-.52.31-.8a17.33 17.33 0 0 0-3.21.73c-1.54.65-2.92 2.62-4.34 4-1.59 1.51-3.2 2.67-4.34 4-.82.11-1.59.29-2.36.47l.24.51q.47.72.89 1.48a.77.77 0 0 0 .23.19c2.51-.41 4.52.57 6.35 0 .87-.27 3.58-3.37 4.18-4.34 1.04-1.73 1.37-3.95 2.05-5.6z"
+                                            transform="translate(-2.38 -12.86)"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/eichenwalde.png" data-lightbox="combateEquipe" data-title="Eichenwalde">
+                                <img src="../img/mapas/maps/eichenwalde.png" class="card-img-top" alt="eichenwalde"
+                                title="eichenwalde"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/Germany.png" alt="Germany" title="Germany">
+                                    Eichenwalde</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <g>
+                                            <path
+                                                d="M84.14 91.33c3-4.88 6.11-9.63 9.27-14.32-.95-3-1.91-6.08-2.94-9.07-.77-2.24-1.58-4.46-2.47-6.62a17.36 17.36 0 0 0-1.06-2.12c-.09-.16-.19-.29-.29-.44a15.66 15.66 0 0 0-1-1.44l-.28-.32a15.27 15.27 0 0 0-1.26-1.33l-.17-.16c-5.84-5.3-12.65-5.43-19.94-5.79-7.29.37-14.1.5-19.94 5.78l-.17.16A15.27 15.27 0 0 0 42.63 57l-.28.33a15.66 15.66 0 0 0-1 1.44c-.09.15-.2.29-.29.44A17.36 17.36 0 0 0 40 61.32c-.89 2.16-1.69 4.38-2.47 6.62-1 3-2 6-2.94 9.07 3.16 4.69 6.27 9.45 9.27 14.32-.52 2-.86 4.27-1.29 6.41 3.79.79 8.07 1 11.57 2.13-.09 1.33 0 6.55.1 7.64 1.48.52 9.75 6 9.75 6s8.28-5.46 9.75-6c.13-1.09.19-6.31.1-7.64 3.5-1.11 7.78-1.35 11.57-2.13-.41-2.14-.75-4.38-1.27-6.41zM59.22 84q-.61.91-1.14 1.86a1 1 0 0 1-.29.23c-3.22-.51-5.8.71-8.14 0-1.12-.34-4.58-4.24-5.36-5.46-1.32-2.09-1.74-4.88-2.62-6.95a1.11 1.11 0 0 0 0-.81c-.13-.29-.25-.65-.39-1a22.58 22.58 0 0 1 4.11.92c2 .81 3.74 3.29 5.57 5 2 1.9 4.11 3.36 5.57 5 1.06.14 2 .37 3 .59zM64 100.72a29 29 0 0 0-4-3.37c.89-3.35 3-5.44 4-8.75 1 3.31 3.11 5.4 4 8.76a29 29 0 0 0-4 3.36zM78.35 86.1c-2.34.71-4.92-.51-8.14 0a1 1 0 0 1-.29-.23q-.53-1-1.14-1.86l-.31-.64c1-.22 2-.44 3-.59 1.46-1.63 3.53-3.1 5.57-5 1.83-1.69 3.59-4.17 5.57-5a22.58 22.58 0 0 1 4.11-.92c-.15.35-.27.71-.39 1a1.11 1.11 0 0 0 0 .81c-.88 2.07-1.3 4.86-2.62 6.95-.77 1.24-4.24 5.15-5.36 5.48z"
+                                                transform="translate(-2.38 -12.86)"></path>
+                                            <path
+                                                d="M89.89 22.65c-2.62 1.69-6 4.13-7.17 6.11a7.83 7.83 0 0 0-2.25-2.91.94.94 0 0 0-1.51.83v.33A4.69 4.69 0 0 1 77.91 30c-2.26 2.84-4.06 3.07-5.68 2.8l-.06.09v-.1a5.77 5.77 0 0 1-3.6-9.12 1.54 1.54 0 0 0 .05-1.75c-1.12-1.73-2.93-5.1-3.91-7a.78.78 0 0 0-1.38 0c-1 1.82-2.77 5.09-3.89 6.79a1.54 1.54 0 0 0 0 1.76 5.77 5.77 0 0 1-3.61 9.11v.1l-.06-.09c-1.63.27-3.42 0-5.7-2.8A4.66 4.66 0 0 1 49 26.86v-.36a.94.94 0 0 0-1.51-.83 7.83 7.83 0 0 0-2.25 2.91c-1.19-2-4.55-4.41-7.17-6.11a.94.94 0 0 0-1.32 1.27 57.41 57.41 0 0 1 6.91 16.46 3.39 3.39 0 0 0 1.33 2v2.7h.06a2.88 2.88 0 0 0-1.53 2.2 2.67 2.67 0 0 0 1.28 2c5.81-3.46 12-3.77 18.11-4.06h2.17c6 .3 12.26.6 18 4a2.62 2.62 0 0 0 1.22-2 2.88 2.88 0 0 0-1.53-2.2h.06v-2.6a3.4 3.4 0 0 0 1.47-2.11 57.52 57.52 0 0 1 6.86-16.3.94.94 0 0 0-1.27-1.18z"
+                                                transform="translate(-2.38 -12.86)"></path>
+                                            <path
+                                                d="M114.35 89.62c2.42-4 4.93-7.89 7.48-11.74-.76-2.49-1.54-5-2.37-7.43-.62-1.84-1.27-3.66-2-5.43a14.31 14.31 0 0 0-.85-1.74c-.07-.13-.16-.24-.23-.36a12.87 12.87 0 0 0-.81-1.18l-.23-.27a12.43 12.43 0 0 0-1-1.09l-.14-.13c-4.71-4.33-12.07-4.44-18-4.74l-1.68-.09c-1.28.29-2.55.64-3.8 1 .08.12.16.24.24.38a22 22 0 0 1 1.34 2.7c.81 2 1.61 4.12 2.53 6.78v.09c1.08 3.14 2.07 6.27 3 9.2l.67 2.15-1.2 1.91c-3.16 4.7-5.79 8.73-8.16 12.54.19.92.36 1.85.53 2.76.12.64.24 1.29.36 1.92l.89 4.55s-1 1.3-1 1.54c1.1.59 8 4.86 8 4.86s6.84-4.47 8-4.9c.1-.89.16-5.17.08-6.26 2.82-.91 6.27-1.1 9.33-1.75-.33-1.77-.56-3.6-.98-5.27zm-16.17 7.7c-1.5-.61-2.34-2-3.67-2.76.77-2.63 2.23-4.47 3.18-6.9.06-.22.21-.32.49-.28.77 2.72 2.44 4.43 3.19 7.18a22.9 22.9 0 0 0-3.19 2.76zm11.5-12c-1.89.59-4-.42-6.57 0a.79.79 0 0 1-.24-.19q-.43-.78-.92-1.53l-.25-.53c.8-.18 1.59-.36 2.44-.48 1.18-1.34 2.85-2.54 4.49-4.09 1.47-1.39 2.9-3.42 4.49-4.09a18 18 0 0 1 3.32-.75c-.12.29-.21.58-.32.82a.92.92 0 0 0 0 .66c-.71 1.7-1 4-2.11 5.7-.63 1.02-3.42 4.22-4.32 4.5zm-80.24-7.56l.67-2.15c.91-2.92 1.9-6.06 3-9.2v-.09c.92-2.66 1.72-4.82 2.53-6.79A22 22 0 0 1 37 56.84c.08-.13.16-.25.24-.37-1.25-.4-2.52-.75-3.8-1l-1.68.09c-5.88.3-13.25.41-18 4.74l-.14.13a12.42 12.42 0 0 0-1 1.09l-.23.27a12.85 12.85 0 0 0-.81 1.18c-.08.12-.16.24-.23.36a14.33 14.33 0 0 0-.81 1.67c-.72 1.77-1.37 3.59-2 5.43-.83 2.45-1.61 4.94-2.37 7.43 2.55 3.85 5.06 7.74 7.48 11.74-.42 1.66-.7 3.5-1 5.26 3.05.65 6.51.84 9.33 1.75-.07 1.09 0 5.37.08 6.26 1.19.43 8 4.9 8 4.9s6.93-4.27 8-4.86c0-.25-1-1.54-1-1.54l.94-4.53c.12-.63.24-1.28.36-1.92.17-.91.34-1.84.53-2.76-2.38-3.81-5-7.84-8.16-12.54zM26 83.62q-.49.74-.92 1.53a.79.79 0 0 1-.24.19c-2.59-.42-4.67.59-6.57 0-.9-.28-3.7-3.48-4.32-4.48-1.06-1.71-1.4-4-2.11-5.7a.92.92 0 0 0 0-.66c-.1-.24-.2-.54-.32-.82a18 18 0 0 1 3.32.75c1.59.67 3 2.7 4.49 4.09 1.64 1.55 3.31 2.76 4.49 4.09.85.12 1.65.3 2.44.48zm3.78 13.7a22.9 22.9 0 0 0-3.19-2.76c.75-2.75 2.42-4.46 3.19-7.18.29 0 .43.06.49.28.95 2.43 2.41 4.27 3.18 6.9-1.29.8-2.13 2.15-3.63 2.76z"
+                                                transform="translatea(-2.38 -12.86)"></path>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 64 64">
+                                        <g>
+                                            <rect x="12.56" y="23.95" width="11.82" height="11.82" rx="1.74" ry="1.74"
+                                                transform="translate(-15.71 21.8) rotate(-45)"></rect>
+                                            <path
+                                                d="M28.81,24.41a11.69,11.69,0,0,0-9.9-6.23v2.11a9.59,9.59,0,0,1,8.91,7.5Z">
+                                            </path>
+                                            <path
+                                                d="M18,20.28h0v-2.1h0a11.69,11.69,0,1,0,6.36,21.77l1-3.46A9.58,9.58,0,1,1,18,20.28Z">
+                                            </path>
+                                            <path
+                                                d="M24,41.33A12.75,12.75,0,0,1,8.46,37.76a.13.13,0,0,0-.23.08v1a.13.13,0,0,0,0,.08,13.64,13.64,0,0,0,7.21,4.25.13.13,0,0,1,.08.05l0,0,2.59,2.87a.39.39,0,0,0,.55,0l2.61-2.89.06,0a13.54,13.54,0,0,0,2.31-.72Z">
+                                            </path>
+                                            <path
+                                                d="M6.1,26.72a12.52,12.52,0,0,1,9.45-9.29,12.77,12.77,0,0,1,13.75,5.69L29.62,22A13.65,13.65,0,1,0,7.34,37.76h0V36.08h0A12.85,12.85,0,0,1,6.1,26.72Z">
+                                            </path>
+                                            <path
+                                                d="M58.8,34.15h0c0-.23,0-.46,0-.7h0a.27.27,0,0,0,.27-.23.26.26,0,0,0-.26-.28h-.08c0-.23,0-.46,0-.7h.08a.27.27,0,0,0,.27-.23.26.26,0,0,0-.26-.28h-.11l0-.7h.12a.26.26,0,0,0,.26-.28.27.27,0,0,0-.27-.23h-.12l0-.72h0a.55.55,0,0,0,.52-.61.57.57,0,0,0-.58-.49h-.06C58,26.27,56,24.47,52.69,24.47H47.87c-1.23-2.1-1.87-3.51-2.4-3.79a16.33,16.33,0,0,0-6.06-.87c-.88,0-1.61,0-2.22,0L31.88,38.09h10.2a1.77,1.77,0,0,0-.26.8c0,1.14.81,1.32,2.1,1.18h0c0-.11,2.24-3.88,5.79-3.81a7.63,7.63,0,0,1,5.8,3.56s0,.09,0,.13h0c1.48.17,2.43,0,2.43-1.21a2.37,2.37,0,0,0-.58-1.22h0c1.29-.3,1.47-1.4,1.44-2.86h0a.26.26,0,0,0,.26-.19A.26.26,0,0,0,58.8,34.15ZM46,24.54l-5,.23h0c-1.64,0-1.88.2-1.88-.29S39,22.78,39,22.3s0-.85.57-.85,3.4-.08,4,0a1.34,1.34,0,0,1,1.3.9L46,24.54Z">
+                                            </path>
+                                            <path
+                                                d="M49.74,41.55a1.19,1.19,0,1,0,1.49,1.15A1.36,1.36,0,0,0,49.74,41.55Zm0,2a.62.62,0,1,1,.78-.6A.71.71,0,0,1,49.74,43.5Z">
+                                            </path>
+                                            <path
+                                                d="M51.47,37.86l.06-.3a.5.5,0,0,0-.5-.5H48.47a.5.5,0,0,0-.5.5l.07.3c-2.44.56-4.21,2.31-4.21,4.37a3.83,3.83,0,0,0,1,2.5h0a.26.26,0,0,0,0,.36l.91.91a.26.26,0,0,0,.36,0l.11-.16a7.36,7.36,0,0,0,7.17,0l.11.16a.26.26,0,0,0,.36,0l.91-.91a.26.26,0,0,0,0-.36h0a3.83,3.83,0,0,0,1-2.5C55.66,40.16,53.9,38.43,51.47,37.86ZM49,37.94h1.46a.29.29,0,0,1,.29.29l-.24,1.33a.29.29,0,0,1-.29.29h-.92a.29.29,0,0,1-.29-.29l-.3-1.33A.29.29,0,0,1,49,37.94Zm-2.6,7-.39.56a.15.15,0,0,1-.21,0L45.29,45a.15.15,0,0,1,0-.21l.58-.37a.15.15,0,0,1,.21,0l.33.33,0,0v.08A.14.14,0,0,1,46.41,44.93Zm3.34.48c-1.72,0-3.11-1.07-3.11-2.39s1.39-2.39,3.11-2.39,3.11,1.07,3.11,2.39S51.46,45.41,49.74,45.41ZM54.2,45l-.52.52a.15.15,0,0,1-.21,0l-.39-.56,0,0a.61.61,0,0,1,0-.09.14.14,0,0,1,0-.08l.33-.33a.15.15,0,0,1,.21,0l.58.37A.15.15,0,0,1,54.2,45Z">
+                                            </path>
+                                            <polygon points="34.57 12 23.4 51.21 26.11 52 37.27 12.79 34.57 12">
+                                            </polygon>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <path
+                                            d="M43 38.83a14.78 14.78 0 0 0-1.22 1.29l-.27.32a15.22 15.22 0 0 0-1 1.4c-.09.15-.19.28-.28.43a16.85 16.85 0 0 0-1 2.06c-.86 2.1-1.64 4.25-2.39 6.42-1 2.9-1.93 5.84-2.85 8.79C37 64.1 40 68.7 42.93 73.43c-.5 2-.84 4.14-1.24 6.22 3.66.77 7.81 1 11.19 2.07-.09 1.29 0 6.35.1 7.41 1.43.51 9.44 5.8 9.44 5.8v-12.4a28.09 28.09 0 0 0-3.91-3.26c.9-3.25 3-5.28 3.91-8.49V33.07c-7.06.35-13.64.48-19.29 5.61zm6.81 21.46c2 1.84 4 3.26 5.39 4.84 1 .14 2 .36 2.93.57l-.3.62q-.59.88-1.1 1.81a1 1 0 0 1-.29.23c-3.11-.5-5.61.69-7.88 0-1.08-.33-4.43-4.11-5.18-5.29-1.27-2-1.68-4.73-2.53-6.74a1.07 1.07 0 0 0 0-.78c-.12-.28-.24-.63-.38-1a21.81 21.81 0 0 1 4 .89c1.82.81 3.53 3.21 5.29 4.85zM29 60.27l.65-2.08c.88-2.83 1.84-5.88 2.89-8.92v-.09c.89-2.58 1.67-4.67 2.45-6.58a21.34 21.34 0 0 1 1.3-2.6c.07-.13.15-.24.23-.36-1.21-.39-2.43-.73-3.67-1l-1.63.08c-5.69.29-12.81.39-17.37 4.6l-.13.12a12 12 0 0 0-1 1.06l-.22.26a12.47 12.47 0 0 0-.79 1.15c-.07.12-.15.23-.22.35a13.9 13.9 0 0 0-.82 1.69c-.67 1.68-1.3 3.45-1.91 5.23C8 55.56 7.21 58 6.47 60.39c2.46 3.73 4.89 7.51 7.23 11.39-.41 1.61-.67 3.39-1 5.1 3 .63 6.3.82 9 1.7-.07 1.06 0 5.21.08 6.07 1.15.42 7.77 4.75 7.77 4.75s6.7-4.14 7.77-4.71c0-.24-1-1.5-1-1.5l.86-4.41c.12-.62.23-1.24.35-1.86.16-.88.32-1.78.51-2.68-2.3-3.69-4.84-7.6-7.9-12.16zm-3.3 5.68q-.47.72-.89 1.48a.76.76 0 0 1-.23.19c-2.51-.41-4.52.57-6.35 0-.87-.27-3.58-3.37-4.18-4.34-1-1.66-1.36-3.88-2-5.52a.89.89 0 0 0 0-.64c-.1-.23-.19-.52-.31-.8a17.34 17.34 0 0 1 3.21.73c1.54.65 2.92 2.62 4.34 4 1.59 1.51 3.2 2.67 4.34 4 .82.11 1.59.29 2.36.47zm3.66 13.29a22.18 22.18 0 0 0-3.08-2.68c.72-2.67 2.34-4.33 3.08-7 .28 0 .42.06.48.27.92 2.36 2.33 4.14 3.08 6.69-1.32.81-2.13 2.13-3.58 2.71zm56-5.8c2.9-4.73 5.91-9.34 9-13.89-.92-2.95-1.85-5.89-2.85-8.79-.75-2.17-1.53-4.32-2.39-6.42a16.84 16.84 0 0 0-1-2.06c-.09-.15-.19-.28-.28-.43a15.19 15.19 0 0 0-1-1.4l-.27-.32a14.79 14.79 0 0 0-1.22-1.29l-.17-.15c-5.65-5.13-12.23-5.25-19.29-5.61v37.7c.92 3.21 3 5.24 3.91 8.49a28.1 28.1 0 0 0-3.91 3.26v12.4s8-5.29 9.44-5.8c.12-1.06.19-6.12.1-7.41 3.38-1.08 7.53-1.3 11.19-2.07-.42-2.08-.75-4.25-1.25-6.22zM82 78.88a44.86 44.86 0 0 0-7 1.4l-1.13.36.08 1.19c.07 1 0 4.59 0 6.33-1.58.85-4.36 2.61-6.47 4v-9a20.86 20.86 0 0 1 2.25-1.85l1.08-.82.79-.62-.27-1a19.65 19.65 0 0 0-2.12-4.66 18.12 18.12 0 0 1-1.74-3.65v-35.9c6.38.32 11.93.75 16.77 5.15l.14.13a13.36 13.36 0 0 1 1.1 1.16l.11.13.13.16a13.63 13.63 0 0 1 .88 1.26l.14.22.11.17a15.31 15.31 0 0 1 .93 1.87c.74 1.81 1.49 3.83 2.36 6.34.93 2.71 1.8 5.45 2.61 8-3.36 5-6.1 9.26-8.6 13.34l-.34.55.16.62c.34 1.32.6 2.78.86 4.2l.08.44c-1.01.2-1.97.34-2.91.48zm32.61-7.11c2.34-3.88 4.77-7.65 7.23-11.39-.74-2.42-1.49-4.83-2.3-7.21-.6-1.78-1.23-3.55-1.92-5.26a13.91 13.91 0 0 0-.82-1.69c-.07-.12-.15-.23-.22-.35a12.41 12.41 0 0 0-.79-1.15l-.22-.26a12 12 0 0 0-1-1.06l-.13-.12c-4.56-4.2-11.68-4.31-17.37-4.6l-1.63-.08c-1.24.28-2.46.62-3.67 1 .08.12.16.24.23.36a21.33 21.33 0 0 1 1.3 2.62c.78 1.91 1.56 4 2.45 6.58v.09c1 3 2 6.09 2.89 8.92l.65 2.08-1.19 1.83c-3.06 4.56-5.6 8.46-7.9 12.16.19.9.35 1.8.51 2.68.11.62.23 1.25.35 1.86l.86 4.41s-1 1.26-1 1.5c1.06.57 7.77 4.71 7.77 4.71s6.62-4.34 7.77-4.75c.1-.87.15-5 .08-6.07 2.73-.88 6.07-1.07 9-1.7-.27-1.72-.54-3.49-.95-5.11zM111.82 76a35.85 35.85 0 0 0-5.71 1.16l-1.12.36.08 1.18c.05.78 0 3.55 0 5-1.66.91-4.65 2.83-6.34 3.93-1.32-.81-3.94-2.42-5.62-3.43l.44-.55-.13-.69-.86-4.41c-.12-.6-.23-1.21-.34-1.81v-.05c-.12-.68-.25-1.39-.39-2.09 2.17-3.6 4.59-7.31 7.52-11.67l1.22-1.81.41-.6-.22-.69-.65-2.08c-.88-2.84-1.85-5.89-2.9-9v-.09C96.28 46.07 95.49 44 94.7 42c-.21-.5-.43-1-.68-1.5q.79-.22 1.56-.4H98c5.41.26 11.54.56 15.43 4.15l.11.1a10.57 10.57 0 0 1 .86.93l.09.11.1.12a10.9 10.9 0 0 1 .69 1l.12.19.08.12a12.4 12.4 0 0 1 .73 1.5c.6 1.48 1.2 3.13 1.89 5.18.74 2.18 1.42 4.37 2.06 6.45-2.68 4.07-4.87 7.53-6.87 10.84l-.33.54.15.61c.27 1.07.47 2.21.69 3.42v.1zM87.48 56.33a1.08 1.08 0 0 1 0-.78c.12-.28.24-.63.38-1a21.81 21.81 0 0 0-4 .89c-1.91.79-3.62 3.2-5.39 4.84-2 1.84-4 3.26-5.39 4.84-1 .14-2 .36-2.93.57l.3.62q.59.88 1.1 1.81a1 1 0 0 0 .28.23c3.11-.5 5.61.69 7.88 0 1.08-.33 4.43-4.11 5.18-5.29 1.34-2.06 1.75-4.73 2.59-6.73zm11 13.54c-.92 2.36-2.33 4.14-3.08 6.69 1.29.78 2.1 2.09 3.55 2.68a22.16 22.16 0 0 1 3.05-2.68c-.72-2.67-2.34-4.33-3.08-7-.24 0-.38.1-.44.31zm17.82-12.12a.89.89 0 0 1 0-.64c.1-.23.19-.52.31-.8a17.33 17.33 0 0 0-3.21.73c-1.54.65-2.92 2.62-4.34 4-1.59 1.51-3.2 2.67-4.34 4-.82.11-1.59.29-2.36.47l.24.51q.47.72.89 1.48a.77.77 0 0 0 .23.19c2.51-.41 4.52.57 6.35 0 .87-.27 3.58-3.37 4.18-4.34 1.04-1.73 1.37-3.95 2.05-5.6z"
+                                            transform="translate(-2.38 -12.86)"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/floresta negra.png" data-lightbox="combateEquipe" data-title="Floresta Negra">
+                                <img src="../img/mapas/maps/floresta negra.png" class="card-img-top" alt="floresta negra"
+                                title="floresta negra"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/Germany.png" alt="Germany" title="Germany">
+                                    Floresta Negra</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <g>
+                                            <path
+                                                d="M73.5 86.2c.1-.5 10.1-.6 10.9-2.3s-1.5-4.9-1.5-5.8S93 63.3 93 62.4 88.1 51.5 85.3 47 74 38.8 64.9 38.3h-1.7c-9.1.4-17.8 4.4-20.4 8.7S35 61.4 35 62.4s10.1 14.8 10.1 15.7-2.3 4-1.5 5.8 10.8 1.8 10.9 2.3-.3 6.6.3 7.5 8.8 5.9 9.2 5.9 8.5-5 9.2-5.9.2-7 .3-7.5zm-15-14.3c-.6.1-1.1 1.1-1.5 1.3a5.9 5.9 0 0 1-3.4-.1 5.4 5.4 0 0 0-3.1 0c-.8.2-4.7-4.9-5.3-6.3s-2.2-6.5-2-6.8 3.1.3 3.7.6a112.3 112.3 0 0 1 8.1 7.8 7.7 7.7 0 0 0 3.9 2.3c.3.2.2 1.1-.4 1.2zM64 86.7a16.3 16.3 0 0 1-3.7-3.3 70.2 70.2 0 0 1 3.7-7.5 70.2 70.2 0 0 1 3.7 7.4 16.3 16.3 0 0 1-3.7 3.4zm7-13.5c-.4-.2-1-1.2-1.5-1.3s-.6-1-.2-1.1a7.7 7.7 0 0 0 3.9-2.3 112.3 112.3 0 0 1 8.1-7.8c.5-.2 3.5-.8 3.7-.6s-1.6 5.3-2.1 6.8-4.5 6.6-5.3 6.3a5.4 5.4 0 0 0-3.1 0 5.9 5.9 0 0 1-3.5 0z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M89 85a.3.3 0 0 0-.5.2c.2.7.5 1.5-.1 1.8s-10.7 1.8-10.9 2.3 0 3 0 5.3L94 111.1c1.4 1.4 12.5 2.8 13 2.4s-1.2-11.5-1.9-12.2z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M39.5 87.1c-.5-.3-.2-1.2-.1-1.8a.3.3 0 0 0-.4-.3l-16 16.2c-.7.7-2.5 11.7-1.9 12.2s11.6-1 13-2.4l16.2-16.3c0-2.3.2-4.8 0-5.3s-9.4-1.5-10.8-2.3z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M120.2 21.7l-1.8-5.1a1.6 1.6 0 0 0-1.2-1.1l-5.3-1a1.6 1.6 0 0 0-1.6.5l-3.5 4.1a1.6 1.6 0 0 0-.3 1.6l.3.8a.3.3 0 0 1-.1.3h-.1L92.3 36.4 79.1 23.1c-1.3-1.3-.9 1.2-.6 2.3s2.8 9.1 3.8 10.2l3.2 3.4-.5.3-.9.7a.8.8 0 0 0 .1 1.3 13.6 13.6 0 0 1 4.7 4.2 59.7 59.7 0 0 1 2.6 5.7 1.3 1.3 0 0 0 1.9.5l2.6-2 3.2 3.1c1.2 1.1 6.3 2.3 9.4 3.3s3.2-.2 2.2-1.2L98.3 42.4 113 27.8h.3l1.6.3a1.6 1.6 0 0 0 1.6-.5l3.5-4.1a1.6 1.6 0 0 0 .2-1.8z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M32 49.6l2.6 2a1.3 1.3 0 0 0 1.9-.5 59.7 59.7 0 0 1 2.6-5.7 13.6 13.6 0 0 1 4.7-4.2.8.8 0 0 0 .1-1.3l-.9-.7-.5-.3 3.2-3.4c.9-1.1 3.5-9.1 3.8-10.2s.7-3.6-.6-2.3L35.7 36.4 21.4 22h-.1a.3.3 0 0 1-.1-.3l.3-.8a1.6 1.6 0 0 0-.3-1.6l-3.5-4.1a1.6 1.6 0 0 0-1.6-.5l-5.3 1a1.6 1.6 0 0 0-1.2 1.1l-1.8 4.9a1.6 1.6 0 0 0 .3 1.6l3.5 4.1a1.6 1.6 0 0 0 1.6.5l1.6-.3h.2l14.7 14.8-12.4 12.5c-1 .9-.8 2.1 2.2 1.2s8.1-2.2 9.4-3.3z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <path
+                                            d="M43 38.83a14.78 14.78 0 0 0-1.22 1.29l-.27.32a15.22 15.22 0 0 0-1 1.4c-.09.15-.19.28-.28.43a16.85 16.85 0 0 0-1 2.06c-.86 2.1-1.64 4.25-2.39 6.42-1 2.9-1.93 5.84-2.85 8.79C37 64.1 40 68.7 42.93 73.43c-.5 2-.84 4.14-1.24 6.22 3.66.77 7.81 1 11.19 2.07-.09 1.29 0 6.35.1 7.41 1.43.51 9.44 5.8 9.44 5.8v-12.4a28.09 28.09 0 0 0-3.91-3.26c.9-3.25 3-5.28 3.91-8.49V33.07c-7.06.35-13.64.48-19.29 5.61zm6.81 21.46c2 1.84 4 3.26 5.39 4.84 1 .14 2 .36 2.93.57l-.3.62q-.59.88-1.1 1.81a1 1 0 0 1-.29.23c-3.11-.5-5.61.69-7.88 0-1.08-.33-4.43-4.11-5.18-5.29-1.27-2-1.68-4.73-2.53-6.74a1.07 1.07 0 0 0 0-.78c-.12-.28-.24-.63-.38-1a21.81 21.81 0 0 1 4 .89c1.82.81 3.53 3.21 5.29 4.85zM29 60.27l.65-2.08c.88-2.83 1.84-5.88 2.89-8.92v-.09c.89-2.58 1.67-4.67 2.45-6.58a21.34 21.34 0 0 1 1.3-2.6c.07-.13.15-.24.23-.36-1.21-.39-2.43-.73-3.67-1l-1.63.08c-5.69.29-12.81.39-17.37 4.6l-.13.12a12 12 0 0 0-1 1.06l-.22.26a12.47 12.47 0 0 0-.79 1.15c-.07.12-.15.23-.22.35a13.9 13.9 0 0 0-.82 1.69c-.67 1.68-1.3 3.45-1.91 5.23C8 55.56 7.21 58 6.47 60.39c2.46 3.73 4.89 7.51 7.23 11.39-.41 1.61-.67 3.39-1 5.1 3 .63 6.3.82 9 1.7-.07 1.06 0 5.21.08 6.07 1.15.42 7.77 4.75 7.77 4.75s6.7-4.14 7.77-4.71c0-.24-1-1.5-1-1.5l.86-4.41c.12-.62.23-1.24.35-1.86.16-.88.32-1.78.51-2.68-2.3-3.69-4.84-7.6-7.9-12.16zm-3.3 5.68q-.47.72-.89 1.48a.76.76 0 0 1-.23.19c-2.51-.41-4.52.57-6.35 0-.87-.27-3.58-3.37-4.18-4.34-1-1.66-1.36-3.88-2-5.52a.89.89 0 0 0 0-.64c-.1-.23-.19-.52-.31-.8a17.34 17.34 0 0 1 3.21.73c1.54.65 2.92 2.62 4.34 4 1.59 1.51 3.2 2.67 4.34 4 .82.11 1.59.29 2.36.47zm3.66 13.29a22.18 22.18 0 0 0-3.08-2.68c.72-2.67 2.34-4.33 3.08-7 .28 0 .42.06.48.27.92 2.36 2.33 4.14 3.08 6.69-1.32.81-2.13 2.13-3.58 2.71zm56-5.8c2.9-4.73 5.91-9.34 9-13.89-.92-2.95-1.85-5.89-2.85-8.79-.75-2.17-1.53-4.32-2.39-6.42a16.84 16.84 0 0 0-1-2.06c-.09-.15-.19-.28-.28-.43a15.19 15.19 0 0 0-1-1.4l-.27-.32a14.79 14.79 0 0 0-1.22-1.29l-.17-.15c-5.65-5.13-12.23-5.25-19.29-5.61v37.7c.92 3.21 3 5.24 3.91 8.49a28.1 28.1 0 0 0-3.91 3.26v12.4s8-5.29 9.44-5.8c.12-1.06.19-6.12.1-7.41 3.38-1.08 7.53-1.3 11.19-2.07-.42-2.08-.75-4.25-1.25-6.22zM82 78.88a44.86 44.86 0 0 0-7 1.4l-1.13.36.08 1.19c.07 1 0 4.59 0 6.33-1.58.85-4.36 2.61-6.47 4v-9a20.86 20.86 0 0 1 2.25-1.85l1.08-.82.79-.62-.27-1a19.65 19.65 0 0 0-2.12-4.66 18.12 18.12 0 0 1-1.74-3.65v-35.9c6.38.32 11.93.75 16.77 5.15l.14.13a13.36 13.36 0 0 1 1.1 1.16l.11.13.13.16a13.63 13.63 0 0 1 .88 1.26l.14.22.11.17a15.31 15.31 0 0 1 .93 1.87c.74 1.81 1.49 3.83 2.36 6.34.93 2.71 1.8 5.45 2.61 8-3.36 5-6.1 9.26-8.6 13.34l-.34.55.16.62c.34 1.32.6 2.78.86 4.2l.08.44c-1.01.2-1.97.34-2.91.48zm32.61-7.11c2.34-3.88 4.77-7.65 7.23-11.39-.74-2.42-1.49-4.83-2.3-7.21-.6-1.78-1.23-3.55-1.92-5.26a13.91 13.91 0 0 0-.82-1.69c-.07-.12-.15-.23-.22-.35a12.41 12.41 0 0 0-.79-1.15l-.22-.26a12 12 0 0 0-1-1.06l-.13-.12c-4.56-4.2-11.68-4.31-17.37-4.6l-1.63-.08c-1.24.28-2.46.62-3.67 1 .08.12.16.24.23.36a21.33 21.33 0 0 1 1.3 2.62c.78 1.91 1.56 4 2.45 6.58v.09c1 3 2 6.09 2.89 8.92l.65 2.08-1.19 1.83c-3.06 4.56-5.6 8.46-7.9 12.16.19.9.35 1.8.51 2.68.11.62.23 1.25.35 1.86l.86 4.41s-1 1.26-1 1.5c1.06.57 7.77 4.71 7.77 4.71s6.62-4.34 7.77-4.75c.1-.87.15-5 .08-6.07 2.73-.88 6.07-1.07 9-1.7-.27-1.72-.54-3.49-.95-5.11zM111.82 76a35.85 35.85 0 0 0-5.71 1.16l-1.12.36.08 1.18c.05.78 0 3.55 0 5-1.66.91-4.65 2.83-6.34 3.93-1.32-.81-3.94-2.42-5.62-3.43l.44-.55-.13-.69-.86-4.41c-.12-.6-.23-1.21-.34-1.81v-.05c-.12-.68-.25-1.39-.39-2.09 2.17-3.6 4.59-7.31 7.52-11.67l1.22-1.81.41-.6-.22-.69-.65-2.08c-.88-2.84-1.85-5.89-2.9-9v-.09C96.28 46.07 95.49 44 94.7 42c-.21-.5-.43-1-.68-1.5q.79-.22 1.56-.4H98c5.41.26 11.54.56 15.43 4.15l.11.1a10.57 10.57 0 0 1 .86.93l.09.11.1.12a10.9 10.9 0 0 1 .69 1l.12.19.08.12a12.4 12.4 0 0 1 .73 1.5c.6 1.48 1.2 3.13 1.89 5.18.74 2.18 1.42 4.37 2.06 6.45-2.68 4.07-4.87 7.53-6.87 10.84l-.33.54.15.61c.27 1.07.47 2.21.69 3.42v.1zM87.48 56.33a1.08 1.08 0 0 1 0-.78c.12-.28.24-.63.38-1a21.81 21.81 0 0 0-4 .89c-1.91.79-3.62 3.2-5.39 4.84-2 1.84-4 3.26-5.39 4.84-1 .14-2 .36-2.93.57l.3.62q.59.88 1.1 1.81a1 1 0 0 0 .28.23c3.11-.5 5.61.69 7.88 0 1.08-.33 4.43-4.11 5.18-5.29 1.34-2.06 1.75-4.73 2.59-6.73zm11 13.54c-.92 2.36-2.33 4.14-3.08 6.69 1.29.78 2.1 2.09 3.55 2.68a22.16 22.16 0 0 1 3.05-2.68c-.72-2.67-2.34-4.33-3.08-7-.24 0-.38.1-.44.31zm17.82-12.12a.89.89 0 0 1 0-.64c.1-.23.19-.52.31-.8a17.33 17.33 0 0 0-3.21.73c-1.54.65-2.92 2.62-4.34 4-1.59 1.51-3.2 2.67-4.34 4-.82.11-1.59.29-2.36.47l.24.51q.47.72.89 1.48a.77.77 0 0 0 .23.19c2.51-.41 4.52.57 6.35 0 .87-.27 3.58-3.37 4.18-4.34 1.04-1.73 1.37-3.95 2.05-5.6z"
+                                            transform="translate(-2.38 -12.86)"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/hollywold.png" data-lightbox="combateEquipe" data-title="Hollywold">
+                                <img src="../img/mapas/maps/hollywold.png" class="card-img-top" alt="hollywold"
+                                title="hollywold"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/USA.png" alt="USA" title="USA">
+                                    Hollywood</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <g>
+                                            <path
+                                                d="M84.14 91.33c3-4.88 6.11-9.63 9.27-14.32-.95-3-1.91-6.08-2.94-9.07-.77-2.24-1.58-4.46-2.47-6.62a17.36 17.36 0 0 0-1.06-2.12c-.09-.16-.19-.29-.29-.44a15.66 15.66 0 0 0-1-1.44l-.28-.32a15.27 15.27 0 0 0-1.26-1.33l-.17-.16c-5.84-5.3-12.65-5.43-19.94-5.79-7.29.37-14.1.5-19.94 5.78l-.17.16A15.27 15.27 0 0 0 42.63 57l-.28.33a15.66 15.66 0 0 0-1 1.44c-.09.15-.2.29-.29.44A17.36 17.36 0 0 0 40 61.32c-.89 2.16-1.69 4.38-2.47 6.62-1 3-2 6-2.94 9.07 3.16 4.69 6.27 9.45 9.27 14.32-.52 2-.86 4.27-1.29 6.41 3.79.79 8.07 1 11.57 2.13-.09 1.33 0 6.55.1 7.64 1.48.52 9.75 6 9.75 6s8.28-5.46 9.75-6c.13-1.09.19-6.31.1-7.64 3.5-1.11 7.78-1.35 11.57-2.13-.41-2.14-.75-4.38-1.27-6.41zM59.22 84q-.61.91-1.14 1.86a1 1 0 0 1-.29.23c-3.22-.51-5.8.71-8.14 0-1.12-.34-4.58-4.24-5.36-5.46-1.32-2.09-1.74-4.88-2.62-6.95a1.11 1.11 0 0 0 0-.81c-.13-.29-.25-.65-.39-1a22.58 22.58 0 0 1 4.11.92c2 .81 3.74 3.29 5.57 5 2 1.9 4.11 3.36 5.57 5 1.06.14 2 .37 3 .59zM64 100.72a29 29 0 0 0-4-3.37c.89-3.35 3-5.44 4-8.75 1 3.31 3.11 5.4 4 8.76a29 29 0 0 0-4 3.36zM78.35 86.1c-2.34.71-4.92-.51-8.14 0a1 1 0 0 1-.29-.23q-.53-1-1.14-1.86l-.31-.64c1-.22 2-.44 3-.59 1.46-1.63 3.53-3.1 5.57-5 1.83-1.69 3.59-4.17 5.57-5a22.58 22.58 0 0 1 4.11-.92c-.15.35-.27.71-.39 1a1.11 1.11 0 0 0 0 .81c-.88 2.07-1.3 4.86-2.62 6.95-.77 1.24-4.24 5.15-5.36 5.48z"
+                                                transform="translate(-2.38 -12.86)"></path>
+                                            <path
+                                                d="M89.89 22.65c-2.62 1.69-6 4.13-7.17 6.11a7.83 7.83 0 0 0-2.25-2.91.94.94 0 0 0-1.51.83v.33A4.69 4.69 0 0 1 77.91 30c-2.26 2.84-4.06 3.07-5.68 2.8l-.06.09v-.1a5.77 5.77 0 0 1-3.6-9.12 1.54 1.54 0 0 0 .05-1.75c-1.12-1.73-2.93-5.1-3.91-7a.78.78 0 0 0-1.38 0c-1 1.82-2.77 5.09-3.89 6.79a1.54 1.54 0 0 0 0 1.76 5.77 5.77 0 0 1-3.61 9.11v.1l-.06-.09c-1.63.27-3.42 0-5.7-2.8A4.66 4.66 0 0 1 49 26.86v-.36a.94.94 0 0 0-1.51-.83 7.83 7.83 0 0 0-2.25 2.91c-1.19-2-4.55-4.41-7.17-6.11a.94.94 0 0 0-1.32 1.27 57.41 57.41 0 0 1 6.91 16.46 3.39 3.39 0 0 0 1.33 2v2.7h.06a2.88 2.88 0 0 0-1.53 2.2 2.67 2.67 0 0 0 1.28 2c5.81-3.46 12-3.77 18.11-4.06h2.17c6 .3 12.26.6 18 4a2.62 2.62 0 0 0 1.22-2 2.88 2.88 0 0 0-1.53-2.2h.06v-2.6a3.4 3.4 0 0 0 1.47-2.11 57.52 57.52 0 0 1 6.86-16.3.94.94 0 0 0-1.27-1.18z"
+                                                transform="translate(-2.38 -12.86)"></path>
+                                            <path
+                                                d="M114.35 89.62c2.42-4 4.93-7.89 7.48-11.74-.76-2.49-1.54-5-2.37-7.43-.62-1.84-1.27-3.66-2-5.43a14.31 14.31 0 0 0-.85-1.74c-.07-.13-.16-.24-.23-.36a12.87 12.87 0 0 0-.81-1.18l-.23-.27a12.43 12.43 0 0 0-1-1.09l-.14-.13c-4.71-4.33-12.07-4.44-18-4.74l-1.68-.09c-1.28.29-2.55.64-3.8 1 .08.12.16.24.24.38a22 22 0 0 1 1.34 2.7c.81 2 1.61 4.12 2.53 6.78v.09c1.08 3.14 2.07 6.27 3 9.2l.67 2.15-1.2 1.91c-3.16 4.7-5.79 8.73-8.16 12.54.19.92.36 1.85.53 2.76.12.64.24 1.29.36 1.92l.89 4.55s-1 1.3-1 1.54c1.1.59 8 4.86 8 4.86s6.84-4.47 8-4.9c.1-.89.16-5.17.08-6.26 2.82-.91 6.27-1.1 9.33-1.75-.33-1.77-.56-3.6-.98-5.27zm-16.17 7.7c-1.5-.61-2.34-2-3.67-2.76.77-2.63 2.23-4.47 3.18-6.9.06-.22.21-.32.49-.28.77 2.72 2.44 4.43 3.19 7.18a22.9 22.9 0 0 0-3.19 2.76zm11.5-12c-1.89.59-4-.42-6.57 0a.79.79 0 0 1-.24-.19q-.43-.78-.92-1.53l-.25-.53c.8-.18 1.59-.36 2.44-.48 1.18-1.34 2.85-2.54 4.49-4.09 1.47-1.39 2.9-3.42 4.49-4.09a18 18 0 0 1 3.32-.75c-.12.29-.21.58-.32.82a.92.92 0 0 0 0 .66c-.71 1.7-1 4-2.11 5.7-.63 1.02-3.42 4.22-4.32 4.5zm-80.24-7.56l.67-2.15c.91-2.92 1.9-6.06 3-9.2v-.09c.92-2.66 1.72-4.82 2.53-6.79A22 22 0 0 1 37 56.84c.08-.13.16-.25.24-.37-1.25-.4-2.52-.75-3.8-1l-1.68.09c-5.88.3-13.25.41-18 4.74l-.14.13a12.42 12.42 0 0 0-1 1.09l-.23.27a12.85 12.85 0 0 0-.81 1.18c-.08.12-.16.24-.23.36a14.33 14.33 0 0 0-.81 1.67c-.72 1.77-1.37 3.59-2 5.43-.83 2.45-1.61 4.94-2.37 7.43 2.55 3.85 5.06 7.74 7.48 11.74-.42 1.66-.7 3.5-1 5.26 3.05.65 6.51.84 9.33 1.75-.07 1.09 0 5.37.08 6.26 1.19.43 8 4.9 8 4.9s6.93-4.27 8-4.86c0-.25-1-1.54-1-1.54l.94-4.53c.12-.63.24-1.28.36-1.92.17-.91.34-1.84.53-2.76-2.38-3.81-5-7.84-8.16-12.54zM26 83.62q-.49.74-.92 1.53a.79.79 0 0 1-.24.19c-2.59-.42-4.67.59-6.57 0-.9-.28-3.7-3.48-4.32-4.48-1.06-1.71-1.4-4-2.11-5.7a.92.92 0 0 0 0-.66c-.1-.24-.2-.54-.32-.82a18 18 0 0 1 3.32.75c1.59.67 3 2.7 4.49 4.09 1.64 1.55 3.31 2.76 4.49 4.09.85.12 1.65.3 2.44.48zm3.78 13.7a22.9 22.9 0 0 0-3.19-2.76c.75-2.75 2.42-4.46 3.19-7.18.29 0 .43.06.49.28.95 2.43 2.41 4.27 3.18 6.9-1.29.8-2.13 2.15-3.63 2.76z"
+                                                transform="translatea(-2.38 -12.86)"></path>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 64 64">
+                                        <g>
+                                            <rect x="12.56" y="23.95" width="11.82" height="11.82" rx="1.74" ry="1.74"
+                                                transform="translate(-15.71 21.8) rotate(-45)"></rect>
+                                            <path
+                                                d="M28.81,24.41a11.69,11.69,0,0,0-9.9-6.23v2.11a9.59,9.59,0,0,1,8.91,7.5Z">
+                                            </path>
+                                            <path
+                                                d="M18,20.28h0v-2.1h0a11.69,11.69,0,1,0,6.36,21.77l1-3.46A9.58,9.58,0,1,1,18,20.28Z">
+                                            </path>
+                                            <path
+                                                d="M24,41.33A12.75,12.75,0,0,1,8.46,37.76a.13.13,0,0,0-.23.08v1a.13.13,0,0,0,0,.08,13.64,13.64,0,0,0,7.21,4.25.13.13,0,0,1,.08.05l0,0,2.59,2.87a.39.39,0,0,0,.55,0l2.61-2.89.06,0a13.54,13.54,0,0,0,2.31-.72Z">
+                                            </path>
+                                            <path
+                                                d="M6.1,26.72a12.52,12.52,0,0,1,9.45-9.29,12.77,12.77,0,0,1,13.75,5.69L29.62,22A13.65,13.65,0,1,0,7.34,37.76h0V36.08h0A12.85,12.85,0,0,1,6.1,26.72Z">
+                                            </path>
+                                            <path
+                                                d="M58.8,34.15h0c0-.23,0-.46,0-.7h0a.27.27,0,0,0,.27-.23.26.26,0,0,0-.26-.28h-.08c0-.23,0-.46,0-.7h.08a.27.27,0,0,0,.27-.23.26.26,0,0,0-.26-.28h-.11l0-.7h.12a.26.26,0,0,0,.26-.28.27.27,0,0,0-.27-.23h-.12l0-.72h0a.55.55,0,0,0,.52-.61.57.57,0,0,0-.58-.49h-.06C58,26.27,56,24.47,52.69,24.47H47.87c-1.23-2.1-1.87-3.51-2.4-3.79a16.33,16.33,0,0,0-6.06-.87c-.88,0-1.61,0-2.22,0L31.88,38.09h10.2a1.77,1.77,0,0,0-.26.8c0,1.14.81,1.32,2.1,1.18h0c0-.11,2.24-3.88,5.79-3.81a7.63,7.63,0,0,1,5.8,3.56s0,.09,0,.13h0c1.48.17,2.43,0,2.43-1.21a2.37,2.37,0,0,0-.58-1.22h0c1.29-.3,1.47-1.4,1.44-2.86h0a.26.26,0,0,0,.26-.19A.26.26,0,0,0,58.8,34.15ZM46,24.54l-5,.23h0c-1.64,0-1.88.2-1.88-.29S39,22.78,39,22.3s0-.85.57-.85,3.4-.08,4,0a1.34,1.34,0,0,1,1.3.9L46,24.54Z">
+                                            </path>
+                                            <path
+                                                d="M49.74,41.55a1.19,1.19,0,1,0,1.49,1.15A1.36,1.36,0,0,0,49.74,41.55Zm0,2a.62.62,0,1,1,.78-.6A.71.71,0,0,1,49.74,43.5Z">
+                                            </path>
+                                            <path
+                                                d="M51.47,37.86l.06-.3a.5.5,0,0,0-.5-.5H48.47a.5.5,0,0,0-.5.5l.07.3c-2.44.56-4.21,2.31-4.21,4.37a3.83,3.83,0,0,0,1,2.5h0a.26.26,0,0,0,0,.36l.91.91a.26.26,0,0,0,.36,0l.11-.16a7.36,7.36,0,0,0,7.17,0l.11.16a.26.26,0,0,0,.36,0l.91-.91a.26.26,0,0,0,0-.36h0a3.83,3.83,0,0,0,1-2.5C55.66,40.16,53.9,38.43,51.47,37.86ZM49,37.94h1.46a.29.29,0,0,1,.29.29l-.24,1.33a.29.29,0,0,1-.29.29h-.92a.29.29,0,0,1-.29-.29l-.3-1.33A.29.29,0,0,1,49,37.94Zm-2.6,7-.39.56a.15.15,0,0,1-.21,0L45.29,45a.15.15,0,0,1,0-.21l.58-.37a.15.15,0,0,1,.21,0l.33.33,0,0v.08A.14.14,0,0,1,46.41,44.93Zm3.34.48c-1.72,0-3.11-1.07-3.11-2.39s1.39-2.39,3.11-2.39,3.11,1.07,3.11,2.39S51.46,45.41,49.74,45.41ZM54.2,45l-.52.52a.15.15,0,0,1-.21,0l-.39-.56,0,0a.61.61,0,0,1,0-.09.14.14,0,0,1,0-.08l.33-.33a.15.15,0,0,1,.21,0l.58.37A.15.15,0,0,1,54.2,45Z">
+                                            </path>
+                                            <polygon points="34.57 12 23.4 51.21 26.11 52 37.27 12.79 34.57 12">
+                                            </polygon>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <path
+                                            d="M43 38.83a14.78 14.78 0 0 0-1.22 1.29l-.27.32a15.22 15.22 0 0 0-1 1.4c-.09.15-.19.28-.28.43a16.85 16.85 0 0 0-1 2.06c-.86 2.1-1.64 4.25-2.39 6.42-1 2.9-1.93 5.84-2.85 8.79C37 64.1 40 68.7 42.93 73.43c-.5 2-.84 4.14-1.24 6.22 3.66.77 7.81 1 11.19 2.07-.09 1.29 0 6.35.1 7.41 1.43.51 9.44 5.8 9.44 5.8v-12.4a28.09 28.09 0 0 0-3.91-3.26c.9-3.25 3-5.28 3.91-8.49V33.07c-7.06.35-13.64.48-19.29 5.61zm6.81 21.46c2 1.84 4 3.26 5.39 4.84 1 .14 2 .36 2.93.57l-.3.62q-.59.88-1.1 1.81a1 1 0 0 1-.29.23c-3.11-.5-5.61.69-7.88 0-1.08-.33-4.43-4.11-5.18-5.29-1.27-2-1.68-4.73-2.53-6.74a1.07 1.07 0 0 0 0-.78c-.12-.28-.24-.63-.38-1a21.81 21.81 0 0 1 4 .89c1.82.81 3.53 3.21 5.29 4.85zM29 60.27l.65-2.08c.88-2.83 1.84-5.88 2.89-8.92v-.09c.89-2.58 1.67-4.67 2.45-6.58a21.34 21.34 0 0 1 1.3-2.6c.07-.13.15-.24.23-.36-1.21-.39-2.43-.73-3.67-1l-1.63.08c-5.69.29-12.81.39-17.37 4.6l-.13.12a12 12 0 0 0-1 1.06l-.22.26a12.47 12.47 0 0 0-.79 1.15c-.07.12-.15.23-.22.35a13.9 13.9 0 0 0-.82 1.69c-.67 1.68-1.3 3.45-1.91 5.23C8 55.56 7.21 58 6.47 60.39c2.46 3.73 4.89 7.51 7.23 11.39-.41 1.61-.67 3.39-1 5.1 3 .63 6.3.82 9 1.7-.07 1.06 0 5.21.08 6.07 1.15.42 7.77 4.75 7.77 4.75s6.7-4.14 7.77-4.71c0-.24-1-1.5-1-1.5l.86-4.41c.12-.62.23-1.24.35-1.86.16-.88.32-1.78.51-2.68-2.3-3.69-4.84-7.6-7.9-12.16zm-3.3 5.68q-.47.72-.89 1.48a.76.76 0 0 1-.23.19c-2.51-.41-4.52.57-6.35 0-.87-.27-3.58-3.37-4.18-4.34-1-1.66-1.36-3.88-2-5.52a.89.89 0 0 0 0-.64c-.1-.23-.19-.52-.31-.8a17.34 17.34 0 0 1 3.21.73c1.54.65 2.92 2.62 4.34 4 1.59 1.51 3.2 2.67 4.34 4 .82.11 1.59.29 2.36.47zm3.66 13.29a22.18 22.18 0 0 0-3.08-2.68c.72-2.67 2.34-4.33 3.08-7 .28 0 .42.06.48.27.92 2.36 2.33 4.14 3.08 6.69-1.32.81-2.13 2.13-3.58 2.71zm56-5.8c2.9-4.73 5.91-9.34 9-13.89-.92-2.95-1.85-5.89-2.85-8.79-.75-2.17-1.53-4.32-2.39-6.42a16.84 16.84 0 0 0-1-2.06c-.09-.15-.19-.28-.28-.43a15.19 15.19 0 0 0-1-1.4l-.27-.32a14.79 14.79 0 0 0-1.22-1.29l-.17-.15c-5.65-5.13-12.23-5.25-19.29-5.61v37.7c.92 3.21 3 5.24 3.91 8.49a28.1 28.1 0 0 0-3.91 3.26v12.4s8-5.29 9.44-5.8c.12-1.06.19-6.12.1-7.41 3.38-1.08 7.53-1.3 11.19-2.07-.42-2.08-.75-4.25-1.25-6.22zM82 78.88a44.86 44.86 0 0 0-7 1.4l-1.13.36.08 1.19c.07 1 0 4.59 0 6.33-1.58.85-4.36 2.61-6.47 4v-9a20.86 20.86 0 0 1 2.25-1.85l1.08-.82.79-.62-.27-1a19.65 19.65 0 0 0-2.12-4.66 18.12 18.12 0 0 1-1.74-3.65v-35.9c6.38.32 11.93.75 16.77 5.15l.14.13a13.36 13.36 0 0 1 1.1 1.16l.11.13.13.16a13.63 13.63 0 0 1 .88 1.26l.14.22.11.17a15.31 15.31 0 0 1 .93 1.87c.74 1.81 1.49 3.83 2.36 6.34.93 2.71 1.8 5.45 2.61 8-3.36 5-6.1 9.26-8.6 13.34l-.34.55.16.62c.34 1.32.6 2.78.86 4.2l.08.44c-1.01.2-1.97.34-2.91.48zm32.61-7.11c2.34-3.88 4.77-7.65 7.23-11.39-.74-2.42-1.49-4.83-2.3-7.21-.6-1.78-1.23-3.55-1.92-5.26a13.91 13.91 0 0 0-.82-1.69c-.07-.12-.15-.23-.22-.35a12.41 12.41 0 0 0-.79-1.15l-.22-.26a12 12 0 0 0-1-1.06l-.13-.12c-4.56-4.2-11.68-4.31-17.37-4.6l-1.63-.08c-1.24.28-2.46.62-3.67 1 .08.12.16.24.23.36a21.33 21.33 0 0 1 1.3 2.62c.78 1.91 1.56 4 2.45 6.58v.09c1 3 2 6.09 2.89 8.92l.65 2.08-1.19 1.83c-3.06 4.56-5.6 8.46-7.9 12.16.19.9.35 1.8.51 2.68.11.62.23 1.25.35 1.86l.86 4.41s-1 1.26-1 1.5c1.06.57 7.77 4.71 7.77 4.71s6.62-4.34 7.77-4.75c.1-.87.15-5 .08-6.07 2.73-.88 6.07-1.07 9-1.7-.27-1.72-.54-3.49-.95-5.11zM111.82 76a35.85 35.85 0 0 0-5.71 1.16l-1.12.36.08 1.18c.05.78 0 3.55 0 5-1.66.91-4.65 2.83-6.34 3.93-1.32-.81-3.94-2.42-5.62-3.43l.44-.55-.13-.69-.86-4.41c-.12-.6-.23-1.21-.34-1.81v-.05c-.12-.68-.25-1.39-.39-2.09 2.17-3.6 4.59-7.31 7.52-11.67l1.22-1.81.41-.6-.22-.69-.65-2.08c-.88-2.84-1.85-5.89-2.9-9v-.09C96.28 46.07 95.49 44 94.7 42c-.21-.5-.43-1-.68-1.5q.79-.22 1.56-.4H98c5.41.26 11.54.56 15.43 4.15l.11.1a10.57 10.57 0 0 1 .86.93l.09.11.1.12a10.9 10.9 0 0 1 .69 1l.12.19.08.12a12.4 12.4 0 0 1 .73 1.5c.6 1.48 1.2 3.13 1.89 5.18.74 2.18 1.42 4.37 2.06 6.45-2.68 4.07-4.87 7.53-6.87 10.84l-.33.54.15.61c.27 1.07.47 2.21.69 3.42v.1zM87.48 56.33a1.08 1.08 0 0 1 0-.78c.12-.28.24-.63.38-1a21.81 21.81 0 0 0-4 .89c-1.91.79-3.62 3.2-5.39 4.84-2 1.84-4 3.26-5.39 4.84-1 .14-2 .36-2.93.57l.3.62q.59.88 1.1 1.81a1 1 0 0 0 .28.23c3.11-.5 5.61.69 7.88 0 1.08-.33 4.43-4.11 5.18-5.29 1.34-2.06 1.75-4.73 2.59-6.73zm11 13.54c-.92 2.36-2.33 4.14-3.08 6.69 1.29.78 2.1 2.09 3.55 2.68a22.16 22.16 0 0 1 3.05-2.68c-.72-2.67-2.34-4.33-3.08-7-.24 0-.38.1-.44.31zm17.82-12.12a.89.89 0 0 1 0-.64c.1-.23.19-.52.31-.8a17.33 17.33 0 0 0-3.21.73c-1.54.65-2.92 2.62-4.34 4-1.59 1.51-3.2 2.67-4.34 4-.82.11-1.59.29-2.36.47l.24.51q.47.72.89 1.48a.77.77 0 0 0 .23.19c2.51-.41 4.52.57 6.35 0 .87-.27 3.58-3.37 4.18-4.34 1.04-1.73 1.37-3.95 2.05-5.6z"
+                                            transform="translate(-2.38 -12.86)"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/kanezaka.png" data-lightbox="combateEquipe" data-title="kanezaka">
+                                <img src="../img/mapas/maps/kanezaka.png" class="card-img-top" alt="kanezaka"
+                                title="kanezaka"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/Japan.png" alt="Japan" title="Japan">
+                                    Kanezaka</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <g>
+                                            <path
+                                                d="M84.14 91.33c3-4.88 6.11-9.63 9.27-14.32-.95-3-1.91-6.08-2.94-9.07-.77-2.24-1.58-4.46-2.47-6.62a17.36 17.36 0 0 0-1.06-2.12c-.09-.16-.19-.29-.29-.44a15.66 15.66 0 0 0-1-1.44l-.28-.32a15.27 15.27 0 0 0-1.26-1.33l-.17-.16c-5.84-5.3-12.65-5.43-19.94-5.79-7.29.37-14.1.5-19.94 5.78l-.17.16A15.27 15.27 0 0 0 42.63 57l-.28.33a15.66 15.66 0 0 0-1 1.44c-.09.15-.2.29-.29.44A17.36 17.36 0 0 0 40 61.32c-.89 2.16-1.69 4.38-2.47 6.62-1 3-2 6-2.94 9.07 3.16 4.69 6.27 9.45 9.27 14.32-.52 2-.86 4.27-1.29 6.41 3.79.79 8.07 1 11.57 2.13-.09 1.33 0 6.55.1 7.64 1.48.52 9.75 6 9.75 6s8.28-5.46 9.75-6c.13-1.09.19-6.31.1-7.64 3.5-1.11 7.78-1.35 11.57-2.13-.41-2.14-.75-4.38-1.27-6.41zM59.22 84q-.61.91-1.14 1.86a1 1 0 0 1-.29.23c-3.22-.51-5.8.71-8.14 0-1.12-.34-4.58-4.24-5.36-5.46-1.32-2.09-1.74-4.88-2.62-6.95a1.11 1.11 0 0 0 0-.81c-.13-.29-.25-.65-.39-1a22.58 22.58 0 0 1 4.11.92c2 .81 3.74 3.29 5.57 5 2 1.9 4.11 3.36 5.57 5 1.06.14 2 .37 3 .59zM64 100.72a29 29 0 0 0-4-3.37c.89-3.35 3-5.44 4-8.75 1 3.31 3.11 5.4 4 8.76a29 29 0 0 0-4 3.36zM78.35 86.1c-2.34.71-4.92-.51-8.14 0a1 1 0 0 1-.29-.23q-.53-1-1.14-1.86l-.31-.64c1-.22 2-.44 3-.59 1.46-1.63 3.53-3.1 5.57-5 1.83-1.69 3.59-4.17 5.57-5a22.58 22.58 0 0 1 4.11-.92c-.15.35-.27.71-.39 1a1.11 1.11 0 0 0 0 .81c-.88 2.07-1.3 4.86-2.62 6.95-.77 1.24-4.24 5.15-5.36 5.48z"
+                                                transform="translate(-2.38 -12.86)"></path>
+                                            <path
+                                                d="M89.89 22.65c-2.62 1.69-6 4.13-7.17 6.11a7.83 7.83 0 0 0-2.25-2.91.94.94 0 0 0-1.51.83v.33A4.69 4.69 0 0 1 77.91 30c-2.26 2.84-4.06 3.07-5.68 2.8l-.06.09v-.1a5.77 5.77 0 0 1-3.6-9.12 1.54 1.54 0 0 0 .05-1.75c-1.12-1.73-2.93-5.1-3.91-7a.78.78 0 0 0-1.38 0c-1 1.82-2.77 5.09-3.89 6.79a1.54 1.54 0 0 0 0 1.76 5.77 5.77 0 0 1-3.61 9.11v.1l-.06-.09c-1.63.27-3.42 0-5.7-2.8A4.66 4.66 0 0 1 49 26.86v-.36a.94.94 0 0 0-1.51-.83 7.83 7.83 0 0 0-2.25 2.91c-1.19-2-4.55-4.41-7.17-6.11a.94.94 0 0 0-1.32 1.27 57.41 57.41 0 0 1 6.91 16.46 3.39 3.39 0 0 0 1.33 2v2.7h.06a2.88 2.88 0 0 0-1.53 2.2 2.67 2.67 0 0 0 1.28 2c5.81-3.46 12-3.77 18.11-4.06h2.17c6 .3 12.26.6 18 4a2.62 2.62 0 0 0 1.22-2 2.88 2.88 0 0 0-1.53-2.2h.06v-2.6a3.4 3.4 0 0 0 1.47-2.11 57.52 57.52 0 0 1 6.86-16.3.94.94 0 0 0-1.27-1.18z"
+                                                transform="translate(-2.38 -12.86)"></path>
+                                            <path
+                                                d="M114.35 89.62c2.42-4 4.93-7.89 7.48-11.74-.76-2.49-1.54-5-2.37-7.43-.62-1.84-1.27-3.66-2-5.43a14.31 14.31 0 0 0-.85-1.74c-.07-.13-.16-.24-.23-.36a12.87 12.87 0 0 0-.81-1.18l-.23-.27a12.43 12.43 0 0 0-1-1.09l-.14-.13c-4.71-4.33-12.07-4.44-18-4.74l-1.68-.09c-1.28.29-2.55.64-3.8 1 .08.12.16.24.24.38a22 22 0 0 1 1.34 2.7c.81 2 1.61 4.12 2.53 6.78v.09c1.08 3.14 2.07 6.27 3 9.2l.67 2.15-1.2 1.91c-3.16 4.7-5.79 8.73-8.16 12.54.19.92.36 1.85.53 2.76.12.64.24 1.29.36 1.92l.89 4.55s-1 1.3-1 1.54c1.1.59 8 4.86 8 4.86s6.84-4.47 8-4.9c.1-.89.16-5.17.08-6.26 2.82-.91 6.27-1.1 9.33-1.75-.33-1.77-.56-3.6-.98-5.27zm-16.17 7.7c-1.5-.61-2.34-2-3.67-2.76.77-2.63 2.23-4.47 3.18-6.9.06-.22.21-.32.49-.28.77 2.72 2.44 4.43 3.19 7.18a22.9 22.9 0 0 0-3.19 2.76zm11.5-12c-1.89.59-4-.42-6.57 0a.79.79 0 0 1-.24-.19q-.43-.78-.92-1.53l-.25-.53c.8-.18 1.59-.36 2.44-.48 1.18-1.34 2.85-2.54 4.49-4.09 1.47-1.39 2.9-3.42 4.49-4.09a18 18 0 0 1 3.32-.75c-.12.29-.21.58-.32.82a.92.92 0 0 0 0 .66c-.71 1.7-1 4-2.11 5.7-.63 1.02-3.42 4.22-4.32 4.5zm-80.24-7.56l.67-2.15c.91-2.92 1.9-6.06 3-9.2v-.09c.92-2.66 1.72-4.82 2.53-6.79A22 22 0 0 1 37 56.84c.08-.13.16-.25.24-.37-1.25-.4-2.52-.75-3.8-1l-1.68.09c-5.88.3-13.25.41-18 4.74l-.14.13a12.42 12.42 0 0 0-1 1.09l-.23.27a12.85 12.85 0 0 0-.81 1.18c-.08.12-.16.24-.23.36a14.33 14.33 0 0 0-.81 1.67c-.72 1.77-1.37 3.59-2 5.43-.83 2.45-1.61 4.94-2.37 7.43 2.55 3.85 5.06 7.74 7.48 11.74-.42 1.66-.7 3.5-1 5.26 3.05.65 6.51.84 9.33 1.75-.07 1.09 0 5.37.08 6.26 1.19.43 8 4.9 8 4.9s6.93-4.27 8-4.86c0-.25-1-1.54-1-1.54l.94-4.53c.12-.63.24-1.28.36-1.92.17-.91.34-1.84.53-2.76-2.38-3.81-5-7.84-8.16-12.54zM26 83.62q-.49.74-.92 1.53a.79.79 0 0 1-.24.19c-2.59-.42-4.67.59-6.57 0-.9-.28-3.7-3.48-4.32-4.48-1.06-1.71-1.4-4-2.11-5.7a.92.92 0 0 0 0-.66c-.1-.24-.2-.54-.32-.82a18 18 0 0 1 3.32.75c1.59.67 3 2.7 4.49 4.09 1.64 1.55 3.31 2.76 4.49 4.09.85.12 1.65.3 2.44.48zm3.78 13.7a22.9 22.9 0 0 0-3.19-2.76c.75-2.75 2.42-4.46 3.19-7.18.29 0 .43.06.49.28.95 2.43 2.41 4.27 3.18 6.9-1.29.8-2.13 2.15-3.63 2.76z"
+                                                transform="translatea(-2.38 -12.86)"></path>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <path
+                                            d="M43 38.83a14.78 14.78 0 0 0-1.22 1.29l-.27.32a15.22 15.22 0 0 0-1 1.4c-.09.15-.19.28-.28.43a16.85 16.85 0 0 0-1 2.06c-.86 2.1-1.64 4.25-2.39 6.42-1 2.9-1.93 5.84-2.85 8.79C37 64.1 40 68.7 42.93 73.43c-.5 2-.84 4.14-1.24 6.22 3.66.77 7.81 1 11.19 2.07-.09 1.29 0 6.35.1 7.41 1.43.51 9.44 5.8 9.44 5.8v-12.4a28.09 28.09 0 0 0-3.91-3.26c.9-3.25 3-5.28 3.91-8.49V33.07c-7.06.35-13.64.48-19.29 5.61zm6.81 21.46c2 1.84 4 3.26 5.39 4.84 1 .14 2 .36 2.93.57l-.3.62q-.59.88-1.1 1.81a1 1 0 0 1-.29.23c-3.11-.5-5.61.69-7.88 0-1.08-.33-4.43-4.11-5.18-5.29-1.27-2-1.68-4.73-2.53-6.74a1.07 1.07 0 0 0 0-.78c-.12-.28-.24-.63-.38-1a21.81 21.81 0 0 1 4 .89c1.82.81 3.53 3.21 5.29 4.85zM29 60.27l.65-2.08c.88-2.83 1.84-5.88 2.89-8.92v-.09c.89-2.58 1.67-4.67 2.45-6.58a21.34 21.34 0 0 1 1.3-2.6c.07-.13.15-.24.23-.36-1.21-.39-2.43-.73-3.67-1l-1.63.08c-5.69.29-12.81.39-17.37 4.6l-.13.12a12 12 0 0 0-1 1.06l-.22.26a12.47 12.47 0 0 0-.79 1.15c-.07.12-.15.23-.22.35a13.9 13.9 0 0 0-.82 1.69c-.67 1.68-1.3 3.45-1.91 5.23C8 55.56 7.21 58 6.47 60.39c2.46 3.73 4.89 7.51 7.23 11.39-.41 1.61-.67 3.39-1 5.1 3 .63 6.3.82 9 1.7-.07 1.06 0 5.21.08 6.07 1.15.42 7.77 4.75 7.77 4.75s6.7-4.14 7.77-4.71c0-.24-1-1.5-1-1.5l.86-4.41c.12-.62.23-1.24.35-1.86.16-.88.32-1.78.51-2.68-2.3-3.69-4.84-7.6-7.9-12.16zm-3.3 5.68q-.47.72-.89 1.48a.76.76 0 0 1-.23.19c-2.51-.41-4.52.57-6.35 0-.87-.27-3.58-3.37-4.18-4.34-1-1.66-1.36-3.88-2-5.52a.89.89 0 0 0 0-.64c-.1-.23-.19-.52-.31-.8a17.34 17.34 0 0 1 3.21.73c1.54.65 2.92 2.62 4.34 4 1.59 1.51 3.2 2.67 4.34 4 .82.11 1.59.29 2.36.47zm3.66 13.29a22.18 22.18 0 0 0-3.08-2.68c.72-2.67 2.34-4.33 3.08-7 .28 0 .42.06.48.27.92 2.36 2.33 4.14 3.08 6.69-1.32.81-2.13 2.13-3.58 2.71zm56-5.8c2.9-4.73 5.91-9.34 9-13.89-.92-2.95-1.85-5.89-2.85-8.79-.75-2.17-1.53-4.32-2.39-6.42a16.84 16.84 0 0 0-1-2.06c-.09-.15-.19-.28-.28-.43a15.19 15.19 0 0 0-1-1.4l-.27-.32a14.79 14.79 0 0 0-1.22-1.29l-.17-.15c-5.65-5.13-12.23-5.25-19.29-5.61v37.7c.92 3.21 3 5.24 3.91 8.49a28.1 28.1 0 0 0-3.91 3.26v12.4s8-5.29 9.44-5.8c.12-1.06.19-6.12.1-7.41 3.38-1.08 7.53-1.3 11.19-2.07-.42-2.08-.75-4.25-1.25-6.22zM82 78.88a44.86 44.86 0 0 0-7 1.4l-1.13.36.08 1.19c.07 1 0 4.59 0 6.33-1.58.85-4.36 2.61-6.47 4v-9a20.86 20.86 0 0 1 2.25-1.85l1.08-.82.79-.62-.27-1a19.65 19.65 0 0 0-2.12-4.66 18.12 18.12 0 0 1-1.74-3.65v-35.9c6.38.32 11.93.75 16.77 5.15l.14.13a13.36 13.36 0 0 1 1.1 1.16l.11.13.13.16a13.63 13.63 0 0 1 .88 1.26l.14.22.11.17a15.31 15.31 0 0 1 .93 1.87c.74 1.81 1.49 3.83 2.36 6.34.93 2.71 1.8 5.45 2.61 8-3.36 5-6.1 9.26-8.6 13.34l-.34.55.16.62c.34 1.32.6 2.78.86 4.2l.08.44c-1.01.2-1.97.34-2.91.48zm32.61-7.11c2.34-3.88 4.77-7.65 7.23-11.39-.74-2.42-1.49-4.83-2.3-7.21-.6-1.78-1.23-3.55-1.92-5.26a13.91 13.91 0 0 0-.82-1.69c-.07-.12-.15-.23-.22-.35a12.41 12.41 0 0 0-.79-1.15l-.22-.26a12 12 0 0 0-1-1.06l-.13-.12c-4.56-4.2-11.68-4.31-17.37-4.6l-1.63-.08c-1.24.28-2.46.62-3.67 1 .08.12.16.24.23.36a21.33 21.33 0 0 1 1.3 2.62c.78 1.91 1.56 4 2.45 6.58v.09c1 3 2 6.09 2.89 8.92l.65 2.08-1.19 1.83c-3.06 4.56-5.6 8.46-7.9 12.16.19.9.35 1.8.51 2.68.11.62.23 1.25.35 1.86l.86 4.41s-1 1.26-1 1.5c1.06.57 7.77 4.71 7.77 4.71s6.62-4.34 7.77-4.75c.1-.87.15-5 .08-6.07 2.73-.88 6.07-1.07 9-1.7-.27-1.72-.54-3.49-.95-5.11zM111.82 76a35.85 35.85 0 0 0-5.71 1.16l-1.12.36.08 1.18c.05.78 0 3.55 0 5-1.66.91-4.65 2.83-6.34 3.93-1.32-.81-3.94-2.42-5.62-3.43l.44-.55-.13-.69-.86-4.41c-.12-.6-.23-1.21-.34-1.81v-.05c-.12-.68-.25-1.39-.39-2.09 2.17-3.6 4.59-7.31 7.52-11.67l1.22-1.81.41-.6-.22-.69-.65-2.08c-.88-2.84-1.85-5.89-2.9-9v-.09C96.28 46.07 95.49 44 94.7 42c-.21-.5-.43-1-.68-1.5q.79-.22 1.56-.4H98c5.41.26 11.54.56 15.43 4.15l.11.1a10.57 10.57 0 0 1 .86.93l.09.11.1.12a10.9 10.9 0 0 1 .69 1l.12.19.08.12a12.4 12.4 0 0 1 .73 1.5c.6 1.48 1.2 3.13 1.89 5.18.74 2.18 1.42 4.37 2.06 6.45-2.68 4.07-4.87 7.53-6.87 10.84l-.33.54.15.61c.27 1.07.47 2.21.69 3.42v.1zM87.48 56.33a1.08 1.08 0 0 1 0-.78c.12-.28.24-.63.38-1a21.81 21.81 0 0 0-4 .89c-1.91.79-3.62 3.2-5.39 4.84-2 1.84-4 3.26-5.39 4.84-1 .14-2 .36-2.93.57l.3.62q.59.88 1.1 1.81a1 1 0 0 0 .28.23c3.11-.5 5.61.69 7.88 0 1.08-.33 4.43-4.11 5.18-5.29 1.34-2.06 1.75-4.73 2.59-6.73zm11 13.54c-.92 2.36-2.33 4.14-3.08 6.69 1.29.78 2.1 2.09 3.55 2.68a22.16 22.16 0 0 1 3.05-2.68c-.72-2.67-2.34-4.33-3.08-7-.24 0-.38.1-.44.31zm17.82-12.12a.89.89 0 0 1 0-.64c.1-.23.19-.52.31-.8a17.33 17.33 0 0 0-3.21.73c-1.54.65-2.92 2.62-4.34 4-1.59 1.51-3.2 2.67-4.34 4-.82.11-1.59.29-2.36.47l.24.51q.47.72.89 1.48a.77.77 0 0 0 .23.19c2.51-.41 4.52.57 6.35 0 .87-.27 3.58-3.37 4.18-4.34 1.04-1.73 1.37-3.95 2.05-5.6z"
+                                            transform="translate(-2.38 -12.86)"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/kings row.png" data-lightbox="combate" data-title="Kings Row">
+                                <img src="../img/mapas/maps/kings row.png" class="card-img-top" alt="kings row"
+                                title="kings row"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/UK.png" alt="UK" title="UK">
+                                    King's Row</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <g>
+                                            <path
+                                                d="M84.14 91.33c3-4.88 6.11-9.63 9.27-14.32-.95-3-1.91-6.08-2.94-9.07-.77-2.24-1.58-4.46-2.47-6.62a17.36 17.36 0 0 0-1.06-2.12c-.09-.16-.19-.29-.29-.44a15.66 15.66 0 0 0-1-1.44l-.28-.32a15.27 15.27 0 0 0-1.26-1.33l-.17-.16c-5.84-5.3-12.65-5.43-19.94-5.79-7.29.37-14.1.5-19.94 5.78l-.17.16A15.27 15.27 0 0 0 42.63 57l-.28.33a15.66 15.66 0 0 0-1 1.44c-.09.15-.2.29-.29.44A17.36 17.36 0 0 0 40 61.32c-.89 2.16-1.69 4.38-2.47 6.62-1 3-2 6-2.94 9.07 3.16 4.69 6.27 9.45 9.27 14.32-.52 2-.86 4.27-1.29 6.41 3.79.79 8.07 1 11.57 2.13-.09 1.33 0 6.55.1 7.64 1.48.52 9.75 6 9.75 6s8.28-5.46 9.75-6c.13-1.09.19-6.31.1-7.64 3.5-1.11 7.78-1.35 11.57-2.13-.41-2.14-.75-4.38-1.27-6.41zM59.22 84q-.61.91-1.14 1.86a1 1 0 0 1-.29.23c-3.22-.51-5.8.71-8.14 0-1.12-.34-4.58-4.24-5.36-5.46-1.32-2.09-1.74-4.88-2.62-6.95a1.11 1.11 0 0 0 0-.81c-.13-.29-.25-.65-.39-1a22.58 22.58 0 0 1 4.11.92c2 .81 3.74 3.29 5.57 5 2 1.9 4.11 3.36 5.57 5 1.06.14 2 .37 3 .59zM64 100.72a29 29 0 0 0-4-3.37c.89-3.35 3-5.44 4-8.75 1 3.31 3.11 5.4 4 8.76a29 29 0 0 0-4 3.36zM78.35 86.1c-2.34.71-4.92-.51-8.14 0a1 1 0 0 1-.29-.23q-.53-1-1.14-1.86l-.31-.64c1-.22 2-.44 3-.59 1.46-1.63 3.53-3.1 5.57-5 1.83-1.69 3.59-4.17 5.57-5a22.58 22.58 0 0 1 4.11-.92c-.15.35-.27.71-.39 1a1.11 1.11 0 0 0 0 .81c-.88 2.07-1.3 4.86-2.62 6.95-.77 1.24-4.24 5.15-5.36 5.48z"
+                                                transform="translate(-2.38 -12.86)"></path>
+                                            <path
+                                                d="M89.89 22.65c-2.62 1.69-6 4.13-7.17 6.11a7.83 7.83 0 0 0-2.25-2.91.94.94 0 0 0-1.51.83v.33A4.69 4.69 0 0 1 77.91 30c-2.26 2.84-4.06 3.07-5.68 2.8l-.06.09v-.1a5.77 5.77 0 0 1-3.6-9.12 1.54 1.54 0 0 0 .05-1.75c-1.12-1.73-2.93-5.1-3.91-7a.78.78 0 0 0-1.38 0c-1 1.82-2.77 5.09-3.89 6.79a1.54 1.54 0 0 0 0 1.76 5.77 5.77 0 0 1-3.61 9.11v.1l-.06-.09c-1.63.27-3.42 0-5.7-2.8A4.66 4.66 0 0 1 49 26.86v-.36a.94.94 0 0 0-1.51-.83 7.83 7.83 0 0 0-2.25 2.91c-1.19-2-4.55-4.41-7.17-6.11a.94.94 0 0 0-1.32 1.27 57.41 57.41 0 0 1 6.91 16.46 3.39 3.39 0 0 0 1.33 2v2.7h.06a2.88 2.88 0 0 0-1.53 2.2 2.67 2.67 0 0 0 1.28 2c5.81-3.46 12-3.77 18.11-4.06h2.17c6 .3 12.26.6 18 4a2.62 2.62 0 0 0 1.22-2 2.88 2.88 0 0 0-1.53-2.2h.06v-2.6a3.4 3.4 0 0 0 1.47-2.11 57.52 57.52 0 0 1 6.86-16.3.94.94 0 0 0-1.27-1.18z"
+                                                transform="translate(-2.38 -12.86)"></path>
+                                            <path
+                                                d="M114.35 89.62c2.42-4 4.93-7.89 7.48-11.74-.76-2.49-1.54-5-2.37-7.43-.62-1.84-1.27-3.66-2-5.43a14.31 14.31 0 0 0-.85-1.74c-.07-.13-.16-.24-.23-.36a12.87 12.87 0 0 0-.81-1.18l-.23-.27a12.43 12.43 0 0 0-1-1.09l-.14-.13c-4.71-4.33-12.07-4.44-18-4.74l-1.68-.09c-1.28.29-2.55.64-3.8 1 .08.12.16.24.24.38a22 22 0 0 1 1.34 2.7c.81 2 1.61 4.12 2.53 6.78v.09c1.08 3.14 2.07 6.27 3 9.2l.67 2.15-1.2 1.91c-3.16 4.7-5.79 8.73-8.16 12.54.19.92.36 1.85.53 2.76.12.64.24 1.29.36 1.92l.89 4.55s-1 1.3-1 1.54c1.1.59 8 4.86 8 4.86s6.84-4.47 8-4.9c.1-.89.16-5.17.08-6.26 2.82-.91 6.27-1.1 9.33-1.75-.33-1.77-.56-3.6-.98-5.27zm-16.17 7.7c-1.5-.61-2.34-2-3.67-2.76.77-2.63 2.23-4.47 3.18-6.9.06-.22.21-.32.49-.28.77 2.72 2.44 4.43 3.19 7.18a22.9 22.9 0 0 0-3.19 2.76zm11.5-12c-1.89.59-4-.42-6.57 0a.79.79 0 0 1-.24-.19q-.43-.78-.92-1.53l-.25-.53c.8-.18 1.59-.36 2.44-.48 1.18-1.34 2.85-2.54 4.49-4.09 1.47-1.39 2.9-3.42 4.49-4.09a18 18 0 0 1 3.32-.75c-.12.29-.21.58-.32.82a.92.92 0 0 0 0 .66c-.71 1.7-1 4-2.11 5.7-.63 1.02-3.42 4.22-4.32 4.5zm-80.24-7.56l.67-2.15c.91-2.92 1.9-6.06 3-9.2v-.09c.92-2.66 1.72-4.82 2.53-6.79A22 22 0 0 1 37 56.84c.08-.13.16-.25.24-.37-1.25-.4-2.52-.75-3.8-1l-1.68.09c-5.88.3-13.25.41-18 4.74l-.14.13a12.42 12.42 0 0 0-1 1.09l-.23.27a12.85 12.85 0 0 0-.81 1.18c-.08.12-.16.24-.23.36a14.33 14.33 0 0 0-.81 1.67c-.72 1.77-1.37 3.59-2 5.43-.83 2.45-1.61 4.94-2.37 7.43 2.55 3.85 5.06 7.74 7.48 11.74-.42 1.66-.7 3.5-1 5.26 3.05.65 6.51.84 9.33 1.75-.07 1.09 0 5.37.08 6.26 1.19.43 8 4.9 8 4.9s6.93-4.27 8-4.86c0-.25-1-1.54-1-1.54l.94-4.53c.12-.63.24-1.28.36-1.92.17-.91.34-1.84.53-2.76-2.38-3.81-5-7.84-8.16-12.54zM26 83.62q-.49.74-.92 1.53a.79.79 0 0 1-.24.19c-2.59-.42-4.67.59-6.57 0-.9-.28-3.7-3.48-4.32-4.48-1.06-1.71-1.4-4-2.11-5.7a.92.92 0 0 0 0-.66c-.1-.24-.2-.54-.32-.82a18 18 0 0 1 3.32.75c1.59.67 3 2.7 4.49 4.09 1.64 1.55 3.31 2.76 4.49 4.09.85.12 1.65.3 2.44.48zm3.78 13.7a22.9 22.9 0 0 0-3.19-2.76c.75-2.75 2.42-4.46 3.19-7.18.29 0 .43.06.49.28.95 2.43 2.41 4.27 3.18 6.9-1.29.8-2.13 2.15-3.63 2.76z"
+                                                transform="translatea(-2.38 -12.86)"></path>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 64 64">
+                                        <g>
+                                            <rect x="12.56" y="23.95" width="11.82" height="11.82" rx="1.74" ry="1.74"
+                                                transform="translate(-15.71 21.8) rotate(-45)"></rect>
+                                            <path
+                                                d="M28.81,24.41a11.69,11.69,0,0,0-9.9-6.23v2.11a9.59,9.59,0,0,1,8.91,7.5Z">
+                                            </path>
+                                            <path
+                                                d="M18,20.28h0v-2.1h0a11.69,11.69,0,1,0,6.36,21.77l1-3.46A9.58,9.58,0,1,1,18,20.28Z">
+                                            </path>
+                                            <path
+                                                d="M24,41.33A12.75,12.75,0,0,1,8.46,37.76a.13.13,0,0,0-.23.08v1a.13.13,0,0,0,0,.08,13.64,13.64,0,0,0,7.21,4.25.13.13,0,0,1,.08.05l0,0,2.59,2.87a.39.39,0,0,0,.55,0l2.61-2.89.06,0a13.54,13.54,0,0,0,2.31-.72Z">
+                                            </path>
+                                            <path
+                                                d="M6.1,26.72a12.52,12.52,0,0,1,9.45-9.29,12.77,12.77,0,0,1,13.75,5.69L29.62,22A13.65,13.65,0,1,0,7.34,37.76h0V36.08h0A12.85,12.85,0,0,1,6.1,26.72Z">
+                                            </path>
+                                            <path
+                                                d="M58.8,34.15h0c0-.23,0-.46,0-.7h0a.27.27,0,0,0,.27-.23.26.26,0,0,0-.26-.28h-.08c0-.23,0-.46,0-.7h.08a.27.27,0,0,0,.27-.23.26.26,0,0,0-.26-.28h-.11l0-.7h.12a.26.26,0,0,0,.26-.28.27.27,0,0,0-.27-.23h-.12l0-.72h0a.55.55,0,0,0,.52-.61.57.57,0,0,0-.58-.49h-.06C58,26.27,56,24.47,52.69,24.47H47.87c-1.23-2.1-1.87-3.51-2.4-3.79a16.33,16.33,0,0,0-6.06-.87c-.88,0-1.61,0-2.22,0L31.88,38.09h10.2a1.77,1.77,0,0,0-.26.8c0,1.14.81,1.32,2.1,1.18h0c0-.11,2.24-3.88,5.79-3.81a7.63,7.63,0,0,1,5.8,3.56s0,.09,0,.13h0c1.48.17,2.43,0,2.43-1.21a2.37,2.37,0,0,0-.58-1.22h0c1.29-.3,1.47-1.4,1.44-2.86h0a.26.26,0,0,0,.26-.19A.26.26,0,0,0,58.8,34.15ZM46,24.54l-5,.23h0c-1.64,0-1.88.2-1.88-.29S39,22.78,39,22.3s0-.85.57-.85,3.4-.08,4,0a1.34,1.34,0,0,1,1.3.9L46,24.54Z">
+                                            </path>
+                                            <path
+                                                d="M49.74,41.55a1.19,1.19,0,1,0,1.49,1.15A1.36,1.36,0,0,0,49.74,41.55Zm0,2a.62.62,0,1,1,.78-.6A.71.71,0,0,1,49.74,43.5Z">
+                                            </path>
+                                            <path
+                                                d="M51.47,37.86l.06-.3a.5.5,0,0,0-.5-.5H48.47a.5.5,0,0,0-.5.5l.07.3c-2.44.56-4.21,2.31-4.21,4.37a3.83,3.83,0,0,0,1,2.5h0a.26.26,0,0,0,0,.36l.91.91a.26.26,0,0,0,.36,0l.11-.16a7.36,7.36,0,0,0,7.17,0l.11.16a.26.26,0,0,0,.36,0l.91-.91a.26.26,0,0,0,0-.36h0a3.83,3.83,0,0,0,1-2.5C55.66,40.16,53.9,38.43,51.47,37.86ZM49,37.94h1.46a.29.29,0,0,1,.29.29l-.24,1.33a.29.29,0,0,1-.29.29h-.92a.29.29,0,0,1-.29-.29l-.3-1.33A.29.29,0,0,1,49,37.94Zm-2.6,7-.39.56a.15.15,0,0,1-.21,0L45.29,45a.15.15,0,0,1,0-.21l.58-.37a.15.15,0,0,1,.21,0l.33.33,0,0v.08A.14.14,0,0,1,46.41,44.93Zm3.34.48c-1.72,0-3.11-1.07-3.11-2.39s1.39-2.39,3.11-2.39,3.11,1.07,3.11,2.39S51.46,45.41,49.74,45.41ZM54.2,45l-.52.52a.15.15,0,0,1-.21,0l-.39-.56,0,0a.61.61,0,0,1,0-.09.14.14,0,0,1,0-.08l.33-.33a.15.15,0,0,1,.21,0l.58.37A.15.15,0,0,1,54.2,45Z">
+                                            </path>
+                                            <polygon points="34.57 12 23.4 51.21 26.11 52 37.27 12.79 34.57 12">
+                                            </polygon>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <path
+                                            d="M43 38.83a14.78 14.78 0 0 0-1.22 1.29l-.27.32a15.22 15.22 0 0 0-1 1.4c-.09.15-.19.28-.28.43a16.85 16.85 0 0 0-1 2.06c-.86 2.1-1.64 4.25-2.39 6.42-1 2.9-1.93 5.84-2.85 8.79C37 64.1 40 68.7 42.93 73.43c-.5 2-.84 4.14-1.24 6.22 3.66.77 7.81 1 11.19 2.07-.09 1.29 0 6.35.1 7.41 1.43.51 9.44 5.8 9.44 5.8v-12.4a28.09 28.09 0 0 0-3.91-3.26c.9-3.25 3-5.28 3.91-8.49V33.07c-7.06.35-13.64.48-19.29 5.61zm6.81 21.46c2 1.84 4 3.26 5.39 4.84 1 .14 2 .36 2.93.57l-.3.62q-.59.88-1.1 1.81a1 1 0 0 1-.29.23c-3.11-.5-5.61.69-7.88 0-1.08-.33-4.43-4.11-5.18-5.29-1.27-2-1.68-4.73-2.53-6.74a1.07 1.07 0 0 0 0-.78c-.12-.28-.24-.63-.38-1a21.81 21.81 0 0 1 4 .89c1.82.81 3.53 3.21 5.29 4.85zM29 60.27l.65-2.08c.88-2.83 1.84-5.88 2.89-8.92v-.09c.89-2.58 1.67-4.67 2.45-6.58a21.34 21.34 0 0 1 1.3-2.6c.07-.13.15-.24.23-.36-1.21-.39-2.43-.73-3.67-1l-1.63.08c-5.69.29-12.81.39-17.37 4.6l-.13.12a12 12 0 0 0-1 1.06l-.22.26a12.47 12.47 0 0 0-.79 1.15c-.07.12-.15.23-.22.35a13.9 13.9 0 0 0-.82 1.69c-.67 1.68-1.3 3.45-1.91 5.23C8 55.56 7.21 58 6.47 60.39c2.46 3.73 4.89 7.51 7.23 11.39-.41 1.61-.67 3.39-1 5.1 3 .63 6.3.82 9 1.7-.07 1.06 0 5.21.08 6.07 1.15.42 7.77 4.75 7.77 4.75s6.7-4.14 7.77-4.71c0-.24-1-1.5-1-1.5l.86-4.41c.12-.62.23-1.24.35-1.86.16-.88.32-1.78.51-2.68-2.3-3.69-4.84-7.6-7.9-12.16zm-3.3 5.68q-.47.72-.89 1.48a.76.76 0 0 1-.23.19c-2.51-.41-4.52.57-6.35 0-.87-.27-3.58-3.37-4.18-4.34-1-1.66-1.36-3.88-2-5.52a.89.89 0 0 0 0-.64c-.1-.23-.19-.52-.31-.8a17.34 17.34 0 0 1 3.21.73c1.54.65 2.92 2.62 4.34 4 1.59 1.51 3.2 2.67 4.34 4 .82.11 1.59.29 2.36.47zm3.66 13.29a22.18 22.18 0 0 0-3.08-2.68c.72-2.67 2.34-4.33 3.08-7 .28 0 .42.06.48.27.92 2.36 2.33 4.14 3.08 6.69-1.32.81-2.13 2.13-3.58 2.71zm56-5.8c2.9-4.73 5.91-9.34 9-13.89-.92-2.95-1.85-5.89-2.85-8.79-.75-2.17-1.53-4.32-2.39-6.42a16.84 16.84 0 0 0-1-2.06c-.09-.15-.19-.28-.28-.43a15.19 15.19 0 0 0-1-1.4l-.27-.32a14.79 14.79 0 0 0-1.22-1.29l-.17-.15c-5.65-5.13-12.23-5.25-19.29-5.61v37.7c.92 3.21 3 5.24 3.91 8.49a28.1 28.1 0 0 0-3.91 3.26v12.4s8-5.29 9.44-5.8c.12-1.06.19-6.12.1-7.41 3.38-1.08 7.53-1.3 11.19-2.07-.42-2.08-.75-4.25-1.25-6.22zM82 78.88a44.86 44.86 0 0 0-7 1.4l-1.13.36.08 1.19c.07 1 0 4.59 0 6.33-1.58.85-4.36 2.61-6.47 4v-9a20.86 20.86 0 0 1 2.25-1.85l1.08-.82.79-.62-.27-1a19.65 19.65 0 0 0-2.12-4.66 18.12 18.12 0 0 1-1.74-3.65v-35.9c6.38.32 11.93.75 16.77 5.15l.14.13a13.36 13.36 0 0 1 1.1 1.16l.11.13.13.16a13.63 13.63 0 0 1 .88 1.26l.14.22.11.17a15.31 15.31 0 0 1 .93 1.87c.74 1.81 1.49 3.83 2.36 6.34.93 2.71 1.8 5.45 2.61 8-3.36 5-6.1 9.26-8.6 13.34l-.34.55.16.62c.34 1.32.6 2.78.86 4.2l.08.44c-1.01.2-1.97.34-2.91.48zm32.61-7.11c2.34-3.88 4.77-7.65 7.23-11.39-.74-2.42-1.49-4.83-2.3-7.21-.6-1.78-1.23-3.55-1.92-5.26a13.91 13.91 0 0 0-.82-1.69c-.07-.12-.15-.23-.22-.35a12.41 12.41 0 0 0-.79-1.15l-.22-.26a12 12 0 0 0-1-1.06l-.13-.12c-4.56-4.2-11.68-4.31-17.37-4.6l-1.63-.08c-1.24.28-2.46.62-3.67 1 .08.12.16.24.23.36a21.33 21.33 0 0 1 1.3 2.62c.78 1.91 1.56 4 2.45 6.58v.09c1 3 2 6.09 2.89 8.92l.65 2.08-1.19 1.83c-3.06 4.56-5.6 8.46-7.9 12.16.19.9.35 1.8.51 2.68.11.62.23 1.25.35 1.86l.86 4.41s-1 1.26-1 1.5c1.06.57 7.77 4.71 7.77 4.71s6.62-4.34 7.77-4.75c.1-.87.15-5 .08-6.07 2.73-.88 6.07-1.07 9-1.7-.27-1.72-.54-3.49-.95-5.11zM111.82 76a35.85 35.85 0 0 0-5.71 1.16l-1.12.36.08 1.18c.05.78 0 3.55 0 5-1.66.91-4.65 2.83-6.34 3.93-1.32-.81-3.94-2.42-5.62-3.43l.44-.55-.13-.69-.86-4.41c-.12-.6-.23-1.21-.34-1.81v-.05c-.12-.68-.25-1.39-.39-2.09 2.17-3.6 4.59-7.31 7.52-11.67l1.22-1.81.41-.6-.22-.69-.65-2.08c-.88-2.84-1.85-5.89-2.9-9v-.09C96.28 46.07 95.49 44 94.7 42c-.21-.5-.43-1-.68-1.5q.79-.22 1.56-.4H98c5.41.26 11.54.56 15.43 4.15l.11.1a10.57 10.57 0 0 1 .86.93l.09.11.1.12a10.9 10.9 0 0 1 .69 1l.12.19.08.12a12.4 12.4 0 0 1 .73 1.5c.6 1.48 1.2 3.13 1.89 5.18.74 2.18 1.42 4.37 2.06 6.45-2.68 4.07-4.87 7.53-6.87 10.84l-.33.54.15.61c.27 1.07.47 2.21.69 3.42v.1zM87.48 56.33a1.08 1.08 0 0 1 0-.78c.12-.28.24-.63.38-1a21.81 21.81 0 0 0-4 .89c-1.91.79-3.62 3.2-5.39 4.84-2 1.84-4 3.26-5.39 4.84-1 .14-2 .36-2.93.57l.3.62q.59.88 1.1 1.81a1 1 0 0 0 .28.23c3.11-.5 5.61.69 7.88 0 1.08-.33 4.43-4.11 5.18-5.29 1.34-2.06 1.75-4.73 2.59-6.73zm11 13.54c-.92 2.36-2.33 4.14-3.08 6.69 1.29.78 2.1 2.09 3.55 2.68a22.16 22.16 0 0 1 3.05-2.68c-.72-2.67-2.34-4.33-3.08-7-.24 0-.38.1-.44.31zm17.82-12.12a.89.89 0 0 1 0-.64c.1-.23.19-.52.31-.8a17.33 17.33 0 0 0-3.21.73c-1.54.65-2.92 2.62-4.34 4-1.59 1.51-3.2 2.67-4.34 4-.82.11-1.59.29-2.36.47l.24.51q.47.72.89 1.48a.77.77 0 0 0 .23.19c2.51-.41 4.52.57 6.35 0 .87-.27 3.58-3.37 4.18-4.34 1.04-1.73 1.37-3.95 2.05-5.6z"
+                                            transform="translate(-2.38 -12.86)"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/necropole.png" data-lightbox="combateEquipe" data-title="Necropole">
+                                <img src="../img/mapas/maps/necropole.png" class="card-img-top" alt="necropole"
+                                title="necropole"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/Egypt.png" alt="Egypt" title="Egypt">
+                                    Necrople</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <g>
+                                            <path
+                                                d="M73.5 86.2c.1-.5 10.1-.6 10.9-2.3s-1.5-4.9-1.5-5.8S93 63.3 93 62.4 88.1 51.5 85.3 47 74 38.8 64.9 38.3h-1.7c-9.1.4-17.8 4.4-20.4 8.7S35 61.4 35 62.4s10.1 14.8 10.1 15.7-2.3 4-1.5 5.8 10.8 1.8 10.9 2.3-.3 6.6.3 7.5 8.8 5.9 9.2 5.9 8.5-5 9.2-5.9.2-7 .3-7.5zm-15-14.3c-.6.1-1.1 1.1-1.5 1.3a5.9 5.9 0 0 1-3.4-.1 5.4 5.4 0 0 0-3.1 0c-.8.2-4.7-4.9-5.3-6.3s-2.2-6.5-2-6.8 3.1.3 3.7.6a112.3 112.3 0 0 1 8.1 7.8 7.7 7.7 0 0 0 3.9 2.3c.3.2.2 1.1-.4 1.2zM64 86.7a16.3 16.3 0 0 1-3.7-3.3 70.2 70.2 0 0 1 3.7-7.5 70.2 70.2 0 0 1 3.7 7.4 16.3 16.3 0 0 1-3.7 3.4zm7-13.5c-.4-.2-1-1.2-1.5-1.3s-.6-1-.2-1.1a7.7 7.7 0 0 0 3.9-2.3 112.3 112.3 0 0 1 8.1-7.8c.5-.2 3.5-.8 3.7-.6s-1.6 5.3-2.1 6.8-4.5 6.6-5.3 6.3a5.4 5.4 0 0 0-3.1 0 5.9 5.9 0 0 1-3.5 0z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M89 85a.3.3 0 0 0-.5.2c.2.7.5 1.5-.1 1.8s-10.7 1.8-10.9 2.3 0 3 0 5.3L94 111.1c1.4 1.4 12.5 2.8 13 2.4s-1.2-11.5-1.9-12.2z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M39.5 87.1c-.5-.3-.2-1.2-.1-1.8a.3.3 0 0 0-.4-.3l-16 16.2c-.7.7-2.5 11.7-1.9 12.2s11.6-1 13-2.4l16.2-16.3c0-2.3.2-4.8 0-5.3s-9.4-1.5-10.8-2.3z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M120.2 21.7l-1.8-5.1a1.6 1.6 0 0 0-1.2-1.1l-5.3-1a1.6 1.6 0 0 0-1.6.5l-3.5 4.1a1.6 1.6 0 0 0-.3 1.6l.3.8a.3.3 0 0 1-.1.3h-.1L92.3 36.4 79.1 23.1c-1.3-1.3-.9 1.2-.6 2.3s2.8 9.1 3.8 10.2l3.2 3.4-.5.3-.9.7a.8.8 0 0 0 .1 1.3 13.6 13.6 0 0 1 4.7 4.2 59.7 59.7 0 0 1 2.6 5.7 1.3 1.3 0 0 0 1.9.5l2.6-2 3.2 3.1c1.2 1.1 6.3 2.3 9.4 3.3s3.2-.2 2.2-1.2L98.3 42.4 113 27.8h.3l1.6.3a1.6 1.6 0 0 0 1.6-.5l3.5-4.1a1.6 1.6 0 0 0 .2-1.8z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                            <path
+                                                d="M32 49.6l2.6 2a1.3 1.3 0 0 0 1.9-.5 59.7 59.7 0 0 1 2.6-5.7 13.6 13.6 0 0 1 4.7-4.2.8.8 0 0 0 .1-1.3l-.9-.7-.5-.3 3.2-3.4c.9-1.1 3.5-9.1 3.8-10.2s.7-3.6-.6-2.3L35.7 36.4 21.4 22h-.1a.3.3 0 0 1-.1-.3l.3-.8a1.6 1.6 0 0 0-.3-1.6l-3.5-4.1a1.6 1.6 0 0 0-1.6-.5l-5.3 1a1.6 1.6 0 0 0-1.2 1.1l-1.8 4.9a1.6 1.6 0 0 0 .3 1.6l3.5 4.1a1.6 1.6 0 0 0 1.6.5l1.6-.3h.2l14.7 14.8-12.4 12.5c-1 .9-.8 2.1 2.2 1.2s8.1-2.2 9.4-3.3z"
+                                                transform="translate(-2.4 -12.9)"></path>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <path
+                                            d="M43 38.83a14.78 14.78 0 0 0-1.22 1.29l-.27.32a15.22 15.22 0 0 0-1 1.4c-.09.15-.19.28-.28.43a16.85 16.85 0 0 0-1 2.06c-.86 2.1-1.64 4.25-2.39 6.42-1 2.9-1.93 5.84-2.85 8.79C37 64.1 40 68.7 42.93 73.43c-.5 2-.84 4.14-1.24 6.22 3.66.77 7.81 1 11.19 2.07-.09 1.29 0 6.35.1 7.41 1.43.51 9.44 5.8 9.44 5.8v-12.4a28.09 28.09 0 0 0-3.91-3.26c.9-3.25 3-5.28 3.91-8.49V33.07c-7.06.35-13.64.48-19.29 5.61zm6.81 21.46c2 1.84 4 3.26 5.39 4.84 1 .14 2 .36 2.93.57l-.3.62q-.59.88-1.1 1.81a1 1 0 0 1-.29.23c-3.11-.5-5.61.69-7.88 0-1.08-.33-4.43-4.11-5.18-5.29-1.27-2-1.68-4.73-2.53-6.74a1.07 1.07 0 0 0 0-.78c-.12-.28-.24-.63-.38-1a21.81 21.81 0 0 1 4 .89c1.82.81 3.53 3.21 5.29 4.85zM29 60.27l.65-2.08c.88-2.83 1.84-5.88 2.89-8.92v-.09c.89-2.58 1.67-4.67 2.45-6.58a21.34 21.34 0 0 1 1.3-2.6c.07-.13.15-.24.23-.36-1.21-.39-2.43-.73-3.67-1l-1.63.08c-5.69.29-12.81.39-17.37 4.6l-.13.12a12 12 0 0 0-1 1.06l-.22.26a12.47 12.47 0 0 0-.79 1.15c-.07.12-.15.23-.22.35a13.9 13.9 0 0 0-.82 1.69c-.67 1.68-1.3 3.45-1.91 5.23C8 55.56 7.21 58 6.47 60.39c2.46 3.73 4.89 7.51 7.23 11.39-.41 1.61-.67 3.39-1 5.1 3 .63 6.3.82 9 1.7-.07 1.06 0 5.21.08 6.07 1.15.42 7.77 4.75 7.77 4.75s6.7-4.14 7.77-4.71c0-.24-1-1.5-1-1.5l.86-4.41c.12-.62.23-1.24.35-1.86.16-.88.32-1.78.51-2.68-2.3-3.69-4.84-7.6-7.9-12.16zm-3.3 5.68q-.47.72-.89 1.48a.76.76 0 0 1-.23.19c-2.51-.41-4.52.57-6.35 0-.87-.27-3.58-3.37-4.18-4.34-1-1.66-1.36-3.88-2-5.52a.89.89 0 0 0 0-.64c-.1-.23-.19-.52-.31-.8a17.34 17.34 0 0 1 3.21.73c1.54.65 2.92 2.62 4.34 4 1.59 1.51 3.2 2.67 4.34 4 .82.11 1.59.29 2.36.47zm3.66 13.29a22.18 22.18 0 0 0-3.08-2.68c.72-2.67 2.34-4.33 3.08-7 .28 0 .42.06.48.27.92 2.36 2.33 4.14 3.08 6.69-1.32.81-2.13 2.13-3.58 2.71zm56-5.8c2.9-4.73 5.91-9.34 9-13.89-.92-2.95-1.85-5.89-2.85-8.79-.75-2.17-1.53-4.32-2.39-6.42a16.84 16.84 0 0 0-1-2.06c-.09-.15-.19-.28-.28-.43a15.19 15.19 0 0 0-1-1.4l-.27-.32a14.79 14.79 0 0 0-1.22-1.29l-.17-.15c-5.65-5.13-12.23-5.25-19.29-5.61v37.7c.92 3.21 3 5.24 3.91 8.49a28.1 28.1 0 0 0-3.91 3.26v12.4s8-5.29 9.44-5.8c.12-1.06.19-6.12.1-7.41 3.38-1.08 7.53-1.3 11.19-2.07-.42-2.08-.75-4.25-1.25-6.22zM82 78.88a44.86 44.86 0 0 0-7 1.4l-1.13.36.08 1.19c.07 1 0 4.59 0 6.33-1.58.85-4.36 2.61-6.47 4v-9a20.86 20.86 0 0 1 2.25-1.85l1.08-.82.79-.62-.27-1a19.65 19.65 0 0 0-2.12-4.66 18.12 18.12 0 0 1-1.74-3.65v-35.9c6.38.32 11.93.75 16.77 5.15l.14.13a13.36 13.36 0 0 1 1.1 1.16l.11.13.13.16a13.63 13.63 0 0 1 .88 1.26l.14.22.11.17a15.31 15.31 0 0 1 .93 1.87c.74 1.81 1.49 3.83 2.36 6.34.93 2.71 1.8 5.45 2.61 8-3.36 5-6.1 9.26-8.6 13.34l-.34.55.16.62c.34 1.32.6 2.78.86 4.2l.08.44c-1.01.2-1.97.34-2.91.48zm32.61-7.11c2.34-3.88 4.77-7.65 7.23-11.39-.74-2.42-1.49-4.83-2.3-7.21-.6-1.78-1.23-3.55-1.92-5.26a13.91 13.91 0 0 0-.82-1.69c-.07-.12-.15-.23-.22-.35a12.41 12.41 0 0 0-.79-1.15l-.22-.26a12 12 0 0 0-1-1.06l-.13-.12c-4.56-4.2-11.68-4.31-17.37-4.6l-1.63-.08c-1.24.28-2.46.62-3.67 1 .08.12.16.24.23.36a21.33 21.33 0 0 1 1.3 2.62c.78 1.91 1.56 4 2.45 6.58v.09c1 3 2 6.09 2.89 8.92l.65 2.08-1.19 1.83c-3.06 4.56-5.6 8.46-7.9 12.16.19.9.35 1.8.51 2.68.11.62.23 1.25.35 1.86l.86 4.41s-1 1.26-1 1.5c1.06.57 7.77 4.71 7.77 4.71s6.62-4.34 7.77-4.75c.1-.87.15-5 .08-6.07 2.73-.88 6.07-1.07 9-1.7-.27-1.72-.54-3.49-.95-5.11zM111.82 76a35.85 35.85 0 0 0-5.71 1.16l-1.12.36.08 1.18c.05.78 0 3.55 0 5-1.66.91-4.65 2.83-6.34 3.93-1.32-.81-3.94-2.42-5.62-3.43l.44-.55-.13-.69-.86-4.41c-.12-.6-.23-1.21-.34-1.81v-.05c-.12-.68-.25-1.39-.39-2.09 2.17-3.6 4.59-7.31 7.52-11.67l1.22-1.81.41-.6-.22-.69-.65-2.08c-.88-2.84-1.85-5.89-2.9-9v-.09C96.28 46.07 95.49 44 94.7 42c-.21-.5-.43-1-.68-1.5q.79-.22 1.56-.4H98c5.41.26 11.54.56 15.43 4.15l.11.1a10.57 10.57 0 0 1 .86.93l.09.11.1.12a10.9 10.9 0 0 1 .69 1l.12.19.08.12a12.4 12.4 0 0 1 .73 1.5c.6 1.48 1.2 3.13 1.89 5.18.74 2.18 1.42 4.37 2.06 6.45-2.68 4.07-4.87 7.53-6.87 10.84l-.33.54.15.61c.27 1.07.47 2.21.69 3.42v.1zM87.48 56.33a1.08 1.08 0 0 1 0-.78c.12-.28.24-.63.38-1a21.81 21.81 0 0 0-4 .89c-1.91.79-3.62 3.2-5.39 4.84-2 1.84-4 3.26-5.39 4.84-1 .14-2 .36-2.93.57l.3.62q.59.88 1.1 1.81a1 1 0 0 0 .28.23c3.11-.5 5.61.69 7.88 0 1.08-.33 4.43-4.11 5.18-5.29 1.34-2.06 1.75-4.73 2.59-6.73zm11 13.54c-.92 2.36-2.33 4.14-3.08 6.69 1.29.78 2.1 2.09 3.55 2.68a22.16 22.16 0 0 1 3.05-2.68c-.72-2.67-2.34-4.33-3.08-7-.24 0-.38.1-.44.31zm17.82-12.12a.89.89 0 0 1 0-.64c.1-.23.19-.52.31-.8a17.33 17.33 0 0 0-3.21.73c-1.54.65-2.92 2.62-4.34 4-1.59 1.51-3.2 2.67-4.34 4-.82.11-1.59.29-2.36.47l.24.51q.47.72.89 1.48a.77.77 0 0 0 .23.19c2.51-.41 4.52.57 6.35 0 .87-.27 3.58-3.37 4.18-4.34 1.04-1.73 1.37-3.95 2.05-5.6z"
+                                            transform="translate(-2.38 -12.86)"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <a href="../img/mapas/maps/petra.png" data-lightbox="combateEquipe" data-title="Petra">
+                                <img src="../img/mapas/maps/petra.png" class="card-img-top" alt="petra" title="petra"></a>
+                            <div class="card-body">
+                                <h5 class="card-title h5 fw-bolder"><img class="img-fluid"
+                                        src="../img/mapas/pais/Jordan.png" alt="Jordan" title="Jordan">
+                                    Petra</h5>
+                                <div class="card-text">
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <g>
+                                            <path
+                                                d="M84.14 91.33c3-4.88 6.11-9.63 9.27-14.32-.95-3-1.91-6.08-2.94-9.07-.77-2.24-1.58-4.46-2.47-6.62a17.36 17.36 0 0 0-1.06-2.12c-.09-.16-.19-.29-.29-.44a15.66 15.66 0 0 0-1-1.44l-.28-.32a15.27 15.27 0 0 0-1.26-1.33l-.17-.16c-5.84-5.3-12.65-5.43-19.94-5.79-7.29.37-14.1.5-19.94 5.78l-.17.16A15.27 15.27 0 0 0 42.63 57l-.28.33a15.66 15.66 0 0 0-1 1.44c-.09.15-.2.29-.29.44A17.36 17.36 0 0 0 40 61.32c-.89 2.16-1.69 4.38-2.47 6.62-1 3-2 6-2.94 9.07 3.16 4.69 6.27 9.45 9.27 14.32-.52 2-.86 4.27-1.29 6.41 3.79.79 8.07 1 11.57 2.13-.09 1.33 0 6.55.1 7.64 1.48.52 9.75 6 9.75 6s8.28-5.46 9.75-6c.13-1.09.19-6.31.1-7.64 3.5-1.11 7.78-1.35 11.57-2.13-.41-2.14-.75-4.38-1.27-6.41zM59.22 84q-.61.91-1.14 1.86a1 1 0 0 1-.29.23c-3.22-.51-5.8.71-8.14 0-1.12-.34-4.58-4.24-5.36-5.46-1.32-2.09-1.74-4.88-2.62-6.95a1.11 1.11 0 0 0 0-.81c-.13-.29-.25-.65-.39-1a22.58 22.58 0 0 1 4.11.92c2 .81 3.74 3.29 5.57 5 2 1.9 4.11 3.36 5.57 5 1.06.14 2 .37 3 .59zM64 100.72a29 29 0 0 0-4-3.37c.89-3.35 3-5.44 4-8.75 1 3.31 3.11 5.4 4 8.76a29 29 0 0 0-4 3.36zM78.35 86.1c-2.34.71-4.92-.51-8.14 0a1 1 0 0 1-.29-.23q-.53-1-1.14-1.86l-.31-.64c1-.22 2-.44 3-.59 1.46-1.63 3.53-3.1 5.57-5 1.83-1.69 3.59-4.17 5.57-5a22.58 22.58 0 0 1 4.11-.92c-.15.35-.27.71-.39 1a1.11 1.11 0 0 0 0 .81c-.88 2.07-1.3 4.86-2.62 6.95-.77 1.24-4.24 5.15-5.36 5.48z"
+                                                transform="translate(-2.38 -12.86)"></path>
+                                            <path
+                                                d="M89.89 22.65c-2.62 1.69-6 4.13-7.17 6.11a7.83 7.83 0 0 0-2.25-2.91.94.94 0 0 0-1.51.83v.33A4.69 4.69 0 0 1 77.91 30c-2.26 2.84-4.06 3.07-5.68 2.8l-.06.09v-.1a5.77 5.77 0 0 1-3.6-9.12 1.54 1.54 0 0 0 .05-1.75c-1.12-1.73-2.93-5.1-3.91-7a.78.78 0 0 0-1.38 0c-1 1.82-2.77 5.09-3.89 6.79a1.54 1.54 0 0 0 0 1.76 5.77 5.77 0 0 1-3.61 9.11v.1l-.06-.09c-1.63.27-3.42 0-5.7-2.8A4.66 4.66 0 0 1 49 26.86v-.36a.94.94 0 0 0-1.51-.83 7.83 7.83 0 0 0-2.25 2.91c-1.19-2-4.55-4.41-7.17-6.11a.94.94 0 0 0-1.32 1.27 57.41 57.41 0 0 1 6.91 16.46 3.39 3.39 0 0 0 1.33 2v2.7h.06a2.88 2.88 0 0 0-1.53 2.2 2.67 2.67 0 0 0 1.28 2c5.81-3.46 12-3.77 18.11-4.06h2.17c6 .3 12.26.6 18 4a2.62 2.62 0 0 0 1.22-2 2.88 2.88 0 0 0-1.53-2.2h.06v-2.6a3.4 3.4 0 0 0 1.47-2.11 57.52 57.52 0 0 1 6.86-16.3.94.94 0 0 0-1.27-1.18z"
+                                                transform="translate(-2.38 -12.86)"></path>
+                                            <path
+                                                d="M114.35 89.62c2.42-4 4.93-7.89 7.48-11.74-.76-2.49-1.54-5-2.37-7.43-.62-1.84-1.27-3.66-2-5.43a14.31 14.31 0 0 0-.85-1.74c-.07-.13-.16-.24-.23-.36a12.87 12.87 0 0 0-.81-1.18l-.23-.27a12.43 12.43 0 0 0-1-1.09l-.14-.13c-4.71-4.33-12.07-4.44-18-4.74l-1.68-.09c-1.28.29-2.55.64-3.8 1 .08.12.16.24.24.38a22 22 0 0 1 1.34 2.7c.81 2 1.61 4.12 2.53 6.78v.09c1.08 3.14 2.07 6.27 3 9.2l.67 2.15-1.2 1.91c-3.16 4.7-5.79 8.73-8.16 12.54.19.92.36 1.85.53 2.76.12.64.24 1.29.36 1.92l.89 4.55s-1 1.3-1 1.54c1.1.59 8 4.86 8 4.86s6.84-4.47 8-4.9c.1-.89.16-5.17.08-6.26 2.82-.91 6.27-1.1 9.33-1.75-.33-1.77-.56-3.6-.98-5.27zm-16.17 7.7c-1.5-.61-2.34-2-3.67-2.76.77-2.63 2.23-4.47 3.18-6.9.06-.22.21-.32.49-.28.77 2.72 2.44 4.43 3.19 7.18a22.9 22.9 0 0 0-3.19 2.76zm11.5-12c-1.89.59-4-.42-6.57 0a.79.79 0 0 1-.24-.19q-.43-.78-.92-1.53l-.25-.53c.8-.18 1.59-.36 2.44-.48 1.18-1.34 2.85-2.54 4.49-4.09 1.47-1.39 2.9-3.42 4.49-4.09a18 18 0 0 1 3.32-.75c-.12.29-.21.58-.32.82a.92.92 0 0 0 0 .66c-.71 1.7-1 4-2.11 5.7-.63 1.02-3.42 4.22-4.32 4.5zm-80.24-7.56l.67-2.15c.91-2.92 1.9-6.06 3-9.2v-.09c.92-2.66 1.72-4.82 2.53-6.79A22 22 0 0 1 37 56.84c.08-.13.16-.25.24-.37-1.25-.4-2.52-.75-3.8-1l-1.68.09c-5.88.3-13.25.41-18 4.74l-.14.13a12.42 12.42 0 0 0-1 1.09l-.23.27a12.85 12.85 0 0 0-.81 1.18c-.08.12-.16.24-.23.36a14.33 14.33 0 0 0-.81 1.67c-.72 1.77-1.37 3.59-2 5.43-.83 2.45-1.61 4.94-2.37 7.43 2.55 3.85 5.06 7.74 7.48 11.74-.42 1.66-.7 3.5-1 5.26 3.05.65 6.51.84 9.33 1.75-.07 1.09 0 5.37.08 6.26 1.19.43 8 4.9 8 4.9s6.93-4.27 8-4.86c0-.25-1-1.54-1-1.54l.94-4.53c.12-.63.24-1.28.36-1.92.17-.91.34-1.84.53-2.76-2.38-3.81-5-7.84-8.16-12.54zM26 83.62q-.49.74-.92 1.53a.79.79 0 0 1-.24.19c-2.59-.42-4.67.59-6.57 0-.9-.28-3.7-3.48-4.32-4.48-1.06-1.71-1.4-4-2.11-5.7a.92.92 0 0 0 0-.66c-.1-.24-.2-.54-.32-.82a18 18 0 0 1 3.32.75c1.59.67 3 2.7 4.49 4.09 1.64 1.55 3.31 2.76 4.49 4.09.85.12 1.65.3 2.44.48zm3.78 13.7a22.9 22.9 0 0 0-3.19-2.76c.75-2.75 2.42-4.46 3.19-7.18.29 0 .43.06.49.28.95 2.43 2.41 4.27 3.18 6.9-1.29.8-2.13 2.15-3.63 2.76z"
+                                                transform="translatea(-2.38 -12.86)"></path>
+                                        </g>
+                                    </svg>
+                                    <svg class="Svg-icon Map-type" viewBox="0 0 123.3 102.3">
+                                        <path
+                                            d="M43 38.83a14.78 14.78 0 0 0-1.22 1.29l-.27.32a15.22 15.22 0 0 0-1 1.4c-.09.15-.19.28-.28.43a16.85 16.85 0 0 0-1 2.06c-.86 2.1-1.64 4.25-2.39 6.42-1 2.9-1.93 5.84-2.85 8.79C37 64.1 40 68.7 42.93 73.43c-.5 2-.84 4.14-1.24 6.22 3.66.77 7.81 1 11.19 2.07-.09 1.29 0 6.35.1 7.41 1.43.51 9.44 5.8 9.44 5.8v-12.4a28.09 28.09 0 0 0-3.91-3.26c.9-3.25 3-5.28 3.91-8.49V33.07c-7.06.35-13.64.48-19.29 5.61zm6.81 21.46c2 1.84 4 3.26 5.39 4.84 1 .14 2 .36 2.93.57l-.3.62q-.59.88-1.1 1.81a1 1 0 0 1-.29.23c-3.11-.5-5.61.69-7.88 0-1.08-.33-4.43-4.11-5.18-5.29-1.27-2-1.68-4.73-2.53-6.74a1.07 1.07 0 0 0 0-.78c-.12-.28-.24-.63-.38-1a21.81 21.81 0 0 1 4 .89c1.82.81 3.53 3.21 5.29 4.85zM29 60.27l.65-2.08c.88-2.83 1.84-5.88 2.89-8.92v-.09c.89-2.58 1.67-4.67 2.45-6.58a21.34 21.34 0 0 1 1.3-2.6c.07-.13.15-.24.23-.36-1.21-.39-2.43-.73-3.67-1l-1.63.08c-5.69.29-12.81.39-17.37 4.6l-.13.12a12 12 0 0 0-1 1.06l-.22.26a12.47 12.47 0 0 0-.79 1.15c-.07.12-.15.23-.22.35a13.9 13.9 0 0 0-.82 1.69c-.67 1.68-1.3 3.45-1.91 5.23C8 55.56 7.21 58 6.47 60.39c2.46 3.73 4.89 7.51 7.23 11.39-.41 1.61-.67 3.39-1 5.1 3 .63 6.3.82 9 1.7-.07 1.06 0 5.21.08 6.07 1.15.42 7.77 4.75 7.77 4.75s6.7-4.14 7.77-4.71c0-.24-1-1.5-1-1.5l.86-4.41c.12-.62.23-1.24.35-1.86.16-.88.32-1.78.51-2.68-2.3-3.69-4.84-7.6-7.9-12.16zm-3.3 5.68q-.47.72-.89 1.48a.76.76 0 0 1-.23.19c-2.51-.41-4.52.57-6.35 0-.87-.27-3.58-3.37-4.18-4.34-1-1.66-1.36-3.88-2-5.52a.89.89 0 0 0 0-.64c-.1-.23-.19-.52-.31-.8a17.34 17.34 0 0 1 3.21.73c1.54.65 2.92 2.62 4.34 4 1.59 1.51 3.2 2.67 4.34 4 .82.11 1.59.29 2.36.47zm3.66 13.29a22.18 22.18 0 0 0-3.08-2.68c.72-2.67 2.34-4.33 3.08-7 .28 0 .42.06.48.27.92 2.36 2.33 4.14 3.08 6.69-1.32.81-2.13 2.13-3.58 2.71zm56-5.8c2.9-4.73 5.91-9.34 9-13.89-.92-2.95-1.85-5.89-2.85-8.79-.75-2.17-1.53-4.32-2.39-6.42a16.84 16.84 0 0 0-1-2.06c-.09-.15-.19-.28-.28-.43a15.19 15.19 0 0 0-1-1.4l-.27-.32a14.79 14.79 0 0 0-1.22-1.29l-.17-.15c-5.65-5.13-12.23-5.25-19.29-5.61v37.7c.92 3.21 3 5.24 3.91 8.49a28.1 28.1 0 0 0-3.91 3.26v12.4s8-5.29 9.44-5.8c.12-1.06.19-6.12.1-7.41 3.38-1.08 7.53-1.3 11.19-2.07-.42-2.08-.75-4.25-1.25-6.22zM82 78.88a44.86 44.86 0 0 0-7 1.4l-1.13.36.08 1.19c.07 1 0 4.59 0 6.33-1.58.85-4.36 2.61-6.47 4v-9a20.86 20.86 0 0 1 2.25-1.85l1.08-.82.79-.62-.27-1a19.65 19.65 0 0 0-2.12-4.66 18.12 18.12 0 0 1-1.74-3.65v-35.9c6.38.32 11.93.75 16.77 5.15l.14.13a13.36 13.36 0 0 1 1.1 1.16l.11.13.13.16a13.63 13.63 0 0 1 .88 1.26l.14.22.11.17a15.31 15.31 0 0 1 .93 1.87c.74 1.81 1.49 3.83 2.36 6.34.93 2.71 1.8 5.45 2.61 8-3.36 5-6.1 9.26-8.6 13.34l-.34.55.16.62c.34 1.32.6 2.78.86 4.2l.08.44c-1.01.2-1.97.34-2.91.48zm32.61-7.11c2.34-3.88 4.77-7.65 7.23-11.39-.74-2.42-1.49-4.83-2.3-7.21-.6-1.78-1.23-3.55-1.92-5.26a13.91 13.91 0 0 0-.82-1.69c-.07-.12-.15-.23-.22-.35a12.41 12.41 0 0 0-.79-1.15l-.22-.26a12 12 0 0 0-1-1.06l-.13-.12c-4.56-4.2-11.68-4.31-17.37-4.6l-1.63-.08c-1.24.28-2.46.62-3.67 1 .08.12.16.24.23.36a21.33 21.33 0 0 1 1.3 2.62c.78 1.91 1.56 4 2.45 6.58v.09c1 3 2 6.09 2.89 8.92l.65 2.08-1.19 1.83c-3.06 4.56-5.6 8.46-7.9 12.16.19.9.35 1.8.51 2.68.11.62.23 1.25.35 1.86l.86 4.41s-1 1.26-1 1.5c1.06.57 7.77 4.71 7.77 4.71s6.62-4.34 7.77-4.75c.1-.87.15-5 .08-6.07 2.73-.88 6.07-1.07 9-1.7-.27-1.72-.54-3.49-.95-5.11zM111.82 76a35.85 35.85 0 0 0-5.71 1.16l-1.12.36.08 1.18c.05.78 0 3.55 0 5-1.66.91-4.65 2.83-6.34 3.93-1.32-.81-3.94-2.42-5.62-3.43l.44-.55-.13-.69-.86-4.41c-.12-.6-.23-1.21-.34-1.81v-.05c-.12-.68-.25-1.39-.39-2.09 2.17-3.6 4.59-7.31 7.52-11.67l1.22-1.81.41-.6-.22-.69-.65-2.08c-.88-2.84-1.85-5.89-2.9-9v-.09C96.28 46.07 95.49 44 94.7 42c-.21-.5-.43-1-.68-1.5q.79-.22 1.56-.4H98c5.41.26 11.54.56 15.43 4.15l.11.1a10.57 10.57 0 0 1 .86.93l.09.11.1.12a10.9 10.9 0 0 1 .69 1l.12.19.08.12a12.4 12.4 0 0 1 .73 1.5c.6 1.48 1.2 3.13 1.89 5.18.74 2.18 1.42 4.37 2.06 6.45-2.68 4.07-4.87 7.53-6.87 10.84l-.33.54.15.61c.27 1.07.47 2.21.69 3.42v.1zM87.48 56.33a1.08 1.08 0 0 1 0-.78c.12-.28.24-.63.38-1a21.81 21.81 0 0 0-4 .89c-1.91.79-3.62 3.2-5.39 4.84-2 1.84-4 3.26-5.39 4.84-1 .14-2 .36-2.93.57l.3.62q.59.88 1.1 1.81a1 1 0 0 0 .28.23c3.11-.5 5.61.69 7.88 0 1.08-.33 4.43-4.11 5.18-5.29 1.34-2.06 1.75-4.73 2.59-6.73zm11 13.54c-.92 2.36-2.33 4.14-3.08 6.69 1.29.78 2.1 2.09 3.55 2.68a22.16 22.16 0 0 1 3.05-2.68c-.72-2.67-2.34-4.33-3.08-7-.24 0-.38.1-.44.31zm17.82-12.12a.89.89 0 0 1 0-.64c.1-.23.19-.52.31-.8a17.33 17.33 0 0 0-3.21.73c-1.54.65-2.92 2.62-4.34 4-1.59 1.51-3.2 2.67-4.34 4-.82.11-1.59.29-2.36.47l.24.51q.47.72.89 1.48a.77.77 0 0 0 .23.19c2.51-.41 4.52.57 6.35 0 .87-.27 3.58-3.37 4.18-4.34 1.04-1.73 1.37-3.95 2.05-5.6z"
+                                            transform="translate(-2.38 -12.86)"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+    </section>
+    <footer class="text-center text-lg-start bg-dark">
+        <div class="text-center text-white p-4">
+            Overwatch: FanPage - 2021: Todos os direitos reservados
+        </div>
+    </footer>
+
+</body>
+
 </html>

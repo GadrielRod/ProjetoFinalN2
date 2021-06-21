@@ -12,3 +12,25 @@
   font-family: overFont;
   src: url('../fonts/big_noodle_titling.ttf');
 }
+
+.owl-prev,
+.owl-next {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  height: 70px;
+  width:15px;
+  
+}
+
+
+
+.owl-prev {
+  left: -2px;
+}
+
+.owl-next {
+  right: -2px;
+}
+
+
